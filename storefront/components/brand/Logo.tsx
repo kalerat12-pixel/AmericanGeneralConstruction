@@ -118,10 +118,15 @@ function LogoMonogramPaths({ ink, accent }: { ink: string; accent: string }) {
 export function LogoLockup({
   className,
   descriptor = "Research Peptides",
+  tone = "light",
 }: {
   className?: string;
   descriptor?: string | false;
+  /** "light" = for white grounds · "dark" = for the black bands */
+  tone?: "light" | "dark";
 }) {
+  const wordmark = tone === "dark" ? "text-ink-inverse" : "text-ink";
+  const sub = tone === "dark" ? "text-muted-inverse" : "text-subtle";
   return (
     <span className={cn("flex items-center gap-2.5", className)}>
       <span className="relative shrink-0">
@@ -129,11 +134,11 @@ export function LogoLockup({
         <span className="absolute inset-0 -z-10 rounded-full bg-brand/25 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
       </span>
       <span className="flex flex-col leading-none">
-        <span className="font-display text-[0.95rem] font-extrabold tracking-[-0.03em] text-ink">
+        <span className={cn("font-display text-[0.95rem] font-extrabold tracking-[-0.03em]", wordmark)}>
           LIFTING<span className="text-brand">4</span>GAINS
         </span>
         {descriptor && (
-          <span className="mt-0.5 font-mono text-[8px] tracking-[0.26em] text-subtle uppercase">
+          <span className={cn("mt-0.5 font-mono text-[8px] tracking-[0.26em] uppercase", sub)}>
             {descriptor}
           </span>
         )}

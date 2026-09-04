@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href="#collection"
-            className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-brand px-5 py-2.5 text-[0.78rem] font-semibold text-white shadow-[var(--shadow-card-hover)] transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] active:scale-95 sm:inline-flex"
+            className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-action px-5 py-2.5 text-[0.78rem] font-semibold text-white shadow-[var(--shadow-card-hover)] transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] active:scale-95 sm:inline-flex"
           >
             <span className="absolute inset-0 -translate-x-full bg-white/30 transition-transform duration-700 group-hover:translate-x-full" />
             <span className="relative">Shop Collection</span>
@@ -127,7 +127,7 @@ export default function Navbar() {
             <a
               href="#collection"
               onClick={() => setMenuOpen(false)}
-              className="block rounded-full bg-brand py-3.5 text-center text-[0.85rem] font-semibold text-white"
+              className="block rounded-full bg-action py-3.5 text-center text-[0.85rem] font-semibold text-white"
             >
               Shop Collection
             </a>

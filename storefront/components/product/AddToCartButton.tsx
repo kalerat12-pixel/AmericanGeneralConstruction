@@ -28,9 +28,7 @@ export default function AddToCartButton({
       }}
       className={cn(
         "group/cta relative flex items-center justify-center gap-2 overflow-hidden rounded-full py-3.5 text-[0.84rem] font-semibold transition-all duration-300 active:scale-[0.98]",
-        isGreen
-          ? "bg-brand text-white hover:shadow-[var(--shadow-card-hover)]"
-          : "bg-teal text-white hover:shadow-[var(--shadow-card-hover)]",
+        "bg-action text-white hover:bg-action-hover",
         className,
       )}
     >

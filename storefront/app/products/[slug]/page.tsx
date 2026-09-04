@@ -75,7 +75,7 @@ export default async function ProductPage({
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
             {/* Render + label artwork */}
             <div className="flex flex-col gap-5">
-              <div className="panel relative overflow-hidden rounded-2xl bg-surface-tint p-5">
+              <div className="panel relative overflow-hidden rounded-md bg-surface-tint p-5">
                 <div className="pointer-events-none absolute inset-0 hairline-grid" aria-hidden />
                 <VialRender
                   name={product.name}
@@ -87,7 +87,7 @@ export default async function ProductPage({
                 />
               </div>
 
-              <figure className="panel rounded-2xl p-5">
+              <figure className="panel rounded-md p-5">
                 <figcaption className="mb-3 font-mono text-[9px] tracking-[0.2em] text-subtle uppercase">
                   Label artwork · as applied to every vial
                 </figcaption>
@@ -139,7 +139,7 @@ export default async function ProductPage({
               </p>
 
               {/* Spec rail */}
-              <dl className="mt-6 grid grid-cols-2 gap-3 rounded-xl border border-line bg-surface-sunken p-4 sm:grid-cols-4">
+              <dl className="mt-6 grid grid-cols-2 gap-3 rounded-md border border-line bg-surface-sunken p-4 sm:grid-cols-4">
                 {[
                   ["Purity", product.purity],
                   ["Fill", product.size],
@@ -221,7 +221,7 @@ export default async function ProductPage({
           </div>
 
           {/* Sequence */}
-          <div className="panel rounded-2xl p-5 md:p-6">
+          <div className="panel rounded-md p-5 md:p-6">
             <div className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
               <h3 className="font-mono text-[10px] tracking-[0.2em] text-subtle uppercase">
                 Primary sequence · {product.residues.length} residues
@@ -245,7 +245,7 @@ export default async function ProductPage({
 
           {/* Peptide bond */}
           <div className="mt-4 grid items-start gap-4 lg:grid-cols-[1.25fr_0.75fr]">
-            <figure className="overflow-hidden panel rounded-2xl p-5 md:p-6">
+            <figure className="overflow-hidden panel rounded-md p-5 md:p-6">
               <figcaption className="mb-4 font-mono text-[10px] tracking-[0.2em] text-subtle uppercase">
                 The peptide bond
               </figcaption>
@@ -261,7 +261,7 @@ export default async function ProductPage({
               </p>
             </figure>
 
-            <dl className="panel rounded-2xl p-5 md:p-6">
+            <dl className="panel rounded-md p-5 md:p-6">
               <h3 className="mb-4 font-mono text-[10px] tracking-[0.2em] text-subtle uppercase">
                 Physicochemical data
               </h3>
@@ -296,7 +296,7 @@ export default async function ProductPage({
             </ul>
           </div>
 
-          <dl className="panel rounded-2xl p-5 md:p-6">
+          <dl className="panel rounded-md p-5 md:p-6">
             <div className="border-b border-line pb-4">
               <dt className="font-mono text-[9px] tracking-[0.16em] text-subtle uppercase">Classification</dt>
               <dd className="mt-1 text-[0.88rem] text-body">{product.science.class}</dd>
@@ -349,7 +349,7 @@ export default async function ProductPage({
               <Link
                 key={r.id}
                 href={`/products/${r.slug}`}
-                className="panel panel-hover group flex items-center justify-between gap-4 rounded-2xl p-5"
+                className="panel panel-hover group flex items-center justify-between gap-4 rounded-md p-5"
               >
                 <span>
                   <span className="block font-display text-[1rem] font-bold text-ink">

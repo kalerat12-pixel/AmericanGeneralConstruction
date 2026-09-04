@@ -65,7 +65,7 @@ export default function Catalog() {
                 className={cn(
                   "rounded-full border px-4 py-2 text-[0.78rem] font-medium whitespace-nowrap transition-all duration-300 active:scale-95",
                   active === c
-                    ? "border-brand bg-brand text-white shadow-[var(--shadow-card)]"
+                    ? "border-action bg-action text-white shadow-[var(--shadow-card)]"
                     : "border-line bg-surface-raised/60 text-muted hover:border-line-strong hover:text-ink",
                 )}
               >

@@ -111,7 +111,7 @@ export default function CartDrawer() {
                 <li key={line.id} className="flex gap-3.5 py-4">
                   <div
                     className={cn(
-                      "grid size-16 shrink-0 place-items-center rounded-xl border bg-surface-raised",
+                      "grid size-16 shrink-0 place-items-center rounded-md border bg-surface-raised",
                       line.accent === "green"
                         ? "border-brand/30"
                         : "border-teal/30",
@@ -196,7 +196,7 @@ export default function CartDrawer() {
           <button
             type="button"
             disabled={lines.length === 0}
-            className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-brand py-3.5 text-[0.85rem] font-semibold text-white transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-line disabled:text-subtle disabled:shadow-none"
+            className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-action py-3.5 text-[0.85rem] font-semibold text-white transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-line disabled:text-subtle disabled:shadow-none"
           >
             <span className="absolute inset-0 -translate-x-full bg-white/30 transition-transform duration-700 group-hover:translate-x-full group-disabled:hidden" />
             <Lock className="relative size-3.5" strokeWidth={2.2} />

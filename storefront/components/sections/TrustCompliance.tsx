@@ -89,9 +89,9 @@ export default function TrustCompliance() {
         <div className="grid gap-4 md:grid-cols-2">
           {PILLARS.map((p, i) => (
             <Reveal key={p.title} delay={i * 70}>
-              <div className="panel panel-hover group flex h-full flex-col rounded-2xl p-6">
+              <div className="panel panel-hover group flex h-full flex-col rounded-md p-6">
                 <div className="mb-4 flex items-center justify-between">
-                  <span className="grid size-11 place-items-center rounded-xl border border-brand/30 bg-brand/[0.07] text-brand transition-colors duration-500 group-hover:bg-brand/15">
+                  <span className="grid size-11 place-items-center rounded-md border border-brand/30 bg-brand/[0.07] text-brand transition-colors duration-500 group-hover:bg-brand/15">
                     <p.icon className="size-5" strokeWidth={1.8} />
                   </span>
                   <span className="rounded-full border border-line bg-surface px-3 py-1 font-mono text-[9px] tracking-[0.14em] text-brand uppercase">
@@ -109,10 +109,10 @@ export default function TrustCompliance() {
 
         {/* Checkout badges */}
         <Reveal delay={100}>
-          <div className="panel mt-4 grid grid-cols-2 gap-3 rounded-2xl p-5 md:grid-cols-4">
+          <div className="panel mt-4 grid grid-cols-2 gap-3 rounded-md p-5 md:grid-cols-4">
             {CHECKOUT_BADGES.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-3">
-                <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-surface text-brand">
+                <span className="grid size-9 shrink-0 place-items-center rounded-md border border-line bg-surface text-brand">
                   <Icon className="size-4" strokeWidth={1.9} />
                 </span>
                 <span className="text-[0.75rem] leading-tight font-medium text-body">
@@ -125,8 +125,8 @@ export default function TrustCompliance() {
 
         {/* Disclaimer block */}
         <Reveal delay={140}>
-          <div className="mt-4 flex flex-col gap-4 rounded-2xl border border-warn/25 bg-warn/[0.04] p-6 sm:flex-row">
-            <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-warn/30 bg-warn/10 text-warn">
+          <div className="mt-4 flex flex-col gap-4 rounded-md border border-warn/25 bg-warn/[0.04] p-6 sm:flex-row">
+            <span className="grid size-10 shrink-0 place-items-center rounded-md border border-warn/30 bg-warn/10 text-warn">
               <AlertTriangle className="size-5" strokeWidth={1.9} />
             </span>
             <div>
@@ -159,7 +159,7 @@ export default function TrustCompliance() {
             </h3>
           </Reveal>
 
-          <div className="panel mx-auto max-w-3xl divide-y divide-line overflow-hidden rounded-2xl">
+          <div className="panel mx-auto max-w-3xl divide-y divide-line overflow-hidden rounded-md">
             {FAQS.map((f) => (
               <details key={f.q} className="group px-5 py-1 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-[0.92rem] font-semibold text-ink transition-colors duration-300 hover:text-brand">

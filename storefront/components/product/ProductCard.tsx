@@ -28,7 +28,7 @@ export default function ProductCard({ product }: { product: Product }) {
   };
 
   return (
-    <article className="panel panel-hover group relative flex h-full flex-col overflow-hidden rounded-2xl">
+    <article className="panel panel-hover group relative flex h-full flex-col overflow-hidden rounded-md">
       {/* Media — the whole panel routes to the compound page */}
       <Link
         href={href}
@@ -157,7 +157,7 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
 
         {/* Spec rail */}
-        <dl className="mt-4 grid grid-cols-3 gap-2 rounded-xl border border-line bg-surface-sunken p-3">
+        <dl className="mt-4 grid grid-cols-3 gap-2 rounded-md border border-line bg-surface-sunken p-3">
           {[
             ["Purity", product.purity],
             ["Residues", `${product.residues.length}`],
@@ -202,9 +202,7 @@ export default function ProductCard({ product }: { product: Product }) {
             "group/cta relative mt-3.5 flex w-full items-center justify-center gap-2 overflow-hidden rounded-full py-3.5 text-[0.84rem] font-semibold transition-all duration-300 active:scale-[0.98]",
             added
               ? "bg-brand text-white"
-              : isGreen
-                ? "bg-brand text-white hover:shadow-[var(--shadow-card-hover)]"
-                : "bg-teal text-white hover:shadow-[var(--shadow-card-hover)]",
+              : "bg-action text-white hover:bg-action-hover",
           )}
         >
           <span className="absolute inset-0 -translate-x-full bg-white/30 transition-transform duration-700 group-hover/cta:translate-x-full" />

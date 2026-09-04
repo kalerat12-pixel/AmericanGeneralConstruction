@@ -82,7 +82,7 @@ export default function RootLayout({
       <body className="min-h-dvh antialiased">
         <a
           href="#collection"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-action focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
         >
           Skip to the collection
         </a>

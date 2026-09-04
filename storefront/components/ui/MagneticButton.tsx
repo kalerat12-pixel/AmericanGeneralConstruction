@@ -19,7 +19,7 @@ interface Props {
 
 const VARIANTS: Record<Variant, string> = {
   brand:
-    "bg-brand text-white shadow-[var(--shadow-card)] hover:bg-brand-hover hover:shadow-[var(--shadow-card-hover)]",
+    "bg-action text-white hover:bg-action-hover",
   outline:
     "border border-line-strong bg-surface text-ink hover:border-brand hover:text-brand hover:bg-brand-tint",
   ghost: "text-muted hover:text-ink",

@@ -32,9 +32,8 @@ export default function Hero() {
 
             <Reveal delay={70}>
               <h1 className="text-[2.5rem] leading-[1.02] font-extrabold tracking-[-0.035em] text-ink sm:text-5xl lg:text-[3.6rem]">
-                The future of{" "}
-                <span className="text-brand">physical optimization</span> starts
-                with the certificate.
+                The future of physical optimization starts with the
+                certificate.
               </h1>
             </Reveal>
 
@@ -95,7 +94,7 @@ export default function Hero() {
 
           {/* Product panel */}
           <Reveal delay={160}>
-            <figure className="panel relative overflow-hidden rounded-2xl">
+            <figure className="panel relative overflow-hidden rounded-md">
               <div className="relative border-b border-line bg-surface-tint px-6 pt-5 pb-2">
                 <div className="pointer-events-none absolute inset-0 hairline-grid" aria-hidden />
 

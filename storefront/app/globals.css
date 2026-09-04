@@ -13,46 +13,52 @@
 @theme {
   /* --- Grounds ---------------------------------------------------------- */
   --color-surface: #ffffff;
-  --color-surface-sunken: #f6f7f9; /* alternating section bands */
+  --color-surface-sunken: #f5f5f6; /* alternating bands */
+  --color-surface-tint: #fafafa; /* barely-there fill behind media */
   --color-surface-raised: #ffffff; /* cards */
-  --color-surface-tint: #fafbfc; /* barely-there fill */
-  --color-surface-inverse: #0f1419; /* top bar, footer */
-  --color-surface-inverse-2: #1a212b;
+  --color-surface-inverse: #0a0a0b; /* the black bands */
+  --color-surface-inverse-2: #17171a;
 
-  /* --- Rules ------------------------------------------------------------ */
-  --color-line: #e5e8ec;
-  --color-line-strong: #d2d7de;
-  --color-line-inverse: #2a323d;
+  /* --- Rules ------------------------------------------------------------
+     Hairlines carry the structure here. Heavy borders and drop shadows are
+     what make a page read as a template; a 1px neutral rule reads as care. */
+  --color-line: #e7e7e9;
+  --color-line-strong: #d6d6d9;
+  --color-line-inverse: #2a2a2e;
 
   /* --- Ink -------------------------------------------------------------- */
-  --color-ink: #0f1419;
-  --color-body: #3d4553;
-  --color-muted: #5f6875;
-  --color-subtle: #6b7280; /* 4.9:1 on white — safe for small print */
+  --color-ink: #0a0a0b;
+  --color-body: #3f3f46;
+  --color-muted: #56565e;
+  --color-subtle: #71717a; /* 4.9:1 on white */
   --color-ink-inverse: #ffffff;
-  --color-body-inverse: #c3c9d2;
-  --color-muted-inverse: #8b94a0;
+  --color-body-inverse: #c8c8cd;
+  --color-muted-inverse: #8e8e96;
 
-  /* --- Brand ------------------------------------------------------------
-     `brand` is the working green: 6.2:1 on white, so it is safe for text and
-     for white-on-green buttons. `brand-signal` is the original neon — it only
-     ever appears on the dark chrome, where it has the contrast to earn it. */
+  /* --- Action -----------------------------------------------------------
+     Primary actions are black, not green. Black on white is the whole
+     luxury vocabulary: maximum contrast, zero decoration. */
+  --color-action: #0a0a0b;
+  --color-action-hover: #2f2f35;
+
+  /* --- Accent -----------------------------------------------------------
+     Green survives only at small sizes — a lot number, a verified tick, an
+     eyebrow. It signals; it no longer decorates. */
   --color-brand: #00703a;
   --color-brand-hover: #005c2f;
-  --color-brand-tint: #ecf6f0;
-  --color-brand-line: #b8ddc7;
+  --color-brand-tint: #f1f7f3;
+  --color-brand-line: #cde3d7;
   --color-brand-signal: #00ff66;
 
-  /* Second product accent, for compounds in the cool categories. */
   --color-teal: #0f6e8c;
   --color-teal-hover: #0b586f;
-  --color-teal-tint: #ebf4f8;
-  --color-teal-line: #b9d8e4;
+  --color-teal-tint: #f0f6f9;
+  --color-teal-line: #cfe2ea;
 
   /* --- Advisory --------------------------------------------------------- */
-  --color-warn: #a15c07;
-  --color-warn-tint: #fdf6ec;
-  --color-warn-line: #efd9b4;
+  --color-warn: #8a5a10;
+  --color-warn-tint: #fbf7f0;
+  --color-warn-line: #e8dcc4;
 
   /* --- Typography ------------------------------------------------------- */
   --font-display: var(--font-display-src), "SF Pro Display", -apple-system,
@@ -65,11 +71,10 @@
   /* --- Elevation --------------------------------------------------------
      Restrained on purpose: a hairline plus a whisper of shadow reads as
      precision. Heavy drop shadows read as a template. */
-  --shadow-card: 0 1px 2px rgb(15 20 25 / 0.04), 0 1px 3px rgb(15 20 25 / 0.05);
-  --shadow-card-hover: 0 2px 4px rgb(15 20 25 / 0.05),
-    0 12px 28px -12px rgb(15 20 25 / 0.16);
-  --shadow-panel: 0 1px 3px rgb(15 20 25 / 0.05),
-    0 20px 44px -24px rgb(15 20 25 / 0.2);
+  --shadow-card: 0 1px 2px rgb(10 10 11 / 0.03);
+  --shadow-card-hover: 0 1px 2px rgb(10 10 11 / 0.04),
+    0 10px 30px -16px rgb(10 10 11 / 0.14);
+  --shadow-panel: 0 30px 70px -34px rgb(10 10 11 / 0.4);
 
   /* --- Motion ----------------------------------------------------------- */
   --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
@@ -208,7 +213,7 @@
   &:hover {
     border-color: var(--color-line-strong);
     box-shadow: var(--shadow-card-hover);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
   }
 }
 
@@ -233,8 +238,8 @@
    move to light. Used behind product media, never behind body copy. */
 @utility hairline-grid {
   background-image:
-    linear-gradient(to right, rgb(15 20 25 / 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(15 20 25 / 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgb(10 10 11 / 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(10 10 11 / 0.03) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 

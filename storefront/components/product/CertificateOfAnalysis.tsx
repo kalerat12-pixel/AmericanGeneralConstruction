@@ -33,7 +33,7 @@ export default function CertificateOfAnalysis({
   return (
     <section
       className={cn(
-        "overflow-hidden rounded-2xl border border-line bg-surface-raised/50 backdrop-blur-md",
+        "overflow-hidden rounded-md border border-line bg-surface-raised/50 backdrop-blur-md",
         className,
       )}
       aria-labelledby={`coa-${product.slug}`}
@@ -110,7 +110,7 @@ export default function CertificateOfAnalysis({
       {/* Release block */}
       <footer className="flex flex-col gap-4 border-t border-line bg-surface-sunken px-5 py-5 sm:flex-row sm:items-center sm:justify-between md:px-7">
         <div className="flex items-center gap-3">
-          <span className={cn("grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-surface", accentText)}>
+          <span className={cn("grid size-9 shrink-0 place-items-center rounded-md border border-line bg-surface", accentText)}>
             <BadgeCheck className="size-4" strokeWidth={2} />
           </span>
           <div>

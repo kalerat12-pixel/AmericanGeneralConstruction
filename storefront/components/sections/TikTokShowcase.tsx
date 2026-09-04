@@ -131,7 +131,7 @@ export default function TikTokShowcase() {
             >
               <article
                 className={cn(
-                  "panel panel-hover relative flex h-full min-h-[16rem] flex-col justify-between overflow-hidden rounded-2xl p-4 sm:min-h-full",
+                  "panel panel-hover relative flex h-full min-h-[16rem] flex-col justify-between overflow-hidden rounded-md p-4 sm:min-h-full",
                 )}
                 /* Replace this block's background with a muted, looping
                    <video poster="…"> to drop real TikTok cuts straight in. */
@@ -213,7 +213,7 @@ export default function TikTokShowcase() {
               delay={280 + i * 70}
               className={t.span}
             >
-              <figure className="panel flex h-full flex-col justify-between rounded-2xl p-5">
+              <figure className="panel flex h-full flex-col justify-between rounded-md p-5">
                 <Quote className="mb-3 size-5 text-brand/60" strokeWidth={2} />
                 <blockquote className="max-w-2xl text-[0.88rem] leading-relaxed text-body">
                   “{t.quote}”
