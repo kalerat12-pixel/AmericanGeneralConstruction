@@ -29,7 +29,7 @@ export default function CartDrawer() {
       <div
         onClick={closeCart}
         className={cn(
-          "absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-500",
+          "absolute inset-0 bg-ink/35 backdrop-blur-sm transition-opacity duration-500",
           isOpen ? "opacity-100" : "opacity-0",
         )}
       />

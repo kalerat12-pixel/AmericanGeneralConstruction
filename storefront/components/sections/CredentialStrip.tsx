@@ -10,13 +10,13 @@ const CREDENTIALS = [
 ];
 
 /**
- * Black credibility band. Running it inverse gives the page its first hard
- * horizontal break and lets the small caps hold their own against the hero.
+ * Credibility band. Held by hairlines rather than a fill, so it separates the
+ * hero from the social proof without introducing another block of colour.
  */
 export default function CredentialStrip() {
   return (
     <section
-      className="bg-surface-inverse py-4"
+      className="border-y border-line bg-surface py-4"
       aria-label="Testing and handling standards"
     >
       <div className="mask-edges flex overflow-hidden">
@@ -29,9 +29,9 @@ export default function CredentialStrip() {
             {CREDENTIALS.map(({ icon: Icon, label }) => (
               <span
                 key={label}
-                className="flex items-center gap-2.5 whitespace-nowrap text-body-inverse"
+                className="flex items-center gap-2.5 whitespace-nowrap text-body"
               >
-                <Icon className="size-4 text-brand-signal" strokeWidth={1.7} />
+                <Icon className="size-4 text-brand" strokeWidth={1.7} />
                 <span className="font-mono text-[10px] tracking-[0.2em] uppercase md:text-[11px]">
                   {label}
                 </span>

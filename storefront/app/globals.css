@@ -16,7 +16,8 @@
   --color-surface-sunken: #f5f5f6; /* alternating bands */
   --color-surface-tint: #fafafa; /* barely-there fill behind media */
   --color-surface-raised: #ffffff; /* cards */
-  --color-surface-inverse: #0a0a0b; /* the black bands */
+  /* Kept as an escape hatch — nothing on the page uses a dark ground now. */
+  --color-surface-inverse: #0a0a0b;
   --color-surface-inverse-2: #17171a;
 
   /* --- Rules ------------------------------------------------------------
@@ -48,7 +49,6 @@
   --color-brand-hover: #005c2f;
   --color-brand-tint: #f1f7f3;
   --color-brand-line: #cde3d7;
-  --color-brand-signal: #00ff66;
 
   --color-teal: #0f6e8c;
   --color-teal-hover: #0b586f;
