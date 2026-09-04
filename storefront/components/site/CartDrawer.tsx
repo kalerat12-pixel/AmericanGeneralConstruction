@@ -117,13 +117,15 @@ export default function CartDrawer() {
                         : "border-cyber/30",
                     )}
                   >
+                    {/* Compound names run long ("CJC-1295 / Ipamorelin"), so the
+                        thumbnail shows the leading token only. */}
                     <span
                       className={cn(
-                        "font-display text-[0.7rem] font-bold",
+                        "px-1 text-center font-display text-[0.62rem] leading-tight font-bold break-all",
                         line.accent === "acid" ? "text-acid" : "text-cyber",
                       )}
                     >
-                      {line.name.replace("Protocol ", "")}
+                      {line.name.split(" / ")[0]}
                     </span>
                   </div>
 
