@@ -1,0 +1,253 @@
+"use client";
+
+import { useState } from "react";
+import { Check, Plus, ShieldCheck, Star } from "lucide-react";
+import VialRender from "@/components/ui/VialRender";
+import { useCart } from "@/lib/cart";
+import { cn, formatUSD } from "@/lib/utils";
+import type { Product } from "@/lib/products";
+
+type Tab = "benefits" | "science";
+
+export default function ProductCard({ product }: { product: Product }) {
+  const { add } = useCart();
+  const [tab, setTab] = useState<Tab>("benefits");
+  const [added, setAdded] = useState(false);
+
+  const isAcid = product.accent === "acid";
+  const accentText = isAcid ? "text-acid" : "text-cyber";
+  const accentBorder = isAcid ? "border-acid/40" : "border-cyber/40";
+  const accentBg = isAcid ? "bg-acid/10" : "bg-cyber/10";
+  const code = product.name.replace("Protocol ", "");
+
+  const handleAdd = () => {
+    add(product, 1);
+    setAdded(true);
+    window.setTimeout(() => setAdded(false), 1600);
+  };
+
+  return (
+    <article className="border-gradient-acid group relative flex h-full flex-col overflow-hidden rounded-2xl border border-steel bg-gradient-to-b from-graphite/80 to-obsidian transition-all duration-500 hover:-translate-y-1 hover:border-transparent hover:shadow-[0_30px_70px_-30px_rgba(0,0,0,0.95)]">
+      {/* Media */}
+      <div className="relative overflow-hidden border-b border-steel bg-obsidian-2 px-5 pt-5 pb-2">
+        <div className="pointer-events-none absolute inset-0 grid-lines opacity-40" aria-hidden />
+
+        <div className="relative flex items-start justify-between gap-2">
+          <span
+            className={cn(
+              "rounded-md border px-2 py-1 font-mono text-[9px] tracking-[0.14em] uppercase backdrop-blur-sm",
+              accentBorder,
+              accentBg,
+              accentText,
+            )}
+          >
+            {product.category}
+          </span>
+          {product.bestSeller && (
+            <span className="rounded-md border border-steel bg-obsidian/80 px-2 py-1 font-mono text-[9px] tracking-[0.14em] text-mist uppercase backdrop-blur-sm">
+              Best Seller
+            </span>
+          )}
+        </div>
+
+        <VialRender
+          code={code}
+          accent={product.accent}
+          fill={product.format.split(" ").slice(0, 2).join(" ")}
+          className="mx-auto max-w-[9.5rem] transition-transform duration-700 group-hover:scale-[1.04]"
+        />
+      </div>
+
+      {/* Body */}
+      <div className="flex flex-1 flex-col p-5">
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {product.badges.map((b) => (
+            <span
+              key={b}
+              className="inline-flex items-center gap-1 rounded-full border border-steel bg-carbon px-2.5 py-1 text-[10px] font-medium tracking-[0.02em] text-fog"
+            >
+              <ShieldCheck className={cn("size-3", accentText)} strokeWidth={2.2} />
+              {b}
+            </span>
+          ))}
+        </div>
+
+        <h3 className="font-display text-xl leading-tight font-extrabold tracking-[-0.03em] text-chalk">
+          {product.name}
+        </h3>
+        <p className="mt-1 font-mono text-[10px] tracking-[0.1em] text-smoke">
+          {product.compound}
+        </p>
+
+        <div className="mt-2.5 flex items-center gap-2">
+          <span className="flex items-center gap-0.5">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star
+                key={i}
+                className={cn(
+                  "size-3",
+                  i < Math.round(product.rating)
+                    ? "fill-acid text-acid"
+                    : "text-steel",
+                )}
+              />
+            ))}
+          </span>
+          <span className="font-mono text-[10px] text-fog">
+            {product.rating.toFixed(1)} · {product.reviewCount.toLocaleString("en-US")} reviews
+          </span>
+        </div>
+
+        <p className="mt-3.5 text-[0.85rem] leading-relaxed text-fog">
+          {product.tagline}
+        </p>
+
+        {/* Tabs */}
+        <div className="mt-5 flex-1">
+          <div
+            role="tablist"
+            aria-label={`${product.name} details`}
+            className="inline-flex rounded-full border border-steel bg-obsidian-2 p-0.5"
+          >
+            {(["benefits", "science"] as Tab[]).map((t) => (
+              <button
+                key={t}
+                role="tab"
+                type="button"
+                aria-selected={tab === t}
+                onClick={() => setTab(t)}
+                className={cn(
+                  "rounded-full px-4 py-1.5 font-mono text-[10px] tracking-[0.14em] uppercase transition-all duration-300",
+                  tab === t
+                    ? cn("bg-carbon text-chalk", isAcid ? "shadow-[inset_0_0_0_1px_rgba(0,255,102,0.3)]" : "shadow-[inset_0_0_0_1px_rgba(0,229,255,0.3)]")
+                    : "text-smoke hover:text-fog",
+                )}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-3.5 min-h-[10.5rem]">
+            {tab === "benefits" ? (
+              <ul role="tabpanel" className="animate-rise space-y-2">
+                {product.benefits.map((b) => (
+                  <li key={b} className="flex gap-2.5 text-[0.8rem] leading-relaxed text-fog">
+                    <Check className={cn("mt-0.5 size-3.5 shrink-0", accentText)} strokeWidth={2.6} />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <dl role="tabpanel" className="animate-rise space-y-2.5">
+                <div>
+                  <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
+                    Classification
+                  </dt>
+                  <dd className="text-[0.8rem] text-mist">{product.science.class}</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
+                    Mechanism under study
+                  </dt>
+                  <dd className="text-[0.8rem] leading-relaxed text-fog">
+                    {product.science.mechanism}
+                  </dd>
+                </div>
+                <div className="grid grid-cols-2 gap-3 border-t border-steel pt-2.5">
+                  <div>
+                    <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
+                      Half-life
+                    </dt>
+                    <dd className="text-[0.75rem] text-mist">{product.science.halfLife}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
+                      Indexed papers
+                    </dt>
+                    <dd className={cn("font-mono text-[0.75rem]", accentText)}>
+                      {product.science.citations}
+                    </dd>
+                  </div>
+                </div>
+                <div className="border-t border-steel pt-2.5">
+                  <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
+                    Storage
+                  </dt>
+                  <dd className="text-[0.75rem] text-fog">{product.science.storage}</dd>
+                </div>
+              </dl>
+            )}
+          </div>
+        </div>
+
+        {/* Spec rail */}
+        <dl className="mt-4 grid grid-cols-3 gap-2 rounded-xl border border-steel bg-obsidian-2 p-3">
+          {[
+            { k: "Purity", v: product.purity },
+            { k: "Assay", v: product.assay.split(" + ")[0] },
+            { k: "Lot", v: product.lot.split("-").slice(-2).join("-") },
+          ].map((s) => (
+            <div key={s.k}>
+              <dt className="font-mono text-[8px] tracking-[0.18em] text-smoke uppercase">
+                {s.k}
+              </dt>
+              <dd className="mt-0.5 truncate font-mono text-[0.72rem] text-mist">{s.v}</dd>
+            </div>
+          ))}
+        </dl>
+
+        {/* Price + CTA */}
+        <div className="mt-4 flex items-end justify-between gap-3">
+          <div className="min-w-0">
+            <p className="truncate font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
+              {product.format}
+            </p>
+            <p className="mt-1 flex items-baseline gap-2">
+              <span className="font-display text-2xl font-extrabold tracking-[-0.03em] text-chalk">
+                {formatUSD(product.priceCents)}
+              </span>
+              {product.compareAtCents && (
+                <span className="font-mono text-[0.78rem] text-smoke line-through">
+                  {formatUSD(product.compareAtCents)}
+                </span>
+              )}
+            </p>
+          </div>
+          <p className="shrink-0 pb-1 text-right font-mono text-[9px] tracking-[0.12em] text-smoke uppercase">
+            <span className={accentText}>{product.unitsRemaining}</span> left
+            <br />
+            in lot
+          </p>
+        </div>
+
+        <button
+          type="button"
+          onClick={handleAdd}
+          aria-label={`Add ${product.name} to cart`}
+          className={cn(
+            "group/cta relative mt-3.5 flex w-full items-center justify-center gap-2 overflow-hidden rounded-full py-3.5 text-[0.84rem] font-semibold transition-all duration-300 active:scale-[0.98]",
+            added
+              ? "bg-acid text-[#04140a]"
+              : isAcid
+                ? "bg-acid text-[#04140a] hover:shadow-[0_0_0_1px_rgba(0,255,102,0.85),0_14px_44px_-12px_rgba(0,255,102,0.95)]"
+                : "bg-cyber text-[#04140a] hover:shadow-[0_0_0_1px_rgba(0,229,255,0.85),0_14px_44px_-12px_rgba(0,229,255,0.95)]",
+          )}
+        >
+          <span className="absolute inset-0 -translate-x-full bg-white/30 transition-transform duration-700 group-hover/cta:translate-x-full" />
+          {added ? (
+            <>
+              <Check className="relative size-4" strokeWidth={3} />
+              <span className="relative">Added to Order</span>
+            </>
+          ) : (
+            <>
+              <Plus className="relative size-4 transition-transform duration-300 group-hover/cta:rotate-90" strokeWidth={2.8} />
+              <span className="relative">Add to Cart</span>
+            </>
+          )}
+        </button>
+      </div>
+    </article>
+  );
+}
