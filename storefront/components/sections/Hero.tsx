@@ -3,6 +3,7 @@ import MagneticButton from "@/components/ui/MagneticButton";
 import Reveal from "@/components/ui/Reveal";
 import CountUp from "@/components/ui/CountUp";
 import VialRender from "@/components/ui/VialRender";
+import { PRODUCTS } from "@/lib/products";
 
 const STATS = [
   { value: 99.87, label: "Avg. lot purity", suffix: "%", format: "plain" as const, decimals: true },
@@ -11,6 +12,8 @@ const STATS = [
 ];
 
 export default function Hero() {
+  const flagship = PRODUCTS[0];
+
   return (
     <section id="top" className="grain relative overflow-hidden">
       {/* Ambient light rig */}
@@ -109,7 +112,7 @@ export default function Hero() {
                     Flagship
                   </p>
                   <p className="font-display text-lg font-bold text-chalk">
-                    Protocol R
+                    {flagship.name}
                   </p>
                 </div>
                 <span className="rounded-full border border-acid/40 bg-acid/10 px-2.5 py-1 font-mono text-[9px] tracking-[0.12em] text-acid uppercase">
@@ -117,7 +120,14 @@ export default function Hero() {
                 </span>
               </div>
 
-              <VialRender code="R" fill="5 mg" className="mx-auto my-2 max-w-[15rem]" />
+              <VialRender
+                name={flagship.name}
+                size={flagship.size}
+                lot={flagship.lot}
+                purity={flagship.purity}
+                accent={flagship.accent}
+                className="mx-auto my-2 max-w-[15rem]"
+              />
 
               <dl className="grid grid-cols-3 divide-x divide-steel border-t border-steel pt-4">
                 {STATS.map((s) => (

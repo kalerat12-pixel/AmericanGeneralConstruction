@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Plus, ShieldCheck, Star } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Check, Plus, ShieldCheck, Star } from "lucide-react";
 import VialRender from "@/components/ui/VialRender";
 import { useCart } from "@/lib/cart";
 import { cn, formatUSD } from "@/lib/utils";
@@ -18,7 +19,7 @@ export default function ProductCard({ product }: { product: Product }) {
   const accentText = isAcid ? "text-acid" : "text-cyber";
   const accentBorder = isAcid ? "border-acid/40" : "border-cyber/40";
   const accentBg = isAcid ? "bg-acid/10" : "bg-cyber/10";
-  const code = product.name.replace("Protocol ", "");
+  const href = `/products/${product.slug}`;
 
   const handleAdd = () => {
     add(product, 1);
@@ -28,19 +29,16 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <article className="border-gradient-acid group relative flex h-full flex-col overflow-hidden rounded-2xl border border-steel bg-gradient-to-b from-graphite/80 to-obsidian transition-all duration-500 hover:-translate-y-1 hover:border-transparent hover:shadow-[0_30px_70px_-30px_rgba(0,0,0,0.95)]">
-      {/* Media */}
-      <div className="relative overflow-hidden border-b border-steel bg-obsidian-2 px-5 pt-5 pb-2">
+      {/* Media — the whole panel routes to the compound page */}
+      <Link
+        href={href}
+        aria-label={`${product.name} — full specification and certificate of analysis`}
+        className="relative block overflow-hidden border-b border-steel bg-obsidian-2 px-5 pt-5 pb-2"
+      >
         <div className="pointer-events-none absolute inset-0 grid-lines opacity-40" aria-hidden />
 
         <div className="relative flex items-start justify-between gap-2">
-          <span
-            className={cn(
-              "rounded-md border px-2 py-1 font-mono text-[9px] tracking-[0.14em] uppercase backdrop-blur-sm",
-              accentBorder,
-              accentBg,
-              accentText,
-            )}
-          >
+          <span className={cn("rounded-md border px-2 py-1 font-mono text-[9px] tracking-[0.14em] uppercase backdrop-blur-sm", accentBorder, accentBg, accentText)}>
             {product.category}
           </span>
           {product.bestSeller && (
@@ -51,21 +49,20 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
 
         <VialRender
-          code={code}
+          name={product.name}
+          size={product.size}
+          lot={product.lot}
+          purity={product.purity}
           accent={product.accent}
-          fill={product.format.split(" ").slice(0, 2).join(" ")}
-          className="mx-auto max-w-[9.5rem] transition-transform duration-700 group-hover:scale-[1.04]"
+          className="mx-auto max-w-[10.5rem] transition-transform duration-700 group-hover:scale-[1.04]"
         />
-      </div>
+      </Link>
 
       {/* Body */}
       <div className="flex flex-1 flex-col p-5">
         <div className="mb-3 flex flex-wrap gap-1.5">
           {product.badges.map((b) => (
-            <span
-              key={b}
-              className="inline-flex items-center gap-1 rounded-full border border-steel bg-carbon px-2.5 py-1 text-[10px] font-medium tracking-[0.02em] text-fog"
-            >
+            <span key={b} className="inline-flex items-center gap-1 rounded-full border border-steel bg-carbon px-2.5 py-1 text-[10px] font-medium tracking-[0.02em] text-fog">
               <ShieldCheck className={cn("size-3", accentText)} strokeWidth={2.2} />
               {b}
             </span>
@@ -73,24 +70,18 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
 
         <h3 className="font-display text-xl leading-tight font-extrabold tracking-[-0.03em] text-chalk">
-          {product.name}
+          <Link href={href} className="transition-colors duration-300 hover:text-acid">
+            {product.name}
+          </Link>
         </h3>
-        <p className="mt-1 font-mono text-[10px] tracking-[0.1em] text-smoke">
-          {product.compound}
+        <p className="mt-1 font-mono text-[10px] tracking-[0.08em] text-smoke">
+          {product.synonyms}
         </p>
 
         <div className="mt-2.5 flex items-center gap-2">
           <span className="flex items-center gap-0.5">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star
-                key={i}
-                className={cn(
-                  "size-3",
-                  i < Math.round(product.rating)
-                    ? "fill-acid text-acid"
-                    : "text-steel",
-                )}
-              />
+              <Star key={i} className={cn("size-3", i < Math.round(product.rating) ? "fill-acid text-acid" : "text-steel")} />
             ))}
           </span>
           <span className="font-mono text-[10px] text-fog">
@@ -104,11 +95,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
         {/* Tabs */}
         <div className="mt-5 flex-1">
-          <div
-            role="tablist"
-            aria-label={`${product.name} details`}
-            className="inline-flex rounded-full border border-steel bg-obsidian-2 p-0.5"
-          >
+          <div role="tablist" aria-label={`${product.name} details`} className="inline-flex rounded-full border border-steel bg-obsidian-2 p-0.5">
             {(["benefits", "science"] as Tab[]).map((t) => (
               <button
                 key={t}
@@ -132,7 +119,7 @@ export default function ProductCard({ product }: { product: Product }) {
             {tab === "benefits" ? (
               <ul role="tabpanel" className="animate-rise space-y-2">
                 {product.benefits.map((b) => (
-                  <li key={b} className="flex gap-2.5 text-[0.8rem] leading-relaxed text-fog">
+                  <li key={b.slice(0, 24)} className="flex gap-2.5 text-[0.8rem] leading-relaxed text-fog">
                     <Check className={cn("mt-0.5 size-3.5 shrink-0", accentText)} strokeWidth={2.6} />
                     <span>{b}</span>
                   </li>
@@ -141,40 +128,28 @@ export default function ProductCard({ product }: { product: Product }) {
             ) : (
               <dl role="tabpanel" className="animate-rise space-y-2.5">
                 <div>
-                  <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
-                    Classification
-                  </dt>
+                  <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">Classification</dt>
                   <dd className="text-[0.8rem] text-mist">{product.science.class}</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
-                    Mechanism under study
-                  </dt>
-                  <dd className="text-[0.8rem] leading-relaxed text-fog">
-                    {product.science.mechanism}
-                  </dd>
+                  <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">Mechanism under study</dt>
+                  <dd className="text-[0.8rem] leading-relaxed text-fog">{product.science.mechanism}</dd>
                 </div>
                 <div className="grid grid-cols-2 gap-3 border-t border-steel pt-2.5">
                   <div>
-                    <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
-                      Half-life
-                    </dt>
+                    <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">Half-life</dt>
                     <dd className="text-[0.75rem] text-mist">{product.science.halfLife}</dd>
                   </div>
                   <div>
-                    <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
-                      Indexed papers
-                    </dt>
-                    <dd className={cn("font-mono text-[0.75rem]", accentText)}>
+                    <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">Indexed papers</dt>
+                    <dd className={cn("font-mono text-[0.75rem] tabular-nums", accentText)}>
                       {product.science.citations}
                     </dd>
                   </div>
                 </div>
                 <div className="border-t border-steel pt-2.5">
-                  <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
-                    Storage
-                  </dt>
-                  <dd className="text-[0.75rem] text-fog">{product.science.storage}</dd>
+                  <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">Molecular weight</dt>
+                  <dd className="text-[0.75rem] text-fog">{product.chem.molecularWeight}</dd>
                 </div>
               </dl>
             )}
@@ -184,15 +159,13 @@ export default function ProductCard({ product }: { product: Product }) {
         {/* Spec rail */}
         <dl className="mt-4 grid grid-cols-3 gap-2 rounded-xl border border-steel bg-obsidian-2 p-3">
           {[
-            { k: "Purity", v: product.purity },
-            { k: "Assay", v: product.assay.split(" + ")[0] },
-            { k: "Lot", v: product.lot.split("-").slice(-2).join("-") },
-          ].map((s) => (
-            <div key={s.k}>
-              <dt className="font-mono text-[8px] tracking-[0.18em] text-smoke uppercase">
-                {s.k}
-              </dt>
-              <dd className="mt-0.5 truncate font-mono text-[0.72rem] text-mist">{s.v}</dd>
+            ["Purity", product.purity],
+            ["Residues", `${product.residues.length}`],
+            ["Lot", product.lot.split("-").slice(-2).join("-")],
+          ].map(([k, v]) => (
+            <div key={k}>
+              <dt className="font-mono text-[8px] tracking-[0.18em] text-smoke uppercase">{k}</dt>
+              <dd className="mt-0.5 truncate font-mono text-[0.72rem] text-mist tabular-nums">{v}</dd>
             </div>
           ))}
         </dl>
@@ -247,6 +220,14 @@ export default function ProductCard({ product }: { product: Product }) {
             </>
           )}
         </button>
+
+        <Link
+          href={href}
+          className="group/link mt-3 flex items-center justify-center gap-1.5 text-[0.76rem] font-medium text-fog transition-colors duration-300 hover:text-acid"
+        >
+          Sequence, structure &amp; COA
+          <ArrowRight className="size-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5" strokeWidth={2.2} />
+        </Link>
       </div>
     </article>
   );

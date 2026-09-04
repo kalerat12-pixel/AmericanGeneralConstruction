@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Check, Mail, Zap } from "lucide-react";
+import { ArrowRight, Check, Mail } from "lucide-react";
+import { LogoLockup } from "@/components/brand/Logo";
 import {
   InstagramIcon,
   TikTokIcon,
@@ -10,14 +11,14 @@ import {
 
 const COLUMNS = [
   {
-    title: "Collection",
+    title: "Compounds",
     links: [
-      { label: "Recovery", href: "#collection" },
-      { label: "Lean Muscle", href: "#collection" },
-      { label: "Longevity", href: "#collection" },
-      { label: "Metabolic", href: "#collection" },
-      { label: "Cognitive", href: "#collection" },
-      { label: "Reconstitution Supplies", href: "#collection" },
+      { label: "BPC-157", href: "/products/bpc-157" },
+      { label: "Semaglutide", href: "/products/semaglutide" },
+      { label: "Tirzepatide", href: "/products/tirzepatide" },
+      { label: "CJC-1295 / Ipamorelin", href: "/products/cjc-1295-ipamorelin" },
+      { label: "Epitalon", href: "/products/epitalon" },
+      { label: "GHK-Cu", href: "/products/ghk-cu" },
     ],
   },
   {
@@ -119,13 +120,8 @@ export default function Footer() {
         {/* 4-column grid */}
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <a href="#top" className="mb-4 flex items-center gap-2.5">
-              <span className="grid size-8 place-items-center rounded-[9px] border border-acid/40 bg-acid/10">
-                <Zap className="size-4 text-acid" strokeWidth={2.5} />
-              </span>
-              <span className="font-display text-[0.95rem] font-extrabold tracking-[-0.03em] text-chalk">
-                LIFTING<span className="text-acid">4</span>GAINS
-              </span>
+            <a href="#top" className="group mb-4 inline-flex">
+              <LogoLockup />
             </a>
             <p className="mb-5 max-w-xs text-[0.82rem] leading-relaxed text-fog">
               Research-grade peptides, manufactured to a purity standard we

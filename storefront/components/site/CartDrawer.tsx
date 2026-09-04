@@ -132,7 +132,7 @@ export default function CartDrawer() {
                       {line.name}
                     </p>
                     <p className="truncate font-mono text-[10px] tracking-[0.08em] text-smoke">
-                      {line.compound}
+                      {line.synonyms}
                     </p>
 
                     <div className="mt-2.5 flex items-center justify-between">

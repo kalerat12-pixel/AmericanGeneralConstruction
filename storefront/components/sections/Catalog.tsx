@@ -30,12 +30,13 @@ export default function Catalog() {
               The Collection
             </p>
             <h2 className="max-w-2xl text-[2rem] leading-[1.02] font-extrabold tracking-[-0.04em] sm:text-[2.75rem]">
-              Six compounds. Zero proprietary blends.
+              Sixteen compounds. Named, not branded.
             </h2>
             <p className="mt-4 max-w-xl text-[0.92rem] leading-relaxed text-fog">
-              Each formula is a single, fully-disclosed compound at a stated
-              milligram fill — because you cannot verify what a label will not
-              name. Tap any card for the underlying science.
+              We sell compounds under the names the research literature uses,
+              at a stated milligram fill — because you cannot verify what a label
+              will not name. Open any compound for its full sequence, structure
+              and certificate of analysis.
             </p>
           </div>
 

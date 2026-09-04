@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, ShoppingBag, X, Zap } from "lucide-react";
+import { Menu, ShoppingBag, X } from "lucide-react";
+import { LogoLockup } from "@/components/brand/Logo";
 import { useCart } from "@/lib/cart";
 import { cn } from "@/lib/utils";
 
@@ -42,19 +43,8 @@ export default function Navbar() {
     >
       <nav className="shell flex h-[60px] items-center justify-between gap-4">
         {/* Brand */}
-        <a href="#top" className="group flex items-center gap-2.5" aria-label="Lifting4Gains home">
-          <span className="relative grid size-8 place-items-center rounded-[9px] border border-acid/40 bg-acid/10 transition-colors duration-300 group-hover:border-acid group-hover:bg-acid/20">
-            <Zap className="size-4 text-acid" strokeWidth={2.5} />
-            <span className="absolute inset-0 rounded-[9px] bg-acid/25 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-[0.95rem] font-extrabold tracking-[-0.03em] text-chalk">
-              LIFTING<span className="text-acid">4</span>GAINS
-            </span>
-            <span className="mt-0.5 font-mono text-[8px] tracking-[0.26em] text-smoke uppercase">
-              Research Peptides
-            </span>
-          </span>
+        <a href="#top" className="group flex items-center" aria-label="Lifting4Gains home">
+          <LogoLockup />
         </a>
 
         {/* Desktop links */}

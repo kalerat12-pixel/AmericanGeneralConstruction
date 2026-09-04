@@ -15,7 +15,7 @@ export interface CartLine {
   id: string;
   slug: string;
   name: string;
-  compound: string;
+  synonyms: string;
   priceCents: number;
   format: string;
   accent: Product["accent"];
@@ -45,11 +45,11 @@ function reducer(state: CartLine[], action: CartAction): CartLine[] {
             : l,
         );
       }
-      const { id, slug, name, compound, priceCents, format, accent } =
+      const { id, slug, name, synonyms, priceCents, format, accent } =
         action.product;
       return [
         ...state,
-        { id, slug, name, compound, priceCents, format, accent, qty: action.qty },
+        { id, slug, name, synonyms, priceCents, format, accent, qty: action.qty },
       ];
     }
     case "setQty":

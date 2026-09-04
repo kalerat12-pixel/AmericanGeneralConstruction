@@ -77,6 +77,19 @@ The cart is fully functional client-side; two seams are left open on purpose:
 - **Newsletter** — `components/site/Footer.tsx`, the `submit` handler. Point it
   at Klaviyo / Resend / Beehiiv.
 
+## Brand identity
+
+`components/brand/Logo.tsx` holds the whole mark:
+
+- `LogoMonogram` — the L4G glyph, one 16-unit stroke, accent on the 4
+- `LogoMark` — the monogram in a hex badge (legible to ~28 px); also `app/icon.svg`
+- `LogoLockup` — mark + wordmark + descriptor, used in nav, footer and COA header
+
+`components/brand/VialLabel.tsx` puts that mark on the product. `LabelArtwork`
+is the vial-front panel (used inside `VialRender`); `FlatVialLabel` is the full
+wrap label as it would go to the label printer — handling data on the left,
+brand face in the centre, lot and code block on the right.
+
 ## Compliance posture
 
 Copy is written for a **research-use-only** supplier, which is the compliant
@@ -85,6 +98,13 @@ claims, and research language tied to published literature rather than to
 product effects. Disclaimers appear in the announcement bar, under the catalog,
 in the trust section, in the cart, and in the footer.
 
-Product names, lot codes, purity figures, review counts, and view counts are
-realistic placeholders. **Replace every one of them with your actual COA data
-before launch, and have the final copy reviewed by counsel.**
+Amino acid sequences, molecular formulas, masses and CAS numbers are literature
+values used to build the pages. Lot codes, purity figures, COA results, review
+counts and view counts are realistic placeholders. **Replace every one of them
+with your synthesizer's actual batch records before launch, and have the final
+copy reviewed by counsel.**
+
+GLP-1 analogs (Semaglutide, Tirzepatide) carry materially more regulatory
+exposure than the rest of the catalog — they are approved drug substances, and
+research-reagent framing is scrutinized far more closely there. Removing them is
+a two-line edit in `lib/products.ts` if counsel advises it.
