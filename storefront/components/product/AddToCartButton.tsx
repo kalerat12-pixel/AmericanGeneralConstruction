@@ -15,7 +15,7 @@ export default function AddToCartButton({
 }) {
   const { add } = useCart();
   const [added, setAdded] = useState(false);
-  const isAcid = product.accent === "acid";
+  const isGreen = product.accent === "green";
 
   return (
     <button
@@ -28,9 +28,9 @@ export default function AddToCartButton({
       }}
       className={cn(
         "group/cta relative flex items-center justify-center gap-2 overflow-hidden rounded-full py-3.5 text-[0.84rem] font-semibold transition-all duration-300 active:scale-[0.98]",
-        isAcid
-          ? "bg-acid text-[#04140a] hover:shadow-[0_0_0_1px_rgba(0,255,102,0.85),0_14px_44px_-12px_rgba(0,255,102,0.95)]"
-          : "bg-cyber text-[#04140a] hover:shadow-[0_0_0_1px_rgba(0,229,255,0.85),0_14px_44px_-12px_rgba(0,229,255,0.95)]",
+        isGreen
+          ? "bg-brand text-white hover:shadow-[var(--shadow-card-hover)]"
+          : "bg-teal text-white hover:shadow-[var(--shadow-card-hover)]",
         className,
       )}
     >

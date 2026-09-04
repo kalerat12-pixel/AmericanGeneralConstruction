@@ -64,19 +64,18 @@ export default function Footer() {
   };
 
   return (
-    <footer id="legal" className="relative overflow-hidden border-t border-steel bg-obsidian-2">
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[46rem] -translate-x-1/2 aurora-acid opacity-40" aria-hidden />
+    <footer id="legal" className="relative border-t border-line bg-surface-sunken">
 
       <div className="shell relative py-14 md:py-20">
         {/* Newsletter */}
-        <div className="border-gradient-acid mb-14 rounded-2xl border border-steel bg-carbon/60 p-6 backdrop-blur-md md:p-9">
+        <div className="mb-14 rounded-2xl border border-brand-line bg-brand-tint p-6 md:p-9">
           <div className="grid gap-6 md:grid-cols-2 md:items-center md:gap-10">
             <div>
               <p className="eyebrow mb-3">Lot Drop Alerts</p>
               <h3 className="mb-2 text-[1.6rem] leading-[1.1] font-bold md:text-[2rem]">
                 New lots sell out in hours.
               </h3>
-              <p className="text-[0.88rem] leading-relaxed text-fog">
+              <p className="text-[0.88rem] leading-relaxed text-muted">
                 Get the COA, the release time, and early access before a batch
                 goes public. No spam, no daily blasts — release notices only.
               </p>
@@ -91,11 +90,11 @@ export default function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@email.com"
                   aria-label="Email address"
-                  className="min-w-0 flex-1 rounded-full border border-steel bg-obsidian px-5 py-3.5 text-[0.85rem] text-chalk placeholder:text-smoke transition-colors focus:border-acid/60 focus:outline-none"
+                  className="min-w-0 flex-1 rounded-full border border-line bg-surface px-5 py-3.5 text-[0.85rem] text-ink placeholder:text-subtle transition-colors focus:border-brand/60 focus:outline-none"
                 />
                 <button
                   type="submit"
-                  className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-acid px-6 py-3.5 text-[0.82rem] font-semibold text-[#04140a] transition-all duration-300 hover:shadow-[0_0_0_1px_rgba(0,255,102,0.8),0_10px_36px_-10px_rgba(0,255,102,0.9)] active:scale-95"
+                  className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 text-[0.82rem] font-semibold text-white transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] active:scale-95"
                 >
                   {done ? (
                     <>
@@ -109,7 +108,7 @@ export default function Footer() {
                   )}
                 </button>
               </div>
-              <p className="mt-2.5 px-1 text-[0.68rem] text-smoke">
+              <p className="mt-2.5 px-1 text-[0.68rem] text-subtle">
                 By subscribing you confirm you are 21+ and acting in a research
                 capacity.
               </p>
@@ -123,7 +122,7 @@ export default function Footer() {
             <a href="#top" className="group mb-4 inline-flex">
               <LogoLockup />
             </a>
-            <p className="mb-5 max-w-xs text-[0.82rem] leading-relaxed text-fog">
+            <p className="mb-5 max-w-xs text-[0.82rem] leading-relaxed text-muted">
               Research-grade peptides, manufactured to a purity standard we
               publish instead of promise. Built by the Lifting4Gains community.
             </p>
@@ -138,8 +137,8 @@ export default function Footer() {
                   title={label}
                   className={`grid size-9 place-items-center rounded-full border transition-all duration-300 active:scale-95 ${
                     primary
-                      ? "border-acid/50 bg-acid/10 text-acid hover:bg-acid hover:text-[#04140a]"
-                      : "border-steel text-fog hover:border-acid/50 hover:text-acid"
+                      ? "border-brand/50 bg-brand/10 text-brand hover:bg-brand hover:text-white"
+                      : "border-line text-muted hover:border-brand/50 hover:text-brand"
                   }`}
                 >
                   <Icon className="size-[15px]" />
@@ -150,7 +149,7 @@ export default function Footer() {
 
           {COLUMNS.map((col) => (
             <div key={col.title}>
-              <h4 className="mb-4 font-mono text-[10px] tracking-[0.2em] text-smoke uppercase">
+              <h4 className="mb-4 font-mono text-[10px] tracking-[0.2em] text-subtle uppercase">
                 {col.title}
               </h4>
               <ul className="space-y-2.5">
@@ -158,7 +157,7 @@ export default function Footer() {
                   <li key={l.label}>
                     <a
                       href={l.href}
-                      className="text-[0.83rem] text-fog transition-colors duration-200 hover:text-acid"
+                      className="text-[0.83rem] text-muted transition-colors duration-200 hover:text-brand"
                     >
                       {l.label}
                     </a>
@@ -170,9 +169,9 @@ export default function Footer() {
         </div>
 
         {/* Legal */}
-        <div className="mt-12 border-t border-steel pt-8">
-          <p className="mb-4 max-w-4xl text-[0.72rem] leading-relaxed text-smoke">
-            <strong className="text-fog">Research Use Only.</strong> All
+        <div className="mt-12 border-t border-line pt-8">
+          <p className="mb-4 max-w-4xl text-[0.72rem] leading-relaxed text-subtle">
+            <strong className="text-muted">Research Use Only.</strong> All
             products sold by Lifting4Gains Research are intended strictly for
             laboratory research and in-vitro experimentation by qualified
             professionals. They are not drugs, foods, cosmetics, or dietary
@@ -184,7 +183,7 @@ export default function Footer() {
             Must be 21 or older to purchase.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="font-mono text-[10px] tracking-[0.14em] text-smoke uppercase">
+            <p className="font-mono text-[10px] tracking-[0.14em] text-subtle uppercase">
               © {new Date().getFullYear()} Lifting4Gains Research LLC
             </p>
             <div className="flex flex-wrap gap-x-5 gap-y-2">
@@ -192,7 +191,7 @@ export default function Footer() {
                 <a
                   key={t}
                   href="#legal"
-                  className="font-mono text-[10px] tracking-[0.14em] text-smoke uppercase transition-colors hover:text-acid"
+                  className="font-mono text-[10px] tracking-[0.14em] text-subtle uppercase transition-colors hover:text-brand"
                 >
                   {t}
                 </a>

@@ -35,20 +35,20 @@ function label(residue: string) {
  */
 export function ResidueChain({
   residues,
-  accent = "acid",
+  accent = "green",
   className,
 }: {
   residues: string[];
-  accent?: "acid" | "cyber";
+  accent?: "green" | "teal";
   className?: string;
 }) {
-  const accentText = accent === "acid" ? "text-acid" : "text-cyber";
-  const accentBorder = accent === "acid" ? "border-acid/40" : "border-cyber/40";
+  const accentText = accent === "green" ? "text-brand" : "text-teal";
+  const accentBorder = accent === "green" ? "border-brand/40" : "border-teal/40";
 
   return (
     <div className={className}>
       <div className="flex flex-wrap items-center gap-y-3">
-        <span className="mr-2 rounded-md border border-steel bg-obsidian px-2 py-1 font-mono text-[9px] tracking-[0.14em] text-smoke uppercase">
+        <span className="mr-2 rounded-md border border-line bg-surface px-2 py-1 font-mono text-[9px] tracking-[0.14em] text-subtle uppercase">
           H₂N —
         </span>
 
@@ -60,21 +60,21 @@ export function ResidueChain({
               <span
                 title={`${i + 1}. ${name}`}
                 className={cn(
-                  "group/res relative grid h-9 min-w-9 place-items-center rounded-md border bg-carbon px-1.5 transition-colors duration-200 hover:bg-graphite",
+                  "group/res relative grid h-9 min-w-9 place-items-center rounded-md border bg-surface-raised px-1.5 transition-colors duration-200 hover:bg-surface-raised",
                   accentBorder,
                 )}
               >
                 <span className={cn("font-mono text-[0.72rem] leading-none font-bold", accentText)}>
                   {short}
                 </span>
-                <span className="mt-0.5 font-mono text-[7px] leading-none text-smoke">
+                <span className="mt-0.5 font-mono text-[7px] leading-none text-subtle">
                   {three !== short ? three : i + 1}
                 </span>
               </span>
               {!isLast && (
                 /* The peptide bond itself — C(=O)–N(H) */
                 <span
-                  className="mx-0.5 h-px w-2.5 shrink-0 bg-slate-line"
+                  className="mx-0.5 h-px w-2.5 shrink-0 bg-line-strong"
                   aria-hidden
                 />
               )}
@@ -82,7 +82,7 @@ export function ResidueChain({
           );
         })}
 
-        <span className="ml-2 rounded-md border border-steel bg-obsidian px-2 py-1 font-mono text-[9px] tracking-[0.14em] text-smoke uppercase">
+        <span className="ml-2 rounded-md border border-line bg-surface px-2 py-1 font-mono text-[9px] tracking-[0.14em] text-subtle uppercase">
           — COOH
         </span>
       </div>
@@ -95,13 +95,13 @@ export function ResidueChain({
  * Drawn to scale on one baseline so the backbone reads left to right.
  */
 export function PeptideBondDiagram({
-  accent = "acid",
+  accent = "green",
   className,
 }: {
-  accent?: "acid" | "cyber";
+  accent?: "green" | "teal";
   className?: string;
 }) {
-  const hue = accent === "acid" ? "#00ff66" : "#00e5ff";
+  const hue = accent === "green" ? "#00ff66" : "#00e5ff";
 
   return (
     <svg

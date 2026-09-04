@@ -19,8 +19,7 @@ export default function Catalog() {
   );
 
   return (
-    <section id="collection" className="grain relative overflow-hidden py-16 md:py-24">
-      <div className="pointer-events-none absolute top-0 right-0 h-[30rem] w-[30rem] aurora-acid opacity-40" aria-hidden />
+    <section id="collection" className="relative py-16 md:py-24">
 
       <div className="shell relative">
         <Reveal className="mb-8 flex flex-col gap-5 md:mb-12 md:flex-row md:items-end md:justify-between">
@@ -32,7 +31,7 @@ export default function Catalog() {
             <h2 className="max-w-2xl text-[2rem] leading-[1.02] font-extrabold tracking-[-0.04em] sm:text-[2.75rem]">
               Sixteen compounds. Named, not branded.
             </h2>
-            <p className="mt-4 max-w-xl text-[0.92rem] leading-relaxed text-fog">
+            <p className="mt-4 max-w-xl text-[0.92rem] leading-relaxed text-muted">
               We sell compounds under the names the research literature uses,
               at a stated milligram fill — because you cannot verify what a label
               will not name. Open any compound for its full sequence, structure
@@ -42,7 +41,7 @@ export default function Catalog() {
 
           <a
             href="#standards"
-            className="inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-steel bg-carbon/70 px-5 py-2.5 text-[0.8rem] font-medium text-mist backdrop-blur-md transition-all duration-300 hover:border-acid/50 hover:text-acid md:self-auto"
+            className="inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-line bg-surface-raised/70 px-5 py-2.5 text-[0.8rem] font-medium text-body backdrop-blur-md transition-all duration-300 hover:border-brand/50 hover:text-brand md:self-auto"
           >
             <FileCheck2 className="size-4" strokeWidth={2} />
             How we test
@@ -66,8 +65,8 @@ export default function Catalog() {
                 className={cn(
                   "rounded-full border px-4 py-2 text-[0.78rem] font-medium whitespace-nowrap transition-all duration-300 active:scale-95",
                   active === c
-                    ? "border-acid bg-acid text-[#04140a] shadow-[0_0_24px_-6px_rgba(0,255,102,0.7)]"
-                    : "border-steel bg-carbon/60 text-fog hover:border-ash hover:text-chalk",
+                    ? "border-brand bg-brand text-white shadow-[var(--shadow-card)]"
+                    : "border-line bg-surface-raised/60 text-muted hover:border-line-strong hover:text-ink",
                 )}
               >
                 {c}
@@ -85,7 +84,7 @@ export default function Catalog() {
         </div>
 
         <Reveal delay={120}>
-          <p className="mt-8 text-center text-[0.72rem] leading-relaxed text-smoke">
+          <p className="mt-8 text-center text-[0.72rem] leading-relaxed text-subtle">
             All compounds are supplied for laboratory research use only and are
             not for human or veterinary consumption. Statements describe
             published research directions, not product effects.

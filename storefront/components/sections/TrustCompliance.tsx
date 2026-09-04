@@ -71,14 +71,14 @@ const FAQS = [
 
 export default function TrustCompliance() {
   return (
-    <section id="standards" className="relative border-t border-steel bg-obsidian-2 py-16 md:py-24">
+    <section id="standards" className="relative border-t border-line bg-surface-sunken py-16 md:py-24">
       <div className="shell">
         <Reveal className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
           <p className="eyebrow mb-3">Standards & Compliance</p>
           <h2 className="text-[2rem] leading-[1.02] font-extrabold tracking-[-0.04em] sm:text-[2.75rem]">
             Trust is a document, not an adjective.
           </h2>
-          <p className="mt-4 text-[0.92rem] leading-relaxed text-fog">
+          <p className="mt-4 text-[0.92rem] leading-relaxed text-muted">
             Anyone can print “premium” on a vial. Here is the paperwork that
             makes the word mean something — and the disclaimers that keep this
             business honest.
@@ -89,19 +89,19 @@ export default function TrustCompliance() {
         <div className="grid gap-4 md:grid-cols-2">
           {PILLARS.map((p, i) => (
             <Reveal key={p.title} delay={i * 70}>
-              <div className="border-gradient-acid group flex h-full flex-col rounded-2xl border border-steel bg-carbon/50 p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:border-transparent">
+              <div className="panel panel-hover group flex h-full flex-col rounded-2xl p-6">
                 <div className="mb-4 flex items-center justify-between">
-                  <span className="grid size-11 place-items-center rounded-xl border border-acid/30 bg-acid/[0.07] text-acid transition-colors duration-500 group-hover:bg-acid/15">
+                  <span className="grid size-11 place-items-center rounded-xl border border-brand/30 bg-brand/[0.07] text-brand transition-colors duration-500 group-hover:bg-brand/15">
                     <p.icon className="size-5" strokeWidth={1.8} />
                   </span>
-                  <span className="rounded-full border border-steel bg-obsidian px-3 py-1 font-mono text-[9px] tracking-[0.14em] text-acid uppercase">
+                  <span className="rounded-full border border-line bg-surface px-3 py-1 font-mono text-[9px] tracking-[0.14em] text-brand uppercase">
                     {p.stat}
                   </span>
                 </div>
                 <h3 className="mb-2 text-[1.05rem] font-bold tracking-[-0.02em]">
                   {p.title}
                 </h3>
-                <p className="text-[0.85rem] leading-relaxed text-fog">{p.body}</p>
+                <p className="text-[0.85rem] leading-relaxed text-muted">{p.body}</p>
               </div>
             </Reveal>
           ))}
@@ -109,13 +109,13 @@ export default function TrustCompliance() {
 
         {/* Checkout badges */}
         <Reveal delay={100}>
-          <div className="mt-4 grid grid-cols-2 gap-3 rounded-2xl border border-steel bg-carbon/40 p-5 backdrop-blur-md md:grid-cols-4">
+          <div className="panel mt-4 grid grid-cols-2 gap-3 rounded-2xl p-5 md:grid-cols-4">
             {CHECKOUT_BADGES.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-3">
-                <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-steel bg-obsidian text-acid">
+                <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-surface text-brand">
                   <Icon className="size-4" strokeWidth={1.9} />
                 </span>
-                <span className="text-[0.75rem] leading-tight font-medium text-mist">
+                <span className="text-[0.75rem] leading-tight font-medium text-body">
                   {label}
                 </span>
               </div>
@@ -125,15 +125,15 @@ export default function TrustCompliance() {
 
         {/* Disclaimer block */}
         <Reveal delay={140}>
-          <div className="mt-4 flex flex-col gap-4 rounded-2xl border border-amber-warn/25 bg-amber-warn/[0.04] p-6 sm:flex-row">
-            <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-amber-warn/30 bg-amber-warn/10 text-amber-warn">
+          <div className="mt-4 flex flex-col gap-4 rounded-2xl border border-warn/25 bg-warn/[0.04] p-6 sm:flex-row">
+            <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-warn/30 bg-warn/10 text-warn">
               <AlertTriangle className="size-5" strokeWidth={1.9} />
             </span>
             <div>
-              <h3 className="mb-2 text-[1rem] font-bold tracking-[-0.02em] text-chalk">
+              <h3 className="mb-2 text-[1rem] font-bold tracking-[-0.02em] text-ink">
                 Medical & Research Disclaimer
               </h3>
-              <p className="text-[0.82rem] leading-relaxed text-fog">
+              <p className="text-[0.82rem] leading-relaxed text-muted">
                 Products sold by Lifting4Gains Research are supplied strictly for
                 laboratory research use. They are not intended for human or
                 veterinary consumption, and are not sterile pharmaceutical
@@ -159,17 +159,17 @@ export default function TrustCompliance() {
             </h3>
           </Reveal>
 
-          <div className="mx-auto max-w-3xl divide-y divide-steel overflow-hidden rounded-2xl border border-steel bg-carbon/40 backdrop-blur-md">
+          <div className="panel mx-auto max-w-3xl divide-y divide-line overflow-hidden rounded-2xl">
             {FAQS.map((f) => (
               <details key={f.q} className="group px-5 py-1 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-[0.92rem] font-semibold text-chalk transition-colors duration-300 hover:text-acid">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-[0.92rem] font-semibold text-ink transition-colors duration-300 hover:text-brand">
                   {f.q}
                   <ChevronDown
-                    className="size-4 shrink-0 text-smoke transition-transform duration-300 group-open:rotate-180 group-open:text-acid"
+                    className="size-4 shrink-0 text-subtle transition-transform duration-300 group-open:rotate-180 group-open:text-brand"
                     strokeWidth={2.2}
                   />
                 </summary>
-                <p className="pb-5 text-[0.85rem] leading-relaxed text-fog">
+                <p className="pb-5 text-[0.85rem] leading-relaxed text-muted">
                   {f.a}
                 </p>
               </details>

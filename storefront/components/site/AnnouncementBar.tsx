@@ -13,7 +13,7 @@ const ITEMS = [
  */
 export default function AnnouncementBar() {
   return (
-    <div className="relative z-50 overflow-hidden border-b border-steel bg-obsidian-2">
+    <div className="relative z-50 overflow-hidden bg-surface-inverse">
       <div className="mask-edges flex">
         {[0, 1].map((copy) => (
           <div
@@ -24,9 +24,9 @@ export default function AnnouncementBar() {
             {ITEMS.map(({ icon: Icon, text }, i) => (
               <span
                 key={i}
-                className="flex items-center gap-2 whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-fog uppercase"
+                className="flex items-center gap-2 whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-body-inverse uppercase"
               >
-                <Icon className="size-3 text-acid" strokeWidth={2} />
+                <Icon className="size-3 text-brand-signal" strokeWidth={2} />
                 {text}
               </span>
             ))}

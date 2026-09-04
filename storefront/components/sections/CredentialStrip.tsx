@@ -12,7 +12,7 @@ const CREDENTIALS = [
 /** Thin credibility rail between the hero and the social block. */
 export default function CredentialStrip() {
   return (
-    <section className="border-y border-steel bg-obsidian-2/60 py-4" aria-label="Testing and handling standards">
+    <section className="border-b border-line bg-surface-sunken py-4" aria-label="Testing and handling standards">
       <div className="mask-edges flex overflow-hidden">
         {[0, 1].map((copy) => (
           <div
@@ -23,9 +23,9 @@ export default function CredentialStrip() {
             {CREDENTIALS.map(({ icon: Icon, label }) => (
               <span
                 key={label}
-                className="flex items-center gap-2.5 whitespace-nowrap text-fog transition-colors duration-300 hover:text-chalk"
+                className="flex items-center gap-2.5 whitespace-nowrap text-body transition-colors duration-300 hover:text-ink"
               >
-                <Icon className="size-4 text-acid/70" strokeWidth={1.7} />
+                <Icon className="size-4 text-brand" strokeWidth={1.7} />
                 <span className="font-mono text-[10px] tracking-[0.2em] uppercase md:text-[11px]">
                   {label}
                 </span>

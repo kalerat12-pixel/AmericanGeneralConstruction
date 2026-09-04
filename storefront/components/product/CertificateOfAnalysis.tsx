@@ -15,7 +15,7 @@ export default function CertificateOfAnalysis({
   product: Product;
   className?: string;
 }) {
-  const accentText = product.accent === "acid" ? "text-acid" : "text-cyber";
+  const accentText = product.accent === "green" ? "text-brand" : "text-teal";
 
   const identity: Array<[string, string]> = [
     ["Product", product.name],
@@ -33,42 +33,42 @@ export default function CertificateOfAnalysis({
   return (
     <section
       className={cn(
-        "overflow-hidden rounded-2xl border border-steel bg-carbon/50 backdrop-blur-md",
+        "overflow-hidden rounded-2xl border border-line bg-surface-raised/50 backdrop-blur-md",
         className,
       )}
       aria-labelledby={`coa-${product.slug}`}
     >
       {/* Document header */}
-      <header className="flex flex-col gap-4 border-b border-steel px-5 py-5 sm:flex-row sm:items-center sm:justify-between md:px-7">
+      <header className="flex flex-col gap-4 border-b border-line px-5 py-5 sm:flex-row sm:items-center sm:justify-between md:px-7">
         <LogoLockup descriptor="Quality Control" />
         <div className="sm:text-right">
           <h2
             id={`coa-${product.slug}`}
-            className="font-display text-[1.05rem] leading-tight font-bold text-chalk"
+            className="font-display text-[1.05rem] leading-tight font-bold text-ink"
           >
             Certificate of Analysis
           </h2>
-          <p className="mt-1 font-mono text-[10px] tracking-[0.16em] text-smoke uppercase">
+          <p className="mt-1 font-mono text-[10px] tracking-[0.16em] text-subtle uppercase">
             Doc {product.lot}-COA · Rev 01
           </p>
         </div>
       </header>
 
       {/* Identity block */}
-      <dl className="grid gap-x-8 gap-y-3 border-b border-steel px-5 py-5 sm:grid-cols-2 md:px-7">
+      <dl className="grid gap-x-8 gap-y-3 border-b border-line px-5 py-5 sm:grid-cols-2 md:px-7">
         {identity.map(([k, v]) => (
-          <div key={k} className="flex flex-col gap-0.5 border-b border-steel/50 pb-2 last:border-0 sm:border-0 sm:pb-0">
-            <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
+          <div key={k} className="flex flex-col gap-0.5 border-b border-line/50 pb-2 last:border-0 sm:border-0 sm:pb-0">
+            <dt className="font-mono text-[9px] tracking-[0.16em] text-subtle uppercase">
               {k}
             </dt>
-            <dd className="text-[0.82rem] leading-snug text-mist">{v}</dd>
+            <dd className="text-[0.82rem] leading-snug text-body">{v}</dd>
           </div>
         ))}
       </dl>
 
       {/* Test panel */}
       <div className="px-5 pt-5 md:px-7">
-        <h3 className="mb-3 flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-smoke uppercase">
+        <h3 className="mb-3 flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-subtle uppercase">
           <FileCheck2 className={cn("size-3.5", accentText)} strokeWidth={2.2} />
           Analytical results
         </h3>
@@ -76,26 +76,26 @@ export default function CertificateOfAnalysis({
       <div className="overflow-x-auto px-5 pb-5 md:px-7">
         <table className="w-full min-w-[36rem] border-collapse text-left">
           <thead>
-            <tr className="border-b border-steel">
+            <tr className="border-b border-line">
               {["Parameter", "Method", "Specification", "Result"].map((h) => (
                 <th
                   key={h}
                   scope="col"
-                  className="pb-2 font-mono text-[9px] tracking-[0.16em] font-medium text-smoke uppercase"
+                  className="pb-2 font-mono text-[9px] tracking-[0.16em] font-medium text-subtle uppercase"
                 >
                   {h}
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y divide-steel/60">
+          <tbody className="divide-y divide-line/60">
             {product.coa.map((row) => (
               <tr key={row.parameter} className="align-top">
-                <td className="py-2.5 pr-4 text-[0.8rem] font-medium text-chalk">
+                <td className="py-2.5 pr-4 text-[0.8rem] font-medium text-ink">
                   {row.parameter}
                 </td>
-                <td className="py-2.5 pr-4 text-[0.76rem] text-fog">{row.method}</td>
-                <td className="py-2.5 pr-4 font-mono text-[0.72rem] text-fog tabular-nums">
+                <td className="py-2.5 pr-4 text-[0.76rem] text-muted">{row.method}</td>
+                <td className="py-2.5 pr-4 font-mono text-[0.72rem] text-muted tabular-nums">
                   {row.specification}
                 </td>
                 <td className={cn("py-2.5 font-mono text-[0.74rem] font-medium tabular-nums", accentText)}>
@@ -108,21 +108,21 @@ export default function CertificateOfAnalysis({
       </div>
 
       {/* Release block */}
-      <footer className="flex flex-col gap-4 border-t border-steel bg-obsidian-2 px-5 py-5 sm:flex-row sm:items-center sm:justify-between md:px-7">
+      <footer className="flex flex-col gap-4 border-t border-line bg-surface-sunken px-5 py-5 sm:flex-row sm:items-center sm:justify-between md:px-7">
         <div className="flex items-center gap-3">
-          <span className={cn("grid size-9 shrink-0 place-items-center rounded-lg border border-steel bg-obsidian", accentText)}>
+          <span className={cn("grid size-9 shrink-0 place-items-center rounded-lg border border-line bg-surface", accentText)}>
             <BadgeCheck className="size-4" strokeWidth={2} />
           </span>
           <div>
-            <p className="text-[0.8rem] font-semibold text-chalk">
+            <p className="text-[0.8rem] font-semibold text-ink">
               Released — conforms to specification
             </p>
-            <p className="font-mono text-[9px] tracking-[0.14em] text-smoke uppercase">
+            <p className="font-mono text-[9px] tracking-[0.14em] text-subtle uppercase">
               QC release · {product.manufactured}
             </p>
           </div>
         </div>
-        <p className="max-w-sm text-[0.68rem] leading-relaxed text-smoke">
+        <p className="max-w-sm text-[0.68rem] leading-relaxed text-subtle">
           Results relate only to the lot tested. This document does not
           constitute a certificate of sterility or of fitness for human use.
           Supplied for laboratory research only.

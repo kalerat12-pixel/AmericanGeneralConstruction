@@ -1,35 +1,58 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   LIFTING4GAINS — LUXURY DESIGN SYSTEM
-   Obsidian base · acid-green + cyber-cyan accents · glass, glow, grain.
-   Every token below is consumable as a Tailwind utility
-   (bg-obsidian, text-acid, font-display, animate-rise, shadow-glow-acid …).
+   LIFTING4GAINS — LIGHT DESIGN SYSTEM
+   Clean, clinical, professional. White grounds, hairline rules, one restrained
+   brand green. Dark is reserved for the chrome (top bar, footer) so the
+   original neon still has a home without shouting on every page.
+
+   Tokens are named by ROLE, not by colour, so retheming is a one-file change:
+   bg-surface, text-ink, border-line, text-brand …
    ========================================================================== */
 
 @theme {
-  /* --- Surfaces: near-black ramp, tuned so borders stay visible ---------- */
-  --color-obsidian: #09090b;
-  --color-obsidian-2: #0b0b0e;
-  --color-carbon: #101013;
-  --color-graphite: #16161a;
-  --color-steel: #202026;
-  --color-ash: #2e2e36;
-  --color-slate-line: #3a3a44;
+  /* --- Grounds ---------------------------------------------------------- */
+  --color-surface: #ffffff;
+  --color-surface-sunken: #f6f7f9; /* alternating section bands */
+  --color-surface-raised: #ffffff; /* cards */
+  --color-surface-tint: #fafbfc; /* barely-there fill */
+  --color-surface-inverse: #0f1419; /* top bar, footer */
+  --color-surface-inverse-2: #1a212b;
+
+  /* --- Rules ------------------------------------------------------------ */
+  --color-line: #e5e8ec;
+  --color-line-strong: #d2d7de;
+  --color-line-inverse: #2a323d;
 
   /* --- Ink -------------------------------------------------------------- */
-  --color-chalk: #fafafa;
-  --color-mist: #d4d4d8;
-  --color-fog: #9a9aa3;
-  --color-smoke: #6b6b75;
+  --color-ink: #0f1419;
+  --color-body: #3d4553;
+  --color-muted: #5f6875;
+  --color-subtle: #6b7280; /* 4.9:1 on white — safe for small print */
+  --color-ink-inverse: #ffffff;
+  --color-body-inverse: #c3c9d2;
+  --color-muted-inverse: #8b94a0;
 
-  /* --- Accents ---------------------------------------------------------- */
-  --color-acid: #00ff66;
-  --color-acid-2: #00d155;
-  --color-acid-ink: #003d18;
-  --color-cyber: #00e5ff;
-  --color-cyber-2: #00b8cc;
-  --color-amber-warn: #ffb020;
+  /* --- Brand ------------------------------------------------------------
+     `brand` is the working green: 6.2:1 on white, so it is safe for text and
+     for white-on-green buttons. `brand-signal` is the original neon — it only
+     ever appears on the dark chrome, where it has the contrast to earn it. */
+  --color-brand: #00703a;
+  --color-brand-hover: #005c2f;
+  --color-brand-tint: #ecf6f0;
+  --color-brand-line: #b8ddc7;
+  --color-brand-signal: #00ff66;
+
+  /* Second product accent, for compounds in the cool categories. */
+  --color-teal: #0f6e8c;
+  --color-teal-hover: #0b586f;
+  --color-teal-tint: #ebf4f8;
+  --color-teal-line: #b9d8e4;
+
+  /* --- Advisory --------------------------------------------------------- */
+  --color-warn: #a15c07;
+  --color-warn-tint: #fdf6ec;
+  --color-warn-line: #efd9b4;
 
   /* --- Typography ------------------------------------------------------- */
   --font-display: var(--font-display-src), "SF Pro Display", -apple-system,
@@ -39,33 +62,27 @@
   --font-mono: var(--font-mono-src), ui-monospace, SFMono-Regular, Menlo,
     monospace;
 
-  /* --- Elevation & glow -------------------------------------------------- */
-  --shadow-glow-acid: 0 0 0 1px rgb(0 255 102 / 0.35),
-    0 0 24px -4px rgb(0 255 102 / 0.45), 0 0 60px -20px rgb(0 255 102 / 0.6);
-  --shadow-glow-cyber: 0 0 0 1px rgb(0 229 255 / 0.35),
-    0 0 24px -4px rgb(0 229 255 / 0.4), 0 0 60px -20px rgb(0 229 255 / 0.55);
-  --shadow-lift: 0 1px 0 0 rgb(255 255 255 / 0.06) inset,
-    0 24px 60px -24px rgb(0 0 0 / 0.9);
-  --shadow-inset-hair: inset 0 1px 0 0 rgb(255 255 255 / 0.05);
+  /* --- Elevation --------------------------------------------------------
+     Restrained on purpose: a hairline plus a whisper of shadow reads as
+     precision. Heavy drop shadows read as a template. */
+  --shadow-card: 0 1px 2px rgb(15 20 25 / 0.04), 0 1px 3px rgb(15 20 25 / 0.05);
+  --shadow-card-hover: 0 2px 4px rgb(15 20 25 / 0.05),
+    0 12px 28px -12px rgb(15 20 25 / 0.16);
+  --shadow-panel: 0 1px 3px rgb(15 20 25 / 0.05),
+    0 20px 44px -24px rgb(15 20 25 / 0.2);
 
-  /* --- Motion ------------------------------------------------------------ */
+  /* --- Motion ----------------------------------------------------------- */
   --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
 
-  --animate-rise: rise 0.9s var(--ease-lux) both;
+  --animate-rise: rise 0.7s var(--ease-lux) both;
   --animate-marquee: marquee 42s linear infinite;
   --animate-marquee-slow: marquee 72s linear infinite;
-  --animate-pulse-glow: pulse-glow 3.2s ease-in-out infinite;
-  --animate-float: float 7s ease-in-out infinite;
-  --animate-aurora: aurora 18s ease-in-out infinite;
-  --animate-scanline: scanline 4.5s linear infinite;
-  --animate-shimmer: shimmer 2.4s linear infinite;
-  --animate-ticker: ticker 0.5s var(--ease-snap) both;
+  --animate-ticker: ticker 0.4s var(--ease-lux) both;
 
   @keyframes rise {
     from {
       opacity: 0;
-      transform: translate3d(0, 18px, 0);
+      transform: translate3d(0, 14px, 0);
     }
     to {
       opacity: 1;
@@ -80,57 +97,10 @@
       transform: translate3d(-50%, 0, 0);
     }
   }
-  @keyframes pulse-glow {
-    0%,
-    100% {
-      opacity: 0.55;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.04);
-    }
-  }
-  @keyframes float {
-    0%,
-    100% {
-      transform: translate3d(0, 0, 0);
-    }
-    50% {
-      transform: translate3d(0, -14px, 0);
-    }
-  }
-  @keyframes aurora {
-    0%,
-    100% {
-      transform: translate3d(-6%, 0, 0) scale(1);
-      opacity: 0.5;
-    }
-    50% {
-      transform: translate3d(6%, -4%, 0) scale(1.15);
-      opacity: 0.85;
-    }
-  }
-  @keyframes scanline {
-    from {
-      transform: translate3d(0, -100%, 0);
-    }
-    to {
-      transform: translate3d(0, 900%, 0);
-    }
-  }
-  @keyframes shimmer {
-    from {
-      background-position: -200% 0;
-    }
-    to {
-      background-position: 200% 0;
-    }
-  }
   @keyframes ticker {
     from {
       opacity: 0;
-      transform: translate3d(0, 8px, 0);
+      transform: translate3d(0, 6px, 0);
     }
     to {
       opacity: 1;
@@ -145,12 +115,12 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
-    --nav-h: 60px;
+    color-scheme: light;
+    --nav-h: 64px;
   }
 
   * {
-    border-color: var(--color-steel);
+    border-color: var(--color-line);
   }
 
   html {
@@ -160,8 +130,8 @@
   }
 
   body {
-    background-color: var(--color-obsidian);
-    color: var(--color-mist);
+    background-color: var(--color-surface);
+    color: var(--color-body);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -173,8 +143,8 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    color: var(--color-chalk);
-    letter-spacing: -0.03em;
+    color: var(--color-ink);
+    letter-spacing: -0.025em;
     text-wrap: balance;
   }
 
@@ -183,32 +153,14 @@
   }
 
   ::selection {
-    background: var(--color-acid);
-    color: #04120a;
+    background: var(--color-brand);
+    color: #fff;
   }
 
-  /* Razor-sharp focus ring — accessibility without breaking the aesthetic */
   :focus-visible {
-    outline: 2px solid var(--color-acid);
+    outline: 2px solid var(--color-brand);
     outline-offset: 2px;
-    border-radius: 2px;
-  }
-
-  /* Scrollbar */
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--color-obsidian);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-steel);
-    border-radius: 99px;
-    border: 2px solid var(--color-obsidian);
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-ash);
+    border-radius: 3px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -224,182 +176,87 @@
 }
 
 /* ==========================================================================
-   UTILITIES — the iteration layer. Compose these anywhere.
+   UTILITIES
    ========================================================================== */
 
-/* Frosted panel: the house glassmorphism recipe. */
-@utility glass {
-  background-color: color-mix(in oklab, var(--color-carbon) 62%, transparent);
-  backdrop-filter: blur(14px) saturate(150%);
-  -webkit-backdrop-filter: blur(14px) saturate(150%);
-  border: 1px solid color-mix(in oklab, var(--color-chalk) 8%, transparent);
-}
-
-@utility glass-strong {
-  background-color: color-mix(in oklab, var(--color-obsidian) 82%, transparent);
-  backdrop-filter: blur(22px) saturate(180%);
-  -webkit-backdrop-filter: blur(22px) saturate(180%);
-  border: 1px solid color-mix(in oklab, var(--color-chalk) 10%, transparent);
-}
-
-/* Hairline top highlight — makes dark panels read as physical objects. */
-@utility hairline {
-  box-shadow: var(--shadow-inset-hair);
-}
-
-/* Gradient border that survives on any background (mask trick). */
-@utility border-gradient {
-  position: relative;
-}
-@utility border-gradient-acid {
-  position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-      140deg,
-      color-mix(in oklab, var(--color-acid) 70%, transparent),
-      transparent 42%,
-      transparent 62%,
-      color-mix(in oklab, var(--color-cyber) 55%, transparent)
-    );
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-    opacity: 0.55;
-    transition: opacity 0.45s var(--ease-lux);
+/* Consistent page gutter. */
+@utility shell {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
   }
-  &:hover::before {
-    opacity: 1;
+  @media (min-width: 1280px) {
+    padding-inline: 2.5rem;
   }
 }
 
-/* Text treatments */
-@utility text-glow-acid {
-  color: var(--color-acid);
-  text-shadow: 0 0 22px color-mix(in oklab, var(--color-acid) 55%, transparent);
+/* The house card: hairline, whisper of shadow, lifts on hover. */
+@utility panel {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-card);
 }
 
-@utility text-gradient {
-  background: linear-gradient(
-    180deg,
-    var(--color-chalk) 0%,
-    color-mix(in oklab, var(--color-chalk) 62%, var(--color-obsidian)) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+@utility panel-hover {
+  transition:
+    box-shadow 0.3s var(--ease-lux),
+    border-color 0.3s var(--ease-lux),
+    transform 0.3s var(--ease-lux);
+  &:hover {
+    border-color: var(--color-line-strong);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
 }
 
-@utility text-gradient-acid {
-  background: linear-gradient(
-    100deg,
-    var(--color-acid) 0%,
-    var(--color-cyber) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Translucent sticky header. */
+@utility sticky-blur {
+  background-color: color-mix(in oklab, var(--color-surface) 86%, transparent);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
 }
 
-/* Eyebrow / kicker label used above every section heading. */
+/* Small mono label above a heading. */
 @utility eyebrow {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   line-height: 1;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-acid);
+  color: var(--color-brand);
 }
 
-/* Ambient light source behind hero + section headers. */
-@utility aurora-acid {
-  background: radial-gradient(
-    45% 45% at 50% 50%,
-    color-mix(in oklab, var(--color-acid) 26%, transparent) 0%,
-    transparent 70%
-  );
-  filter: blur(60px);
-}
-
-@utility aurora-cyber {
-  background: radial-gradient(
-    45% 45% at 50% 50%,
-    color-mix(in oklab, var(--color-cyber) 22%, transparent) 0%,
-    transparent 70%
-  );
-  filter: blur(70px);
-}
-
-/* Technical grid — the "lab instrument" texture. */
-@utility grid-lines {
+/* Faint technical grid — the only decorative texture that survived the
+   move to light. Used behind product media, never behind body copy. */
+@utility hairline-grid {
   background-image:
-    linear-gradient(
-      to right,
-      color-mix(in oklab, var(--color-chalk) 4%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      color-mix(in oklab, var(--color-chalk) 4%, transparent) 1px,
-      transparent 1px
-    );
-  background-size: 64px 64px;
+    linear-gradient(to right, rgb(15 20 25 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 20 25 / 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
-/* Film grain: kills banding on large dark gradients. */
-@utility grain {
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.035;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-}
-
-/* Sweeping highlight for CTAs and skeleton states. */
-@utility shimmer {
-  background-image: linear-gradient(
-    100deg,
-    transparent 20%,
-    color-mix(in oklab, var(--color-chalk) 16%, transparent) 45%,
-    transparent 70%
-  );
-  background-size: 200% 100%;
-  animation: var(--animate-shimmer);
-}
-
-/* Edge-fade for horizontal scrollers and marquees. */
+/* Edge-fade for marquees. */
 @utility mask-edges {
   -webkit-mask-image: linear-gradient(
     to right,
     transparent,
-    #000 8%,
-    #000 92%,
+    #000 6%,
+    #000 94%,
     transparent
   );
   mask-image: linear-gradient(
     to right,
     transparent,
-    #000 8%,
-    #000 92%,
+    #000 6%,
+    #000 94%,
     transparent
   );
 }
 
-/* Mobile-first horizontal snap rail (TikTok traffic scrolls sideways). */
+/* Mobile-first horizontal snap rail. */
 @utility snap-rail {
   display: flex;
   overflow-x: auto;
@@ -415,16 +272,8 @@
   }
 }
 
-/* Consistent page gutter across every section. */
-@utility shell {
-  width: 100%;
-  max-width: 82rem;
-  margin-inline: auto;
-  padding-inline: 1.25rem;
-  @media (min-width: 768px) {
-    padding-inline: 2rem;
-  }
-  @media (min-width: 1280px) {
-    padding-inline: 2.5rem;
-  }
+/* Plain horizontal scroller for wide tables. */
+@utility rail {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }

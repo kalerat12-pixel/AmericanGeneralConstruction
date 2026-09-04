@@ -10,7 +10,7 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
-export type Accent = "acid" | "cyber";
+export type Accent = "green" | "teal";
 
 export type Category =
   | "Recovery"
@@ -180,7 +180,7 @@ export const PRODUCTS: Product[] = [
     compareAtCents: 8900,
     size: "5 mg",
     format: "5 mg lyophilized vial",
-    accent: "acid",
+    accent: "green",
     badges: ["99.8 % Purity Tested", "Third-Party Verified"],
     residues: "GEPPPGKPADDAGLV".split(""),
     oneLetter: "GEPPPGKPADDAGLV",
@@ -239,7 +239,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 8900,
     size: "5 mg",
     format: "5 mg lyophilized vial",
-    accent: "acid",
+    accent: "green",
     badges: ["Pairs With BPC-157", "Third-Party Verified"],
     residues:
       "SDKPDMAEIEKFDKSKLKKTETQEKNPLPSKETIEQEKQAGES".split(""),
@@ -301,7 +301,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 11900,
     size: "5 mg / 5 mg",
     format: "5 mg / 5 mg co-lyophilized vial",
-    accent: "acid",
+    accent: "green",
     badges: ["Co-Lyophilized Blend", "Batch Traceable"],
     residues: [
       "Tyr", "D-Ala", "Asp", "Ala", "Ile", "Phe", "Thr", "Gln", "Ser", "Tyr",
@@ -366,7 +366,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 7900,
     size: "5 mg",
     format: "5 mg lyophilized vial",
-    accent: "acid",
+    accent: "green",
     badges: ["Highly Selective", "Third-Party Verified"],
     residues: ["Aib", "His", "D-2-Nal", "D-Phe", "Lys-NH₂"],
     oneLetter: null,
@@ -426,7 +426,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 9900,
     size: "5 mg",
     format: "5 mg lyophilized vial",
-    accent: "cyber",
+    accent: "teal",
     badges: ["Reference Sequence", "Cold-Chain Shipped"],
     residues: "YADAIFTNSYRKVLGQLSARKLLQDIMSR".split(""),
     oneLetter: "YADAIFTNSYRKVLGQLSARKLLQDIMSR",
@@ -485,7 +485,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 22900,
     size: "10 mg",
     format: "10 mg lyophilized vial",
-    accent: "cyber",
+    accent: "teal",
     badges: ["Clinically Characterized", "Cold-Chain Shipped"],
     residues: "YADAIFTNSYRKVLGQLSARKLLQDIMSR".split(""),
     oneLetter: "YADAIFTNSYRKVLGQLSARKLLQDIMSR",
@@ -547,7 +547,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 19900,
     size: "5 mg",
     format: "5 mg lyophilized vial",
-    accent: "cyber",
+    accent: "teal",
     badges: ["Restricted Category", "Third-Party Verified"],
     residues:
       "HAEGTFTSDVSSYLEGQAAKEFIAWLVRGRG".split(""),
@@ -609,7 +609,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 24900,
     size: "5 mg",
     format: "5 mg lyophilized vial",
-    accent: "cyber",
+    accent: "teal",
     badges: ["Restricted Category", "Dual Receptor"],
     residues:
       "YXEGTFTSDYSIXLDKIAQKAFVQWLIAGGPSSGAPPPS".split(""),
@@ -670,7 +670,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 8900,
     size: "5 mg",
     format: "5 mg lyophilized vial",
-    accent: "cyber",
+    accent: "teal",
     badges: ["Endotoxin < 0.25 EU/mg", "99.7 % Purity Tested"],
     residues: "YLRIVQCRSVEGSCGF".split(""),
     oneLetter: "YLRIVQCRSVEGSCGF",
@@ -732,7 +732,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 7900,
     size: "10 mg",
     format: "10 mg lyophilized vial",
-    accent: "cyber",
+    accent: "teal",
     badges: ["Highest Purity Lot", "Cold-Chain Shipped"],
     residues: "AEDG".split(""),
     oneLetter: "AEDG",
@@ -790,7 +790,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 6900,
     size: "50 mg",
     format: "50 mg lyophilized vial",
-    accent: "cyber",
+    accent: "teal",
     badges: ["Copper Complex Verified", "Research Grade"],
     residues: ["Gly", "His", "Lys", "· Cu²⁺"],
     oneLetter: null,
@@ -851,7 +851,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 11900,
     size: "10 mg",
     format: "10 mg lyophilized vial",
-    accent: "acid",
+    accent: "green",
     badges: ["Mitochondrial Origin", "Third-Party Verified"],
     residues: "MRWQEMGYIFYPRKLR".split(""),
     oneLetter: "MRWQEMGYIFYPRKLR",
@@ -911,7 +911,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 8900,
     size: "30 mg",
     format: "30 mg lyophilized vial",
-    accent: "cyber",
+    accent: "teal",
     badges: ["Extensive Clinical Base", "Nitrogen Sealed"],
     residues: "MEHFPGP".split(""),
     oneLetter: "MEHFPGP",
@@ -971,7 +971,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 8900,
     size: "10 mg",
     format: "10 mg lyophilized vial",
-    accent: "cyber",
+    accent: "teal",
     badges: ["Pairs With Semax", "Nitrogen Sealed"],
     residues: "TKPRPGP".split(""),
     oneLetter: "TKPRPGP",
@@ -1033,7 +1033,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 13900,
     size: "10 mg",
     format: "10 mg lyophilized vial",
-    accent: "acid",
+    accent: "green",
     badges: ["Clinically Characterized", "Cold-Chain Shipped"],
     residues:
       "SDAAVDTSSEITTKDLKEKKEVVEEAEN".split(""),
@@ -1093,7 +1093,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 9900,
     size: "10 mg",
     format: "10 mg lyophilized vial",
-    accent: "acid",
+    accent: "green",
     badges: ["Cyclic Structure", "Third-Party Verified"],
     residues: [
       "Ac-Nle", "Asp", "His", "D-Phe", "Arg", "Trp", "Lys",

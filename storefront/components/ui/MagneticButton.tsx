@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-type Variant = "acid" | "ghost" | "outline";
+type Variant = "brand" | "ghost" | "outline";
 
 interface Props {
   children: React.ReactNode;
@@ -18,11 +18,11 @@ interface Props {
 }
 
 const VARIANTS: Record<Variant, string> = {
-  acid:
-    "bg-acid text-[#04140a] hover:bg-[#3dff8a] shadow-[0_0_0_1px_rgba(0,255,102,0.5),0_10px_40px_-12px_rgba(0,255,102,0.65)] hover:shadow-[0_0_0_1px_rgba(0,255,102,0.8),0_14px_50px_-10px_rgba(0,255,102,0.9)]",
+  brand:
+    "bg-brand text-white shadow-[var(--shadow-card)] hover:bg-brand-hover hover:shadow-[var(--shadow-card-hover)]",
   outline:
-    "text-chalk border border-ash bg-carbon/60 backdrop-blur-md hover:border-acid/60 hover:text-acid hover:bg-acid/[0.06]",
-  ghost: "text-fog hover:text-chalk",
+    "border border-line-strong bg-surface text-ink hover:border-brand hover:text-brand hover:bg-brand-tint",
+  ghost: "text-muted hover:text-ink",
 };
 
 /**
@@ -34,7 +34,7 @@ export default function MagneticButton({
   children,
   href,
   onClick,
-  variant = "acid",
+  variant = "brand",
   className,
   strength = 10,
   type = "button",

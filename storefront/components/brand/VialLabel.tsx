@@ -5,7 +5,7 @@ interface LabelProps {
   size: string;
   lot: string;
   purity: string;
-  accent?: "acid" | "cyber";
+  accent?: "green" | "teal";
 }
 
 interface ArtworkProps extends LabelProps {
@@ -49,9 +49,9 @@ export function LabelArtwork({
   size,
   lot,
   purity,
-  accent = "acid",
+  accent = "green",
 }: ArtworkProps) {
-  const hue = accent === "acid" ? "#00ff66" : "#00e5ff";
+  const hue = accent === "green" ? "#35c46f" : "#3fa8c9";
   // One uniform scale for positions and type alike, so the artwork keeps its
   // proportions in any box, then centred on whatever space is left over.
   const s = Math.min(w / REF_W, h / REF_H);
@@ -170,10 +170,10 @@ export function FlatVialLabel({
   size,
   lot,
   purity,
-  accent = "acid",
+  accent = "green",
   className,
 }: LabelProps & { className?: string }) {
-  const hue = accent === "acid" ? "#00ff66" : "#00e5ff";
+  const hue = accent === "green" ? "#35c46f" : "#3fa8c9";
   const uid = `flat-${name.replace(/\W/g, "")}`;
   const lines = splitName(name);
   const nameSize = lines.length > 1 ? 15 : name.length > 9 ? 18 : 23;

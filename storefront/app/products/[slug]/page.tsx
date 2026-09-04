@@ -41,10 +41,10 @@ export default async function ProductPage({
   const product = getProduct(slug);
   if (!product) notFound();
 
-  const isAcid = product.accent === "acid";
-  const accentText = isAcid ? "text-acid" : "text-cyber";
-  const accentBorder = isAcid ? "border-acid/40" : "border-cyber/40";
-  const accentBg = isAcid ? "bg-acid/10" : "bg-cyber/10";
+  const isGreen = product.accent === "green";
+  const accentText = isGreen ? "text-brand" : "text-teal";
+  const accentBorder = isGreen ? "border-brand/40" : "border-teal/40";
+  const accentBg = isGreen ? "bg-brand/10" : "bg-teal/10";
   const related = relatedProducts(product);
 
   const chemRows: Array<[string, string]> = [
@@ -61,16 +61,12 @@ export default async function ProductPage({
   return (
     <>
       {/* ── Identity ─────────────────────────────────────────────────── */}
-      <section className="grain relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <div className={cn("absolute -top-40 left-1/3 h-[28rem] w-[28rem]", isAcid ? "aurora-acid" : "aurora-cyber")} />
-          <div className="absolute inset-0 grid-lines opacity-40 [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]" />
-        </div>
+      <section className="relative border-b border-line">
 
         <div className="shell relative pt-8 pb-14 md:pt-10 md:pb-20">
           <Link
             href="/#collection"
-            className="mb-8 inline-flex items-center gap-2 text-[0.78rem] font-medium text-fog transition-colors hover:text-acid"
+            className="mb-8 inline-flex items-center gap-2 text-[0.78rem] font-medium text-muted transition-colors hover:text-brand"
           >
             <ArrowLeft className="size-3.5" strokeWidth={2.2} />
             All compounds
@@ -79,10 +75,8 @@ export default async function ProductPage({
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
             {/* Render + label artwork */}
             <div className="flex flex-col gap-5">
-              <div className="border-gradient-acid relative rounded-[1.5rem] border border-steel bg-gradient-to-b from-carbon/80 to-obsidian/40 p-5 backdrop-blur-md">
-                <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[1.5rem]" aria-hidden>
-                  <div className="h-16 w-full animate-scanline bg-gradient-to-b from-transparent via-acid/[0.06] to-transparent" />
-                </div>
+              <div className="panel relative overflow-hidden rounded-2xl bg-surface-tint p-5">
+                <div className="pointer-events-none absolute inset-0 hairline-grid" aria-hidden />
                 <VialRender
                   name={product.name}
                   size={product.size}
@@ -93,8 +87,8 @@ export default async function ProductPage({
                 />
               </div>
 
-              <figure className="rounded-2xl border border-steel bg-carbon/40 p-5 backdrop-blur-md">
-                <figcaption className="mb-3 font-mono text-[9px] tracking-[0.2em] text-smoke uppercase">
+              <figure className="panel rounded-2xl p-5">
+                <figcaption className="mb-3 font-mono text-[9px] tracking-[0.2em] text-subtle uppercase">
                   Label artwork · as applied to every vial
                 </figcaption>
                 <FlatVialLabel
@@ -115,7 +109,7 @@ export default async function ProductPage({
                   {product.category}
                 </span>
                 {product.badges.map((b) => (
-                  <span key={b} className="inline-flex items-center gap-1 rounded-full border border-steel bg-carbon px-2.5 py-1 text-[10px] font-medium text-fog">
+                  <span key={b} className="inline-flex items-center gap-1 rounded-full border border-line bg-surface-raised px-2.5 py-1 text-[10px] font-medium text-muted">
                     <ShieldCheck className={cn("size-3", accentText)} strokeWidth={2.2} />
                     {b}
                   </span>
@@ -125,27 +119,27 @@ export default async function ProductPage({
               <h1 className="text-[2.4rem] leading-[0.98] font-extrabold tracking-[-0.045em] sm:text-[3.2rem]">
                 {product.name}
               </h1>
-              <p className="mt-2 font-mono text-[0.78rem] tracking-[0.06em] text-smoke">
+              <p className="mt-2 font-mono text-[0.78rem] tracking-[0.06em] text-subtle">
                 {product.synonyms}
               </p>
 
               <div className="mt-3 flex items-center gap-2">
                 <span className="flex items-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className={cn("size-3.5", i < Math.round(product.rating) ? "fill-acid text-acid" : "text-steel")} />
+                    <Star key={i} className={cn("size-3.5", i < Math.round(product.rating) ? "fill-brand text-brand" : "text-line")} />
                   ))}
                 </span>
-                <span className="font-mono text-[0.72rem] text-fog">
+                <span className="font-mono text-[0.72rem] text-muted">
                   {product.rating.toFixed(1)} · {product.reviewCount.toLocaleString("en-US")} reviews
                 </span>
               </div>
 
-              <p className="mt-5 max-w-xl text-[0.98rem] leading-relaxed text-fog">
+              <p className="mt-5 max-w-xl text-[0.98rem] leading-relaxed text-muted">
                 {product.tagline}
               </p>
 
               {/* Spec rail */}
-              <dl className="mt-6 grid grid-cols-2 gap-3 rounded-xl border border-steel bg-obsidian-2 p-4 sm:grid-cols-4">
+              <dl className="mt-6 grid grid-cols-2 gap-3 rounded-xl border border-line bg-surface-sunken p-4 sm:grid-cols-4">
                 {[
                   ["Purity", product.purity],
                   ["Fill", product.size],
@@ -153,7 +147,7 @@ export default async function ProductPage({
                   ["Residues", `${product.residues.length}`],
                 ].map(([k, v]) => (
                   <div key={k}>
-                    <dt className="font-mono text-[8px] tracking-[0.18em] text-smoke uppercase">{k}</dt>
+                    <dt className="font-mono text-[8px] tracking-[0.18em] text-subtle uppercase">{k}</dt>
                     <dd className={cn("mt-1 font-mono text-[0.82rem] tabular-nums", accentText)}>{v}</dd>
                   </div>
                 ))}
@@ -161,28 +155,28 @@ export default async function ProductPage({
 
               <div className="mt-6 flex flex-wrap items-end justify-between gap-4">
                 <div>
-                  <p className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">
+                  <p className="font-mono text-[9px] tracking-[0.16em] text-subtle uppercase">
                     {product.format}
                   </p>
                   <p className="mt-1 flex items-baseline gap-2">
-                    <span className="font-display text-3xl font-extrabold tracking-[-0.03em] text-chalk">
+                    <span className="font-display text-3xl font-extrabold tracking-[-0.03em] text-ink">
                       {formatUSD(product.priceCents)}
                     </span>
                     {product.compareAtCents && (
-                      <span className="font-mono text-[0.85rem] text-smoke line-through">
+                      <span className="font-mono text-[0.85rem] text-subtle line-through">
                         {formatUSD(product.compareAtCents)}
                       </span>
                     )}
                   </p>
                 </div>
-                <p className="font-mono text-[9px] tracking-[0.12em] text-smoke uppercase">
+                <p className="font-mono text-[9px] tracking-[0.12em] text-subtle uppercase">
                   <span className={accentText}>{product.unitsRemaining}</span> vials left in lot
                 </p>
               </div>
 
               <AddToCartButton product={product} className="mt-4 w-full" />
 
-              <p className="mt-3 text-center font-mono text-[9px] tracking-[0.14em] text-smoke uppercase">
+              <p className="mt-3 text-center font-mono text-[9px] tracking-[0.14em] text-subtle uppercase">
                 Ships cold · COA in every box · Research use only
               </p>
             </div>
@@ -191,7 +185,7 @@ export default async function ProductPage({
       </section>
 
       {/* ── About ────────────────────────────────────────────────────── */}
-      <section className="border-t border-steel bg-obsidian-2 py-14 md:py-20">
+      <section className="border-t border-line bg-surface-sunken py-14 md:py-20">
         <div className="shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="eyebrow mb-3">About the compound</p>
@@ -201,7 +195,7 @@ export default async function ProductPage({
           </div>
           <div className="flex flex-col gap-4">
             {product.about.map((para) => (
-              <p key={para.slice(0, 24)} className="max-w-2xl text-[0.95rem] leading-relaxed text-fog">
+              <p key={para.slice(0, 24)} className="max-w-2xl text-[0.95rem] leading-relaxed text-muted">
                 {para}
               </p>
             ))}
@@ -217,7 +211,7 @@ export default async function ProductPage({
             <h2 className="text-[1.7rem] leading-[1.05] font-extrabold tracking-[-0.035em] sm:text-[2.1rem]">
               The chain, residue by residue.
             </h2>
-            <p className="mt-3 text-[0.92rem] leading-relaxed text-fog">
+            <p className="mt-3 text-[0.92rem] leading-relaxed text-muted">
               A peptide is amino acids joined end to end by peptide bonds — the
               amide linkage formed when one residue&rsquo;s carboxyl group
               condenses with the next one&rsquo;s amine group, releasing a
@@ -227,9 +221,9 @@ export default async function ProductPage({
           </div>
 
           {/* Sequence */}
-          <div className="rounded-2xl border border-steel bg-carbon/40 p-5 backdrop-blur-md md:p-6">
+          <div className="panel rounded-2xl p-5 md:p-6">
             <div className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
-              <h3 className="font-mono text-[10px] tracking-[0.2em] text-smoke uppercase">
+              <h3 className="font-mono text-[10px] tracking-[0.2em] text-subtle uppercase">
                 Primary sequence · {product.residues.length} residues
               </h3>
               {product.oneLetter && (
@@ -242,8 +236,8 @@ export default async function ProductPage({
             <ResidueChain residues={product.residues} accent={product.accent} />
 
             {product.sequenceNote && (
-              <p className="mt-5 border-t border-steel pt-4 text-[0.8rem] leading-relaxed text-fog">
-                <span className="font-semibold text-mist">Note. </span>
+              <p className="mt-5 border-t border-line pt-4 text-[0.8rem] leading-relaxed text-muted">
+                <span className="font-semibold text-body">Note. </span>
                 {product.sequenceNote}
               </p>
             )}
@@ -251,14 +245,14 @@ export default async function ProductPage({
 
           {/* Peptide bond */}
           <div className="mt-4 grid items-start gap-4 lg:grid-cols-[1.25fr_0.75fr]">
-            <figure className="overflow-hidden rounded-2xl border border-steel bg-carbon/40 p-5 backdrop-blur-md md:p-6">
-              <figcaption className="mb-4 font-mono text-[10px] tracking-[0.2em] text-smoke uppercase">
+            <figure className="overflow-hidden panel rounded-2xl p-5 md:p-6">
+              <figcaption className="mb-4 font-mono text-[10px] tracking-[0.2em] text-subtle uppercase">
                 The peptide bond
               </figcaption>
               <div className="overflow-x-auto">
                 <PeptideBondDiagram accent={product.accent} className="w-full min-w-[30rem]" />
               </div>
-              <p className="mt-4 text-[0.8rem] leading-relaxed text-fog">
+              <p className="mt-4 text-[0.8rem] leading-relaxed text-muted">
                 The highlighted C–N linkage is the peptide bond. It is planar and
                 rigid, which is why a peptide&rsquo;s backbone can only fold in
                 certain ways — and why sequence alone determines so much of what a
@@ -267,15 +261,15 @@ export default async function ProductPage({
               </p>
             </figure>
 
-            <dl className="rounded-2xl border border-steel bg-carbon/40 p-5 backdrop-blur-md md:p-6">
-              <h3 className="mb-4 font-mono text-[10px] tracking-[0.2em] text-smoke uppercase">
+            <dl className="panel rounded-2xl p-5 md:p-6">
+              <h3 className="mb-4 font-mono text-[10px] tracking-[0.2em] text-subtle uppercase">
                 Physicochemical data
               </h3>
               <div className="flex flex-col gap-3">
                 {chemRows.map(([k, v]) => (
-                  <div key={k} className="border-b border-steel/60 pb-3 last:border-0 last:pb-0">
-                    <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">{k}</dt>
-                    <dd className="mt-0.5 text-[0.82rem] leading-snug text-mist">{v}</dd>
+                  <div key={k} className="border-b border-line/60 pb-3 last:border-0 last:pb-0">
+                    <dt className="font-mono text-[9px] tracking-[0.16em] text-subtle uppercase">{k}</dt>
+                    <dd className="mt-0.5 text-[0.82rem] leading-snug text-body">{v}</dd>
                   </div>
                 ))}
               </div>
@@ -285,7 +279,7 @@ export default async function ProductPage({
       </section>
 
       {/* ── Research focus ───────────────────────────────────────────── */}
-      <section className="border-t border-steel bg-obsidian-2 py-14 md:py-20">
+      <section className="border-t border-line bg-surface-sunken py-14 md:py-20">
         <div className="shell grid gap-8 lg:grid-cols-2">
           <div>
             <p className="eyebrow mb-3">Research focus</p>
@@ -294,7 +288,7 @@ export default async function ProductPage({
             </h2>
             <ul className="flex flex-col gap-3">
               {product.benefits.map((b) => (
-                <li key={b.slice(0, 24)} className="flex gap-3 text-[0.88rem] leading-relaxed text-fog">
+                <li key={b.slice(0, 24)} className="flex gap-3 text-[0.88rem] leading-relaxed text-muted">
                   <FlaskConical className={cn("mt-0.5 size-4 shrink-0", accentText)} strokeWidth={1.9} />
                   <span>{b}</span>
                 </li>
@@ -302,22 +296,22 @@ export default async function ProductPage({
             </ul>
           </div>
 
-          <dl className="rounded-2xl border border-steel bg-carbon/40 p-5 backdrop-blur-md md:p-6">
-            <div className="border-b border-steel pb-4">
-              <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">Classification</dt>
-              <dd className="mt-1 text-[0.88rem] text-mist">{product.science.class}</dd>
+          <dl className="panel rounded-2xl p-5 md:p-6">
+            <div className="border-b border-line pb-4">
+              <dt className="font-mono text-[9px] tracking-[0.16em] text-subtle uppercase">Classification</dt>
+              <dd className="mt-1 text-[0.88rem] text-body">{product.science.class}</dd>
             </div>
-            <div className="border-b border-steel py-4">
-              <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">Mechanism under study</dt>
-              <dd className="mt-1 text-[0.88rem] leading-relaxed text-fog">{product.science.mechanism}</dd>
+            <div className="border-b border-line py-4">
+              <dt className="font-mono text-[9px] tracking-[0.16em] text-subtle uppercase">Mechanism under study</dt>
+              <dd className="mt-1 text-[0.88rem] leading-relaxed text-muted">{product.science.mechanism}</dd>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div>
-                <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">Half-life</dt>
-                <dd className="mt-1 text-[0.82rem] text-mist">{product.science.halfLife}</dd>
+                <dt className="font-mono text-[9px] tracking-[0.16em] text-subtle uppercase">Half-life</dt>
+                <dd className="mt-1 text-[0.82rem] text-body">{product.science.halfLife}</dd>
               </div>
               <div>
-                <dt className="font-mono text-[9px] tracking-[0.16em] text-smoke uppercase">Indexed papers</dt>
+                <dt className="font-mono text-[9px] tracking-[0.16em] text-subtle uppercase">Indexed papers</dt>
                 <dd className={cn("mt-1 font-mono text-[0.82rem] tabular-nums", accentText)}>
                   {product.science.citations}
                 </dd>
@@ -335,7 +329,7 @@ export default async function ProductPage({
             <h2 className="text-[1.7rem] leading-[1.05] font-extrabold tracking-[-0.035em] sm:text-[2.1rem]">
               The paperwork for lot {product.lot}.
             </h2>
-            <p className="mt-3 text-[0.92rem] leading-relaxed text-fog">
+            <p className="mt-3 text-[0.92rem] leading-relaxed text-muted">
               This is the certificate that ships in the box. Results relate to
               this lot only — a different lot number means a different document.
             </p>
@@ -345,7 +339,7 @@ export default async function ProductPage({
       </section>
 
       {/* ── Related ──────────────────────────────────────────────────── */}
-      <section className="border-t border-steel bg-obsidian-2 py-14 md:py-20">
+      <section className="border-t border-line bg-surface-sunken py-14 md:py-20">
         <div className="shell">
           <h2 className="mb-6 text-[1.4rem] font-extrabold tracking-[-0.035em] sm:text-[1.75rem]">
             Studied alongside {product.name}
@@ -355,26 +349,26 @@ export default async function ProductPage({
               <Link
                 key={r.id}
                 href={`/products/${r.slug}`}
-                className="group flex items-center justify-between gap-4 rounded-2xl border border-steel bg-carbon/50 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-acid/40"
+                className="panel panel-hover group flex items-center justify-between gap-4 rounded-2xl p-5"
               >
                 <span>
-                  <span className="block font-display text-[1rem] font-bold text-chalk">
+                  <span className="block font-display text-[1rem] font-bold text-ink">
                     {r.name}
                   </span>
-                  <span className="mt-0.5 block font-mono text-[9px] tracking-[0.14em] text-smoke uppercase">
+                  <span className="mt-0.5 block font-mono text-[9px] tracking-[0.14em] text-subtle uppercase">
                     {r.category} · {r.size}
                   </span>
-                  <span className="mt-2 block font-mono text-[0.8rem] text-mist">
+                  <span className="mt-2 block font-mono text-[0.8rem] text-body">
                     {formatUSD(r.priceCents)}
                   </span>
                 </span>
-                <ArrowRight className="size-4 shrink-0 text-smoke transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-acid" strokeWidth={2} />
+                <ArrowRight className="size-4 shrink-0 text-subtle transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-brand" strokeWidth={2} />
               </Link>
             ))}
           </div>
 
-          <p className="mt-10 border-t border-steel pt-6 text-[0.72rem] leading-relaxed text-smoke">
-            <span className="text-fog">Research Use Only.</span> {product.name} is
+          <p className="mt-10 border-t border-line pt-6 text-[0.72rem] leading-relaxed text-subtle">
+            <span className="text-muted">Research Use Only.</span> {product.name} is
             supplied strictly for laboratory research and in-vitro
             experimentation by qualified professionals. It is not a drug, food,
             cosmetic, or dietary supplement, and is not for human or veterinary

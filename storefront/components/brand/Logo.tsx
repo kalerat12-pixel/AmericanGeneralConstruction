@@ -126,14 +126,14 @@ export function LogoLockup({
     <span className={cn("flex items-center gap-2.5", className)}>
       <span className="relative shrink-0">
         <LogoMark className="size-8" />
-        <span className="absolute inset-0 -z-10 rounded-full bg-acid/25 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
+        <span className="absolute inset-0 -z-10 rounded-full bg-brand/25 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
       </span>
       <span className="flex flex-col leading-none">
-        <span className="font-display text-[0.95rem] font-extrabold tracking-[-0.03em] text-chalk">
-          LIFTING<span className="text-acid">4</span>GAINS
+        <span className="font-display text-[0.95rem] font-extrabold tracking-[-0.03em] text-ink">
+          LIFTING<span className="text-brand">4</span>GAINS
         </span>
         {descriptor && (
-          <span className="mt-0.5 font-mono text-[8px] tracking-[0.26em] text-smoke uppercase">
+          <span className="mt-0.5 font-mono text-[8px] tracking-[0.26em] text-subtle uppercase">
             {descriptor}
           </span>
         )}

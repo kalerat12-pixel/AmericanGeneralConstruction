@@ -37,8 +37,8 @@ export default function Navbar() {
       className={cn(
         "sticky top-0 z-40 transition-all duration-500",
         scrolled
-          ? "glass-strong border-b border-steel/80"
-          : "border-b border-transparent bg-transparent",
+          ? "sticky-blur border-b border-line shadow-[var(--shadow-card)]"
+          : "border-b border-transparent bg-surface",
       )}
     >
       <nav className="shell flex h-[60px] items-center justify-between gap-4">
@@ -53,10 +53,10 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="group relative px-3.5 py-2 text-[0.8rem] font-medium text-fog transition-colors duration-300 hover:text-chalk"
+                className="group relative px-3.5 py-2 text-[0.8rem] font-medium text-muted transition-colors duration-300 hover:text-ink"
               >
                 {l.label}
-                <span className="absolute bottom-1 left-1/2 h-px w-0 -translate-x-1/2 bg-acid transition-all duration-300 group-hover:w-5" />
+                <span className="absolute bottom-1 left-1/2 h-px w-0 -translate-x-1/2 bg-brand transition-all duration-300 group-hover:w-5" />
               </a>
             </li>
           ))}
@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href="#collection"
-            className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-acid px-5 py-2.5 text-[0.78rem] font-semibold text-[#04140a] shadow-[0_0_0_1px_rgba(0,255,102,0.45),0_8px_30px_-10px_rgba(0,255,102,0.7)] transition-all duration-300 hover:shadow-[0_0_0_1px_rgba(0,255,102,0.9),0_10px_38px_-8px_rgba(0,255,102,0.95)] active:scale-95 sm:inline-flex"
+            className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-brand px-5 py-2.5 text-[0.78rem] font-semibold text-white shadow-[var(--shadow-card-hover)] transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] active:scale-95 sm:inline-flex"
           >
             <span className="absolute inset-0 -translate-x-full bg-white/30 transition-transform duration-700 group-hover:translate-x-full" />
             <span className="relative">Shop Collection</span>
@@ -75,11 +75,11 @@ export default function Navbar() {
             type="button"
             onClick={openCart}
             aria-label={`Open cart, ${count} item${count === 1 ? "" : "s"}`}
-            className="relative grid size-10 place-items-center rounded-full border border-steel bg-carbon/70 text-mist backdrop-blur-md transition-all duration-300 hover:border-acid/60 hover:text-acid active:scale-95"
+            className="relative grid size-10 place-items-center rounded-full border border-line bg-surface-raised/70 text-body backdrop-blur-md transition-all duration-300 hover:border-brand/60 hover:text-brand active:scale-95"
           >
             <ShoppingBag className="size-[17px]" strokeWidth={1.8} />
             {count > 0 && (
-              <span className="absolute -top-1 -right-1 grid size-[18px] animate-ticker place-items-center rounded-full bg-acid font-mono text-[10px] font-bold text-[#04140a]">
+              <span className="absolute -top-1 -right-1 grid size-[18px] animate-ticker place-items-center rounded-full bg-brand font-mono text-[10px] font-bold text-white">
                 {count}
               </span>
             )}
@@ -90,7 +90,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="grid size-10 place-items-center rounded-full border border-steel bg-carbon/70 text-mist backdrop-blur-md transition-colors hover:text-chalk active:scale-95 lg:hidden"
+            className="grid size-10 place-items-center rounded-full border border-line bg-surface-raised/70 text-body backdrop-blur-md transition-colors hover:text-ink active:scale-95 lg:hidden"
           >
             {menuOpen ? (
               <X className="size-[18px]" strokeWidth={1.8} />
@@ -104,20 +104,20 @@ export default function Navbar() {
       {/* Mobile sheet */}
       <div
         className={cn(
-          "glass-strong overflow-hidden border-b border-steel transition-[max-height,opacity] duration-500 lg:hidden",
+          "sticky-blur overflow-hidden border-b border-line transition-[max-height,opacity] duration-500 lg:hidden",
           menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
         )}
       >
         <ul className="shell flex flex-col py-3">
           {LINKS.map((l, i) => (
-            <li key={l.href} className="border-b border-steel/60 last:border-0">
+            <li key={l.href} className="border-b border-line/60 last:border-0">
               <a
                 href={l.href}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between py-3.5 text-[0.95rem] font-medium text-mist transition-colors hover:text-acid"
+                className="flex items-center justify-between py-3.5 text-[0.95rem] font-medium text-body transition-colors hover:text-brand"
               >
                 {l.label}
-                <span className="font-mono text-[10px] text-smoke">
+                <span className="font-mono text-[10px] text-subtle">
                   0{i + 1}
                 </span>
               </a>
@@ -127,7 +127,7 @@ export default function Navbar() {
             <a
               href="#collection"
               onClick={() => setMenuOpen(false)}
-              className="block rounded-full bg-acid py-3.5 text-center text-[0.85rem] font-semibold text-[#04140a]"
+              className="block rounded-full bg-brand py-3.5 text-center text-[0.85rem] font-semibold text-white"
             >
               Shop Collection
             </a>
