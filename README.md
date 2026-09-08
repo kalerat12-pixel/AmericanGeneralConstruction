@@ -30,6 +30,7 @@ npm run build && npm start
 | `npm run gen:blur` | Regenerates `lib/blur-data.ts` (next/image blur placeholders) |
 | `npm run gen:coa` | Rebuilds the placeholder certificate PDFs |
 | `npm run fetch:photos` | Downloads the real Unsplash photography — see [Images](#images) |
+| `npm run build:preview` | Folds the static export into one self-contained HTML file — see [Single-file preview](#single-file-preview) |
 | `npm run audit:a11y` | axe-core sweep over every route at 1440px and 375px |
 | `npm run audit:lighthouse` | Lighthouse accessibility / SEO / best-practices |
 | `npm run audit:keyboard` | Age-gate focus trap, tab order, cart flow, reduced motion |
@@ -177,6 +178,31 @@ sourced. The founder portrait at `/public/images/founder-portrait.jpg` is a
 designed placeholder — replace it with a real portrait at 3:4.
 
 ---
+
+## Single-file preview
+
+`scripts/build-preview.ts` folds the whole static export into one
+self-contained HTML file (`.preview/storefront.html`, ~2.4 MB) so the site can
+be opened or shared without a host. It lifts the real markup, CSS and copy out
+of `out/`, inlines the images as data URIs, and re-implements what React was
+doing at runtime — routing, cart, shop filters, the accordion, the age gate —
+in plain JS, because Next's chunks can't load from a single inlined file.
+
+It reads the static export, which this branch deliberately does not produce:
+`output: 'export'` plus `images.unoptimized: true` would turn off `next/image`
+optimization for the deployed site. To build one:
+
+```bash
+# temporarily add output:'export' and images.unoptimized:true to next.config.mjs
+npm run build
+npm run build:preview
+# then revert next.config.mjs
+```
+
+The result is a preview, not the app: `/shop` is rebuilt from the catalogue
+(Next bails that route out to client-side rendering because it uses
+`useSearchParams`, so the export ships only its Suspense fallback), the images
+are downscaled, and the COA PDFs are not bundled.
 
 ## Quality
 
