@@ -1,0 +1,756 @@
+/* =========================================================================
+   LIFTING4GAINS
+   Everything you'd want to rebrand lives in the :root block below.
+   Change a handful of values there and the whole site follows.
+   ========================================================================= */
+
+:root {
+  /* ---- COLOURS ---------------------------------------------------------
+     --accent is the one strong brand colour. If you swap it, pick something
+     bright: it carries black text on buttons, so it needs to stay light. */
+  --accent:        #D8FF00;   /* volt yellow-green                        */
+  --accent-dim:    #9DBA00;   /* quieter accent for outlines and rules    */
+  --accent-ink:    #0B0B0C;   /* text colour used ON the accent           */
+
+  --bg:            #0B0B0C;   /* page background                          */
+  --bg-alt:        #101013;   /* alternating section background           */
+  --surface:       #151518;   /* cards                                    */
+  --surface-hi:    #1C1C21;   /* raised / hovered cards                   */
+  --line:          #2A2A30;   /* hairlines and borders                    */
+
+  --text:          #F2F2EF;   /* body text        — 17.6:1 on --bg        */
+  --text-muted:    #A0A09B;   /* secondary text   —  7.3:1 on --bg        */
+
+  /* ---- TYPE ------------------------------------------------------------ */
+  --font-display: 'Anton', 'Arial Narrow', Haettenschweiler, Impact, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  --step-000: 0.6875rem;                                    /* 11px labels */
+  --step-00:  0.8125rem;                                    /* 13px small  */
+  --step-0:   1rem;                                         /* body        */
+  --step-1:   clamp(1.0625rem, 1.02rem + 0.22vw, 1.1875rem);/* lead        */
+  --step-2:   clamp(1.25rem,   1.16rem + 0.45vw, 1.5rem);   /* card title  */
+  --step-3:   clamp(2.25rem,   1.75rem + 2.5vw,  3.5rem);   /* section h2  */
+  --step-4:   clamp(3.25rem,   1.6rem  + 8.2vw,  7.5rem);   /* hero h1     */
+
+  /* ---- SPACING --------------------------------------------------------- */
+  --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem;
+  --space-4: 1rem;     --space-5: 1.5rem;  --space-6: 2rem;
+  --space-7: 3rem;     --space-8: 4rem;    --space-9: 6rem;
+
+  /* ---- SHAPE ----------------------------------------------------------- */
+  --radius:    2px;    /* deliberately sharp — this is a gym, not a bank */
+  --wrap:      1120px;
+  --header-h:  56px;
+}
+
+/* =========================================================================
+   BASE
+   ========================================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+p { margin: 0 0 var(--space-4); }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--text); }
+
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+.accent { color: var(--accent); }
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+/* Visible, high-contrast focus ring everywhere. */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: 0;
+  z-index: 100;
+  transform: translateY(-120%);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  padding: var(--space-3) var(--space-4);
+  text-decoration: none;
+}
+.skip-link:focus { transform: translateY(0); color: var(--accent-ink); }
+
+/* =========================================================================
+   HEADER
+   ========================================================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+@supports not (backdrop-filter: blur(10px)) {
+  .site-header { background: var(--bg); }
+}
+
+.header-inner {
+  min-height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.wordmark-mark { width: 26px; height: 26px; fill: var(--accent); flex: none; }
+.wordmark:hover { color: var(--text); }
+
+/* On narrow phones the barbell mark carries the brand on its own — the full
+   wordmark is right underneath it in the hero. It returns at 480px. */
+.wordmark-text { display: none; }
+
+.site-nav ul { display: flex; gap: var(--space-3); }
+.site-nav a {
+  display: flex;
+  align-items: center;
+  min-height: var(--header-h);
+  color: var(--text-muted);
+  font-size: var(--step-000);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--accent); }
+
+/* =========================================================================
+   BUTTONS
+   ========================================================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 52px;
+  padding: var(--space-3) var(--space-6);
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: var(--step-00);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { background: var(--text); border-color: var(--text); color: var(--accent-ink); }
+
+.btn-ghost { background: transparent; border-color: var(--line); color: var(--text); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn-block { display: flex; width: 100%; }
+
+.btn-icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.2; }
+
+/* =========================================================================
+   HERO
+   ========================================================================= */
+
+.hero {
+  position: relative;
+  padding-top: var(--space-8);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+/* Faint diagonal texture behind the hero — no photo needed. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0 34px,
+    color-mix(in srgb, var(--accent) 5%, transparent) 34px 44px
+  );
+  pointer-events: none;
+}
+
+.hero-inner { position: relative; padding-bottom: var(--space-8); }
+
+.hero-handle {
+  font-size: var(--step-00);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+.hero-handle a { text-decoration: none; }
+.hero-handle a::before { content: "\25B6"; margin-right: var(--space-2); font-size: 0.7em; }
+
+.hero-title {
+  font-size: var(--step-4);
+  line-height: 0.85;
+  letter-spacing: -0.005em;
+  margin-bottom: var(--space-5);
+  overflow-wrap: anywhere;
+}
+/* Stack it as a two-line lockup so the name never breaks mid-word. */
+.hero-title .accent { display: block; }
+
+.hero-tagline {
+  font-size: var(--step-1);
+  color: var(--text-muted);
+  max-width: 34ch;
+  margin-bottom: var(--space-6);
+}
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.hero-actions .btn { flex: 1 1 auto; min-width: 210px; }
+
+/* ---- Scrolling category strip ---- */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  background: var(--bg-alt);
+  padding-block: var(--space-3);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide 38s linear infinite;
+}
+.marquee span {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: var(--accent-dim);
+}
+@supports (-webkit-text-stroke: 1px red) {
+  .marquee span { color: transparent; -webkit-text-stroke: 1px var(--accent-dim); }
+}
+@keyframes marquee-slide { to { transform: translateX(-50%); } }
+
+/* =========================================================================
+   SECTIONS
+   ========================================================================= */
+
+.section {
+  padding-block: var(--space-8);
+  scroll-margin-top: var(--header-h);
+  border-bottom: 1px solid var(--line);
+}
+.section-alt { background: var(--bg-alt); }
+
+.eyebrow {
+  font-size: var(--step-000);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+
+.section-title {
+  font-size: var(--step-3);
+  margin-bottom: var(--space-5);
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 5px;
+  margin-top: var(--space-4);
+  background: var(--accent);
+}
+
+.section-lead {
+  font-size: var(--step-1);
+  color: var(--text-muted);
+  max-width: 56ch;
+  margin-bottom: var(--space-6);
+}
+
+/* =========================================================================
+   TODO MARKERS
+   Every spot that still needs your words is wrapped in class="todo".
+   When no dashed boxes are left on the page, you're finished.
+   Delete the class (and the data-todo attribute) as you fill each one in.
+   ========================================================================= */
+
+.todo {
+  display: block;
+  border: 1px dashed var(--accent-dim);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  padding: var(--space-4);
+  margin-block: var(--space-4);
+}
+span.todo { display: inline-block; margin-block: 0; padding: var(--space-2) var(--space-3); }
+
+/* The label sits in normal flow so long notes wrap instead of pushing the
+   layout sideways on a phone. */
+.todo::before {
+  content: attr(data-todo);
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: var(--step-000);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* =========================================================================
+   ABOUT
+   ========================================================================= */
+
+.about-grid { display: grid; gap: var(--space-7); }
+
+.facts {
+  margin-top: var(--space-6);
+  border-top: 1px solid var(--line);
+}
+.facts li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  justify-content: space-between;
+  align-items: baseline;
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--line);
+}
+.fact-key {
+  font-size: var(--step-000);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.fact-val { font-family: var(--font-display); font-size: var(--step-2); text-transform: uppercase; }
+
+.about-photo { margin: 0; }
+.about-photo img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* =========================================================================
+   VIDEOS
+   ========================================================================= */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.filter-btn {
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: var(--step-000);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.filter-btn:hover { color: var(--text); border-color: var(--text-muted); }
+.filter-btn[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.filter-status {
+  font-size: var(--step-00);
+  color: var(--text-muted);
+  margin-bottom: var(--space-5);
+  min-height: 1.4em;
+}
+
+.video-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(2, 1fr); }
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.video-card:hover { border-color: var(--accent-dim); background: var(--surface-hi); }
+.video-card[hidden] { display: none; }
+
+/* ---- click-to-load placeholder ---- */
+.video-trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  padding: 0;
+  border: 0;
+  background: var(--bg-alt);
+  cursor: pointer;
+  overflow: hidden;
+}
+.video-trigger::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    135deg,
+    transparent 0 22px,
+    color-mix(in srgb, var(--accent) 6%, transparent) 22px 30px
+  );
+}
+
+.video-cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.video-ghost {
+  position: absolute;
+  inset-inline: 0;
+  bottom: var(--space-5);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 7vw, 2.5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--accent-dim);
+  padding-inline: var(--space-4);
+  text-align: left;
+}
+@supports not (-webkit-text-stroke: 1px red) {
+  .video-ghost { color: var(--accent-dim); }
+}
+
+.video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 68px;
+  height: 68px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: scale 0.18s ease;
+}
+.video-play svg { width: 26px; height: 26px; fill: var(--accent-ink); margin-left: 3px; }
+.video-trigger:hover .video-play,
+.video-trigger:focus-visible .video-play { scale: 1.09; }
+
+.video-loading .video-play { opacity: 0.45; }
+
+/* ---- real embed goes here ---- */
+.video-embed {
+  min-height: 560px;
+  min-width: 0;
+  overflow-x: auto;
+  background: var(--bg-alt);
+}
+.video-embed .tiktok-embed { margin: 0 !important; max-width: 100% !important; }
+
+/* ---- card text ---- */
+.video-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-top: 1px solid var(--line);
+}
+.tag-chip {
+  font-size: var(--step-000);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius);
+  padding: 2px var(--space-2);
+}
+.video-caption { font-size: var(--step-00); line-height: 1.45; color: var(--text); margin: 0; }
+.video-link { font-size: var(--step-000); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.grid-note {
+  grid-column: 1 / -1;
+  padding: var(--space-5);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: var(--step-00);
+}
+.grid-note strong { color: var(--text); }
+.grid-note code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95em;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 1px 5px;
+}
+
+.videos-outro { margin-top: var(--space-6); }
+
+/* =========================================================================
+   PROGRAMS  (delete this block too if you delete the section)
+   ========================================================================= */
+
+.program-grid { display: grid; gap: var(--space-5); }
+
+.program-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.program-card-featured { border-color: var(--accent); background: var(--surface-hi); }
+
+.program-flag {
+  align-self: flex-start;
+  font-size: var(--step-000);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 3px var(--space-2);
+  margin: 0;
+}
+.program-name  { font-size: var(--step-2); }
+.program-price { font-family: var(--font-display); font-size: var(--step-3); line-height: 1; margin: 0; }
+.program-desc  { font-size: var(--step-00); color: var(--text-muted); margin: 0; }
+
+.program-points { display: grid; gap: var(--space-2); margin-block: var(--space-2); }
+.program-points li {
+  position: relative;
+  padding-left: var(--space-5);
+  font-size: var(--step-00);
+}
+.program-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 10px;
+  height: 2px;
+  background: var(--accent);
+}
+.program-points li.todo { padding-left: var(--space-4); }
+.program-points li.todo::before {
+  position: static;
+  width: auto;
+  height: auto;
+  background: none;
+}
+
+.program-card .btn { margin-top: auto; }
+
+/* =========================================================================
+   SIGNUP
+   ========================================================================= */
+
+.signup { max-width: 640px; }
+
+.signup-form {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.field { display: grid; gap: var(--space-2); }
+.field label {
+  font-size: var(--step-000);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.field input {
+  min-height: 52px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+}
+.field input::placeholder { color: #6E6E6A; }
+.field input:focus-visible { border-color: var(--accent); }
+
+/* Honeypot — hidden from people, still reachable by the bots that fall for it. */
+.hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.form-note { font-size: var(--step-000); color: var(--text-muted); margin: 0; }
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+
+.site-footer { padding-block: var(--space-7); }
+.footer-inner { display: grid; gap: var(--space-5); }
+
+.footer-word {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.footer-links { display: grid; gap: var(--space-3); }
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  font-size: var(--step-00);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+.footer-links a:hover { text-decoration: underline; }
+.social-icon { width: 18px; height: 18px; fill: currentColor; flex: none; }
+
+.copyright { font-size: var(--step-000); color: var(--text-muted); margin: 0; }
+
+/* =========================================================================
+   LARGER SCREENS
+   ========================================================================= */
+
+@media (min-width: 30em) {          /* 480px */
+  .wordmark-text { display: inline; }
+  .site-nav ul { gap: var(--space-4); }
+}
+
+@media (min-width: 40em) {          /* 640px */
+  .program-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-actions .btn { flex: 0 0 auto; }
+  .video-grid { gap: var(--space-5); }
+  .video-meta { gap: var(--space-3); padding: var(--space-4); }
+}
+
+@media (min-width: 56em) {          /* 896px */
+  :root { --header-h: 68px; }
+
+  .wrap { padding-inline: var(--space-6); }
+  .section { padding-block: var(--space-9); }
+  .hero { padding-top: var(--space-9); }
+  .hero-inner { padding-bottom: var(--space-9); }
+
+  .site-nav ul { gap: var(--space-6); }
+
+  .about-grid { grid-template-columns: 1.15fr 0.85fr; align-items: start; gap: var(--space-8); }
+  .about-photo { position: sticky; top: calc(var(--header-h) + var(--space-5)); }
+
+  .video-grid   { grid-template-columns: repeat(3, 1fr); }
+  .program-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .footer-inner {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-6);
+  }
+  .footer-links { grid-auto-flow: column; gap: var(--space-6); }
+  .copyright { grid-column: 1 / -1; padding-top: var(--space-5); border-top: 1px solid var(--line); }
+}
+
+/* =========================================================================
+   REDUCED MOTION
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Placeholder frame where a photo will go">
+  <defs>
+    <pattern id="stripes" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="56" height="56" fill="#111114"/>
+      <rect width="16" height="56" fill="#171719"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="1000" fill="url(#stripes)"/>
+  <rect x="10" y="10" width="780" height="980" fill="none" stroke="#D8FF00" stroke-width="6" stroke-dasharray="26 18"/>
+  <g fill="none" stroke="#D8FF00" stroke-width="14" stroke-linecap="round">
+    <rect x="300" y="430" width="200" height="150" rx="14"/>
+    <circle cx="400" cy="505" r="42"/>
+    <path d="M348 430l22-30h60l22 30"/>
+  </g>
+  <text x="400" y="672" text-anchor="middle" fill="#D8FF00"
+        font-family="Impact, 'Arial Narrow', Haettenschweiler, sans-serif"
+        font-size="46" letter-spacing="6">ADD YOUR PHOTO</text>
+  <text x="400" y="722" text-anchor="middle" fill="#8E8E8A"
+        font-family="system-ui, -apple-system, Segoe UI, sans-serif"
+        font-size="26" letter-spacing="1">assets/about.jpg</text>
+</svg>
