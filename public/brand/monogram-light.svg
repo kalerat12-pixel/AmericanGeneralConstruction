@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="l4g-title">
+  <title id="l4g-title">L4G — the Lifting4Gains monogram</title>
+  <g fill="none" stroke="#1C1A17" stroke-width="8" stroke-linecap="butt" stroke-linejoin="miter">
+    <!-- L -->
+    <path d="M71 161 V301 H133" />
+    <path d="M57 161 H85" />
+    <path d="M133 287 V301" />
+    <!-- 4 : the centrepiece -->
+    <path d="M245 161 L177 253 H287" />
+    <path d="M245 161 V301" />
+    <path d="M231 301 H259" />
+    <!-- G -->
+    <path d="M435.8 178.6 A62 74 0 1 0 435.8 283.4" />
+    <path d="M435.8 283.4 V241 H403" />
+  </g>
+  <!-- hairline champagne rule -->
+  <rect x="86" y="341" width="340" height="1.8" fill="#C9A961" />
+</svg>
