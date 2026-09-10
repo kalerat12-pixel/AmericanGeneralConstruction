@@ -26,7 +26,8 @@ npm run build && npm start
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run lint` | `next lint` |
 | `npm run gen:brand` | Rebuilds the logo lockups, favicon, apple-touch-icon and OG image |
-| `npm run gen:assets` | Rebuilds the generated stone/light plates and product images |
+| `npm run gen:assets` | Rebuilds the generated stone and scene plates |
+| `npm run gen:plates` | Rebuilds the product stills, including each peptide's backbone artwork |
 | `npm run gen:blur` | Regenerates `lib/blur-data.ts` (next/image blur placeholders) |
 | `npm run gen:coa` | Rebuilds the placeholder certificate PDFs |
 | `npm run fetch:photos` | Downloads the real Unsplash photography — see [Images](#images) |
@@ -178,6 +179,31 @@ sourced. The founder portrait at `/public/images/founder-portrait.jpg` is a
 designed placeholder — replace it with a real portrait at 3:4.
 
 ---
+
+## Product imagery
+
+`scripts/generate-product-plates.ts` renders the two frames per product. Each
+is a vial on a lit studio sweep with **that peptide's own backbone drawn faintly
+behind it** — parsed by `scripts/peptide-chain.ts` from the `Sequence` field in
+`data/products.ts`, so the artwork behind BPC-157 is BPC-157's chemistry.
+
+The chain renderer draws real primary structure: the N–Cα–C(=O) backbone as a
+skeletal zig-zag, side chains branching from each alpha carbon with their
+terminal groups labelled, proline closing its pyrrolidine ring back onto the
+amide nitrogen, terminal modifiers (`Ac-`, `Hexenoyl-`, `-NH2`) drawn where the
+sequence carries them, and a coordinating metal on a dashed dative bond for
+GHK-Cu. Long sequences wrap and truncate with an ellipsis at 18 residues.
+
+Two details follow the data rather than a style choice: glass is amber except
+where `Appearance` names a colour, so GHK-Cu gets flint and its deep blue
+copper-complex cake reads; and the cake colour itself comes from that same
+field.
+
+Change a sequence in `data/products.ts` and re-run `npm run gen:plates` — the
+artwork follows. Add a product and it gets its own chain automatically.
+
+**These are illustrations, not photographs of stock you hold.** See the note in
+[CREDITS.md](./CREDITS.md) before selling to the public.
 
 ## Single-file preview
 

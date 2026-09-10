@@ -17,7 +17,8 @@
     "audit:keyboard": "node scripts/audit/keyboard.mjs",
     "audit:lighthouse": "node scripts/audit/lighthouse.mjs",
     "audit:shots": "node scripts/audit/screenshots.mjs",
-    "build:preview": "tsx scripts/build-preview.ts"
+    "build:preview": "tsx scripts/build-preview.ts",
+    "gen:plates": "tsx scripts/generate-product-plates.ts"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",

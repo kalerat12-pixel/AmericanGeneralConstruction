@@ -58,8 +58,21 @@ appreciated but not required. This file provides that attribution.
 | File | Origin |
 | --- | --- |
 | `images/founder-portrait.jpg` | **Placeholder.** A generated portrait-orientation linen-and-light plate marking the founder photo slot on `/about`. Replace with a real portrait at 3:4, ~1200×1600. |
-| `images/<slug>-01.jpg`, `images/<slug>-02.jpg` | **Generated product plates.** A vector vial composited over a generated stone plate, drawn by `scripts/generate-assets.ts`. Replace with product photography at 4:5, ~1200×1500. Keep two frames per product — the second is the card's hover swap. |
+| `images/<slug>-01.jpg`, `images/<slug>-02.jpg` | **Rendered product stills**, drawn by `scripts/generate-product-plates.ts`. Each is a vial on a lit studio sweep with that product's own peptide backbone faint behind it, parsed from its `Sequence` field. Amber glass throughout except where the powder itself is coloured — GHK-Cu gets flint so its blue cake reads. **These are illustrations, not photographs of stock you hold**; see the note below. Replace with real product photography at 4:5, ~1200×1500, keeping two frames per product (the second is the card's hover swap). |
 | `brand/*.svg`, `brand/og-default.png`, `app/favicon.ico`, `app/icon.png`, `app/apple-icon.png` | **Original brand assets**, drawn by `scripts/generate-brand.ts`. |
+
+## A note on the product images
+
+The vials on this site are **rendered, not photographed**. They depict a
+generic amber crimp-sealed vial carrying a Lifting4Gains label — not
+photographs of the stock you ship.
+
+Before this site sells to the public, replace them with photographs of the
+actual vials customers receive. Product images that do not depict the product
+being sold are a consumer-protection problem in most jurisdictions, and in the
+US the FTC treats a materially inaccurate product depiction as a deceptive
+representation regardless of intent. The chain artwork behind each vial is
+accurate to the peptide and can stay.
 
 ## Typefaces
 
