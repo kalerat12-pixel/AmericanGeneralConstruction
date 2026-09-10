@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light surface (default) — warm alabaster, never cold grey-white */
+    --ink: 34 12% 10%;        /* charcoal #1C1A17 */
+    --muted: 34 8% 38%;
+    --surface: 38 33% 95%;    /* alabaster #F7F4EF */
+    --rule: 41 47% 59%;       /* champagne #C9A961 — hairlines and borders */
+    --gold-text: #7A5F1C;     /* 5.5:1 on alabaster, 4.9:1 on bone */
+  }
+
+  /* Dark sections opt in with .on-dark rather than a global theme switch */
+  .on-dark {
+    --ink: 38 33% 95%;
+    --muted: 38 12% 72%;
+    --surface: 213 21% 10%;   /* midnight #14181F */
+    --rule: 41 47% 59%;
+    --gold-text: #C9A961;     /* 7.9:1 on midnight */
+  }
+
+  * {
+    @apply border-rule/20;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-alabaster text-charcoal font-sans antialiased;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Serif display is always light — never bold, never italic */
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    /* Cormorant defaults to old-style figures, which turn "TB-500" into
+       "TB-5oo" and shrink the 4 in the wordmark. Catalogue names need
+       unambiguous cap-height numerals. */
+    font-variant-numeric: lining-nums;
+    font-feature-settings: 'lnum' 1;
+  }
+
+  ::selection {
+    background-color: #C9A961;
+    color: #1C1A17;
+  }
+
+  :focus-visible {
+    outline: 2px solid #C9A961;
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  /* Respect reduced-motion: no parallax, no fade-up travel */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* ---- Eyebrow: small caps, wide tracking, champagne ---- */
+  .eyebrow {
+    @apply font-sans text-eyebrow uppercase tracking-eyebrow;
+    font-weight: 500;
+    color: var(--gold-text);
+  }
+
+  .eyebrow-muted {
+    @apply font-sans text-eyebrow uppercase tracking-eyebrow;
+    font-weight: 500;
+    color: hsl(var(--ink) / 0.7);
+  }
+
+  /* Champagne as *text*: resolves to the deep cut on light grounds and the
+     full #C9A961 inside .on-dark, so both clear 4.5:1. */
+  .text-gold {
+    color: var(--gold-text);
+  }
+
+  .hover-gold {
+    transition: color 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .hover-gold:hover,
+  .hover-gold:focus-visible {
+    color: var(--gold-text);
+  }
+
+  /* ---- Hairline champagne rule used as a divider ---- */
+  .rule-hairline {
+    @apply block h-px w-full border-0;
+    background-color: rgba(201, 169, 97, 0.32);
+  }
+
+  .rule-hairline-strong {
+    @apply block h-px w-full border-0;
+    background-color: rgba(201, 169, 97, 0.55);
+  }
+
+  /* ---- Section rhythm ---- */
+  .section {
+    @apply py-20 md:py-28 lg:py-section;
+  }
+
+  .section-lg {
+    @apply py-24 md:py-32 lg:py-section-lg;
+  }
+
+  .container-content {
+    @apply mx-auto w-full max-w-content px-6 md:px-10 lg:px-14;
+  }
+
+  /* ---- Marble texture layer: felt, not seen ---- */
+  .texture-marble {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .texture-marble::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('/textures/carrara-marble.jpg');
+    background-size: 1500px auto;
+    background-position: center;
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
+  .texture-travertine::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('/textures/travertine.jpg');
+    background-size: 1200px auto;
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
+  .texture-linen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('/textures/linen.jpg');
+    background-size: 520px auto;
+    opacity: 0.11;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
+  /* On dark grounds the texture lifts instead of darkening */
+  .on-dark.texture-marble::before,
+  .on-dark .texture-marble::before {
+    mix-blend-mode: soft-light;
+    opacity: 0.13;
+  }
+
+  /* ---- Wordmark ---- */
+  .wordmark {
+    @apply font-display uppercase;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    font-variant-numeric: lining-nums;
+    font-feature-settings: 'lnum' 1;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Hide scrollbar on horizontal rails without losing keyboard scrolling */
+  .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
