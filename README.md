@@ -20,3 +20,12 @@ This repo is set up to be served directly from the `main` branch root via GitHub
 - Phone: (260) 223-0548
 - Address: 498 W 50 S, Monroe, IN 46772
 - Hours: Mon–Fri 7 AM–5 PM, closed weekends
+
+---
+
+## Also in this repo
+
+`lifting4gains/` — a separate Next.js e-commerce app (Lifting4Gains, a Ghost
+Energy storefront). It is unrelated to this construction site and is not served
+by GitHub Pages; see [`lifting4gains/README.md`](lifting4gains/README.md) to run
+or deploy it.
