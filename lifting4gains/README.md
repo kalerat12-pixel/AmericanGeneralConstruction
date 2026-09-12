@@ -32,6 +32,21 @@ npm run check:a11y  # axe-core (WCAG 2.1 AA) across all 15 routes
 npm run check:e2e   # cart, subscribe-and-save, bundle pricing, checkout, forms
 ```
 
+### Shareable static preview
+
+```bash
+npm run preview     # writes preview.html — one self-contained file
+```
+
+Generates a single browsable HTML file covering home, shop, a product page, the
+rankings, the pack builder and wholesale, with the filters, pack pricing and
+bundle builder working client-side. Built from the same catalog the app reads,
+so it can't drift from the site.
+
+It's for sending the design to someone who can't run the app — checkout and the
+forms need the server, and the page says so. Regenerate it after any design or
+catalog change.
+
 Both check scripts need the app running (`npm run build && npm start`) and use
 the Chromium that Playwright already has installed.
 
@@ -242,6 +257,7 @@ supabase/
 scripts/
   generate-art.ts          all imagery
   generate-seed-sql.ts     TypeScript catalog → SQL
+  build-preview.ts         one-file shareable preview (+ preview.css/.js)
   checks/                  a11y and e2e suites
 ```
 

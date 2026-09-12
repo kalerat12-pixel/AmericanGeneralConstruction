@@ -4,7 +4,15 @@ import next from "eslint-config-next";
 const config = [
   ...next,
   {
-    ignores: [".next/**", "node_modules/**", "public/**", "scripts/checks/**"],
+    // scripts/checks are Playwright runners; scripts/preview.js is a raw
+    // browser asset inlined into the generated preview, not module source.
+    ignores: [
+      ".next/**",
+      "node_modules/**",
+      "public/**",
+      "scripts/checks/**",
+      "scripts/preview.js",
+    ],
   },
 ];
 

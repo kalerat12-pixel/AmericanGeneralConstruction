@@ -14,7 +14,8 @@
     "check:a11y": "node scripts/checks/a11y.mjs",
     "check:e2e": "node scripts/checks/e2e.mjs",
     "check": "npm run typecheck && npm run lint && npm run build",
-    "setup": "npm install && npm run art && npm run db:seed-sql"
+    "setup": "npm install && npm run art && npm run db:seed-sql",
+    "preview": "tsx scripts/build-preview.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.116.0",
