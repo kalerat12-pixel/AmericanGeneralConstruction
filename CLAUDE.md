@@ -11,7 +11,8 @@ something turns out to be a dead end, add it here in the same commit.
 
 ## What's in this repo
 
-Two unrelated projects share one repository:
+Two unrelated projects are associated with this repository, on different
+branches:
 
 1. **American General Construction** (repo root) — static marketing site,
    served by GitHub Pages from `main` at `/root`.
@@ -19,10 +20,13 @@ Two unrelated projects share one repository:
      `styles.css`)
    - `api/quote.js` — Vercel serverless function, **dead on GitHub Pages.**
      Kept only in case the site moves to a host that runs server functions.
-2. **Lifting4Gains** (`lifting4gains/`) — Next.js 16 App Router + TypeScript +
-   Tailwind v4 + Supabase + Stripe. A Ghost Energy storefront. Not served by
-   Pages. See `lifting4gains/README.md` to run it and
-   `lifting4gains/DESIGN_NOTES.md` for the design rationale.
+2. **Lifting4Gains** — a Next.js 16 Ghost Energy storefront (App Router,
+   TypeScript, Tailwind v4, Supabase, Stripe). **Not on `main`.** It lives on
+   the branch `claude/wizardly-albattani-83sfjw`; PR #3 that would have merged
+   it was reverted (see `revert-3-claude/bold-feynman-odto9e`). Treat that as
+   deliberate and do not merge it into `main` without asking. When checked out,
+   see `lifting4gains/README.md` to run it and `lifting4gains/DESIGN_NOTES.md`
+   for the design rationale.
 
 ## Business facts — American General Construction
 
@@ -78,6 +82,10 @@ prompt, not a gate. To review or disable it, use `/hooks`.
 
 Newest first. One or two lines per session: what changed and why.
 
+- **2026-09-14** — Discovered `main` never carried Lifting4Gains: PR #3 was
+  reverted. The user confirmed they did not want it merged. Memory files were
+  therefore split onto their own branch off `main` rather than riding along
+  with the Lifting4Gains lineage.
 - **2026-09-14** — Added the Stop hook above, at the user's request that memory
   be updated at the end of every session. Also confirmed `CLAUDE_PROJECT_DIR` is
   not always set, so the hook command falls back to a relative path.
