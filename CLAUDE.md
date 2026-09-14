@@ -52,14 +52,35 @@ source.
 
 ## Working preferences
 
+- **Update this file at the end of every session.** The user asked for Claude to
+  keep memory of what they do and say across sessions — this file is that
+  memory. Append to the session log, and fold anything durable (a decision, a
+  correction, a stated preference, a fact about the business) into the section
+  where it belongs, so future sessions start smarter instead of re-asking.
 - Work happens on `claude/*` branches, never directly on `main`.
-- (Add preferences here as they come up — tone, review style, what to ask about
-  vs. just do.)
+- Prefer being told the honest limitation over a confident guess.
+
+## How this file stays current
+
+A Stop hook enforces the habit, because "remember to do it" is not a mechanism:
+
+- `.claude/settings.json` registers `.claude/hooks/session-log-reminder.sh` on
+  the `Stop` event.
+- When a turn ends with unpushed work that does **not** include `CLAUDE.md`, the
+  hook blocks and prints a reminder to write the log, then commit and push.
+- It stays silent when nothing changed, when `CLAUDE.md` is already part of the
+  change, and on the reminder's own follow-up turn (no loops).
+
+If the reminder is ever wrong for a given session, say so and stop — it is a
+prompt, not a gate. To review or disable it, use `/hooks`.
 
 ## Session log
 
 Newest first. One or two lines per session: what changed and why.
 
+- **2026-09-14** — Added the Stop hook above, at the user's request that memory
+  be updated at the end of every session. Also confirmed `CLAUDE_PROJECT_DIR` is
+  not always set, so the hook command falls back to a relative path.
 - **2026-09-14** — Set up this file. No prior session memory existed; explained
   that Claude Code web sessions start from a fresh container each time and only
   repo contents persist.
