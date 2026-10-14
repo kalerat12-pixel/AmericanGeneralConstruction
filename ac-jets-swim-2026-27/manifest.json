@@ -1,551 +1,5 @@
 [
  {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "tee-chest",
-  "title": "Tee - left chest",
-  "garment": "black",
-  "svg": "squadron/svg/squadron_tee-chest_on-black.svg",
-  "png": "squadron/png/squadron_tee-chest_on-black.png",
-  "width_in": 3.29,
-  "height_in": 1.18,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "white",
-    "name": "White",
-    "hex": "#FFFFFF",
-    "pms": "Bright white (low-bleed on dark garments)"
-   }
-  ],
-  "placement": "Left chest, top of art ~3 in below the collar seam"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "tee-chest",
-  "title": "Tee - left chest",
-  "garment": "white",
-  "svg": "squadron/svg/squadron_tee-chest_on-white.svg",
-  "png": "squadron/png/squadron_tee-chest_on-white.png",
-  "width_in": 3.29,
-  "height_in": 1.18,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   }
-  ],
-  "placement": "Left chest, top of art ~3 in below the collar seam"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "tee-chest",
-  "title": "Tee - left chest",
-  "garment": "heather",
-  "svg": "squadron/svg/squadron_tee-chest_on-heather.svg",
-  "png": "squadron/png/squadron_tee-chest_on-heather.png",
-  "width_in": 3.29,
-  "height_in": 1.18,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   }
-  ],
-  "placement": "Left chest, top of art ~3 in below the collar seam"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "tee-back",
-  "title": "Tee - full back",
-  "garment": "black",
-  "svg": "squadron/svg/squadron_tee-back_on-black.svg",
-  "png": "squadron/png/squadron_tee-back_on-black.png",
-  "width_in": 9.0,
-  "height_in": 13.21,
-  "inks": [
-   {
-    "key": "white",
-    "name": "White",
-    "hex": "#FFFFFF",
-    "pms": "Bright white (low-bleed on dark garments)"
-   },
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   }
-  ],
-  "placement": "Centered on back, top of art 3-4 in below the collar seam"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "tee-back",
-  "title": "Tee - full back",
-  "garment": "white",
-  "svg": "squadron/svg/squadron_tee-back_on-white.svg",
-  "png": "squadron/png/squadron_tee-back_on-white.png",
-  "width_in": 9.0,
-  "height_in": 13.21,
-  "inks": [
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   },
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   }
-  ],
-  "placement": "Centered on back, top of art 3-4 in below the collar seam"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "tee-back",
-  "title": "Tee - full back",
-  "garment": "heather",
-  "svg": "squadron/svg/squadron_tee-back_on-heather.svg",
-  "png": "squadron/png/squadron_tee-back_on-heather.png",
-  "width_in": 9.0,
-  "height_in": 13.21,
-  "inks": [
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   },
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   }
-  ],
-  "placement": "Centered on back, top of art 3-4 in below the collar seam"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "hoodie-front",
-  "title": "Hoodie - front",
-  "garment": "black",
-  "svg": "squadron/svg/squadron_hoodie-front_on-black.svg",
-  "png": "squadron/png/squadron_hoodie-front_on-black.png",
-  "width_in": 10.5,
-  "height_in": 5.59,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "white",
-    "name": "White",
-    "hex": "#FFFFFF",
-    "pms": "Bright white (low-bleed on dark garments)"
-   }
-  ],
-  "placement": "Centered on chest, top of art ~3 in below the neckline; clears the pouch pocket"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "hoodie-front",
-  "title": "Hoodie - front",
-  "garment": "white",
-  "svg": "squadron/svg/squadron_hoodie-front_on-white.svg",
-  "png": "squadron/png/squadron_hoodie-front_on-white.png",
-  "width_in": 10.5,
-  "height_in": 5.59,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   }
-  ],
-  "placement": "Centered on chest, top of art ~3 in below the neckline; clears the pouch pocket"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "hoodie-front",
-  "title": "Hoodie - front",
-  "garment": "heather",
-  "svg": "squadron/svg/squadron_hoodie-front_on-heather.svg",
-  "png": "squadron/png/squadron_hoodie-front_on-heather.png",
-  "width_in": 10.5,
-  "height_in": 5.59,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   }
-  ],
-  "placement": "Centered on chest, top of art ~3 in below the neckline; clears the pouch pocket"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "hoodie-sleeve",
-  "title": "Hoodie - left sleeve",
-  "garment": "black",
-  "svg": "squadron/svg/squadron_hoodie-sleeve_on-black.svg",
-  "png": "squadron/png/squadron_hoodie-sleeve_on-black.png",
-  "width_in": 1.01,
-  "height_in": 10.88,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "white",
-    "name": "White",
-    "hex": "#FFFFFF",
-    "pms": "Bright white (low-bleed on dark garments)"
-   }
-  ],
-  "placement": "Left sleeve, running down from ~3 in below the shoulder seam, reading top to bottom"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "hoodie-sleeve",
-  "title": "Hoodie - left sleeve",
-  "garment": "white",
-  "svg": "squadron/svg/squadron_hoodie-sleeve_on-white.svg",
-  "png": "squadron/png/squadron_hoodie-sleeve_on-white.png",
-  "width_in": 1.01,
-  "height_in": 10.88,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   }
-  ],
-  "placement": "Left sleeve, running down from ~3 in below the shoulder seam, reading top to bottom"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "hoodie-sleeve",
-  "title": "Hoodie - left sleeve",
-  "garment": "heather",
-  "svg": "squadron/svg/squadron_hoodie-sleeve_on-heather.svg",
-  "png": "squadron/png/squadron_hoodie-sleeve_on-heather.png",
-  "width_in": 1.01,
-  "height_in": 10.88,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   }
-  ],
-  "placement": "Left sleeve, running down from ~3 in below the shoulder seam, reading top to bottom"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "crew-front",
-  "title": "Crewneck - front",
-  "garment": "black",
-  "svg": "squadron/svg/squadron_crew-front_on-black.svg",
-  "png": "squadron/png/squadron_crew-front_on-black.png",
-  "width_in": 10.0,
-  "height_in": 6.84,
-  "inks": [
-   {
-    "key": "white",
-    "name": "White",
-    "hex": "#FFFFFF",
-    "pms": "Bright white (low-bleed on dark garments)"
-   },
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   }
-  ],
-  "placement": "Centered on chest, top of arch ~3 in below the collar"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "crew-front",
-  "title": "Crewneck - front",
-  "garment": "white",
-  "svg": "squadron/svg/squadron_crew-front_on-white.svg",
-  "png": "squadron/png/squadron_crew-front_on-white.png",
-  "width_in": 10.0,
-  "height_in": 6.84,
-  "inks": [
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   },
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   }
-  ],
-  "placement": "Centered on chest, top of arch ~3 in below the collar"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "crew-front",
-  "title": "Crewneck - front",
-  "garment": "heather",
-  "svg": "squadron/svg/squadron_crew-front_on-heather.svg",
-  "png": "squadron/png/squadron_crew-front_on-heather.png",
-  "width_in": 10.0,
-  "height_in": 6.84,
-  "inks": [
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   },
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   }
-  ],
-  "placement": "Centered on chest, top of arch ~3 in below the collar"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "sweats-hip",
-  "title": "Sweatpants - hip",
-  "garment": "black",
-  "svg": "squadron/svg/squadron_sweats-hip_on-black.svg",
-  "png": "squadron/png/squadron_sweats-hip_on-black.png",
-  "width_in": 1.6,
-  "height_in": 2.69,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "white",
-    "name": "White",
-    "hex": "#FFFFFF",
-    "pms": "Bright white (low-bleed on dark garments)"
-   }
-  ],
-  "placement": "Left front thigh/hip, ~3 in below the waistband, centered on the leg"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "sweats-hip",
-  "title": "Sweatpants - hip",
-  "garment": "white",
-  "svg": "squadron/svg/squadron_sweats-hip_on-white.svg",
-  "png": "squadron/png/squadron_sweats-hip_on-white.png",
-  "width_in": 1.6,
-  "height_in": 2.69,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   }
-  ],
-  "placement": "Left front thigh/hip, ~3 in below the waistband, centered on the leg"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "sweats-hip",
-  "title": "Sweatpants - hip",
-  "garment": "heather",
-  "svg": "squadron/svg/squadron_sweats-hip_on-heather.svg",
-  "png": "squadron/png/squadron_sweats-hip_on-heather.png",
-  "width_in": 1.6,
-  "height_in": 2.69,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   }
-  ],
-  "placement": "Left front thigh/hip, ~3 in below the waistband, centered on the leg"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "sweats-leg",
-  "title": "Sweatpants - leg side",
-  "garment": "black",
-  "svg": "squadron/svg/squadron_sweats-leg_on-black.svg",
-  "png": "squadron/png/squadron_sweats-leg_on-black.png",
-  "width_in": 0.82,
-  "height_in": 11.53,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "white",
-    "name": "White",
-    "hex": "#FFFFFF",
-    "pms": "Bright white (low-bleed on dark garments)"
-   }
-  ],
-  "placement": "Right leg, outer side seam, starting ~4 in below the waistband, reading top to bottom"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "sweats-leg",
-  "title": "Sweatpants - leg side",
-  "garment": "white",
-  "svg": "squadron/svg/squadron_sweats-leg_on-white.svg",
-  "png": "squadron/png/squadron_sweats-leg_on-white.png",
-  "width_in": 0.82,
-  "height_in": 11.53,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   }
-  ],
-  "placement": "Right leg, outer side seam, starting ~4 in below the waistband, reading top to bottom"
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "sweats-leg",
-  "title": "Sweatpants - leg side",
-  "garment": "heather",
-  "svg": "squadron/svg/squadron_sweats-leg_on-heather.svg",
-  "png": "squadron/png/squadron_sweats-leg_on-heather.png",
-  "width_in": 0.82,
-  "height_in": 11.53,
-  "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   }
-  ],
-  "placement": "Right leg, outer side seam, starting ~4 in below the waistband, reading top to bottom"
- },
- {
   "concept": "lane-four",
   "concept_name": "Lane Four",
   "art": "tee-chest",
@@ -1600,5 +1054,551 @@
    }
   ],
   "placement": "Right leg, outer side seam, starting ~4 in below the waistband, reading top to bottom"
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "tee-chest",
+  "title": "Tee - left chest",
+  "garment": "black",
+  "svg": "squadron/svg/squadron_tee-chest_on-black.svg",
+  "png": "squadron/png/squadron_tee-chest_on-black.png",
+  "width_in": 3.1,
+  "height_in": 0.98,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
+   }
+  ],
+  "placement": "Left chest. Top of art ~3 in below the collar seam, centred ~4 in left of centre front."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "tee-chest",
+  "title": "Tee - left chest",
+  "garment": "white",
+  "svg": "squadron/svg/squadron_tee-chest_on-white.svg",
+  "png": "squadron/png/squadron_tee-chest_on-white.png",
+  "width_in": 3.1,
+  "height_in": 0.98,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   }
+  ],
+  "placement": "Left chest. Top of art ~3 in below the collar seam, centred ~4 in left of centre front."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "tee-chest",
+  "title": "Tee - left chest",
+  "garment": "heather",
+  "svg": "squadron/svg/squadron_tee-chest_on-heather.svg",
+  "png": "squadron/png/squadron_tee-chest_on-heather.png",
+  "width_in": 3.1,
+  "height_in": 0.98,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   }
+  ],
+  "placement": "Left chest. Top of art ~3 in below the collar seam, centred ~4 in left of centre front."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "tee-back",
+  "title": "Tee - full back",
+  "garment": "black",
+  "svg": "squadron/svg/squadron_tee-back_on-black.svg",
+  "png": "squadron/png/squadron_tee-back_on-black.png",
+  "width_in": 9.01,
+  "height_in": 13.27,
+  "inks": [
+   {
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the back. Top of art 3-4 in below the collar seam."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "tee-back",
+  "title": "Tee - full back",
+  "garment": "white",
+  "svg": "squadron/svg/squadron_tee-back_on-white.svg",
+  "png": "squadron/png/squadron_tee-back_on-white.png",
+  "width_in": 9.01,
+  "height_in": 13.27,
+  "inks": [
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the back. Top of art 3-4 in below the collar seam."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "tee-back",
+  "title": "Tee - full back",
+  "garment": "heather",
+  "svg": "squadron/svg/squadron_tee-back_on-heather.svg",
+  "png": "squadron/png/squadron_tee-back_on-heather.png",
+  "width_in": 9.01,
+  "height_in": 13.27,
+  "inks": [
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the back. Top of art 3-4 in below the collar seam."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "hoodie-front",
+  "title": "Hoodie - front",
+  "garment": "black",
+  "svg": "squadron/svg/squadron_hoodie-front_on-black.svg",
+  "png": "squadron/png/squadron_hoodie-front_on-black.png",
+  "width_in": 9.05,
+  "height_in": 5.48,
+  "inks": [
+   {
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the chest, top of art ~3 in below the neckline. Clears the pouch pocket."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "hoodie-front",
+  "title": "Hoodie - front",
+  "garment": "white",
+  "svg": "squadron/svg/squadron_hoodie-front_on-white.svg",
+  "png": "squadron/png/squadron_hoodie-front_on-white.png",
+  "width_in": 9.05,
+  "height_in": 5.48,
+  "inks": [
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the chest, top of art ~3 in below the neckline. Clears the pouch pocket."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "hoodie-front",
+  "title": "Hoodie - front",
+  "garment": "heather",
+  "svg": "squadron/svg/squadron_hoodie-front_on-heather.svg",
+  "png": "squadron/png/squadron_hoodie-front_on-heather.png",
+  "width_in": 9.05,
+  "height_in": 5.48,
+  "inks": [
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the chest, top of art ~3 in below the neckline. Clears the pouch pocket."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "hoodie-sleeve",
+  "title": "Hoodie - left sleeve",
+  "garment": "black",
+  "svg": "squadron/svg/squadron_hoodie-sleeve_on-black.svg",
+  "png": "squadron/png/squadron_hoodie-sleeve_on-black.png",
+  "width_in": 0.9,
+  "height_in": 10.75,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
+   }
+  ],
+  "placement": "Left sleeve centre line, flash ~3 in below the shoulder seam; the text reads from the cuff toward the jet."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "hoodie-sleeve",
+  "title": "Hoodie - left sleeve",
+  "garment": "white",
+  "svg": "squadron/svg/squadron_hoodie-sleeve_on-white.svg",
+  "png": "squadron/png/squadron_hoodie-sleeve_on-white.png",
+  "width_in": 0.9,
+  "height_in": 10.75,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   }
+  ],
+  "placement": "Left sleeve centre line, flash ~3 in below the shoulder seam; the text reads from the cuff toward the jet."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "hoodie-sleeve",
+  "title": "Hoodie - left sleeve",
+  "garment": "heather",
+  "svg": "squadron/svg/squadron_hoodie-sleeve_on-heather.svg",
+  "png": "squadron/png/squadron_hoodie-sleeve_on-heather.png",
+  "width_in": 0.9,
+  "height_in": 10.75,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   }
+  ],
+  "placement": "Left sleeve centre line, flash ~3 in below the shoulder seam; the text reads from the cuff toward the jet."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "crew-front",
+  "title": "Crewneck - front",
+  "garment": "black",
+  "svg": "squadron/svg/squadron_crew-front_on-black.svg",
+  "png": "squadron/png/squadron_crew-front_on-black.png",
+  "width_in": 9.85,
+  "height_in": 5.43,
+  "inks": [
+   {
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the chest, top of the arch ~3 in below the collar."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "crew-front",
+  "title": "Crewneck - front",
+  "garment": "white",
+  "svg": "squadron/svg/squadron_crew-front_on-white.svg",
+  "png": "squadron/png/squadron_crew-front_on-white.png",
+  "width_in": 9.85,
+  "height_in": 5.43,
+  "inks": [
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the chest, top of the arch ~3 in below the collar."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "crew-front",
+  "title": "Crewneck - front",
+  "garment": "heather",
+  "svg": "squadron/svg/squadron_crew-front_on-heather.svg",
+  "png": "squadron/png/squadron_crew-front_on-heather.png",
+  "width_in": 9.85,
+  "height_in": 5.43,
+  "inks": [
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the chest, top of the arch ~3 in below the collar."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "sweats-hip",
+  "title": "Sweatpants - hip",
+  "garment": "black",
+  "svg": "squadron/svg/squadron_sweats-hip_on-black.svg",
+  "png": "squadron/png/squadron_sweats-hip_on-black.png",
+  "width_in": 1.51,
+  "height_in": 2.59,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
+   }
+  ],
+  "placement": "Wearer's left front thigh/hip, ~3 in below the waistband."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "sweats-hip",
+  "title": "Sweatpants - hip",
+  "garment": "white",
+  "svg": "squadron/svg/squadron_sweats-hip_on-white.svg",
+  "png": "squadron/png/squadron_sweats-hip_on-white.png",
+  "width_in": 1.51,
+  "height_in": 2.59,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   }
+  ],
+  "placement": "Wearer's left front thigh/hip, ~3 in below the waistband."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "sweats-hip",
+  "title": "Sweatpants - hip",
+  "garment": "heather",
+  "svg": "squadron/svg/squadron_sweats-hip_on-heather.svg",
+  "png": "squadron/png/squadron_sweats-hip_on-heather.png",
+  "width_in": 1.51,
+  "height_in": 2.59,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   }
+  ],
+  "placement": "Wearer's left front thigh/hip, ~3 in below the waistband."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "sweats-leg",
+  "title": "Sweatpants - leg side",
+  "garment": "black",
+  "svg": "squadron/svg/squadron_sweats-leg_on-black.svg",
+  "png": "squadron/png/squadron_sweats-leg_on-black.png",
+  "width_in": 0.78,
+  "height_in": 11.51,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
+   }
+  ],
+  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading hem to waist."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "sweats-leg",
+  "title": "Sweatpants - leg side",
+  "garment": "white",
+  "svg": "squadron/svg/squadron_sweats-leg_on-white.svg",
+  "png": "squadron/png/squadron_sweats-leg_on-white.png",
+  "width_in": 0.78,
+  "height_in": 11.51,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   }
+  ],
+  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading hem to waist."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "sweats-leg",
+  "title": "Sweatpants - leg side",
+  "garment": "heather",
+  "svg": "squadron/svg/squadron_sweats-leg_on-heather.svg",
+  "png": "squadron/png/squadron_sweats-leg_on-heather.png",
+  "width_in": 0.78,
+  "height_in": 11.51,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   }
+  ],
+  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading hem to waist."
  }
 ]

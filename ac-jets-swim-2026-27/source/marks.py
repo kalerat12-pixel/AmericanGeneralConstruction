@@ -123,3 +123,59 @@ def jet_v2(length=200.0, cx=0.0, cy=0.0, detail="auto", canopy=True, min_line=3.
         "scale": s,
     }
     return body, info
+
+
+# ---------------------------------------------------------------- Squadron v3 mark
+# Right half of the planform in span units (U): span S = 100U, nose at (0, 0), y aft.
+# Angle family: 12.2 deg nose chine, 25.3 deg strake, 45 deg wing / tail chamfer / V notch, 90 deg.
+# The W tail = wingtip trailing corners, a 45 deg step in, two square tail feet and a 90 deg centre V.
+JET_R = [(0, 0), (6.5, 30), (15, 48), (50, 83), (50, 92), (20, 92), (12, 100),
+         (12, 110), (6, 110), (0, 104)]
+JET_LEN = 110.0      # nose to tail feet, in U
+
+
+def jet_master(span_in):
+    """Size master picked from the printed wingspan (inches), never by hand."""
+    if span_in >= 2.5:
+        return "L"      # canopy + stencil spine
+    if span_in >= 1.25:
+        return "M"      # canopy only
+    if span_in >= 0.75:
+        return "S"      # solid with the V notch
+    if span_in >= 0.45:
+        return "XS"     # solid, notch closed
+    raise ValueError("jet below 0.45 in span is not allowed")
+
+
+def jet(span, cx=0.0, cy=0.0, master=None, spine=None, rotate=0):
+    """Squadron jet mark v3, nose up (rotate=90 points it right).
+
+    span    printed wingspan in units (0.01 in)
+    master  "L" / "M" / "S"; picked from the span when None
+    spine   width of the L-master spine knockout in units; defaults to 5U and is
+            normally set equal to the hero word's stencil bridge width
+    (cx, cy) is the centre of the bounding box. Returns (path, info).
+    """
+    u = span / 100.0
+    if master is None:
+        master = jet_master(span / 100.0)
+    right = JET_R if master != "XS" else JET_R[:-2] + [(0, 110)]
+    pts = right + [(-x, y) for x, y in reversed(right[1:-1])]
+    body = K.poly(pts)
+    cuts = []
+    if master in ("L", "M"):
+        cuts.append(K.poly([(0, 20), (2.5, 27), (2.5, 34), (-2.5, 34), (-2.5, 27)]))
+    if master == "L":
+        sw = (spine / u) if spine else 5.0
+        cuts.append(K.rect(-sw / 2, 34 + sw, sw, JET_LEN))     # canopy bridge = spine width; runs into the V
+    if cuts:
+        body = K.diff(body, K.union(*cuts))
+    body = K.transformed(body, u, 0, 0, u, -0.0, -JET_LEN * u / 2)   # centred on (0, 0)
+    if rotate:
+        body = K.rotate(body, rotate)
+    body = K.translate(body, cx, cy)
+    info = {"span": span, "length": JET_LEN * u, "master": master, "u": u,
+            "tail_y": cy + JET_LEN * u / 2, "nose_y": cy - JET_LEN * u / 2,
+            "tip_trailing": [(cx + 50 * u, cy + (92 - JET_LEN / 2) * u), (cx - 50 * u, cy + (92 - JET_LEN / 2) * u)],
+            "trailing_edge_y": cy + (92 - JET_LEN / 2) * u}
+    return body, info

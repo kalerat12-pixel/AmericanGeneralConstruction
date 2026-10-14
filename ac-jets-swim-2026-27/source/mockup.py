@@ -25,9 +25,9 @@ AI_DIR = os.path.join(ROOT, "ai-exploration")
 PREFIX = {"squadron": "sq", "lane-four": "lf", "aero-varsity": "av"}
 
 STORY = {
-    "squadron": ("Flight-tag system: stencil tail markings, flight data in mono, and the original jet mark.",
-                 "Seen from above, the jet is the swimmer. Its contrail becomes the lane line with the T at the wall, "
-                 "and the lane ropes carry red floats at each end, like a real pool."),
+    "squadron": ("Flight-tag system: custom stencil tail markings, flight data, and one original jet mark.",
+                 "Seen from above, the jet is the swimmer. It flies the lane toward the line on the pool floor and the T "
+                 "at the wall, and the lane ropes carry red floats at both walls, like a real pool."),
     "lane-four": ("Performance minimal: one expanded italic, the jet cut down to an arrowhead, lots of air.",
                   "Named for the center lane, where the top seed swims. A lane-rope band with red end floats runs through "
                   "every piece, and everything leans on the same 10° axis."),
@@ -324,7 +324,7 @@ a.tab:hover,a.tab:focus-visible{color:var(--fg);border-bottom-color:var(--accent
 .ai-note{color:var(--muted);font-size:13px;margin:0;max-width:40ch}
 .ai-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 figure.ai{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
-figure.ai img{display:block;width:100%;height:auto;border-radius:6px;border:1px solid var(--line);background:#111}
+figure.ai img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;border-radius:6px;border:1px solid var(--line);background:#141414}
 figure.ai figcaption{display:block;font-size:13px;color:var(--muted)}
 figure.ai figcaption b{color:var(--fg);font-weight:600;margin-right:4px}
 @media (max-width:640px){.ai-grid{grid-template-columns:minmax(0,1fr)}}
@@ -443,7 +443,7 @@ def ai_section(inline):
     figs = []
     for it in items:
         src = img_src(os.path.join(AI_DIR, it["file"]), inline)
-        figs.append(f'<figure class="ai"><img src="{src}" alt="{html.escape(it["alt"])}" loading="lazy">'
+        figs.append(f'<figure class="ai"><img src="{src}" alt="{html.escape(it["alt"])}">'
                     f'<figcaption><b>{html.escape(it["title"])}</b> {html.escape(it["note"])}</figcaption></figure>')
     return ('<section class="piece ai-sec" id="ai-exploration"><header class="piece-head"><h3>AI exploration</h3>'
             '<p class="ai-note">Concepts generated with Figma AI to push the Squadron direction. They were used for art '
@@ -457,8 +457,8 @@ def page(fragment=False):
     ai = ai_section(inline=fragment)
     if ai:
         tabs += '<a class="tab" href="#ai-exploration">AI exploration</a>'
-    panels = "".join(concept_panel(c, dims) for c in CONCEPTS).replace("</section>" * 1, "</section>", 1)
-    panels = panels[: panels.rfind("</section>")] + ai + "</section>"
+    panels = "".join(concept_panel(c, dims) for c in CONCEPTS)
+    panels = panels[: panels.rfind("</section>")] + ai + "</section>"       # AI gallery closes the panel
     inks = "".join(
         f'<div class="row"><i style="background:{INKS[k][1]}"></i><span><b>{INKS[k][0]}</b> {INKS[k][2]} · {INKS[k][1]}</span></div>'
         for k in ("red", "white", "black"))

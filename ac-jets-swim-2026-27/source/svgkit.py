@@ -30,6 +30,7 @@ FONT_SPECS = {
     "cond800": "Barlow+Condensed:wght@800",
     "mono": "IBM+Plex+Mono:wght@500",
     "mono600": "IBM+Plex+Mono:wght@600",
+    "mono700": "IBM+Plex+Mono:wght@700",
     "wideitalic": "Archivo:ital,wdth,wght@1,125,900",
     "italic": "Archivo:ital,wdth,wght@1,100,900",
     "wide800": "Archivo:wdth,wght@125,800",
@@ -321,6 +322,8 @@ def text_glyphs(fontname, s, cap, x=0, y=0, tracking=0.0, kern=True):
         if g != "space":
             xform = (sc, 0, 0, -sc, (pen_x + xo) * sc + x, -yo * sc + y)
             out.append((s[i] if i < len(s) else g, pathops.simplify(_glyph_path(f, g, xform), clockwise=True)))
+        else:
+            out.append((" ", None))
         pen_x += adv + (track if i < len(glyphs) - 1 else 0)
     return out
 
@@ -370,6 +373,59 @@ def arc_text(fontname, s, cap, cx, cy, radius, tracking=0.0, kern=True, spaces=1
             xform = (sc * c, -sc * s_, -sc * s_, -sc * c, bx + off * c, by - off * s_)
         out.addPath(_glyph_path(f, g, xform))
     return pathops.simplify(out, clockwise=True)
+
+
+def notch_fix(path, width=4.0, max_angle=50.0):
+    """Reverse ink trap: wherever two ink edges meet in an acute background notch
+    (the inside of an M or W), cut a slot of `width` along the notch bisector, so the
+    gap never closes on press. Only the notch tip changes; strokes keep their weight."""
+    from fontTools.pens.recordingPen import RecordingPen
+    rec = RecordingPen()
+    path.draw(rec)
+    contours, cur = [], []
+    for op, args in rec.value:
+        if op == "moveTo":
+            cur = [args[0]]
+        elif op in ("lineTo",):
+            cur.append(args[0])
+        elif op in ("qCurveTo", "curveTo"):
+            cur.append(args[-1])
+        elif op in ("closePath", "endPath"):
+            if len(cur) > 2:
+                contours.append(cur)
+            cur = []
+    slots = []
+    for pts in contours:
+        n = len(pts)
+        for i in range(n):
+            v, a, b = pts[i], pts[i - 1], pts[(i + 1) % n]
+            ax, ay = a[0] - v[0], a[1] - v[1]
+            bx, by = b[0] - v[0], b[1] - v[1]
+            la, lb = math.hypot(ax, ay), math.hypot(bx, by)
+            if la < 1e-6 or lb < 1e-6:
+                continue
+            ax, ay, bx, by = ax / la, ay / la, bx / lb, by / lb
+            ang = math.degrees(math.acos(max(-1.0, min(1.0, ax * bx + ay * by))))
+            if ang >= max_angle:
+                continue
+            dx, dy = ax + bx, ay + by
+            dl = math.hypot(dx, dy)
+            if dl < 1e-6:
+                continue
+            dx, dy = dx / dl, dy / dl
+            probe = (v[0] + dx * 0.6, v[1] + dy * 0.6)
+            if path.contains(probe):
+                continue                       # an ink spike, not a background notch
+            length = (width / 2) / math.tan(math.radians(ang / 2)) + 0.5
+            nx, ny = -dy, dx
+            p0 = (v[0] - dx * 1.0, v[1] - dy * 1.0)
+            p1 = (v[0] + dx * length, v[1] + dy * length)
+            h = width / 2
+            slots.append(poly([(p0[0] + nx * h, p0[1] + ny * h), (p1[0] + nx * h, p1[1] + ny * h),
+                               (p1[0] - nx * h, p1[1] - ny * h), (p0[0] - nx * h, p0[1] - ny * h)]))
+    if not slots:
+        return path
+    return diff(path, union(*slots))
 
 
 # ----------------------------------------------------------------------- SVG
