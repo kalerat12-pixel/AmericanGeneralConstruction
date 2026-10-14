@@ -82,3 +82,44 @@ def jet_profile(length=300.0, x=0.0, y=0.0):
     body = K.union(body, wing)
     s = length / 300.0
     return K.transformed(body, s, 0, 0, s, x, y)
+
+
+def jet_v2(length=200.0, cx=0.0, cy=0.0, detail="auto", canopy=True, min_line=3.2):
+    """Squadron v2 jet, nose up. Original drawing, straight lines only.
+
+    Needle nose with chines, leading-edge root extensions, cranked delta wing,
+    separate swept stabilisers and twin nozzles. Nominal 200 long x 172 span;
+    (cx, cy) = centre of the bounding box.
+
+    detail: "simple" silhouette, "panel" adds panel-line knockouts (spine, wing roots,
+    leading-edge flaps), "auto" picks panel lines when the jet is >= 2 in long.
+    min_line: thinnest knockout allowed in print units (0.01 in), so panel lines
+    never drop below ~0.032 in on the garment.
+    """
+    R = [(0, 0), (7.5, 58), (13, 80), (26, 100), (86, 156), (86, 168), (44, 164),
+         (30, 172), (44, 188), (44, 196), (20, 194), (13, 194), (12, 202), (3, 202), (2.5, 196), (0, 196)]
+    pts = R + [(-x, y) for x, y in reversed(R[1:-1])]
+    body = K.poly(pts)
+    s = length / 202.0
+    if detail == "auto":
+        detail = "panel" if length >= 200 else "simple"
+    w = max(1.7, min_line / s)
+    cuts = []
+    if canopy:
+        cuts.append(K.poly([(0, 44), (4.0, 58), (4.0, 78), (0, 88), (-4.0, 78), (-4.0, 58)]))
+    if detail == "panel":
+        cuts.append(K.rect(-w / 2, 98, w, 86))                     # spine
+        for sx in (1, -1):
+            cuts.append(K.rect(sx * 17 - (w if sx < 0 else 0), 106, w, 58))   # wing root
+            cuts.append(K.line(sx * 34.5, 113, sx * 79, 155.5, w))            # leading-edge flap
+    if cuts:
+        body = K.diff(body, K.union(*cuts))
+    body = K.transformed(body, s, 0, 0, s, cx, cy - 101 * s)
+    info = {
+        "tips": [(cx + 86 * s, cy + (162 - 101) * s), (cx - 86 * s, cy + (162 - 101) * s)],
+        "tail": (cx, cy + 101 * s),
+        "nose": (cx, cy - 101 * s),
+        "span": 172 * s,
+        "scale": s,
+    }
+    return body, info

@@ -9,10 +9,6 @@ CONCEPTS = [
     ("squadron", "Squadron", "Aviation flight-tag system. Stencil tail-marking caps, flight data in mono, and the "
      "original double-delta jet. On the tee back the jet flies an overhead pool lane: its contrail becomes the lane "
      "line with the T at the wall, and the ropes carry red floats at each end like a real pool."),
-    ("lane-four", "Lane Four", "Performance minimal. Archivo Expanded Black Italic, the jet reduced to a notched "
-     "arrowhead, and a lane-rope band (red end floats) that runs through every piece on one 10-degree italic axis."),
-    ("aero-varsity", "Aero Varsity", "Vintage collegiate. Rokkitt slab lettering with a printed varsity outline on the "
-     "hero words, a solid arched ADAMS CENTRAL on the crewneck, and the jet's twin contrails easing into waves."),
 ]
 ORDER = ["tee-chest", "tee-back", "hoodie-front", "hoodie-sleeve", "crew-front", "sweats-hip", "sweats-leg"]
 LABEL = {"tee-chest": "Tee, left chest", "tee-back": "Tee, back", "hoodie-front": "Hoodie, front",
@@ -36,7 +32,8 @@ def main():
     w = out.append
     w("# Adams Central Jets Swim & Dive: 2026-27 Team Apparel")
     w("")
-    w("Three design directions for the tee, hoodie, crewneck and sweatpants, each in black, white and heather grey.")
+    w("**Final direction: Squadron**, across the tee, hoodie, crewneck and sweatpants, each in black, white and heather grey.")
+    w("The two earlier directions (Lane Four, Aero Varsity) are kept for reference in `alternates/`.")
     w("Open **`mockup.html`** in a browser to see every piece on flat garments at true print size.")
     w("")
     w("Every design ships as:")

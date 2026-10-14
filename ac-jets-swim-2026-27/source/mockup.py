@@ -19,7 +19,9 @@ import svgkit as K  # noqa: E402
 import build  # noqa: E402
 from common import GARMENTS, INKS  # noqa: E402
 
-CONCEPTS = [build.CONCEPTS[s] for s in ("squadron", "lane-four", "aero-varsity")]
+CONCEPTS = [build.CONCEPTS["squadron"]]          # the chosen direction
+ROOT = os.path.dirname(HERE)
+AI_DIR = os.path.join(ROOT, "ai-exploration")
 PREFIX = {"squadron": "sq", "lane-four": "lf", "aero-varsity": "av"}
 
 STORY = {
@@ -220,8 +222,8 @@ def concept_panel(c, dims):
     mark = (f'<svg class="mark" viewBox="0 0 {dims[(slug, "tee-chest")][0] * 100:g} '
             f'{dims[(slug, "tee-chest")][1] * 100:g}" aria-hidden="true">'
             f'<use href="#{PREFIX[slug]}-tee-chest"/></svg>')
-    return (f'<section class="panel" id="panel-{slug}" role="tabpanel" aria-labelledby="tab-{slug}" data-panel="{slug}">'
-            f'<div class="concept-head"><div class="concept-copy"><p class="eyebrow">Direction</p>'
+    return (f'<section class="panel" id="panel-{slug}" data-panel="{slug}">'
+            f'<div class="concept-head"><div class="concept-copy"><p class="eyebrow">Final direction</p>'
             f'<h2>{c.NAME}</h2><p class="lede">{html.escape(lede)}</p><p class="idea">{html.escape(idea)}</p></div>'
             f'<div class="concept-mark">{mark}</div></div>{"".join(rows)}</section>')
 
@@ -316,6 +318,16 @@ figcaption{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size
 .seg-btn + .seg-btn{border-left:1px solid var(--line)}
 .seg-btn[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
 .seg-btn i{width:14px;height:14px;border-radius:50%;border:1px solid var(--muted)}
+a.tab{text-decoration:none;display:inline-block}
+a.tab:hover,a.tab:focus-visible{color:var(--fg);border-bottom-color:var(--accent)}
+.piece{scroll-margin-top:64px}
+.ai-note{color:var(--muted);font-size:13px;margin:0;max-width:40ch}
+.ai-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+figure.ai{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+figure.ai img{display:block;width:100%;height:auto;border-radius:6px;border:1px solid var(--line);background:#111}
+figure.ai figcaption{display:block;font-size:13px;color:var(--muted)}
+figure.ai figcaption b{color:var(--fg);font-weight:600;margin-right:4px}
+@media (max-width:640px){.ai-grid{grid-template-columns:minmax(0,1fr)}}
 footer{border-top:1px solid var(--line);padding-block:24px 48px;color:var(--muted);font-size:13px}
 footer p{margin:0 0 6px;max-width:80ch}
 footer code{font-family:var(--mono);font-size:12px;color:var(--fg)}
@@ -341,7 +353,7 @@ dialog.zoom::backdrop{background:rgba(8,10,12,.72)}
 
 JS = r"""
 (function(){
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
   var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
   function show(id, focus){
     var found = tabs.some(function(t){return t.dataset.panel === id;});
@@ -367,8 +379,7 @@ JS = r"""
       show(n.dataset.panel, true);
     });
   });
-  var start = (location.hash || '').replace('#', '');
-  show(start);
+  if(tabs.length){ show((location.hash || '').replace('#', '')); }
 
   var segs = Array.prototype.slice.call(document.querySelectorAll('.seg-btn'));
   segs.forEach(function(b){
@@ -398,6 +409,8 @@ JS = r"""
 })();
 """
 
+FONT_CREDIT = "Saira Condensed, Barlow Condensed and IBM Plex Mono"
+
 HEATHER_FILTER = (
     '<filter id="heather" x="0" y="0" width="1" height="1">'
     '<feTurbulence type="fractalNoise" baseFrequency="3.2" numOctaves="2" seed="5" result="t"/>'
@@ -406,20 +419,52 @@ HEATHER_FILTER = (
     '<feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="sm"/></feMerge></filter>')
 
 
+def img_src(path, inline):
+    """Relative link for the repo page; a compact JPEG data URI for the single-file artifact."""
+    if not inline:
+        return os.path.relpath(path, ROOT)
+    import base64
+    import io
+    from PIL import Image
+    im = Image.open(path).convert("RGB")
+    im.thumbnail((1200, 1200))
+    buf = io.BytesIO()
+    im.save(buf, "JPEG", quality=82, optimize=True)
+    return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
+
+
+def ai_section(inline):
+    """Figma AI concept images used for art direction (ai-exploration/index.json)."""
+    import json
+    idx = os.path.join(AI_DIR, "index.json")
+    if not os.path.exists(idx):
+        return ""
+    items = json.load(open(idx))
+    figs = []
+    for it in items:
+        src = img_src(os.path.join(AI_DIR, it["file"]), inline)
+        figs.append(f'<figure class="ai"><img src="{src}" alt="{html.escape(it["alt"])}" loading="lazy">'
+                    f'<figcaption><b>{html.escape(it["title"])}</b> {html.escape(it["note"])}</figcaption></figure>')
+    return ('<section class="piece ai-sec" id="ai-exploration"><header class="piece-head"><h3>AI exploration</h3>'
+            '<p class="ai-note">Concepts generated with Figma AI to push the Squadron direction. They were used for art '
+            'direction only: the ideas that held up were redrawn as clean 2-ink vector art above. AI images are not print files.</p>'
+            f'</header><div class="ai-grid">{"".join(figs)}</div></section>')
+
+
 def page(fragment=False):
     syms, dims = symbols()
-    tabs = "".join(
-        f'<button class="tab" role="tab" type="button" id="tab-{c.SLUG}" data-panel="{c.SLUG}" '
-        f'aria-controls="panel-{c.SLUG}" aria-selected="false">{c.NAME}</button>' for c in CONCEPTS)
-    tabs += ('<button class="tab" role="tab" type="button" id="tab-compare" data-panel="compare" '
-             'aria-controls="panel-compare" aria-selected="false">Compare</button>')
-    panels = "".join(concept_panel(c, dims) for c in CONCEPTS) + compare_panel(dims)
+    tabs = "".join(f'<a class="tab" href="#squadron-{pid}">{pname}</a>' for pid, pname, _, _ in PIECES)
+    ai = ai_section(inline=fragment)
+    if ai:
+        tabs += '<a class="tab" href="#ai-exploration">AI exploration</a>'
+    panels = "".join(concept_panel(c, dims) for c in CONCEPTS).replace("</section>" * 1, "</section>", 1)
+    panels = panels[: panels.rfind("</section>")] + ai + "</section>"
     inks = "".join(
         f'<div class="row"><i style="background:{INKS[k][1]}"></i><span><b>{INKS[k][0]}</b> {INKS[k][2]} · {INKS[k][1]}</span></div>'
         for k in ("red", "white", "black"))
     head = ('<title>Jets Swim &amp; Dive 26–27</title>\n'
             '<meta name="claude:viewport-fit-sides" content="cover">\n'
-            '<meta name="description" content="Three apparel directions for the Adams Central Jets 2026–27 swim &amp; dive team.">\n'
+            '<meta name="description" content="The Squadron apparel collection for the Adams Central Jets 2026–27 swim &amp; dive team.">\n'
             '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
             '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800'
@@ -428,18 +473,16 @@ def page(fragment=False):
     body = (
         f'<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>{HEATHER_FILTER}{syms}</defs></svg>'
         '<header class="wrap top"><div><p class="eyebrow">Adams Central Jets · Swim &amp; Dive · Monroe, Indiana</p>'
-        '<h1>2026–27 <em>Team</em> Apparel</h1>'
-        '<p class="intro">Three design directions, each built across the tee, hoodie, crewneck and sweatpants in black, '
-        'white and heather grey. Prints are shown at true size and placement on flat garments. '
-        'Tap or click any garment to enlarge it.</p></div>'
+        '<h1>2026–27 <em>Squadron</em> Collection</h1>'
+        '<p class="intro">The final team apparel set: tee, hoodie, crewneck and sweatpants in black, white and heather grey. '
+        'Prints are shown at true size and placement on flat garments. Tap or click any garment to enlarge it.</p></div>'
         f'<div class="inks" aria-label="Ink colors"><p class="eyebrow">Inks · 2 per print max</p>{inks}</div></header>'
-        f'<nav class="tabs" aria-label="Design directions"><div class="wrap" role="tablist">{tabs}</div></nav>'
+        f'<nav class="tabs" aria-label="Pieces"><div class="wrap">{tabs}</div></nav>'
         f'<main class="wrap">{panels}</main>'
         '<footer class="wrap"><p>Production art: vector SVG (all type outlined, inks knocked out) and 300 DPI transparent PNG for every '
-        'print in every colorway, in <code>squadron/</code>, <code>lane-four/</code> and <code>aero-varsity/</code>. '
-        'Ink specs and placement guide are in <code>README.md</code>.</p>'
-        '<p>The jet mark is an original drawing. Type: Big Shoulders Stencil, Barlow Condensed, IBM Plex Mono, Archivo, '
-        'Barlow and Rokkitt, all SIL Open Font License.</p></footer>'
+        'print in every colorway, in <code>squadron/</code>. Ink specs and placement guide are in <code>README.md</code>. '
+        'The two earlier directions are kept in <code>alternates/</code>.</p>'
+        f'<p>The jet mark is an original drawing. Type: {FONT_CREDIT}, all SIL Open Font License.</p></footer>'
         '<dialog class="zoom" id="zoom" aria-labelledby="zoom-title"><div class="zoom-bar"><h4 id="zoom-title"></h4>'
         '<button class="close" id="zoom-close" type="button">Close</button></div><div class="zoom-body" id="zoom-body"></div></dialog>'
         f"<script>{JS}</script>")

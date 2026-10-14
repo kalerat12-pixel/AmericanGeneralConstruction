@@ -1,6 +1,7 @@
 # Adams Central Jets Swim & Dive: 2026-27 Team Apparel
 
-Three design directions for the tee, hoodie, crewneck and sweatpants, each in black, white and heather grey.
+**Final direction: Squadron**, across the tee, hoodie, crewneck and sweatpants, each in black, white and heather grey.
+The two earlier directions (Lane Four, Aero Varsity) are kept for reference in `alternates/`.
 Open **`mockup.html`** in a browser to see every piece on flat garments at true print size.
 
 Every design ships as:
@@ -41,34 +42,6 @@ Aviation flight-tag system. Stencil tail-marking caps, flight data in mono, and 
 | Crewneck, front | 10.00 x 6.84 in | 3000 x 2052 | 2 | `squadron_crew-front_on-black`<br>`squadron_crew-front_on-white`<br>`squadron_crew-front_on-heather` |
 | Sweatpants, hip | 1.60 x 2.69 in | 480 x 807 | 2 | `squadron_sweats-hip_on-black`<br>`squadron_sweats-hip_on-white`<br>`squadron_sweats-hip_on-heather` |
 | Sweatpants, leg | 0.82 x 11.53 in | 246 x 3459 | 2 | `squadron_sweats-leg_on-black`<br>`squadron_sweats-leg_on-white`<br>`squadron_sweats-leg_on-heather` |
-
-## Lane Four
-
-Performance minimal. Archivo Expanded Black Italic, the jet reduced to a notched arrowhead, and a lane-rope band (red end floats) that runs through every piece on one 10-degree italic axis.
-
-| Print | Print size (W x H) | 300 DPI PNG (px) | Inks | Files (`.svg` in `lane-four/svg`, `.png` in `lane-four/png`) |
-|---|---|---|---|---|
-| Tee, left chest | 3.66 x 0.88 in | 1098 x 264 | 2 | `lane-four_tee-chest_on-black`<br>`lane-four_tee-chest_on-white`<br>`lane-four_tee-chest_on-heather` |
-| Tee, back | 11.27 x 3.79 in | 3381 x 1137 | 2 | `lane-four_tee-back_on-black`<br>`lane-four_tee-back_on-white`<br>`lane-four_tee-back_on-heather` |
-| Hoodie, front | 10.18 x 3.58 in | 3054 x 1074 | 2 | `lane-four_hoodie-front_on-black`<br>`lane-four_hoodie-front_on-white`<br>`lane-four_hoodie-front_on-heather` |
-| Hoodie, left sleeve | 0.81 x 8.34 in | 243 x 2502 | 2 | `lane-four_hoodie-sleeve_on-black`<br>`lane-four_hoodie-sleeve_on-white`<br>`lane-four_hoodie-sleeve_on-heather` |
-| Crewneck, front | 10.01 x 3.02 in | 3003 x 906 | 2 | `lane-four_crew-front_on-black`<br>`lane-four_crew-front_on-white`<br>`lane-four_crew-front_on-heather` |
-| Sweatpants, hip | 2.59 x 1.28 in | 777 x 384 | 2 | `lane-four_sweats-hip_on-black`<br>`lane-four_sweats-hip_on-white`<br>`lane-four_sweats-hip_on-heather` |
-| Sweatpants, leg | 0.57 x 11.75 in | 171 x 3525 | 2 | `lane-four_sweats-leg_on-black`<br>`lane-four_sweats-leg_on-white`<br>`lane-four_sweats-leg_on-heather` |
-
-## Aero Varsity
-
-Vintage collegiate. Rokkitt slab lettering with a printed varsity outline on the hero words, a solid arched ADAMS CENTRAL on the crewneck, and the jet's twin contrails easing into waves.
-
-| Print | Print size (W x H) | 300 DPI PNG (px) | Inks | Files (`.svg` in `aero-varsity/svg`, `.png` in `aero-varsity/png`) |
-|---|---|---|---|---|
-| Tee, left chest | 2.48 x 1.54 in | 744 x 462 | 2 | `aero-varsity_tee-chest_on-black`<br>`aero-varsity_tee-chest_on-white`<br>`aero-varsity_tee-chest_on-heather` |
-| Tee, back | 10.39 x 7.20 in | 3117 x 2160 | 2 | `aero-varsity_tee-back_on-black`<br>`aero-varsity_tee-back_on-white`<br>`aero-varsity_tee-back_on-heather` |
-| Hoodie, front | 9.78 x 5.30 in | 2934 x 1590 | 2 | `aero-varsity_hoodie-front_on-black`<br>`aero-varsity_hoodie-front_on-white`<br>`aero-varsity_hoodie-front_on-heather` |
-| Hoodie, left sleeve | 0.85 x 3.97 in | 255 x 1191 | 1 | `aero-varsity_hoodie-sleeve_on-black`<br>`aero-varsity_hoodie-sleeve_on-white`<br>`aero-varsity_hoodie-sleeve_on-heather` |
-| Crewneck, front | 10.01 x 4.11 in | 3003 x 1233 | 2 | `aero-varsity_crew-front_on-black`<br>`aero-varsity_crew-front_on-white`<br>`aero-varsity_crew-front_on-heather` |
-| Sweatpants, hip | 2.46 x 1.76 in | 738 x 528 | 2 | `aero-varsity_sweats-hip_on-black`<br>`aero-varsity_sweats-hip_on-white`<br>`aero-varsity_sweats-hip_on-heather` |
-| Sweatpants, leg | 0.69 x 11.52 in | 207 x 3456 | 1 | `aero-varsity_sweats-leg_on-black`<br>`aero-varsity_sweats-leg_on-white`<br>`aero-varsity_sweats-leg_on-heather` |
 
 ## Placement guide
 

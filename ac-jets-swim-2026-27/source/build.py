@@ -1,8 +1,9 @@
 """Build the Adams Central Jets 2026-27 apparel collection.
 
 usage:
-  python3 build.py                 # all concepts: SVG + 300 DPI PNG + manifest
-  python3 build.py squadron        # one concept
+  python3 build.py                 # Squadron (final): SVG + 300 DPI PNG + manifest
+  python3 build.py --all           # also rebuild the alternates under alternates/
+  python3 build.py lane-four       # one concept
   python3 build.py --preview       # review sheets only (fast, no 300 DPI PNGs)
 """
 import json
@@ -32,6 +33,12 @@ except ImportError:
     pass
 
 OUT = os.path.dirname(HERE)
+FINAL = "squadron"                              # the chosen direction
+ALTERNATES = {"lane-four", "aero-varsity"}      # kept for reference under alternates/
+
+
+def out_dir(slug):
+    return os.path.join(OUT, "alternates", slug) if slug in ALTERNATES else os.path.join(OUT, slug)
 PREVIEW_DIR = os.environ.get("ACJ_PREVIEW_DIR", os.path.join(HERE, ".preview"))
 
 
@@ -67,8 +74,8 @@ def build(concepts, png=True):
             for g in GARMENTS:
                 layers, w, h = colourway(art, g)
                 name = f"{slug}_{art.key}_on-{g}"
-                svg_path = os.path.join(OUT, slug, "svg", name + ".svg")
-                png_path = os.path.join(OUT, slug, "png", name + ".png")
+                svg_path = os.path.join(out_dir(slug), "svg", name + ".svg")
+                png_path = os.path.join(out_dir(slug), "png", name + ".png")
                 os.makedirs(os.path.dirname(svg_path), exist_ok=True)
                 with open(svg_path, "w") as f:
                     f.write(svg_for(c, art, g, layers, w, h))
@@ -138,7 +145,7 @@ def preview(slug, only=None, cell=4.0):
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    which = [a for a in args if a in CONCEPTS] or list(CONCEPTS)
+    which = [a for a in args if a in CONCEPTS] or (list(CONCEPTS) if "--all" in sys.argv else [FINAL])
     only = [a for a in args if a not in CONCEPTS] or None
     if "--preview" in sys.argv:
         for s in which:

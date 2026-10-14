@@ -46,6 +46,11 @@ FONT_SPECS = {
     "rokkitt900": "Rokkitt:wght@900",
     "wide900": "Archivo:wdth,wght@125,900",
     "saira": "Saira:ital,wdth,wght@1,125,900",
+    "sairaxc900": "Saira+Extra+Condensed:wght@900",
+    "sairaxc800": "Saira+Extra+Condensed:wght@800",
+    "sairac800": "Saira+Condensed:wght@800",
+    "sairac700": "Saira+Condensed:wght@700",
+    "barlowc900": "Barlow+Condensed:wght@900",
 }
 
 
@@ -301,6 +306,23 @@ def text_mixed(runs, cap, x=0, y=0, tracking=0.0, anchor="start"):
     x0, _, x1, _ = bounds(out)
     dx = {"middle": x - (x0 + x1) / 2, "end": x - x1}.get(anchor, x - x0)
     return translate(out, dx, y)
+
+
+def text_glyphs(fontname, s, cap, x=0, y=0, tracking=0.0, kern=True):
+    """Like text() but returns [(char, glyph_path)] positioned on the baseline (anchor start at x).
+    Used for per-letter work such as hand-placed stencil bridges."""
+    f = font(fontname)
+    sc = cap / f.cap
+    track = tracking / 1000.0 * f.upem
+    out = []
+    pen_x = 0.0
+    glyphs = f.shape(s, kern)
+    for i, (g, adv, xo, yo) in enumerate(glyphs):
+        if g != "space":
+            xform = (sc, 0, 0, -sc, (pen_x + xo) * sc + x, -yo * sc + y)
+            out.append((s[i] if i < len(s) else g, pathops.simplify(_glyph_path(f, g, xform), clockwise=True)))
+        pen_x += adv + (track if i < len(glyphs) - 1 else 0)
+    return out
 
 
 def text_width(fontname, s, cap, tracking=0.0, slant=0.0):
