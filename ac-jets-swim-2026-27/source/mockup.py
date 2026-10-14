@@ -253,7 +253,7 @@ def compare_panel(dims):
 
 CSS = r"""
 :root{
-  /* Layout: line sheet. Tabbed directions over a garment x colourway grid, specs set like a production sheet. */
+  /* Layout: line sheet. One collection, a garment x colourway grid with specs set like a production sheet, then the AI exploration. */
   --bg:#ECEFF1; --surface:#FFFFFF; --stage:#DCE1E5; --fg:#121518; --muted:#58626C; --line:#CBD2D8;
   --accent:#C8102E; --accent-fg:#FFFFFF; --focus:#1F6FEB;
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
