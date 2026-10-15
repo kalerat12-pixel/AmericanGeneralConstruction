@@ -442,14 +442,24 @@ def sweats_hip():
 
 
 def sweats_leg():
-    """Reads waist to hem; the jet leads at the waistband end with its contrail behind it."""
-    w = 82
-    span = 82
-    jet, info = M.fighter(span, w / 2, 0, "red")
-    head = [("accent", K.translate(jet["accent"], 0, -info["nose_y"]))]
-    L = strip_grammar(head, info["length"], 461, "AC SWIM & DIVE", 55, LABEL_HEAVY, 100, w, reads="down")
+    """Top to bottom: AC SWIM & DIVE (reading down from the waistband), the contrail line,
+    then the jet at the bottom flying down the leg, nose toward the hem."""
+    w, axis = 82, 41
+    cap = 55
+    t = K.notch_fix(K.text(LABEL_HEAVY, "AC SWIM & DIVE", cap, 0, 0, tracking=100))
+    tb = K.bounds(t)
+    t = K.rotate(K.translate(t, -tb[0], -(tb[1] + tb[3]) / 2), 90)     # reads top to bottom
+    t = K.translate(t, axis, -K.bounds(t)[1])
+    L = [("main", t)]
+    y = K.bounds(t)[3] + 25
+    L.append(("main", K.rect(axis - 3, y, 6, 461)))
+    y += 461 + 25
+    jet, info = M.fighter(82, 0, 0, "red")
+    j = K.rotate(K.translate(jet["accent"], 0, -info["nose_y"]), 180)  # nose down, tail up
+    L.append(("accent", K.translate(j, axis, y - K.bounds(j)[1])))
     return Art("sweats-leg", "Sweatpants - leg side",
-               "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading from the waist down to the hem.",
+               "Wearer's right leg on the outer leg panel. AC SWIM & DIVE starts ~3 in below the waistband and "
+               "reads down the leg; the line and the jet follow, the jet flying toward the hem.",
                "0.8 in wide", L)
 
 

@@ -29,7 +29,7 @@ STORY = {
                  "lane on every back.",
                  "Both prints come from Figma AI frames the team picked (tee back, hip lockup right), redrawn as clean "
                  "2-ink vector. The crewneck and hoodie add the jet, a contrail line and SWIM & DIVE down the left "
-                 "sleeve; the sweatpants carry the lockup small on the hip and the jet leading AC SWIM & DIVE down the leg."),
+                 "sleeve; the sweatpants carry the lockup small on the hip and AC SWIM & DIVE down the leg with the jet flying down below it."),
     "lane-four": ("Performance minimal: one expanded italic, the jet cut down to an arrowhead, lots of air.",
                   "Named for the center lane, where the top seed swims. A lane-rope band with red end floats runs through "
                   "every piece, and everything leans on the same 10° axis."),

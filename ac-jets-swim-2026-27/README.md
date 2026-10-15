@@ -33,7 +33,7 @@ Printer notes: red on black garments needs a white underbase (the printer may co
 
 ## Squadron
 
-The front of the tee, crewneck and hoodie is one lockup: ADAMS CENTRAL arched over a red twin-tail fighter whose nose sits just under the arch without touching it, with a chevron stripe knocked out along its wings, over a stencil JETS and a spaced 26-27. The back of all three is the pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled footer. The crewneck and hoodie also have the jet, a contrail line and SWIM & DIVE down the left sleeve. The sweatpants carry the lockup small on the hip and the jet leading AC SWIM & DIVE down the leg. All of it comes from Figma AI frames the team picked, redrawn as clean symmetric vector.
+The front of the tee, crewneck and hoodie is one lockup: ADAMS CENTRAL arched over a red twin-tail fighter whose nose sits just under the arch without touching it, with a chevron stripe knocked out along its wings, over a stencil JETS and a spaced 26-27. The back of all three is the pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled footer. The crewneck and hoodie also have the jet, a contrail line and SWIM & DIVE down the left sleeve. The sweatpants carry the lockup small on the hip and AC SWIM & DIVE down the leg with the jet flying down below it. All of it comes from Figma AI frames the team picked, redrawn as clean symmetric vector.
 
 | Print | Print size (W x H) | 300 DPI PNG (px) | Inks | Files (`.svg` in `squadron/svg`, `.png` in `squadron/png`) |
 |---|---|---|---|---|
@@ -57,7 +57,7 @@ Sizes above are for adult S-XXL. For youth sizes scale the front and back prints
 | Crewneck / hoodie, back | Centered on the back. Top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band (adult L). |
 | Crewneck / hoodie, left sleeve | Wearer's left sleeve on the sleeve center line (crewneck and hoodie only). The jet sits ~3 in below the shoulder seam, nose up; SWIM & DIVE reads from the cuff up toward the jet. |
 | Sweatpants, hip | Wearer's left front thigh/hip, ~3 in below the waistband, centered on the leg. |
-| Sweatpants, leg | Wearer's right leg on the outer leg panel. The jet sits ~3 in below the waistband, nose up; the line and AC SWIM & DIVE run down from it, reading from the waist toward the hem. |
+| Sweatpants, leg | Wearer's right leg on the outer leg panel. AC SWIM & DIVE starts ~3 in below the waistband and reads down the leg; the line and then the jet follow, the jet flying nose-down toward the hem. |
 
 Smallest type: the 26-27 on the hip lockup is 0.18 in cap in a heavy weight. On the hip, JETS is left without stencil cuts so it doesn't break up at 0.5 in cap. All keylines, stencil bridges and knockouts are 0.04 in or wider; every file passes `printcheck.py` (no ink under 0.025 in, no gap under 0.03 in).
 

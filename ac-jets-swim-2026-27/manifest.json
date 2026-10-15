@@ -401,19 +401,19 @@
   "height_in": 11.79,
   "inks": [
    {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
     "key": "white",
     "name": "White",
     "hex": "#FFFFFF",
     "pms": "Bright white (low-bleed on dark garments)"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
    }
   ],
-  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading from the waist down to the hem."
+  "placement": "Wearer's right leg on the outer leg panel. AC SWIM & DIVE starts ~3 in below the waistband and reads down the leg; the line and the jet follow, the jet flying toward the hem."
  },
  {
   "concept": "squadron",
@@ -427,19 +427,19 @@
   "height_in": 11.79,
   "inks": [
    {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
     "key": "black",
     "name": "Black",
     "hex": "#101820",
     "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
    }
   ],
-  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading from the waist down to the hem."
+  "placement": "Wearer's right leg on the outer leg panel. AC SWIM & DIVE starts ~3 in below the waistband and reads down the leg; the line and the jet follow, the jet flying toward the hem."
  },
  {
   "concept": "squadron",
@@ -453,19 +453,19 @@
   "height_in": 11.79,
   "inks": [
    {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
     "key": "black",
     "name": "Black",
     "hex": "#101820",
     "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
    }
   ],
-  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading from the waist down to the hem."
+  "placement": "Wearer's right leg on the outer leg panel. AC SWIM & DIVE starts ~3 in below the waistband and reads down the leg; the line and the jet follow, the jet flying toward the hem."
  },
  {
   "concept": "lane-four",
