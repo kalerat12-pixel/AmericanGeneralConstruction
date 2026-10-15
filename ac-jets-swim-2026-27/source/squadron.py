@@ -67,62 +67,6 @@ def tee_chest():
                "3.1 in wide", L)
 
 
-def tee_back():
-    W = 900
-    H = ST.fit_cap("JETS", W)                     # JETS ink spans exactly 9.00 in
-    b = ST.bridge_width(H)                        # one cut dimension for the whole print
-    L = [("main", ST.stencil_word("JETS", H, 0, H))]
-
-    # lane ropes on the outer edges, 26 square floats, red end zones at both walls
-    n, pitch, fw, fh, red = 26, 26.4, 22, 16, 5
-    y_rope = H + 30
-    for x in (0, W - fw):
-        for i in range(n):
-            f = K.rect(x, y_rope + i * pitch, fw, fh)
-            L.append(("accent" if i < red or i >= n - red else "main", f))
-    y_rope_end = y_rope + (n - 1) * pitch + fh
-
-    # the jet: L master, span = 20 x b so canopy, canopy bridge and spine all equal b
-    span = 20 * b
-    jl = M.JET_LEN * span / 100
-    jet, info = M.jet(span, W / 2, y_rope + 50 + jl / 2, master="L", spine=b)
-    L.append(("accent", jet))
-
-    # lane line on the pool floor (2b wide, constant) and the T at the wall
-    y_wall = y_rope_end + 10
-    lw, t_w = 2 * b, 10 * b
-    y_t = y_wall - 40 - lw
-    y0 = info["tail_y"] + 30
-    L.append(("main", K.rect(W / 2 - lw / 2, y0, lw, y_t - y0)))
-    L.append(("main", K.rect(W / 2 - t_w / 2, y_t, t_w, lw)))
-
-    # matched annotations, centred on the white float run, baselines facing the lane
-    run_top = y_rope + red * pitch
-    run_bot = y_rope + (n - red - 1) * pitch + fh
-    mid = (run_top + run_bot) / 2
-    ann_cap = 20
-    texts = [COORDS + "  MONROE IN", "ALLEN COUNTY ATHLETIC CONFERENCE"]
-    length = min(run_bot - run_top, max(K.text_width(LABEL, t, ann_cap, 120) for t in texts))
-    near = fw + 20
-    for txt, deg, x in ((texts[0], -90, near + ann_cap / 2), (texts[1], 90, W - near - ann_cap / 2)):
-        t = K.text(LABEL, txt, ann_cap, 0, 0, tracking=solve_label(LABEL, txt, ann_cap, length))
-        tb = K.bounds(t)
-        t = K.rotate(K.translate(t, -(tb[0] + tb[2]) / 2, -(tb[1] + tb[3]) / 2), deg)
-        L.append(("main", K.translate(t, x, mid)))
-
-    # pool wall + two-tier footer
-    L.append(("main", K.rect(0, y_wall, W, 8)))
-    c2 = 62
-    y2 = y_wall + 8 + 22 + c2
-    L.append(("main", label(LABEL_HEAVY, "ADAMS CENTRAL", c2, 0, y2,
-                            tracking=solve_label(LABEL_HEAVY, "ADAMS CENTRAL", c2, W))))
-    y3 = y2 + 18 + 20
-    L.append(("main", label(LABEL, "SWIM & DIVE", 20, 0, y3, tracking=250)))
-    L.append(("main", K.text(MONO, "SQDN 26–27", 20, W, y3, tracking=60, anchor="end")))
-    return Art("tee-back", "Tee - full back", "Centred on the back. Top of art 3-4 in below the collar seam.",
-               "9.0 in wide", L)
-
-
 # ===================================================================== hoodie
 
 def tail_code_ac(H, b):
@@ -351,19 +295,22 @@ def mono_line(s, cap, tracking):
     return K.union(out)
 
 
-def tee_back():
+def pool_back(rope_end, key, title, placement):
     """The lane back from the Figma AI round (client pick), rebuilt in vector: stencil JETS,
     two lane ropes with red end zones, backstroke flags across the top, the red fighter
-    flying the lane line toward the T, side annotations, and a ruled footer."""
+    flying the lane line toward the T, side annotations, and a ruled footer.
+    rope_end: where the ropes stop, measured from the top of the art (print units). JETS and
+    the jet keep their size; only the lane (ropes, line, side text) gets longer."""
     W = 860
     cap = ST.fit_cap("JETS", W, font=HERO)
     L = [("main", ST.stencil_word("JETS", cap, W / 2, cap, anchor="middle", font=HERO, skip="J"))]
 
     # lane ropes, inset like the AI frame; chunky floats, red end zones at both walls
-    fw, fh, pitch, n, red_top, red_bot = 30, 15, 23.5, 38, 5, 6
+    fw, fh, pitch, red_top, red_bot = 30, 15, 23.5, 5, 6
     xl = 0.085 * W
     xr = W - xl - fw
     y_rope = cap + 22
+    n = int((rope_end - y_rope - fh) / pitch) + 1
     for x in (xl, xr):
         for i in range(n):
             role = "accent" if i < red_top or i >= n - red_bot else "main"
@@ -382,7 +329,7 @@ def tee_back():
                                     (cx, y_flag + 32)])))
 
     # the jet and the lane line with its T
-    span = 0.40 * W
+    span = 0.50 * W
     jet, info = M.fighter(span, W / 2, 0, "red")
     jy = y_flag + 62 - info["nose_y"]
     L.append(("accent", K.translate(jet["accent"], 0, jy)))
@@ -411,9 +358,20 @@ def tee_back():
     L.append(("main", K.text(LABEL, "ADAMS CENTRAL SWIM & DIVE", fc, 0, y_f,
                              tracking=solve_label(LABEL, "ADAMS CENTRAL SWIM & DIVE", fc, team_w))))
     L.append(("main", serial))
-    return Art("back", "Tee / crewneck / hoodie - back",
-               "Centred on the back, top of JETS ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam).",
-               f"{W / 100:.1f} in wide", L)
+    return Art(key, title, placement, f"{W / 100:.1f} in wide", L)
+
+
+# Ropes end ~4.5 in above the hem on an adult L (tee body 29 in, crewneck 27 in, hoodie
+# 24.5 in below the hood seam); the footer sits under them.
+def tee_back():
+    return pool_back(2110, "tee-back", "Tee - back",
+                     "Centred on the back, top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem.")
+
+
+def back():
+    return pool_back(1860, "back", "Crewneck / hoodie - back",
+                     "Centred on the back, top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); "
+                     "the lane ropes end ~4.5 in above the bottom band.")
 
 
 def sleeve():
@@ -447,7 +405,7 @@ def sweats_leg():
                "0.8 in wide", L)
 
 
-ARTS = [front, tee_back, sleeve, sweats_hip, sweats_leg]
+ARTS = [front, tee_back, back, sleeve, sweats_hip, sweats_leg]
 NAME = "Squadron"
 SLUG = "squadron"
 TAGLINE = "Red chevron jet over stencil JETS on the front; one big white fighter with a red chevron on the back."

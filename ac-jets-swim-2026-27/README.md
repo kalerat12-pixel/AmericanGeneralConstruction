@@ -9,7 +9,7 @@ Every design ships as:
 - **Vector SVG** (`<concept>/svg/`): real paths only, all type converted to outlines, artboard = exact print size (1 unit = 0.01 in), and inks knocked out of each other so nothing overprints.
 - **300 DPI PNG** (`<concept>/png/`): transparent background, same size as the SVG.
 
-One file per print per garment color. Files are named `<concept>_<print>_on-<garment>.svg|png`, e.g. `squadron_back_on-heather.svg`. The `front` and `back` files are shared by the tee, crewneck and hoodie; `sleeve` is for the crewneck and hoodie only.
+One file per print per garment color. Files are named `<concept>_<print>_on-<garment>.svg|png`, e.g. `squadron_back_on-heather.svg`. The `front` file is shared by the tee, crewneck and hoodie. The back is the same pool-lane design in two lengths: `tee-back` for the tee and `back` for the crewneck and hoodie. `sleeve` is for the crewneck and hoodie only.
 
 ## Ink colors
 
@@ -38,19 +38,23 @@ The front of the tee, crewneck and hoodie is one lockup: a red twin-tail fighter
 | Print | Print size (W x H) | 300 DPI PNG (px) | Inks | Files (`.svg` in `squadron/svg`, `.png` in `squadron/png`) |
 |---|---|---|---|---|
 | Tee / crewneck / hoodie, front | 5.00 x 8.72 in | 1500 x 2616 | 2 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather` |
-| Tee / crewneck / hoodie, back | 8.60 x 12.76 in | 2580 x 3828 | 2 | `squadron_back_on-black`<br>`squadron_back_on-white`<br>`squadron_back_on-heather` |
+| Tee, back | 8.60 x 21.92 in | 2580 x 6576 | 2 | `squadron_tee-back_on-black`<br>`squadron_tee-back_on-white`<br>`squadron_tee-back_on-heather` |
+| Crewneck / hoodie, back | 8.60 x 19.34 in | 2580 x 5802 | 2 | `squadron_back_on-black`<br>`squadron_back_on-white`<br>`squadron_back_on-heather` |
 | Crewneck / hoodie, left sleeve | 0.82 x 9.03 in | 246 x 2709 | 2 | `squadron_sleeve_on-black`<br>`squadron_sleeve_on-white`<br>`squadron_sleeve_on-heather` |
 | Sweatpants, hip | 1.65 x 2.94 in | 495 x 882 | 2 | `squadron_sweats-hip_on-black`<br>`squadron_sweats-hip_on-white`<br>`squadron_sweats-hip_on-heather` |
 | Sweatpants, leg | 0.82 x 11.79 in | 246 x 3537 | 2 | `squadron_sweats-leg_on-black`<br>`squadron_sweats-leg_on-white`<br>`squadron_sweats-leg_on-heather` |
 
 ## Placement guide
 
+The backs are oversize prints (about 21-22 in tall on the tee, 19 in on the crewneck and hoodie), so they need a jumbo/oversize screen and platen, or DTF/DTG. Only the lane is long; JETS and the jet are a normal size.
+
 Sizes above are for adult S-XXL. For youth sizes scale the front and back prints to about 80%; the hip and leg prints can stay at full size.
 
 | Print | Where it goes |
 |---|---|
 | Tee / crewneck / hoodie, front | Centered on the chest. Tee and crewneck: top of art (jet nose) ~3 in below the collar seam. Hoodie: top of art ~1 in below the hood seam at center front; the bottom of the art clears the pouch pocket by ~0.75 in on an adult M-L (check on S). |
-| Tee / crewneck / hoodie, back | Centered on the back. Top of JETS ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam). |
+| Tee, back | Centered on the back. Top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem (adult L). |
+| Crewneck / hoodie, back | Centered on the back. Top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band (adult L). |
 | Crewneck / hoodie, left sleeve | Wearer's left sleeve on the sleeve center line (crewneck and hoodie only). The jet sits ~3 in below the shoulder seam, nose up; SWIM & DIVE reads from the cuff up toward the jet. |
 | Sweatpants, hip | Wearer's left front thigh/hip, ~3 in below the waistband, centered on the leg. |
 | Sweatpants, leg | Wearer's right leg on the outer leg panel. The jet sits ~3 in below the waistband, nose up; the line and AC SWIM & DIVE run down from it, reading from the waist toward the hem. |

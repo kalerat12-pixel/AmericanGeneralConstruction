@@ -14,14 +14,15 @@ CONCEPTS = [
      "sweatpants carry the lockup small on the hip and the jet leading AC SWIM & DIVE down the leg. All of it comes "
      "from Figma AI frames the team picked, redrawn as clean symmetric vector."),
 ]
-ORDER = ["front", "back", "sleeve", "sweats-hip", "sweats-leg"]
-LABEL = {"front": "Tee / crewneck / hoodie, front", "back": "Tee / crewneck / hoodie, back", "sleeve": "Crewneck / hoodie, left sleeve",
+ORDER = ["front", "tee-back", "back", "sleeve", "sweats-hip", "sweats-leg"]
+LABEL = {"front": "Tee / crewneck / hoodie, front", "tee-back": "Tee, back", "back": "Crewneck / hoodie, back", "sleeve": "Crewneck / hoodie, left sleeve",
          "sweats-hip": "Sweatpants, hip", "sweats-leg": "Sweatpants, leg"}
 PLACE = {
     "front": "Centered on the chest. Tee and crewneck: top of art (jet nose) ~3 in below the collar seam. "
              "Hoodie: top of art ~1 in below the hood seam at center front; the bottom of the art clears the "
              "pouch pocket by ~0.75 in on an adult M-L (check on S).",
-    "back": "Centered on the back. Top of JETS ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam).",
+    "tee-back": "Centered on the back. Top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem (adult L).",
+    "back": "Centered on the back. Top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band (adult L).",
     "sleeve": "Wearer's left sleeve on the sleeve center line (crewneck and hoodie only). The jet sits ~3 in below the shoulder seam, nose up; SWIM & DIVE reads from the cuff up toward the jet.",
     "sweats-hip": "Wearer's left front thigh/hip, ~3 in below the waistband, centered on the leg.",
     "sweats-leg": "Wearer's right leg on the outer leg panel. The jet sits ~3 in below the waistband, nose up; the line and AC SWIM & DIVE run down from it, reading from the waist toward the hem.",
@@ -46,8 +47,9 @@ def main():
     w("- **300 DPI PNG** (`<concept>/png/`): transparent background, same size as the SVG.")
     w("")
     w("One file per print per garment color. Files are named `<concept>_<print>_on-<garment>.svg|png`, "
-      "e.g. `squadron_back_on-heather.svg`. The `front` and `back` files are shared by the tee, "
-      "crewneck and hoodie; `sleeve` is for the crewneck and hoodie only.")
+      "e.g. `squadron_back_on-heather.svg`. The `front` file is shared by the tee, crewneck and "
+      "hoodie. The back is the same pool-lane design in two lengths: `tee-back` for the tee and `back` for the "
+      "crewneck and hoodie. `sleeve` is for the crewneck and hoodie only.")
     w("")
     w("## Ink colors")
     w("")
@@ -87,6 +89,9 @@ def main():
             w(f"| {LABEL[key]} | {e['width_in']:.2f} x {e['height_in']:.2f} in | {px} | {n} | {files} |")
         w("")
     w("## Placement guide")
+    w("")
+    w("The backs are oversize prints (about 21-22 in tall on the tee, 19 in on the crewneck and hoodie), so they "
+      "need a jumbo/oversize screen and platen, or DTF/DTG. Only the lane is long; JETS and the jet are a normal size.")
     w("")
     w("Sizes above are for adult S-XXL. For youth sizes scale the front and back prints to about 80%; "
       "the hip and leg prints can stay at full size.")

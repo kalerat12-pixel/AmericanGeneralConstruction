@@ -80,13 +80,13 @@
  {
   "concept": "squadron",
   "concept_name": "Squadron",
-  "art": "back",
-  "title": "Tee / crewneck / hoodie - back",
+  "art": "tee-back",
+  "title": "Tee - back",
   "garment": "black",
-  "svg": "squadron/svg/squadron_back_on-black.svg",
-  "png": "squadron/png/squadron_back_on-black.png",
+  "svg": "squadron/svg/squadron_tee-back_on-black.svg",
+  "png": "squadron/png/squadron_tee-back_on-black.png",
   "width_in": 8.6,
-  "height_in": 12.76,
+  "height_in": 21.92,
   "inks": [
    {
     "key": "white",
@@ -101,18 +101,96 @@
     "pms": "PMS 186 C"
    }
   ],
-  "placement": "Centred on the back, top of JETS ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam)."
+  "placement": "Centred on the back, top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "tee-back",
+  "title": "Tee - back",
+  "garment": "white",
+  "svg": "squadron/svg/squadron_tee-back_on-white.svg",
+  "png": "squadron/png/squadron_tee-back_on-white.png",
+  "width_in": 8.6,
+  "height_in": 21.92,
+  "inks": [
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the back, top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "tee-back",
+  "title": "Tee - back",
+  "garment": "heather",
+  "svg": "squadron/svg/squadron_tee-back_on-heather.svg",
+  "png": "squadron/png/squadron_tee-back_on-heather.png",
+  "width_in": 8.6,
+  "height_in": 21.92,
+  "inks": [
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the back, top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem."
  },
  {
   "concept": "squadron",
   "concept_name": "Squadron",
   "art": "back",
-  "title": "Tee / crewneck / hoodie - back",
+  "title": "Crewneck / hoodie - back",
+  "garment": "black",
+  "svg": "squadron/svg/squadron_back_on-black.svg",
+  "png": "squadron/png/squadron_back_on-black.png",
+  "width_in": 8.6,
+  "height_in": 19.34,
+  "inks": [
+   {
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   }
+  ],
+  "placement": "Centred on the back, top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "back",
+  "title": "Crewneck / hoodie - back",
   "garment": "white",
   "svg": "squadron/svg/squadron_back_on-white.svg",
   "png": "squadron/png/squadron_back_on-white.png",
   "width_in": 8.6,
-  "height_in": 12.76,
+  "height_in": 19.34,
   "inks": [
    {
     "key": "black",
@@ -127,18 +205,18 @@
     "pms": "PMS 186 C"
    }
   ],
-  "placement": "Centred on the back, top of JETS ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam)."
+  "placement": "Centred on the back, top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band."
  },
  {
   "concept": "squadron",
   "concept_name": "Squadron",
   "art": "back",
-  "title": "Tee / crewneck / hoodie - back",
+  "title": "Crewneck / hoodie - back",
   "garment": "heather",
   "svg": "squadron/svg/squadron_back_on-heather.svg",
   "png": "squadron/png/squadron_back_on-heather.png",
   "width_in": 8.6,
-  "height_in": 12.76,
+  "height_in": 19.34,
   "inks": [
    {
     "key": "black",
@@ -153,7 +231,7 @@
     "pms": "PMS 186 C"
    }
   ],
-  "placement": "Centred on the back, top of JETS ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam)."
+  "placement": "Centred on the back, top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band."
  },
  {
   "concept": "squadron",

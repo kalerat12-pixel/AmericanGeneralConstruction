@@ -152,7 +152,7 @@ def tee(slug, g, dims):
     front = garment(TEE_FRONT, g) + seams(TEE_SEAMS_FRONT, g)
     front += place(f"{p}-front", dims, slug, "front", 16, 6.2)
     back = garment(TEE_BACK, g) + seams(TEE_SEAMS_BACK, g)
-    back += place(f"{p}-back", dims, slug, "back", 16, 4.8)
+    back += place(f"{p}-tee-back", dims, slug, "tee-back", 16, 4.8)
     inner = two_views(front, back, 32, 33.4, "Tee")
     return svg_wrap("0 0 65.5 33.4", inner, g, f"Tee, front and back, {GARMENTS[g][0]}")
 
@@ -195,12 +195,12 @@ def sweats(slug, g, dims):
 
 
 PIECES = [
-    ("tee", "Tee", tee, ["front", "back"]),
+    ("tee", "Tee", tee, ["front", "tee-back"]),
     ("hoodie", "Hoodie", hoodie, ["front", "back", "sleeve"]),
     ("crew", "Crewneck", crew, ["front", "back", "sleeve"]),
     ("sweats", "Sweatpants", sweats, ["sweats-hip", "sweats-leg"]),
 ]
-PRINT_LABEL = {"front": "Front", "back": "Full back", "sleeve": "Left sleeve", "sweats-hip": "Left hip", "sweats-leg": "Right leg"}
+PRINT_LABEL = {"front": "Front", "tee-back": "Full back", "back": "Full back", "sleeve": "Left sleeve", "sweats-hip": "Left hip", "sweats-leg": "Right leg"}
 
 
 def ink_dots(g):
