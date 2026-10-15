@@ -264,6 +264,27 @@ def front():
                "Clears the hoodie pouch pocket.", f"{W / 100:.1f} in wide", L)
 
 
+def open_m(g, slot=4.5):
+    """Saira Black's M has flat-tipped inner Vs that taper to slivers under 0.03 in at small
+    caps (too blunt for notch_fix to see). Cut a 0.045 in slot from each flat tip out to the
+    glyph edge so both Vs stay open on press. Only for M glyphs."""
+    from fontTools.pens.recordingPen import RecordingPen
+    rec = RecordingPen()
+    g.draw(rec)
+    pts = [a[-1] for op, a in rec.value if a]
+    x0, y0, x1, y1 = K.bounds(g)
+    cuts = []
+    for (ax, ay), (bx, by) in zip(pts, pts[1:]):
+        if abs(ay - by) > 0.01 or not 0 < abs(ax - bx) < 0.06 * (y1 - y0) or ay in (y0, y1):
+            continue
+        mx = (ax + bx) / 2
+        if not g.contains((mx, ay + 1)):            # gap opens downward (toward the baseline)
+            cuts.append(K.rect(mx - slot / 2, ay - 1, slot, y1 - ay + 2))
+        elif not g.contains((mx, ay - 1)):          # gap opens upward (toward the cap line)
+            cuts.append(K.rect(mx - slot / 2, y0 - 1, slot, ay - y0 + 2))
+    return K.diff(g, K.union(*cuts)) if cuts else g
+
+
 def mono_line(s, cap, tracking):
     """Mono text whose degree signs are drawn as print-safe rings (the font's ring is too fine
     at small sizes): 0.04 in stroke, 0.03 in hole minimum. Baseline at y = 0."""
@@ -328,11 +349,21 @@ def pool_back(rope_end, key, title, placement):
         L.append(("accent", K.poly([(cx - step * 0.30, y_flag + 4), (cx + step * 0.30, y_flag + 4),
                                     (cx, y_flag + 32)])))
 
+    # ADAMS CENTRAL arched over the jet, in the JETS face with the same stencil cuts;
+    # the jet's nose rises a little way into the arch and is keylined out of the letters
+    acap, R, gap = 48, 480, 6
+    items = ST.stencil_glyph_paths("ADAMS CENTRAL", acap, font=HERO, split_a_glyph=False)
+    items = [(ch, (open_m(p) if ch == "M" else p), adv) for ch, p, adv in items]
+    y_base = y_flag + 50 + acap                          # arch baseline at the centre line
+    arch = arc_glyphs(items, W / 2, y_base + R, R, 3)
+
     # the jet and the lane line with its T
     span = 0.50 * W
     jet, info = M.fighter(span, W / 2, 0, "red")
-    jy = y_flag + 62 - info["nose_y"]
-    L.append(("accent", K.translate(jet["accent"], 0, jy)))
+    jy = y_base - 0.45 * acap - info["nose_y"]          # nose tip ~45% up the arch letters
+    jet_p = K.translate(jet["accent"], 0, jy)
+    L.append(("main", K.diff(arch, K.union(jet_p, K.stroke(jet_p, 2 * gap, join="round")))))
+    L.append(("accent", jet_p))
     lw, tw, th = 20, 92, 22
     y_t = y_rope_end - 20 - th
     y0 = info["tail_y"] + jy - 4
