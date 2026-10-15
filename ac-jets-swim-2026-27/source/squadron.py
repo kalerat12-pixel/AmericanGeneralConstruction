@@ -254,14 +254,22 @@ def jets_lockup(W, cuts=True, arch=False):
     jet = K.translate(jet["accent"], 0, -info["nose_y"])
     head = []
     if arch:
-        acap, R, gap = 0.075 * W, 1.3 * W, 5
+        # ADAMS CENTRAL arched over the jet, wider than JETS; the jet sits as high as it can
+        # while keeping a clear 0.06 in of garment between its nose and the letters
+        acap, R, gap = 0.10 * W, 0.68 * W, 6
         a = adams_arch(acap, R, W / 2, 0)
-        ab = K.bounds(a)
-        a = K.translate(a, 0, -ab[1])                    # arch top at y = 0
-        y_base = -ab[1]                                  # its baseline on the centre line
-        jet = K.translate(jet, 0, y_base - 0.30 * acap)  # nose tip ~30% up the letters
-        head = [("main", K.diff(a, K.union(jet, K.stroke(jet, 2 * gap, join="round"))))]
-        info = dict(info, length=info["length"] + y_base - 0.30 * acap)
+        a = K.translate(a, 0, -K.bounds(a)[1])           # arch top at y = 0
+
+        def hits(dy):
+            j = K.translate(jet, 0, dy)
+            return K.bounds(K.inter(a, K.union(j, K.stroke(j, 2 * gap, join="round"))))[2] > 0
+        lo, hi = 0.0, K.bounds(a)[3] + 2 * gap
+        for _ in range(30):
+            mid = (lo + hi) / 2
+            lo, hi = (mid, hi) if hits(mid) else (lo, mid)
+        jet = K.translate(jet, 0, hi)
+        head = [("main", a)]
+        info = dict(info, length=info["length"] + hi)
     cap = ST.fit_cap("JETS", W, font=HERO)
     y = info["length"] + 0.075 * W + cap
     word = ST.stencil_word("JETS", cap, W / 2, y, anchor="middle", font=HERO, counters_only=not cuts,

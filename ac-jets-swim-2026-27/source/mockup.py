@@ -162,7 +162,7 @@ def hoodie(slug, g, dims):
     front = garment(HOODIE, g)
     front += f'<path d="{HOODIE_OPEN}" fill="{GARMENT_SHADE[g]}" stroke="{GARMENT_LINE[g]}" stroke-width="0.06"/>'
     front += seams(HOODIE_SEAMS, g)
-    front += place(f"{p}-front", dims, slug, "front", 20, 13.1)
+    front += place(f"{p}-front", dims, slug, "front", 20, 12.6)
     front += place(f"{p}-sleeve", dims, slug, "sleeve", 31.35, 15.4, rot=-10)
     front += seams(HOODIE_STRINGS, g, 0.16)
     back = garment(HOODIE, g) + seams(HOODIE_SEAMS_BACK, g)

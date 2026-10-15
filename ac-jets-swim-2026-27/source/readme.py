@@ -7,7 +7,7 @@ ROOT = os.path.dirname(HERE)
 
 CONCEPTS = [
     ("squadron", "Squadron", "The front of the tee, crewneck and hoodie is one lockup: ADAMS CENTRAL arched over a red "
-     "twin-tail fighter whose nose just touches the arch, with a chevron stripe knocked out along its wings, over a "
+     "twin-tail fighter whose nose sits just under the arch without touching it, with a chevron stripe knocked out along its wings, over a "
      "stencil JETS and a spaced 26-27. The back of all three is the "
      "pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter "
      "flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled "
@@ -19,9 +19,9 @@ ORDER = ["front", "tee-back", "back", "sleeve", "sweats-hip", "sweats-leg"]
 LABEL = {"front": "Tee / crewneck / hoodie, front", "tee-back": "Tee, back", "back": "Crewneck / hoodie, back", "sleeve": "Crewneck / hoodie, left sleeve",
          "sweats-hip": "Sweatpants, hip", "sweats-leg": "Sweatpants, leg"}
 PLACE = {
-    "front": "Centered on the chest. Tee and crewneck: top of art (jet nose) ~3 in below the collar seam. "
-             "Hoodie: top of art ~1 in below the hood seam at center front; the bottom of the art clears the "
-             "pouch pocket by ~0.75 in on an adult M-L (check on S).",
+    "front": "Centered on the chest. Tee and crewneck: top of the ADAMS CENTRAL arch ~3 in below the collar "
+             "seam. Hoodie: top of the arch ~0.75 in below the hood opening at center front; the bottom of the art "
+             "clears the pouch pocket by ~0.5 in on an adult M-L (check on S, or scale to 90%).",
     "tee-back": "Centered on the back. Top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem (adult L).",
     "back": "Centered on the back. Top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band (adult L).",
     "sleeve": "Wearer's left sleeve on the sleeve center line (crewneck and hoodie only). The jet sits ~3 in below the shoulder seam, nose up; SWIM & DIVE reads from the cuff up toward the jet.",
