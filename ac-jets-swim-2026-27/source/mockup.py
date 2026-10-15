@@ -87,7 +87,7 @@ def place(sid, dims, slug, key, x, y, anchor="top-center", rot=0):
 def svg_wrap(vb, inner, g, label):
     o = PALETTES[g].get("outline")
     outline = INKS[o][1] if o else "transparent"
-    style = f"--m:{INK_MAIN[g]};--a:{RED};--o:{outline}"
+    style = f"--m:{INK_MAIN[g]};--a:{INKS[PALETTES[g]['accent']][1]};--o:{outline}"
     return (f'<svg class="flat" viewBox="{vb}" style="{style}" role="img" aria-label="{html.escape(label)}">'
             f"{inner}</svg>")
 
@@ -149,7 +149,7 @@ PRINT_LABEL = {"front": "Front", "tee-back": "Full back", "back": "Full back", "
 def ink_dots(g):
     pal = PALETTES[g]
     out = []
-    keys = ["red", pal["main"]] + ([pal["outline"]] if pal.get("outline") and pal["outline"] != pal["main"] else [])
+    keys = [pal["accent"], pal["main"]] + ([pal["outline"]] if pal.get("outline") and pal["outline"] not in (pal["main"], pal["accent"]) else [])
     for k in keys:
         name, hexv, pms = INKS[k]
         out.append(f'<span class="ink"><i style="background:{hexv}"></i>{name}</span>')
@@ -436,7 +436,7 @@ def page(fragment=False):
         f'<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>{HEATHER_FILTER}{GA.DEFS}{syms}</defs></svg>'
         '<header class="wrap top"><div><p class="eyebrow">Adams Central Jets · Swim &amp; Dive · Monroe, Indiana</p>'
         '<h1>2026–27 <em>Squadron</em> Collection</h1>'
-        '<p class="intro">The final team apparel set: tee, hoodie, crewneck and sweatpants in black, white and dark heather grey. '
+        '<p class="intro">The final team apparel set: tee, hoodie, crewneck and sweatpants in black, white, dark heather grey and red (black or white print). '
         'Prints are shown at true size and placement on flat garments. Tap or click any garment to enlarge it.</p></div>'
         f'<div class="inks" aria-label="Ink colors"><p class="eyebrow">Inks · 2 per print max</p>{inks}</div></header>'
         f'<nav class="tabs" aria-label="Pieces"><div class="wrap">{tabs}</div></nav>'

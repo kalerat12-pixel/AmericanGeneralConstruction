@@ -14,12 +14,15 @@ import itertools
 _ids = itertools.count()
 
 # fabric colours (preview only, never printed)
-FILL = {"black": "#1D1D1F", "white": "#F6F6F3", "heather": "#55575B"}
-EDGE = {"black": "#0C0C0D", "white": "#C9C9C4", "heather": "#3C3E41"}
-INSIDE = {"black": "#0E0E0F", "white": "#DEDED9", "heather": "#404245"}
-STITCH = {"black": "#3A3A3D", "white": "#BDBDB7", "heather": "#6E7075"}
-KNIT = {"black": "f-knit-dark", "white": "f-knit-light", "heather": "f-knit-heather"}
-KNIT_OPACITY = {"black": ".10", "white": ".12", "heather": ".16"}
+FILL = {"black": "#1D1D1F", "white": "#F6F6F3", "heather": "#55575B", "red": "#B5142A"}
+EDGE = {"black": "#0C0C0D", "white": "#C9C9C4", "heather": "#3C3E41", "red": "#7E0E1D"}
+INSIDE = {"black": "#0E0E0F", "white": "#DEDED9", "heather": "#404245", "red": "#8A0F20"}
+STITCH = {"black": "#3A3A3D", "white": "#BDBDB7", "heather": "#6E7075", "red": "#D0405A"}
+KNIT = {"black": "f-knit-dark", "white": "f-knit-light", "heather": "f-knit-heather", "red": "f-knit-light"}
+KNIT_OPACITY = {"black": ".10", "white": ".12", "heather": ".16", "red": ".14"}
+CORD = {"black": "#2A2A2C", "white": "#E9E9E5", "heather": "#6A6C70", "red": "#C42640"}
+for _d in (FILL, EDGE, INSIDE, STITCH, KNIT, KNIT_OPACITY, CORD):     # both red colourways share one fabric
+    _d["red-black"] = _d["red-white"] = _d["red"]
 
 DEFS = (
     # body shading: darker toward the sides, a soft highlight down the middle
@@ -178,7 +181,7 @@ def hoodie_view(g, prints, front=True, strings=""):
 
 
 def drawstrings(g):
-    col = {"black": "#2A2A2C", "white": "#E9E9E5", "heather": "#6A6C70"}[g]
+    col = CORD[g]
     s = ""
     for d, tip in (("M18.7 11.4 C18.6 13 18.5 14.6 18.4 16.4", (18.4, 16.4)),
                    ("M21.3 11.4 C21.4 13 21.5 14.6 21.6 16.4", (21.6, 16.4))):
@@ -240,7 +243,7 @@ SWEATS_FOLDS = ["M8.2 39.6 C8.5 38.4 9.0 37.8 9.6 37.5", "M10.6 39.6 C10.3 38.6 
 
 def sweats_view(g, prints):
     cord = ""
-    col = {"black": "#2A2A2C", "white": "#E9E9E5", "heather": "#6A6C70"}[g]
+    col = CORD[g]
     for d in ("M13.3 3.4 C13.1 4.8 12.9 6.2 12.7 7.6", "M14.7 3.4 C14.9 4.8 15.1 6.2 15.3 7.6"):
         cord += _p(d, fill="none", stroke=col, stroke_width=".15", stroke_linecap="round")
     legs = (f'<rect x="5.5" y="0" width="8.6" height="44" fill="url(#g-shade)"/>'

@@ -12,10 +12,13 @@ INKS = {
 }
 
 # Garment colours (for previews / mockups only - never printed)
+BASE_GARMENTS = ("black", "white", "heather")       # the alternates are only built for these
 GARMENTS = {
     "black": ("Black", "#151515"),
     "white": ("White", "#F4F4F2"),
     "heather": ("Dark Heather Grey", "#55575B"),
+    "red-black": ("Red, black print", "#B5142A"),
+    "red-white": ("Red, white print", "#B5142A"),
 }
 
 # role -> ink, per garment colour. Every design is drawn with roles so the
@@ -24,6 +27,9 @@ PALETTES = {
     "black": {"main": "white", "accent": "red", "detail": "white", "outline": None},
     "white": {"main": "black", "accent": "red", "detail": "black", "outline": "black"},
     "heather": {"main": "white", "accent": "red", "detail": "white", "outline": "black"},
+    # red garments: a red jet would disappear, so the accent flips to the other print colour
+    "red-black": {"main": "black", "accent": "white", "detail": "black", "outline": "black"},
+    "red-white": {"main": "white", "accent": "black", "detail": "white", "outline": None},
 }
 
 ITALIC = math.tan(math.radians(10))  # Archivo italic angle

@@ -17,7 +17,7 @@ sys.path.insert(0, HERE)
 os.environ.setdefault("ACJ_FONT_DIR", os.path.join(HERE, ".fonts"))
 
 import svgkit as K  # noqa: E402
-from common import GARMENTS, INKS, PALETTES  # noqa: E402
+from common import BASE_GARMENTS, GARMENTS, INKS, PALETTES  # noqa: E402
 import squadron  # noqa: E402
 
 CONCEPTS = {m.SLUG: m for m in [squadron]}
@@ -73,6 +73,8 @@ def build(concepts, png=True):
         for fn in c.ARTS:
             art = fn()
             for g in GARMENTS:
+                if slug != FINAL and g not in BASE_GARMENTS:
+                    continue
                 layers, w, h = colourway(art, g)
                 name = f"{slug}_{art.key}_on-{g}"
                 svg_path = os.path.join(out_dir(slug), "svg", name + ".svg")
