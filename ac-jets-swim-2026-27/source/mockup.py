@@ -25,11 +25,11 @@ AI_DIR = os.path.join(ROOT, "ai-exploration")
 PREFIX = {"squadron": "sq", "lane-four": "lf", "aero-varsity": "av"}
 
 STORY = {
-    "squadron": ("A red fighter with a chevron over stencil JETS on every front. The tee back flies that jet down a "
-                 "pool lane; the crewneck and hoodie backs carry it big, with a red chevron across the wings.",
-                 "All three prints come from Figma AI frames the team picked (tee back, hip lockup right, jet mark "
-                 "right), redrawn as clean 2-ink vector. The sweatpants carry the lockup small on the hip and the "
-                 "jet leading a contrail down the leg."),
+    "squadron": ("A red fighter with a chevron over stencil JETS on every front, and the same jet flying a pool "
+                 "lane on every back.",
+                 "Both prints come from Figma AI frames the team picked (tee back, hip lockup right), redrawn as clean "
+                 "2-ink vector. The crewneck and hoodie add the jet, a contrail line and SWIM & DIVE down the left "
+                 "sleeve; the sweatpants carry the lockup small on the hip and the jet leading AC SWIM & DIVE down the leg."),
     "lane-four": ("Performance minimal: one expanded italic, the jet cut down to an arrowhead, lots of air.",
                   "Named for the center lane, where the top seed swims. A lane-rope band with red end floats runs through "
                   "every piece, and everything leans on the same 10° axis."),
@@ -152,7 +152,7 @@ def tee(slug, g, dims):
     front = garment(TEE_FRONT, g) + seams(TEE_SEAMS_FRONT, g)
     front += place(f"{p}-front", dims, slug, "front", 16, 6.2)
     back = garment(TEE_BACK, g) + seams(TEE_SEAMS_BACK, g)
-    back += place(f"{p}-tee-back", dims, slug, "tee-back", 16, 4.8)
+    back += place(f"{p}-back", dims, slug, "back", 16, 4.8)
     inner = two_views(front, back, 32, 33.4, "Tee")
     return svg_wrap("0 0 65.5 33.4", inner, g, f"Tee, front and back, {GARMENTS[g][0]}")
 
@@ -195,12 +195,12 @@ def sweats(slug, g, dims):
 
 
 PIECES = [
-    ("tee", "Tee", tee, ["front", "tee-back"]),
+    ("tee", "Tee", tee, ["front", "back"]),
     ("hoodie", "Hoodie", hoodie, ["front", "back", "sleeve"]),
     ("crew", "Crewneck", crew, ["front", "back", "sleeve"]),
     ("sweats", "Sweatpants", sweats, ["sweats-hip", "sweats-leg"]),
 ]
-PRINT_LABEL = {"front": "Front", "tee-back": "Full back", "back": "Full back", "sleeve": "Left sleeve", "sweats-hip": "Left hip", "sweats-leg": "Right leg"}
+PRINT_LABEL = {"front": "Front", "back": "Full back", "sleeve": "Left sleeve", "sweats-hip": "Left hip", "sweats-leg": "Right leg"}
 
 
 def ink_dots(g):

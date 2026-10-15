@@ -80,91 +80,13 @@
  {
   "concept": "squadron",
   "concept_name": "Squadron",
-  "art": "tee-back",
-  "title": "Tee - back",
-  "garment": "black",
-  "svg": "squadron/svg/squadron_tee-back_on-black.svg",
-  "png": "squadron/png/squadron_tee-back_on-black.png",
-  "width_in": 8.6,
-  "height_in": 12.76,
-  "inks": [
-   {
-    "key": "white",
-    "name": "White",
-    "hex": "#FFFFFF",
-    "pms": "Bright white (low-bleed on dark garments)"
-   },
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   }
-  ],
-  "placement": "Centred on the back, top of JETS ~3 in below the collar seam."
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "tee-back",
-  "title": "Tee - back",
-  "garment": "white",
-  "svg": "squadron/svg/squadron_tee-back_on-white.svg",
-  "png": "squadron/png/squadron_tee-back_on-white.png",
-  "width_in": 8.6,
-  "height_in": 12.76,
-  "inks": [
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   },
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   }
-  ],
-  "placement": "Centred on the back, top of JETS ~3 in below the collar seam."
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
-  "art": "tee-back",
-  "title": "Tee - back",
-  "garment": "heather",
-  "svg": "squadron/svg/squadron_tee-back_on-heather.svg",
-  "png": "squadron/png/squadron_tee-back_on-heather.png",
-  "width_in": 8.6,
-  "height_in": 12.76,
-  "inks": [
-   {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
-   },
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   }
-  ],
-  "placement": "Centred on the back, top of JETS ~3 in below the collar seam."
- },
- {
-  "concept": "squadron",
-  "concept_name": "Squadron",
   "art": "back",
-  "title": "Crewneck / hoodie - back",
+  "title": "Tee / crewneck / hoodie - back",
   "garment": "black",
   "svg": "squadron/svg/squadron_back_on-black.svg",
   "png": "squadron/png/squadron_back_on-black.png",
-  "width_in": 9.0,
-  "height_in": 12.56,
+  "width_in": 8.6,
+  "height_in": 12.76,
   "inks": [
    {
     "key": "white",
@@ -179,18 +101,18 @@
     "pms": "PMS 186 C"
    }
   ],
-  "placement": "Centred on the back, nose ~3 in below the collar seam."
+  "placement": "Centred on the back, top of JETS ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam)."
  },
  {
   "concept": "squadron",
   "concept_name": "Squadron",
   "art": "back",
-  "title": "Crewneck / hoodie - back",
+  "title": "Tee / crewneck / hoodie - back",
   "garment": "white",
   "svg": "squadron/svg/squadron_back_on-white.svg",
   "png": "squadron/png/squadron_back_on-white.png",
-  "width_in": 9.0,
-  "height_in": 12.56,
+  "width_in": 8.6,
+  "height_in": 12.76,
   "inks": [
    {
     "key": "black",
@@ -205,18 +127,18 @@
     "pms": "PMS 186 C"
    }
   ],
-  "placement": "Centred on the back, nose ~3 in below the collar seam."
+  "placement": "Centred on the back, top of JETS ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam)."
  },
  {
   "concept": "squadron",
   "concept_name": "Squadron",
   "art": "back",
-  "title": "Crewneck / hoodie - back",
+  "title": "Tee / crewneck / hoodie - back",
   "garment": "heather",
   "svg": "squadron/svg/squadron_back_on-heather.svg",
   "png": "squadron/png/squadron_back_on-heather.png",
-  "width_in": 9.0,
-  "height_in": 12.56,
+  "width_in": 8.6,
+  "height_in": 12.76,
   "inks": [
    {
     "key": "black",
@@ -231,7 +153,7 @@
     "pms": "PMS 186 C"
    }
   ],
-  "placement": "Centred on the back, nose ~3 in below the collar seam."
+  "placement": "Centred on the back, top of JETS ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam)."
  },
  {
   "concept": "squadron",
@@ -413,7 +335,7 @@
     "pms": "Bright white (low-bleed on dark garments)"
    }
   ],
-  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading hem to waist."
+  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading from the waist down to the hem."
  },
  {
   "concept": "squadron",
@@ -439,7 +361,7 @@
     "pms": "PMS Black 6 C"
    }
   ],
-  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading hem to waist."
+  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading from the waist down to the hem."
  },
  {
   "concept": "squadron",
@@ -465,7 +387,7 @@
     "pms": "PMS Black 6 C"
    }
   ],
-  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading hem to waist."
+  "placement": "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading from the waist down to the hem."
  },
  {
   "concept": "lane-four",

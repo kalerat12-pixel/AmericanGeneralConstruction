@@ -7,26 +7,24 @@ ROOT = os.path.dirname(HERE)
 
 CONCEPTS = [
     ("squadron", "Squadron", "The front of the tee, crewneck and hoodie is one lockup: a red twin-tail fighter with a "
-     "chevron stripe knocked out along its wings, over a stencil JETS and a spaced 26-27. The tee back is the pool "
-     "lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter "
+     "chevron stripe knocked out along its wings, over a stencil JETS and a spaced 26-27. The back of all three is the "
+     "pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter "
      "flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled "
-     "footer. The crewneck and hoodie backs carry the fighter big, in the main ink with keyline panel cuts and a red "
-     "chevron across the wings, and their left sleeve has the jet, a contrail line and SWIM & DIVE. The sweatpants carry the lockup small on the hip and the jet leading a contrail down "
-     "the leg. All of it comes from Figma AI frames the team picked, redrawn as clean symmetric vector."),
+     "footer. The crewneck and hoodie also have the jet, a contrail line and SWIM & DIVE down the left sleeve. The "
+     "sweatpants carry the lockup small on the hip and the jet leading AC SWIM & DIVE down the leg. All of it comes "
+     "from Figma AI frames the team picked, redrawn as clean symmetric vector."),
 ]
-ORDER = ["front", "tee-back", "back", "sleeve", "sweats-hip", "sweats-leg"]
-LABEL = {"front": "Tee / crewneck / hoodie, front", "tee-back": "Tee, back",
-         "back": "Crewneck / hoodie, back", "sleeve": "Crewneck / hoodie, left sleeve",
+ORDER = ["front", "back", "sleeve", "sweats-hip", "sweats-leg"]
+LABEL = {"front": "Tee / crewneck / hoodie, front", "back": "Tee / crewneck / hoodie, back", "sleeve": "Crewneck / hoodie, left sleeve",
          "sweats-hip": "Sweatpants, hip", "sweats-leg": "Sweatpants, leg"}
 PLACE = {
     "front": "Centered on the chest. Tee and crewneck: top of art (jet nose) ~3 in below the collar seam. "
              "Hoodie: top of art ~1 in below the hood seam at center front; the bottom of the art clears the "
              "pouch pocket by ~0.75 in on an adult M-L (check on S).",
-    "tee-back": "Centered on the back. Top of JETS ~3 in below the collar seam.",
-    "back": "Centered on the back. Jet nose ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam).",
+    "back": "Centered on the back. Top of JETS ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam).",
     "sleeve": "Wearer's left sleeve on the sleeve center line (crewneck and hoodie only). The jet sits ~3 in below the shoulder seam, nose up; SWIM & DIVE reads from the cuff up toward the jet.",
     "sweats-hip": "Wearer's left front thigh/hip, ~3 in below the waistband, centered on the leg.",
-    "sweats-leg": "Wearer's right leg on the outer leg panel. The jet sits ~3 in below the waistband, nose up; the text reads from the hem up toward the jet.",
+    "sweats-leg": "Wearer's right leg on the outer leg panel. The jet sits ~3 in below the waistband, nose up; the line and AC SWIM & DIVE run down from it, reading from the waist toward the hem.",
 }
 
 
@@ -48,8 +46,8 @@ def main():
     w("- **300 DPI PNG** (`<concept>/png/`): transparent background, same size as the SVG.")
     w("")
     w("One file per print per garment color. Files are named `<concept>_<print>_on-<garment>.svg|png`, "
-      "e.g. `squadron_tee-back_on-heather.svg`. The `front` file is shared by the tee, crewneck and "
-      "hoodie; `tee-back` is the tee back and `back` is the crewneck and hoodie back.")
+      "e.g. `squadron_back_on-heather.svg`. The `front` and `back` files are shared by the tee, "
+      "crewneck and hoodie; `sleeve` is for the crewneck and hoodie only.")
     w("")
     w("## Ink colors")
     w("")
@@ -67,8 +65,8 @@ def main():
     w("| White | Black | Jets Red |")
     w("| Heather Grey | Black | Jets Red |")
     w("")
-    w("Red is used only on the jet: the whole jet on the front lockups, the tee back and the leg, plus the flags and rope end zones on the tee back and the chevron band on the crewneck and hoodie backs. "
-      "Red never touches the main ink; on the back a 0.06 in keyline of bare garment separates them.")
+    w("Red is used for the jet on every print, plus the backstroke flags and the rope end zones on the back. "
+      "Red never touches the main ink.")
     w("")
     w("Printer notes: red on black garments needs a white underbase (the printer may count it as a screen). "
       "Inks are knocked out, so no trapping or overprint is set in the files; the printer can add a hairline trap. "
@@ -108,8 +106,7 @@ def main():
       "frames the team picked. It is rebuilt from a coordinate grid (span = 100 units, 45 degree wing leading edge), "
       "symmetric and straight-edged, never traced. Its detail steps down with size: canopy, chevron stripe and "
       "stabilizer cuts from 1.2 in span; no canopy from 1 in; a plain silhouette with stabilizer cuts below that "
-      "(the leg strip). The back version adds keyline panel lines (spine, intakes, leading-edge flaps, stabilizer "
-      "edges) and the tapered red chevron band.")
+      "(the sleeve and leg strips).")
     w("- JETS is Saira Black (wide) with stencil cuts: a full-height gap at the E's stem, a horizontal cut under the "
       "T's bar and two cuts through the S on its center axis. 26-27 is Archivo Expanded, tracked wide.")
     w("- Typefaces, all SIL Open Font License (free for apparel): Saira, Archivo, Barlow Condensed (leg text). "

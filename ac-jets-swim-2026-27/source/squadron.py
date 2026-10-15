@@ -205,7 +205,7 @@ def hoodie_front():
                f"{W / 100:.1f} in wide", L)
 
 
-def strip_grammar(head, head_len, rule_len, text, cap, font, tracking, width, text_font_fix=True):
+def strip_grammar(head, head_len, rule_len, text, cap, font, tracking, width, text_font_fix=True, reads="up"):
     """Vertical strip shared by the sleeve and the leg: the jet unit at the top,
     a 0.25 in gap, a 0.06 in main-ink contrail rule, a 0.25 in gap, then the text
     rotated 90 deg counter-clockwise so it reads toward the jet. Centred on the axis."""
@@ -218,8 +218,12 @@ def strip_grammar(head, head_len, rule_len, text, cap, font, tracking, width, te
     if text_font_fix and cap >= 30:
         t = K.notch_fix(t)
     tb = K.bounds(t)
-    t = K.translate(t, -tb[2], -(tb[1] + tb[3]) / 2)          # text end at origin
-    t = K.rotate(t, -90)                                       # reads bottom to top
+    if reads == "up":
+        t = K.translate(t, -tb[2], -(tb[1] + tb[3]) / 2)      # text end at origin
+        t = K.rotate(t, -90)                                   # reads bottom to top
+    else:
+        t = K.translate(t, -tb[0], -(tb[1] + tb[3]) / 2)      # text start at origin
+        t = K.rotate(t, 90)                                    # reads top to bottom
     L.append(("main", K.translate(t, axis, y)))
     return L
 
@@ -316,15 +320,6 @@ def front():
                "Clears the hoodie pouch pocket.", f"{W / 100:.1f} in wide", L)
 
 
-def back():
-    span = 900
-    jet, info = M.fighter(span, span / 2, 0, "white", gap=6)
-    dy = -info["nose_y"]
-    L = [("main", K.translate(jet["main"], 0, dy)), ("accent", K.translate(jet["accent"], 0, dy))]
-    return Art("back", "Crewneck / hoodie - back",
-               "Centred on the back, nose ~3 in below the collar seam.", f"{span / 100:.1f} in wingspan", L)
-
-
 def mono_line(s, cap, tracking):
     """Mono text whose degree signs are drawn as print-safe rings (the font's ring is too fine
     at small sizes): 0.04 in stroke, 0.03 in hole minimum. Baseline at y = 0."""
@@ -416,8 +411,9 @@ def tee_back():
     L.append(("main", K.text(LABEL, "ADAMS CENTRAL SWIM & DIVE", fc, 0, y_f,
                              tracking=solve_label(LABEL, "ADAMS CENTRAL SWIM & DIVE", fc, team_w))))
     L.append(("main", serial))
-    return Art("tee-back", "Tee - back",
-               "Centred on the back, top of JETS ~3 in below the collar seam.", f"{W / 100:.1f} in wide", L)
+    return Art("back", "Tee / crewneck / hoodie - back",
+               "Centred on the back, top of JETS ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam).",
+               f"{W / 100:.1f} in wide", L)
 
 
 def sleeve():
@@ -440,18 +436,18 @@ def sweats_hip():
 
 
 def sweats_leg():
-    """Reads hem to waist; the jet leads at the waistband end with its contrail behind it."""
+    """Reads waist to hem; the jet leads at the waistband end with its contrail behind it."""
     w = 82
     span = 82
     jet, info = M.fighter(span, w / 2, 0, "red")
     head = [("accent", K.translate(jet["accent"], 0, -info["nose_y"]))]
-    L = strip_grammar(head, info["length"], 461, "AC SWIM & DIVE", 55, LABEL_HEAVY, 100, w)
+    L = strip_grammar(head, info["length"], 461, "AC SWIM & DIVE", 55, LABEL_HEAVY, 100, w, reads="down")
     return Art("sweats-leg", "Sweatpants - leg side",
-               "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading hem to waist.",
+               "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading from the waist down to the hem.",
                "0.8 in wide", L)
 
 
-ARTS = [front, tee_back, back, sleeve, sweats_hip, sweats_leg]
+ARTS = [front, tee_back, sleeve, sweats_hip, sweats_leg]
 NAME = "Squadron"
 SLUG = "squadron"
 TAGLINE = "Red chevron jet over stencil JETS on the front; one big white fighter with a red chevron on the back."
