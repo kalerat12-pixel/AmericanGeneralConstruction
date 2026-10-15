@@ -20,7 +20,7 @@ LABEL = {"front": "Tee / crewneck / hoodie, front", "tee-back": "Tee, back", "ba
          "sweats-hip": "Sweatpants, hip", "sweats-leg": "Sweatpants, leg"}
 PLACE = {
     "front": "Centered on the chest. Tee and crewneck: top of the ADAMS CENTRAL arch ~3 in below the collar "
-             "seam. Hoodie: top of the arch ~0.75 in below the hood opening at center front; the bottom of the art "
+             "seam. Hoodie: top of the arch ~0.5 in below the hood opening at center front; the bottom of the art "
              "clears the pouch pocket by ~0.5 in on an adult M-L (check on S, or scale to 90%).",
     "tee-back": "Centered on the back. Top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem (adult L).",
     "back": "Centered on the back. Top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band (adult L).",

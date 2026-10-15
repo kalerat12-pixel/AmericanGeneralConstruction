@@ -256,7 +256,7 @@ def jets_lockup(W, cuts=True, arch=False):
     if arch:
         # ADAMS CENTRAL arched over the jet, wider than JETS; the jet sits as high as it can
         # while keeping a clear 0.06 in of garment between its nose and the letters
-        acap, R, gap = 0.10 * W, 0.68 * W, 6
+        acap, R, gap = 0.14 * W, 0.76 * W, 6
         a = adams_arch(acap, R, W / 2, 0)
         a = K.translate(a, 0, -K.bounds(a)[1])           # arch top at y = 0
 
