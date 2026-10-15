@@ -142,7 +142,7 @@ def _cut_glyph(ch, p, b, counters_only=False):
 
 
 def stencil_word(s, cap, x=0, y=0, tracking=60.0, anchor="start", font=BASE, counters_only=False,
-                 split_a_glyph=True, bridge=None, ink_gap=0.06, word_gap=0.30, skip=""):
+                 split_a_glyph=True, bridge=None, ink_gap=0.06, word_gap=0.30, skip="", fix=None):
     """Outline `s` as a stencil hero word.
 
     Letters are spaced ink-to-ink: ink_gap x cap between letters, word_gap x cap
@@ -161,6 +161,8 @@ def stencil_word(s, cap, x=0, y=0, tracking=60.0, anchor="start", font=BASE, cou
             p = split_a(cap, slit_width(cap))
         elif ch.upper() not in skip:
             p = _cut_glyph(ch, p, b, counters_only)
+        if fix is not None:
+            p = fix(ch, p)
         if ink_gap is not None:
             x0 = K.bounds(p)[0]
             start = 0 if pen is None else pen + (word_gap if space_pending else ink_gap) * cap

@@ -38,10 +38,10 @@ The front of the tee, crewneck and hoodie is one lockup: ADAMS CENTRAL arched ov
 | Print | Print size (W x H) | 300 DPI PNG (px) | Inks | Files (`.svg` in `squadron/svg`, `.png` in `squadron/png`) |
 |---|---|---|---|---|
 | Tee / crewneck / hoodie, front | 7.96 x 9.50 in | 2388 x 2850 | 2 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather` |
-| Tee, back | 8.60 x 21.92 in | 2580 x 6576 | 2 | `squadron_tee-back_on-black`<br>`squadron_tee-back_on-white`<br>`squadron_tee-back_on-heather` |
-| Crewneck / hoodie, back | 8.60 x 19.34 in | 2580 x 5802 | 2 | `squadron_back_on-black`<br>`squadron_back_on-white`<br>`squadron_back_on-heather` |
+| Tee, back | 8.60 x 21.89 in | 2580 x 6567 | 2 | `squadron_tee-back_on-black`<br>`squadron_tee-back_on-white`<br>`squadron_tee-back_on-heather` |
+| Crewneck / hoodie, back | 8.60 x 19.31 in | 2580 x 5793 | 2 | `squadron_back_on-black`<br>`squadron_back_on-white`<br>`squadron_back_on-heather` |
 | Crewneck / hoodie, left sleeve | 0.82 x 9.03 in | 246 x 2709 | 2 | `squadron_sleeve_on-black`<br>`squadron_sleeve_on-white`<br>`squadron_sleeve_on-heather` |
-| Sweatpants, hip | 1.65 x 2.94 in | 495 x 882 | 2 | `squadron_sweats-hip_on-black`<br>`squadron_sweats-hip_on-white`<br>`squadron_sweats-hip_on-heather` |
+| Sweatpants, hip | 1.65 x 2.97 in | 495 x 891 | 2 | `squadron_sweats-hip_on-black`<br>`squadron_sweats-hip_on-white`<br>`squadron_sweats-hip_on-heather` |
 | Sweatpants, leg | 0.82 x 11.79 in | 246 x 3537 | 2 | `squadron_sweats-leg_on-black`<br>`squadron_sweats-leg_on-white`<br>`squadron_sweats-leg_on-heather` |
 
 ## Placement guide
@@ -64,8 +64,8 @@ Smallest type: the 26-27 on the hip lockup is 0.18 in cap in a heavy weight. On 
 ## The jet mark and lettering
 
 - The jet (`source/marks.py`, `fighter()`) is a top-down twin-tail fighter in the style of the Figma AI frames the team picked. It is rebuilt from a coordinate grid (span = 100 units, 45 degree wing leading edge), symmetric and straight-edged, never traced. Its detail steps down with size: canopy, chevron stripe and stabilizer cuts from 1.2 in span; no canopy from 1 in; a plain silhouette with stabilizer cuts below that (the sleeve and leg strips).
-- JETS and the ADAMS CENTRAL arch on the front are Saira Black (wide) with stencil cuts: a full-height gap at the E's stem, a horizontal cut under the T's bar and two cuts through the S on its center axis. 26-27 is Archivo Expanded, tracked wide.
-- Typefaces, all SIL Open Font License (free for apparel): Saira, Archivo, Barlow Condensed (leg text). Because the type is outlined, the printer doesn't need any fonts.
+- Every word and number is set in one face, Saira Black (the JETS face). The big words (JETS, ADAMS CENTRAL, and the sleeve and leg text) carry its stencil cuts: a full-height gap at the E's stem, a horizontal cut under the T's bar and two cuts through the S on its center axis. The small lines (the back's side text and footer, and 26-27 on the hip) are plain Saira one weight lighter (ExtraBold), so their counters stay open.
+- Typeface: Saira (SIL Open Font License, free for apparel). Because the type is outlined, the printer doesn't need any fonts.
 - If the athletic department wants the official school mark instead, swap it in at the jet positions.
 
 ## How AI was used

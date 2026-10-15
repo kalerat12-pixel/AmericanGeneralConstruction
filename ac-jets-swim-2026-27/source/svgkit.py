@@ -53,6 +53,7 @@ FONT_SPECS = {
     "sairac700": "Saira+Condensed:wght@700",
     "barlowc900": "Barlow+Condensed:wght@900",
     "saira900": "Saira:wght@900",
+    "saira800": "Saira:wght@800",
     "sairasc900": "Saira+Semi+Condensed:wght@900",
     "sairac900": "Saira+Condensed:wght@900",
     "wide700": "Archivo:wdth,wght@125,700",

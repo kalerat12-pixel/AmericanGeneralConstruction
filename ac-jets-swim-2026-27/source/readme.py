@@ -113,10 +113,12 @@ def main():
       "symmetric and straight-edged, never traced. Its detail steps down with size: canopy, chevron stripe and "
       "stabilizer cuts from 1.2 in span; no canopy from 1 in; a plain silhouette with stabilizer cuts below that "
       "(the sleeve and leg strips).")
-    w("- JETS and the ADAMS CENTRAL arch on the front are Saira Black (wide) with stencil cuts: a full-height gap at the E's stem, a horizontal cut under the "
-      "T's bar and two cuts through the S on its center axis. 26-27 is Archivo Expanded, tracked wide.")
-    w("- Typefaces, all SIL Open Font License (free for apparel): Saira, Archivo, Barlow Condensed (leg text). "
-      "Because the type is outlined, the printer doesn't need any fonts.")
+    w("- Every word and number is set in one face, Saira Black (the JETS face). The big words (JETS, ADAMS CENTRAL, "
+      "and the sleeve and leg text) carry its stencil cuts: a full-height gap at the E's stem, a horizontal cut "
+      "under the T's bar and two cuts through the S on its center axis. The small lines (the back's side text and "
+      "footer, and 26-27 on the hip) are plain Saira one weight lighter (ExtraBold), so their counters stay open.")
+    w("- Typeface: Saira (SIL Open Font License, free for apparel). Because the type is outlined, the printer "
+      "doesn't need any fonts.")
     w("- If the athletic department wants the official school mark instead, swap it in at the jet positions.")
     w("")
     w("## How AI was used")

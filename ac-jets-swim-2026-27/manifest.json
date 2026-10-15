@@ -86,7 +86,7 @@
   "svg": "squadron/svg/squadron_tee-back_on-black.svg",
   "png": "squadron/png/squadron_tee-back_on-black.png",
   "width_in": 8.6,
-  "height_in": 21.92,
+  "height_in": 21.89,
   "inks": [
    {
     "key": "white",
@@ -112,7 +112,7 @@
   "svg": "squadron/svg/squadron_tee-back_on-white.svg",
   "png": "squadron/png/squadron_tee-back_on-white.png",
   "width_in": 8.6,
-  "height_in": 21.92,
+  "height_in": 21.89,
   "inks": [
    {
     "key": "black",
@@ -138,7 +138,7 @@
   "svg": "squadron/svg/squadron_tee-back_on-heather.svg",
   "png": "squadron/png/squadron_tee-back_on-heather.png",
   "width_in": 8.6,
-  "height_in": 21.92,
+  "height_in": 21.89,
   "inks": [
    {
     "key": "black",
@@ -164,7 +164,7 @@
   "svg": "squadron/svg/squadron_back_on-black.svg",
   "png": "squadron/png/squadron_back_on-black.png",
   "width_in": 8.6,
-  "height_in": 19.34,
+  "height_in": 19.31,
   "inks": [
    {
     "key": "white",
@@ -190,7 +190,7 @@
   "svg": "squadron/svg/squadron_back_on-white.svg",
   "png": "squadron/png/squadron_back_on-white.png",
   "width_in": 8.6,
-  "height_in": 19.34,
+  "height_in": 19.31,
   "inks": [
    {
     "key": "black",
@@ -216,7 +216,7 @@
   "svg": "squadron/svg/squadron_back_on-heather.svg",
   "png": "squadron/png/squadron_back_on-heather.png",
   "width_in": 8.6,
-  "height_in": 19.34,
+  "height_in": 19.31,
   "inks": [
    {
     "key": "black",
@@ -320,7 +320,7 @@
   "svg": "squadron/svg/squadron_sweats-hip_on-black.svg",
   "png": "squadron/png/squadron_sweats-hip_on-black.png",
   "width_in": 1.65,
-  "height_in": 2.94,
+  "height_in": 2.97,
   "inks": [
    {
     "key": "red",
@@ -346,7 +346,7 @@
   "svg": "squadron/svg/squadron_sweats-hip_on-white.svg",
   "png": "squadron/png/squadron_sweats-hip_on-white.png",
   "width_in": 1.65,
-  "height_in": 2.94,
+  "height_in": 2.97,
   "inks": [
    {
     "key": "red",
@@ -372,7 +372,7 @@
   "svg": "squadron/svg/squadron_sweats-hip_on-heather.svg",
   "png": "squadron/png/squadron_sweats-hip_on-heather.png",
   "width_in": 1.65,
-  "height_in": 2.94,
+  "height_in": 2.97,
   "inks": [
    {
     "key": "red",

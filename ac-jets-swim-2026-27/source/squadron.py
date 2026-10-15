@@ -234,6 +234,7 @@ def crew_front():
 # single white jet with the red chevron for the back. Both are rebuilt in vector here.
 
 HERO = "saira900"        # wide, chunky stencil JETS like the AI lockup
+SMALL = "saira800"       # same face one weight lighter for lines under ~0.3 in cap, so counters stay open
 YEAR_FONT = "wide800"
 
 
@@ -274,10 +275,10 @@ def jets_lockup(W, cuts=True, arch=False):
     y = info["length"] + 0.075 * W + cap
     word = ST.stencil_word("JETS", cap, W / 2, y, anchor="middle", font=HERO, counters_only=not cuts,
                             skip="J")
-    ycap = max(0.072 * W, 18)
+    ycap = max(0.072 * W, 21)
     y += 0.07 * W + ycap
     yw = 0.70 * W
-    yfont = YEAR_FONT if W >= 300 else "wide900"
+    yfont = HERO if ycap >= 30 else SMALL            # the JETS face, plain (too small for cuts)
     track = fit_tracking(yfont, "26–27", ycap, yw)
     year = K.text(yfont, "26–27", ycap, W / 2, y, tracking=track, anchor="middle")
     return head + [("accent", jet), ("main", word), ("main", year)]
@@ -391,7 +392,7 @@ def pool_back(rope_end, key, title, placement):
     ann = 28
     mid = (y_rope + y_rope_end) / 2
     for txt, deg, x in ((COORDS, -90, xl - 36), ("ALLEN COUNTY ATHLETIC CONFERENCE", 90, xr + fw + 36)):
-        t = mono_line(txt, ann, 100)
+        t = K.text(SMALL, txt, ann, 0, 0, tracking=120)
         tb = K.bounds(t)
         t = K.rotate(K.translate(t, -(tb[0] + tb[2]) / 2, -(tb[1] + tb[3]) / 2), deg)
         L.append(("main", K.translate(t, x, mid)))
@@ -401,10 +402,11 @@ def pool_back(rope_end, key, title, placement):
     L.append(("main", K.rect(0, y_rule, W, 8)))
     fc = 34
     y_f = y_rule + 8 + 22 + fc
-    serial = K.text(MONO, "SQDN 26–27", 26, W, y_f, tracking=60, anchor="end")
-    team_w = K.bounds(serial)[0] - 60
-    L.append(("main", K.text(LABEL, "ADAMS CENTRAL SWIM & DIVE", fc, 0, y_f,
-                             tracking=solve_label(LABEL, "ADAMS CENTRAL SWIM & DIVE", fc, team_w))))
+    serial = K.text(SMALL, "SQDN 26–27", 26, W, y_f, tracking=80, anchor="end")
+    team_w = K.bounds(serial)[0] - 50
+    team = "ADAMS CENTRAL SWIM & DIVE"
+    fc = min(fc, fc * team_w / K.text_width(SMALL, team, fc, 60))    # Saira is wide: fit it
+    L.append(("main", K.text(SMALL, team, fc, 0, y_f, tracking=solve_label(SMALL, team, fc, team_w))))
     L.append(("main", serial))
     return Art(key, title, placement, f"{W / 100:.1f} in wide", L)
 
@@ -422,20 +424,24 @@ def back():
                      "the lane ropes end ~4.5 in above the bottom band.")
 
 
-def down_strip(text, rule_len, w=82, cap=55):
-    """Vertical strip, top to bottom: text reading down, a 0.06 in contrail line, then the
-    jet flying down (nose toward the cuff / hem). Shared by the sleeve and the leg."""
+def down_strip(text, total, w=82, cap=55):
+    """Vertical strip, top to bottom: text reading down (the JETS stencil face), a 0.06 in
+    contrail line, then the jet flying down (nose toward the cuff / hem). The line takes
+    whatever length is left so the strip is `total` long. Shared by the sleeve and the leg."""
     axis = w / 2
-    t = K.notch_fix(K.text(LABEL_HEAVY, text, cap, 0, 0, tracking=100))
+    t = ST.stencil_word(text, cap, 0, 0, font=HERO, split_a_glyph=False, skip="J", ink_gap=0.11, word_gap=0.45,
+                        fix=lambda ch, p: open_m(p) if ch == "M" else p)
     tb = K.bounds(t)
     t = K.rotate(K.translate(t, -tb[0], -(tb[1] + tb[3]) / 2), 90)     # reads top to bottom
     t = K.translate(t, axis, -K.bounds(t)[1])
     L = [("main", t)]
-    y = K.bounds(t)[3] + 25
-    L.append(("main", K.rect(axis - 3, y, 6, rule_len)))
-    y += rule_len + 25
     jet, info = M.fighter(82, 0, 0, "red")
     j = K.rotate(K.translate(jet["accent"], 0, -info["nose_y"]), 180)  # nose down, tail up
+    jl = K.bounds(j)[3] - K.bounds(j)[1]
+    y = K.bounds(t)[3] + 25
+    rule_len = max(200, total - y - 25 - jl)
+    L.append(("main", K.rect(axis - 3, y, 6, rule_len)))
+    y += rule_len + 25
     L.append(("accent", K.translate(j, axis, y - K.bounds(j)[1])))
     return L
 
@@ -446,7 +452,7 @@ def sleeve():
     return Art("sleeve", "Crewneck / hoodie - left sleeve",
                "Wearer's left sleeve on the sleeve centre line. SWIM & DIVE starts ~3 in below the shoulder seam "
                "and reads down the arm; the line and the jet follow, the jet flying toward the cuff.",
-               "0.8 in wide", down_strip("SWIM & DIVE", 300))
+               "0.8 in wide", down_strip("SWIM & DIVE", 903))
 
 
 def sweats_hip():
@@ -461,7 +467,7 @@ def sweats_leg():
     return Art("sweats-leg", "Sweatpants - leg side",
                "Wearer's right leg on the outer leg panel. AC SWIM & DIVE starts ~3 in below the waistband and "
                "reads down the leg; the line and the jet follow, the jet flying toward the hem.",
-               "0.8 in wide", down_strip("AC SWIM & DIVE", 461))
+               "0.8 in wide", down_strip("AC SWIM & DIVE", 1179))
 
 
 ARTS = [front, tee_back, back, sleeve, sweats_hip, sweats_leg]

@@ -427,7 +427,7 @@ JS = r"""
 })();
 """
 
-FONT_CREDIT = "Saira, Archivo and Barlow Condensed"
+FONT_CREDIT = "Saira Black throughout"
 
 HEATHER_FILTER = (
     '<filter id="heather" x="0" y="0" width="1" height="1">'
