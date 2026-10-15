@@ -280,32 +280,70 @@ def crew_front():
                "9.9 in wide", L)
 
 
-# ================================================================ sweatpants
+# ======================================================== final tops (client pick)
+# The client picked two Figma AI frames: the "right" hip lockup (red jet with a chevron
+# over stencil JETS and 26-27) for the front of the tee, crewneck and hoodie, and the
+# single white jet with the red chevron for the back. Both are rebuilt in vector here.
+
+HERO = "saira900"        # wide, chunky stencil JETS like the AI lockup
+YEAR_FONT = "wide800"
+
+
+def jets_lockup(W, cuts=True):
+    """Red chevron jet over stencil JETS over a spaced 26-27, all W wide.
+    Layers, top-left at (0, 0)."""
+    span = 0.86 * W
+    jet, info = M.fighter(span, W / 2, 0, "red")
+    jet = K.translate(jet["accent"], 0, -info["nose_y"])
+    cap = ST.fit_cap("JETS", W, font=HERO)
+    y = info["length"] + 0.075 * W + cap
+    word = ST.stencil_word("JETS", cap, W / 2, y, anchor="middle", font=HERO, counters_only=not cuts,
+                            skip="J")
+    ycap = max(0.072 * W, 18)
+    y += 0.07 * W + ycap
+    yw = 0.70 * W
+    yfont = YEAR_FONT if W >= 300 else "wide900"
+    track = fit_tracking(yfont, "26–27", ycap, yw)
+    year = K.text(yfont, "26–27", ycap, W / 2, y, tracking=track, anchor="middle")
+    return [("accent", jet), ("main", word), ("main", year)]
+
+
+def front():
+    W = 500
+    L = jets_lockup(W)
+    return Art("front", "Tee / crewneck / hoodie - front",
+               "Centred on the chest, top of art ~3 in below the collar (hoodie: below the hood seam). "
+               "Clears the hoodie pouch pocket.", f"{W / 100:.1f} in wide", L)
+
+
+def back():
+    span = 900
+    jet, info = M.fighter(span, span / 2, 0, "white", gap=6)
+    dy = -info["nose_y"]
+    L = [("main", K.translate(jet["main"], 0, dy)), ("accent", K.translate(jet["accent"], 0, dy))]
+    return Art("back", "Tee / crewneck / hoodie - back",
+               "Centred on the back, nose ~3 in below the collar seam.", f"{span / 100:.1f} in wingspan", L)
+
 
 def sweats_hip():
-    """Width-locked lockup: JETS spans exactly wingtip to wingtip."""
-    span = 150
-    jet, info = M.jet(span, 0, 0)                             # M by size
-    cap = ST.fit_cap("JETS", span)
-    y = info["tail_y"] + 14 + cap
-    word = ST.stencil_word("JETS", cap, 0, y, anchor="middle")
+    W = 165
     return Art("sweats-hip", "Sweatpants - hip", "Wearer's left front thigh/hip, ~3 in below the waistband.",
-               "1.5 in wide", [("accent", jet), ("main", word)])
+               f"{W / 100:.2f} in wide", jets_lockup(W, cuts=False))
 
 
 def sweats_leg():
     """Reads hem to waist; the jet leads at the waistband end with its contrail behind it."""
     w = 82
-    span = 78
-    jl = M.JET_LEN * span / 100
-    jet, _ = M.jet(span, w / 2, jl / 2)                       # S by size, nose up
-    L = strip_grammar([("accent", jet)], jl, 461, "AC SWIM & DIVE", 55, LABEL_HEAVY, 100, w)
+    span = 82
+    jet, info = M.fighter(span, w / 2, 0, "red")
+    head = [("accent", K.translate(jet["accent"], 0, -info["nose_y"]))]
+    L = strip_grammar(head, info["length"], 461, "AC SWIM & DIVE", 55, LABEL_HEAVY, 100, w)
     return Art("sweats-leg", "Sweatpants - leg side",
                "Wearer's right leg on the outer leg panel, jet end ~3 in below the waistband, reading hem to waist.",
                "0.8 in wide", L)
 
 
-ARTS = [tee_chest, tee_back, hoodie_front, hoodie_sleeve, crew_front, sweats_hip, sweats_leg]
+ARTS = [front, back, sweats_hip, sweats_leg]
 NAME = "Squadron"
 SLUG = "squadron"
-TAGLINE = "Aviation flight-tag system: stencil tail markings, flight data, and a jet that flies the lane."
+TAGLINE = "Red chevron jet over stencil JETS on the front; one big white fighter with a red chevron on the back."

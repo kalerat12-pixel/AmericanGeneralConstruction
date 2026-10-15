@@ -2,37 +2,37 @@
  {
   "file": "01-tee-back.jpg",
   "title": "Tee back",
-  "note": "Kept: ropes that run straight off the JETS edges, chunky float bars with red end zones, a constant lane line with a T. Rejected: the blocky letterforms, the pennant bunting and the fighter-like jet.",
+  "note": "Kept: ropes that run straight off the JETS edges, chunky float bars with red end zones, a constant lane line with a T. Rejected: the blocky letterforms, the pennant bunting and the fighter-like jet. (Earlier round; superseded by the picked lockup and jet.)",
   "alt": "Figma AI concept: Tee back"
  },
  {
   "file": "02-hoodie.jpg",
   "title": "Hoodie front",
-  "note": "Kept: one hero tail code over a rule and a serial line, and a swept-fin A whose leading edge lines up with the red flash. Rejected: the run-on band text and the oversized sleeve type.",
+  "note": "Kept: one hero tail code over a rule and a serial line, and a swept-fin A whose leading edge lines up with the red flash. Rejected: the run-on band text and the oversized sleeve type. (Earlier round; superseded by the picked lockup and jet.)",
   "alt": "Figma AI concept: Hoodie front"
  },
  {
   "file": "03-crewneck.jpg",
   "title": "Crewneck",
-  "note": "Kept: a moderate arch in a squared extra-condensed face, wrapping a solid red jet over a horizon line. Rejected: stencil cuts on every letter and the faked letter widths.",
+  "note": "Kept: a moderate arch in a squared extra-condensed face, wrapping a solid red jet over a horizon line. Rejected: stencil cuts on every letter and the faked letter widths. (Earlier round; superseded by the picked lockup and jet.)",
   "alt": "Figma AI concept: Crewneck"
  },
  {
   "file": "04-hip-lockups.jpg",
-  "title": "Hip lockups",
-  "note": "Kept: JETS locked to the jet's wingspan with a tight gap. Rejected: the detached tail fins and nozzles (too close to real fighters, and they fill in at this size).",
+  "title": "Hip lockups (picked: right)",
+  "note": "The team picked the right-hand lockup for the front of the tee, crewneck and hoodie: a red jet with a chevron stripe over stencil JETS and a spaced 26-27. Redrawn as clean vector; the jet span sits just inside the JETS width.",
   "alt": "Figma AI concept: Hip lockups"
  },
  {
   "file": "05-lettering.jpg",
   "title": "Stencil lettering",
-  "note": "Kept: only vertical and horizontal bridges, an E split from its stem, a T gap under the bar, and a pointed A split by a slit. Rejected: uneven widths and tiny 3% bridges.",
+  "note": "Kept: only vertical and horizontal bridges, an E split from its stem, a T gap under the bar, and a pointed A split by a slit. Rejected: uneven widths and tiny 3% bridges. (Earlier round; superseded by the picked lockup and jet.)",
   "alt": "Figma AI concept: Stencil lettering"
  },
  {
   "file": "06-jet-marks.jpg",
-  "title": "Jet mark",
-  "note": "Kept: a stouter nose, bigger wingtips and a cut down the spine. Rejected: panel lines, canted fins and the chevron, which read as real aircraft or decals.",
+  "title": "Jet mark (picked: right)",
+  "note": "The team picked the right-hand jet for the back: a white twin-tail fighter with a red chevron across the wings and keyline panel cuts. Redrawn symmetric on a coordinate grid, with a keyline of bare garment between the red and the main ink.",
   "alt": "Figma AI concept: Jet mark"
  }
 ]

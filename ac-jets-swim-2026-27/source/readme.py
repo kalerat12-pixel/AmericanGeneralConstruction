@@ -6,23 +6,22 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
 CONCEPTS = [
-    ("squadron", "Squadron", "Aviation flight-tag system: custom stencil tail-marking caps, Barlow Condensed labels, "
-     "IBM Plex Mono flight data, and one original double-delta jet. On the tee back the jet flies an overhead pool "
-     "lane toward the line on the pool floor and the T at the wall, and the ropes carry red floats at both walls, "
-     "like a real pool. The hoodie carries a drawn AC tail code whose swept-fin A lines up with the red fin flash."),
+    ("squadron", "Squadron", "One jet, two ways. The front of the tee, crewneck and hoodie is the same lockup: a red "
+     "twin-tail fighter with a chevron stripe knocked out along its wings, over a stencil JETS and a spaced 26-27. "
+     "The back of all three is that fighter big, in the main ink with keyline panel cuts and a red chevron across "
+     "the wings. The sweatpants carry the lockup small on the hip and the jet leading a contrail down the leg. "
+     "Both prints come from the Figma AI frames the team picked, redrawn as clean symmetric vector."),
 ]
-ORDER = ["tee-chest", "tee-back", "hoodie-front", "hoodie-sleeve", "crew-front", "sweats-hip", "sweats-leg"]
-LABEL = {"tee-chest": "Tee, left chest", "tee-back": "Tee, back", "hoodie-front": "Hoodie, front",
-         "hoodie-sleeve": "Hoodie, left sleeve", "crew-front": "Crewneck, front", "sweats-hip": "Sweatpants, hip",
-         "sweats-leg": "Sweatpants, leg"}
+ORDER = ["front", "back", "sweats-hip", "sweats-leg"]
+LABEL = {"front": "Tee / crewneck / hoodie, front", "back": "Tee / crewneck / hoodie, back",
+         "sweats-hip": "Sweatpants, hip", "sweats-leg": "Sweatpants, leg"}
 PLACE = {
-    "tee-chest": "Left chest. Top of art ~3 in below the collar seam, centered ~4 in left of center front.",
-    "tee-back": "Centered on the back. Top of art 3-4 in below the collar seam.",
-    "hoodie-front": "Centered on the chest, top of art ~3 in below the neckline. Must clear the pouch pocket.",
-    "hoodie-sleeve": "Wearer's left sleeve on the sleeve center line. The red flash sits ~3 in below the shoulder seam; the coordinates read from the cuff up toward the jet.",
-    "crew-front": "Centered on the chest, top of art ~3 in below the collar.",
+    "front": "Centered on the chest. Tee and crewneck: top of art (jet nose) ~3 in below the collar seam. "
+             "Hoodie: top of art ~1 in below the hood seam at center front; the bottom of the art clears the "
+             "pouch pocket by ~0.75 in on an adult M-L (check on S).",
+    "back": "Centered on the back. Jet nose ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam).",
     "sweats-hip": "Wearer's left front thigh/hip, ~3 in below the waistband, centered on the leg.",
-    "sweats-leg": "Wearer's right leg on the outer leg panel. The jet end sits ~3 in below the waistband, nose up; the text reads from the hem up toward the jet.",
+    "sweats-leg": "Wearer's right leg on the outer leg panel. The jet sits ~3 in below the waistband, nose up; the text reads from the hem up toward the jet.",
 }
 
 
@@ -44,7 +43,8 @@ def main():
     w("- **300 DPI PNG** (`<concept>/png/`): transparent background, same size as the SVG.")
     w("")
     w("One file per print per garment color. Files are named `<concept>_<print>_on-<garment>.svg|png`, "
-      "e.g. `squadron_tee-back_on-heather.svg`.")
+      "e.g. `squadron_back_on-heather.svg`. The `front` and `back` files are shared by the tee, "
+      "crewneck and hoodie.")
     w("")
     w("## Ink colors")
     w("")
@@ -62,8 +62,8 @@ def main():
     w("| White | Black | Jets Red |")
     w("| Heather Grey | Black | Jets Red |")
     w("")
-    w("Red is used only on the jet, on the red shapes that carry a knocked-out jet (hoodie fin flash, sleeve flash) "
-      "and on the red end-zone floats of the tee-back lane ropes. Red never touches the main ink.")
+    w("Red is used only on the jet: the whole jet on the front lockups and the leg, and the chevron band on the back. "
+      "Red never touches the main ink; on the back a 0.06 in keyline of bare garment separates them.")
     w("")
     w("Printer notes: red on black garments needs a white underbase (the printer may count it as a screen). "
       "Inks are knocked out, so no trapping or overprint is set in the files; the printer can add a hairline trap. "
@@ -85,31 +85,31 @@ def main():
         w("")
     w("## Placement guide")
     w("")
-    w("Sizes above are for adult S-XXL. For youth sizes scale back and front prints to about 80%; "
-      "chest, hip, sleeve and leg prints can stay at full size.")
+    w("Sizes above are for adult S-XXL. For youth sizes scale the front and back prints to about 80%; "
+      "the hip and leg prints can stay at full size.")
     w("")
     w("| Print | Where it goes |")
     w("|---|---|")
     for key in ORDER:
         w(f"| {LABEL[key]} | {PLACE[key]} |")
     w("")
-    w("Smallest type: the data lines (SQDN 26-27, coordinates, the tee-back lane notes) are 0.20-0.24 in cap. "
-      "They print cleanly on jersey and fleece with a standard 156-180 mesh; ask the printer to flag anything they "
-      "would rather enlarge. All stencil bridges and knockouts are 0.04 in or wider, and every M has a small ink trap "
-      "cut into its notch so it doesn't plug.")
+    w("Smallest type: the 26-27 on the hip lockup is 0.18 in cap in a heavy weight. On the hip, JETS is left "
+      "without stencil cuts so it doesn't break up at 0.5 in cap. All keylines, stencil bridges and knockouts are "
+      "0.04 in or wider; every file passes `printcheck.py` (no ink under 0.025 in, no gap under 0.03 in).")
     w("")
     w("## The jet mark and lettering")
     w("")
-    w("- The jet is an original drawing (`source/marks.py`): a straight-line double delta seen from above with a W "
-      "tail. It isn't traced from any existing logo or aircraft. Its detail changes automatically with print size: "
-      "a cut down the spine above 2.5 in wingspan (tee back), a canopy cut from 1.25 in (crewneck, hip), solid below "
-      "that, and the tail notch closes below 0.75 in (hoodie band and sleeve flash). If the athletic department wants "
-      "the official school mark instead, swap it in at the jet positions.")
-    w("- Hero words (JETS, AC JETS, ADAMS CENTRAL) use a custom stencil built on Saira Extra Condensed Black: "
-      "bridges only vertical or horizontal, placed by one rule set, and a split-delta A whose slit echoes the jet's "
-      "spine. The hoodie AC is a drawn tail code (swept-fin A at 45 degrees plus a chamfered C).")
-    w("- Typefaces, all SIL Open Font License (free for apparel): Saira Extra Condensed, Barlow Condensed, IBM Plex "
-      "Mono. Because the type is outlined, the printer doesn't need any fonts.")
+    w("- The jet (`source/marks.py`, `fighter()`) is a top-down twin-tail fighter in the style of the Figma AI "
+      "frames the team picked. It is rebuilt from a coordinate grid (span = 100 units, 45 degree wing leading edge), "
+      "symmetric and straight-edged, never traced. Its detail steps down with size: canopy, chevron stripe and "
+      "stabilizer cuts from 1.2 in span; no canopy from 1 in; a plain silhouette with stabilizer cuts below that "
+      "(the leg strip). The back version adds keyline panel lines (spine, intakes, leading-edge flaps, stabilizer "
+      "edges) and the tapered red chevron band.")
+    w("- JETS is Saira Black (wide) with stencil cuts: a full-height gap at the E's stem, a horizontal cut under the "
+      "T's bar and two cuts through the S on its center axis. 26-27 is Archivo Expanded, tracked wide.")
+    w("- Typefaces, all SIL Open Font License (free for apparel): Saira, Archivo, Barlow Condensed (leg text). "
+      "Because the type is outlined, the printer doesn't need any fonts.")
+    w("- If the athletic department wants the official school mark instead, swap it in at the jet positions.")
     w("")
     w("## How AI was used")
     w("")

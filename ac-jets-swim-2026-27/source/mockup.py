@@ -25,9 +25,11 @@ AI_DIR = os.path.join(ROOT, "ai-exploration")
 PREFIX = {"squadron": "sq", "lane-four": "lf", "aero-varsity": "av"}
 
 STORY = {
-    "squadron": ("Flight-tag system: custom stencil tail markings, flight data, and one original jet mark.",
-                 "Seen from above, the jet is the swimmer. It flies the lane toward the line on the pool floor and the T "
-                 "at the wall, and the lane ropes carry red floats at both walls, like a real pool."),
+    "squadron": ("One jet, two ways: a red fighter with a chevron over stencil JETS on the front, and the same "
+                 "fighter big on the back, white with a red chevron across the wings.",
+                 "Both prints come from the Figma AI frames the team picked (hip lockup, right; jet mark, right), "
+                 "redrawn as clean symmetric vector. The sweatpants carry the same lockup small on the hip and the "
+                 "jet leading a contrail down the leg."),
     "lane-four": ("Performance minimal: one expanded italic, the jet cut down to an arrowhead, lots of air.",
                   "Named for the center lane, where the top seed swims. A lane-rope band with red end floats runs through "
                   "every piece, and everything leans on the same 10° axis."),
@@ -133,34 +135,51 @@ def view_label(x, y, text):
     return f'<text x="{x}" y="{y}" class="vl" text-anchor="middle">{text}</text>'
 
 
+CREW_BACK = CREW.replace("Q20 5.2 24.6", "Q20 2.6 24.6")
+CREW_SEAMS_BACK = ("M14.75 1.45 Q20 3.3 25.25 1.45 M9.4 26.0 L30.6 26.0 M4.4 25.2 L7.7 25.6 "
+                   "M35.6 25.2 L32.3 25.6 M9.6 3.2 L9.5 9.6 M30.4 3.2 L30.5 9.6")
+HOODIE_SEAMS_BACK = ("M9.4 31.0 L30.6 31.0 M4.4 30.2 L7.7 30.6 M35.6 30.2 L32.3 30.6 M20 0.6 L20 8.9 "
+                     "M15.2 7.6 Q17 9.2 20 9.3 Q23 9.2 24.8 7.6")
+
+
+def two_views(front, back, w, h, label):
+    return (f"<g>{front}{view_label(w / 2, h - 0.8, 'FRONT')}</g>"
+            f'<g transform="translate({w + 1.5:g} 0)">{back}{view_label(w / 2, h - 0.8, "BACK")}</g>')
+
+
 def tee(slug, g, dims):
     p = PREFIX[slug]
     front = garment(TEE_FRONT, g) + seams(TEE_SEAMS_FRONT, g)
-    front += place(f"{p}-tee-chest", dims, slug, "tee-chest", 20.4, 6.0)
+    front += place(f"{p}-front", dims, slug, "front", 16, 6.2)
     back = garment(TEE_BACK, g) + seams(TEE_SEAMS_BACK, g)
-    back += place(f"{p}-tee-back", dims, slug, "tee-back", 16, 4.6)
-    inner = (f"<g>{front}{view_label(16, 32.6, 'FRONT')}</g>"
-             f'<g transform="translate(33.5 0)">{back}{view_label(16, 32.6, "BACK")}</g>')
+    back += place(f"{p}-back", dims, slug, "back", 16, 4.8)
+    inner = two_views(front, back, 32, 33.4, "Tee")
     return svg_wrap("0 0 65.5 33.4", inner, g, f"Tee, front and back, {GARMENTS[g][0]}")
 
 
 def hoodie(slug, g, dims):
     p = PREFIX[slug]
-    inner = garment(HOODIE, g)
-    inner += f'<path d="{HOODIE_OPEN}" fill="{GARMENT_SHADE[g]}" stroke="{GARMENT_LINE[g]}" stroke-width="0.06"/>'
-    inner += seams(HOODIE_SEAMS, g) + seams(HOODIE_STRINGS, g, 0.16)
-    inner += place(f"{p}-hoodie-front", dims, slug, "hoodie-front", 20, 13.8)
-    inner += place(f"{p}-hoodie-sleeve", dims, slug, "hoodie-sleeve", 31.35, 15.4, rot=-10)
-    return svg_wrap("0 0 40 35", inner, g, f"Hoodie, front, {GARMENTS[g][0]}")
+    front = garment(HOODIE, g)
+    front += f'<path d="{HOODIE_OPEN}" fill="{GARMENT_SHADE[g]}" stroke="{GARMENT_LINE[g]}" stroke-width="0.06"/>'
+    front += seams(HOODIE_SEAMS, g)
+    front += place(f"{p}-front", dims, slug, "front", 20, 13.1)
+    front += seams(HOODIE_STRINGS, g, 0.16)
+    back = garment(HOODIE, g) + seams(HOODIE_SEAMS_BACK, g)
+    back += place(f"{p}-back", dims, slug, "back", 20, 10.6)
+    inner = two_views(front, back, 40, 35.6, "Hoodie")
+    return svg_wrap("0 0 81.5 35.6", inner, g, f"Hoodie, front and back, {GARMENTS[g][0]}")
 
 
 def crew(slug, g, dims):
     p = PREFIX[slug]
-    inner = garment(CREW, g)
-    inner += f'<path d="{CREW_BACKNECK}" fill="{GARMENT_SHADE[g]}"/>'
-    inner += seams(CREW_SEAMS, g)
-    inner += place(f"{p}-crew-front", dims, slug, "crew-front", 20, 6.6)
-    return svg_wrap("0 0 40 29.4", inner, g, f"Crewneck, front, {GARMENTS[g][0]}")
+    front = garment(CREW, g)
+    front += f'<path d="{CREW_BACKNECK}" fill="{GARMENT_SHADE[g]}"/>'
+    front += seams(CREW_SEAMS, g)
+    front += place(f"{p}-front", dims, slug, "front", 20, 7.4)
+    back = garment(CREW_BACK, g) + seams(CREW_SEAMS_BACK, g)
+    back += place(f"{p}-back", dims, slug, "back", 20, 5.4)
+    inner = two_views(front, back, 40, 30.6, "Crewneck")
+    return svg_wrap("0 0 81.5 30.6", inner, g, f"Crewneck, front and back, {GARMENTS[g][0]}")
 
 
 def sweats(slug, g, dims):
@@ -168,21 +187,18 @@ def sweats(slug, g, dims):
     inner = garment(SWEATS, g)
     inner += garment(SWEATS_BAND, g)
     inner += seams(SWEATS_SEAMS, g) + seams(SWEATS_STRINGS, g, 0.14)
-    w = dims[(slug, "sweats-hip")][0]
     inner += place(f"{p}-sweats-hip", dims, slug, "sweats-hip", 17.9, 6.6)
     inner += place(f"{p}-sweats-leg", dims, slug, "sweats-leg", 7.0, 8.4, rot=-2.5)
     return svg_wrap("0 0 28 44", inner, g, f"Sweatpants, front, {GARMENTS[g][0]}")
 
 
 PIECES = [
-    ("tee", "Tee", tee, ["tee-chest", "tee-back"]),
-    ("hoodie", "Hoodie", hoodie, ["hoodie-front", "hoodie-sleeve"]),
-    ("crew", "Crewneck", crew, ["crew-front"]),
+    ("tee", "Tee", tee, ["front", "back"]),
+    ("hoodie", "Hoodie", hoodie, ["front", "back"]),
+    ("crew", "Crewneck", crew, ["front", "back"]),
     ("sweats", "Sweatpants", sweats, ["sweats-hip", "sweats-leg"]),
 ]
-PRINT_LABEL = {"tee-chest": "Left chest", "tee-back": "Full back", "hoodie-front": "Front",
-               "hoodie-sleeve": "Left sleeve", "crew-front": "Front", "sweats-hip": "Left hip",
-               "sweats-leg": "Right leg"}
+PRINT_LABEL = {"front": "Front", "back": "Full back", "sweats-hip": "Left hip", "sweats-leg": "Right leg"}
 
 
 def ink_dots(g):
@@ -219,9 +235,9 @@ def concept_panel(c, dims):
         rows.append(
             f'<section class="piece" id="{slug}-{pid}"><header class="piece-head"><h3>{pname}</h3>'
             f'{specs(slug, keys, dims)}</header><div class="cards">{"".join(cards)}</div></section>')
-    mark = (f'<svg class="mark" viewBox="0 0 {dims[(slug, "tee-chest")][0] * 100:g} '
-            f'{dims[(slug, "tee-chest")][1] * 100:g}" aria-hidden="true">'
-            f'<use href="#{PREFIX[slug]}-tee-chest"/></svg>')
+    mark = (f'<svg class="mark" viewBox="0 0 {dims[(slug, "front")][0] * 100:g} '
+            f'{dims[(slug, "front")][1] * 100:g}" aria-hidden="true">'
+            f'<use href="#{PREFIX[slug]}-front"/></svg>')
     return (f'<section class="panel" id="panel-{slug}" data-panel="{slug}">'
             f'<div class="concept-head"><div class="concept-copy"><p class="eyebrow">Final direction</p>'
             f'<h2>{c.NAME}</h2><p class="lede">{html.escape(lede)}</p><p class="idea">{html.escape(idea)}</p></div>'
@@ -409,7 +425,7 @@ JS = r"""
 })();
 """
 
-FONT_CREDIT = "Saira Condensed, Barlow Condensed and IBM Plex Mono"
+FONT_CREDIT = "Saira, Archivo and Barlow Condensed"
 
 HEATHER_FILTER = (
     '<filter id="heather" x="0" y="0" width="1" height="1">'
@@ -482,7 +498,7 @@ def page(fragment=False):
         '<footer class="wrap"><p>Production art: vector SVG (all type outlined, inks knocked out) and 300 DPI transparent PNG for every '
         'print in every colorway, in <code>squadron/</code>. Ink specs and placement guide are in <code>README.md</code>. '
         'The two earlier directions are kept in <code>alternates/</code>.</p>'
-        f'<p>The jet mark is an original drawing. Type: {FONT_CREDIT}, all SIL Open Font License.</p></footer>'
+        f'<p>The jet mark is an original vector drawing based on the AI frames the team picked. Type: {FONT_CREDIT}, all SIL Open Font License.</p></footer>'
         '<dialog class="zoom" id="zoom" aria-labelledby="zoom-title"><div class="zoom-bar"><h4 id="zoom-title"></h4>'
         '<button class="close" id="zoom-close" type="button">Close</button></div><div class="zoom-body" id="zoom-body"></div></dialog>'
         f"<script>{JS}</script>")

@@ -179,3 +179,73 @@ def jet(span, cx=0.0, cy=0.0, master=None, spine=None, rotate=0):
             "tip_trailing": [(cx + 50 * u, cy + (92 - JET_LEN / 2) * u), (cx - 50 * u, cy + (92 - JET_LEN / 2) * u)],
             "trailing_edge_y": cy + (92 - JET_LEN / 2) * u}
     return body, info
+
+
+# ---------------------------------------------------------------- Fighter mark (final)
+# Top-down twin-tail fighter in the style the client picked from the Figma AI round,
+# redrawn as clean symmetric vector from measured proportions (not traced).
+# Span S = 100U, nose at (0, 0), y aft. Wing leading edge at 45 deg.
+F_BODY = [(0, 0), (4, 20), (7, 34), (8, 40), (10, 43.5), (17, 60), (17, 65), (15.5, 67),
+          (18.5, 70), (47.5, 99), (50, 105), (50, 114.5), (24, 114.5), (34, 132), (34, 139.5),
+          (16, 131.5), (12, 131.5), (11, 139.5), (4, 139.5), (3.2, 134), (0, 134)]
+F_LEN = 139.5
+F_CANOPY = [(0, 21), (2.4, 25), (3.4, 31), (3.4, 40), (2.2, 45), (0, 47)]
+STAB_SLOPE = (34 - 24) / (132 - 114.5)            # stab leading edge, dx per dy
+
+
+def _sym(right):
+    return K.poly(right + [(-x, y) for x, y in reversed(right[1:-1])])
+
+
+def _band(top, top_slope, bot, bot_slope, reach=60):
+    """Symmetric chevron band between two V lines y = top + top_slope*|x| and y = bot + bot_slope*|x|."""
+    return K.poly([(0, top), (reach, top + reach * top_slope), (reach, bot + reach * bot_slope), (0, bot),
+                   (-reach, bot + reach * bot_slope), (-reach, top + reach * top_slope)])
+
+
+def fighter(span, cx=0.0, cy=0.0, style="red", gap=None, detail=None):
+    """Twin-tail fighter, nose up, centred on (cx, cy).
+
+    style "red":   one accent shape: canopy and a chevron stripe parallel to the wing leading
+                   edge knocked out, stabilisers cut free (front lockups, leg strip).
+    style "white": body in main ink with panel keylines knocked out and a tapered red chevron
+                   band across the wings, keylined from the body (the big back print).
+    gap:    keyline width in print units (0.01 in); never below 0.04 in.
+    detail: "full", "simple" (no canopy, spans under 1.2 in) or "mini" (silhouette and stabiliser
+            cuts only, spans under 1 in); picked from span when None.
+    Returns ({role: path}, info)."""
+    u = span / 100.0
+    k = max(gap or 4.0, 4.0) / u                       # keyline width in U
+    if detail is None:
+        detail = "full" if span >= 120 else "simple" if span >= 100 else "mini"
+    body = _sym(F_BODY)
+    canopy = _sym(F_CANOPY)
+    # stabiliser leading edge continued through the wing, and the fuselage side line
+    sy0 = 114.5 - (24 - 13.9) / STAB_SLOPE
+    stab_cuts = []
+    for sx in (1, -1):
+        stab_cuts.append(K.line(sx * 13.9, sy0, sx * 24.3, 114.5 + 0.3 / STAB_SLOPE, k))
+        stab_cuts.append(K.rect(sx * 13.9 - k / 2, sy0, k, 131.5 - sy0 + 1))
+    out = {}
+    if style == "red":
+        cuts = list(stab_cuts)
+        if detail != "mini":
+            cuts.append(K.inter(_band(56, 1.0, 61.5, 1.0), body))
+        if detail == "full":
+            cuts.append(canopy)
+        out["accent"] = K.diff(body, K.union(*cuts))
+    else:
+        top, ts, bot, bs = 71.0, 0.73, 84.5, 0.62
+        lines = [K.rect(-k / 2, 47 + k, k, 134 - 47)] + stab_cuts           # spine
+        for sx in (1, -1):
+            lines.append(K.line(sx * 6.6, 42.5, sx * 13.2, 63.5, k))           # intake / LERX line
+            lines.append(K.line(sx * 16.4, 72.1, sx * 45.4, 101.1, k))         # leading-edge flap
+        band = K.diff(K.inter(_band(top, ts, bot, bs), body), K.union(*lines))
+        keyed = K.union(K.inter(_band(top - k, ts, bot + k, bs), body), canopy, *lines)
+        out["main"] = K.diff(body, keyed)
+        out["accent"] = band
+    T = lambda p: K.translate(K.transformed(p, u, 0, 0, u, 0, 0), cx, cy - F_LEN * u / 2)
+    out = {r: T(p) for r, p in out.items()}
+    info = {"span": span, "length": F_LEN * u, "u": u, "nose_y": cy - F_LEN * u / 2,
+            "tail_y": cy + F_LEN * u / 2}
+    return out, info
