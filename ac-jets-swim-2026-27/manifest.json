@@ -236,6 +236,84 @@
  {
   "concept": "squadron",
   "concept_name": "Squadron",
+  "art": "sleeve",
+  "title": "Crewneck / hoodie - left sleeve",
+  "garment": "black",
+  "svg": "squadron/svg/squadron_sleeve_on-black.svg",
+  "png": "squadron/png/squadron_sleeve_on-black.png",
+  "width_in": 0.82,
+  "height_in": 9.03,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
+   }
+  ],
+  "placement": "Wearer's left sleeve on the sleeve centre line, jet ~3 in below the shoulder seam, nose up; the text reads from the cuff toward the jet."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "sleeve",
+  "title": "Crewneck / hoodie - left sleeve",
+  "garment": "white",
+  "svg": "squadron/svg/squadron_sleeve_on-white.svg",
+  "png": "squadron/png/squadron_sleeve_on-white.png",
+  "width_in": 0.82,
+  "height_in": 9.03,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   }
+  ],
+  "placement": "Wearer's left sleeve on the sleeve centre line, jet ~3 in below the shoulder seam, nose up; the text reads from the cuff toward the jet."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
+  "art": "sleeve",
+  "title": "Crewneck / hoodie - left sleeve",
+  "garment": "heather",
+  "svg": "squadron/svg/squadron_sleeve_on-heather.svg",
+  "png": "squadron/png/squadron_sleeve_on-heather.png",
+  "width_in": 0.82,
+  "height_in": 9.03,
+  "inks": [
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
+   }
+  ],
+  "placement": "Wearer's left sleeve on the sleeve centre line, jet ~3 in below the shoulder seam, nose up; the text reads from the cuff toward the jet."
+ },
+ {
+  "concept": "squadron",
+  "concept_name": "Squadron",
   "art": "sweats-hip",
   "title": "Sweatpants - hip",
   "garment": "black",

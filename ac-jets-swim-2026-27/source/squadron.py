@@ -420,6 +420,19 @@ def tee_back():
                "Centred on the back, top of JETS ~3 in below the collar seam.", f"{W / 100:.1f} in wide", L)
 
 
+def sleeve():
+    """Crewneck and hoodie left sleeve: the jet at the shoulder, its contrail line, then
+    SWIM & DIVE reading from the cuff up toward the jet (same strip as the sweatpants leg)."""
+    w = 82
+    span = 82
+    jet, info = M.fighter(span, w / 2, 0, "red")
+    head = [("accent", K.translate(jet["accent"], 0, -info["nose_y"]))]
+    L = strip_grammar(head, info["length"], 300, "SWIM & DIVE", 55, LABEL_HEAVY, 100, w)
+    return Art("sleeve", "Crewneck / hoodie - left sleeve",
+               "Wearer's left sleeve on the sleeve centre line, jet ~3 in below the shoulder seam, nose up; "
+               "the text reads from the cuff toward the jet.", "0.8 in wide", L)
+
+
 def sweats_hip():
     W = 165
     return Art("sweats-hip", "Sweatpants - hip", "Wearer's left front thigh/hip, ~3 in below the waistband.",
@@ -438,7 +451,7 @@ def sweats_leg():
                "0.8 in wide", L)
 
 
-ARTS = [front, tee_back, back, sweats_hip, sweats_leg]
+ARTS = [front, tee_back, back, sleeve, sweats_hip, sweats_leg]
 NAME = "Squadron"
 SLUG = "squadron"
 TAGLINE = "Red chevron jet over stencil JETS on the front; one big white fighter with a red chevron on the back."

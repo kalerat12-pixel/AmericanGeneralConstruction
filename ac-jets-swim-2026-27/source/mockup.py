@@ -163,6 +163,7 @@ def hoodie(slug, g, dims):
     front += f'<path d="{HOODIE_OPEN}" fill="{GARMENT_SHADE[g]}" stroke="{GARMENT_LINE[g]}" stroke-width="0.06"/>'
     front += seams(HOODIE_SEAMS, g)
     front += place(f"{p}-front", dims, slug, "front", 20, 13.1)
+    front += place(f"{p}-sleeve", dims, slug, "sleeve", 31.35, 15.4, rot=-10)
     front += seams(HOODIE_STRINGS, g, 0.16)
     back = garment(HOODIE, g) + seams(HOODIE_SEAMS_BACK, g)
     back += place(f"{p}-back", dims, slug, "back", 20, 10.6)
@@ -176,6 +177,7 @@ def crew(slug, g, dims):
     front += f'<path d="{CREW_BACKNECK}" fill="{GARMENT_SHADE[g]}"/>'
     front += seams(CREW_SEAMS, g)
     front += place(f"{p}-front", dims, slug, "front", 20, 7.4)
+    front += place(f"{p}-sleeve", dims, slug, "sleeve", 31.35, 9.6, rot=-10)
     back = garment(CREW_BACK, g) + seams(CREW_SEAMS_BACK, g)
     back += place(f"{p}-back", dims, slug, "back", 20, 5.4)
     inner = two_views(front, back, 40, 30.6, "Crewneck")
@@ -194,11 +196,11 @@ def sweats(slug, g, dims):
 
 PIECES = [
     ("tee", "Tee", tee, ["front", "tee-back"]),
-    ("hoodie", "Hoodie", hoodie, ["front", "back"]),
-    ("crew", "Crewneck", crew, ["front", "back"]),
+    ("hoodie", "Hoodie", hoodie, ["front", "back", "sleeve"]),
+    ("crew", "Crewneck", crew, ["front", "back", "sleeve"]),
     ("sweats", "Sweatpants", sweats, ["sweats-hip", "sweats-leg"]),
 ]
-PRINT_LABEL = {"front": "Front", "tee-back": "Full back", "back": "Full back", "sweats-hip": "Left hip", "sweats-leg": "Right leg"}
+PRINT_LABEL = {"front": "Front", "tee-back": "Full back", "back": "Full back", "sleeve": "Left sleeve", "sweats-hip": "Left hip", "sweats-leg": "Right leg"}
 
 
 def ink_dots(g):

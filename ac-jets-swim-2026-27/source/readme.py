@@ -11,12 +11,12 @@ CONCEPTS = [
      "lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter "
      "flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled "
      "footer. The crewneck and hoodie backs carry the fighter big, in the main ink with keyline panel cuts and a red "
-     "chevron across the wings. The sweatpants carry the lockup small on the hip and the jet leading a contrail down "
+     "chevron across the wings, and their left sleeve has the jet, a contrail line and SWIM & DIVE. The sweatpants carry the lockup small on the hip and the jet leading a contrail down "
      "the leg. All of it comes from Figma AI frames the team picked, redrawn as clean symmetric vector."),
 ]
-ORDER = ["front", "tee-back", "back", "sweats-hip", "sweats-leg"]
+ORDER = ["front", "tee-back", "back", "sleeve", "sweats-hip", "sweats-leg"]
 LABEL = {"front": "Tee / crewneck / hoodie, front", "tee-back": "Tee, back",
-         "back": "Crewneck / hoodie, back",
+         "back": "Crewneck / hoodie, back", "sleeve": "Crewneck / hoodie, left sleeve",
          "sweats-hip": "Sweatpants, hip", "sweats-leg": "Sweatpants, leg"}
 PLACE = {
     "front": "Centered on the chest. Tee and crewneck: top of art (jet nose) ~3 in below the collar seam. "
@@ -24,6 +24,7 @@ PLACE = {
              "pouch pocket by ~0.75 in on an adult M-L (check on S).",
     "tee-back": "Centered on the back. Top of JETS ~3 in below the collar seam.",
     "back": "Centered on the back. Jet nose ~3 in below the collar seam (hoodie: ~1.5 in below the hood seam).",
+    "sleeve": "Wearer's left sleeve on the sleeve center line (crewneck and hoodie only). The jet sits ~3 in below the shoulder seam, nose up; SWIM & DIVE reads from the cuff up toward the jet.",
     "sweats-hip": "Wearer's left front thigh/hip, ~3 in below the waistband, centered on the leg.",
     "sweats-leg": "Wearer's right leg on the outer leg panel. The jet sits ~3 in below the waistband, nose up; the text reads from the hem up toward the jet.",
 }
