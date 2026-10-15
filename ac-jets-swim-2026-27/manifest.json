@@ -8,7 +8,7 @@
   "svg": "squadron/svg/squadron_front_on-black.svg",
   "png": "squadron/png/squadron_front_on-black.png",
   "width_in": 7.96,
-  "height_in": 9.5,
+  "height_in": 9.51,
   "inks": [
    {
     "key": "white",
@@ -34,7 +34,7 @@
   "svg": "squadron/svg/squadron_front_on-white.svg",
   "png": "squadron/png/squadron_front_on-white.png",
   "width_in": 7.96,
-  "height_in": 9.5,
+  "height_in": 9.51,
   "inks": [
    {
     "key": "black",
@@ -60,7 +60,7 @@
   "svg": "squadron/svg/squadron_front_on-heather.svg",
   "png": "squadron/png/squadron_front_on-heather.png",
   "width_in": 7.96,
-  "height_in": 9.5,
+  "height_in": 9.51,
   "inks": [
    {
     "key": "black",

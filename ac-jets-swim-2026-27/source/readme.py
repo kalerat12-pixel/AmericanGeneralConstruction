@@ -69,7 +69,10 @@ def main():
     w("| Heather Grey | Black | Jets Red |")
     w("")
     w("Red is used for the jet on every print, plus the backstroke flags and the rope end zones on the back. "
-      "Red never touches the main ink.")
+      "On white and heather garments the big jets (front and back) carry a 0.07 in black outline, printed with the "
+      "same black ink, so those prints are still 2 inks; the outline butts the red, so ask the printer for a "
+      "hairline trap there. On black garments the shirt itself is the outline and nothing extra prints. The small "
+      "jets (hip, sleeve, leg) have no outline: it would squeeze their thin red edges below the print floor.")
     w("")
     w("Printer notes: red on black garments needs a white underbase (the printer may count it as a screen). "
       "Inks are knocked out, so no trapping or overprint is set in the files; the printer can add a hairline trap. "

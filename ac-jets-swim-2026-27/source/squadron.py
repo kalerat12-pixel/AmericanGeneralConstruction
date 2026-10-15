@@ -238,6 +238,14 @@ SMALL = "saira800"       # same face one weight lighter for lines under ~0.3 in 
 YEAR_FONT = "wide800"
 
 
+def outline_ring(sil, w):
+    """Black outline hugging a red shape's outer silhouette, w print units thick
+    (sharp corners mitred). Printed in the main black ink on white and heather garments;
+    on black garments the garment itself is the outline, so it is not printed there."""
+    grown = K.union(sil, K.stroke(sil, 2 * w, join="miter", miter=2.0))
+    return K.diff(grown, sil)
+
+
 def adams_arch(cap, R, cx, y_base, track=3):
     """ADAMS CENTRAL arched in the JETS face (Saira Black, same stencil cuts, plain A);
     y_base is the arch baseline on the centre line."""
@@ -252,6 +260,8 @@ def jets_lockup(W, cuts=True, arch=False):
     the letters and keylined out of them. Layers, top-left at (0, 0)."""
     span = 0.86 * W
     jet, info = M.fighter(span, W / 2, 0, "red")
+    ow = max(4.0, round(0.016 * span, 1))                  # outline 0.04-0.07 in
+    ring = K.translate(outline_ring(info["silhouette"], ow), 0, -info["nose_y"])
     jet = K.translate(jet["accent"], 0, -info["nose_y"])
     head = []
     if arch:
@@ -262,13 +272,14 @@ def jets_lockup(W, cuts=True, arch=False):
         a = K.translate(a, 0, -K.bounds(a)[1])           # arch top at y = 0
 
         def hits(dy):
-            j = K.translate(jet, 0, dy)
+            j = K.translate(K.union(jet, ring), 0, dy)
             return K.bounds(K.inter(a, K.union(j, K.stroke(j, 2 * gap, join="round"))))[2] > 0
         lo, hi = 0.0, K.bounds(a)[3] + 2 * gap
         for _ in range(30):
             mid = (lo + hi) / 2
             lo, hi = (mid, hi) if hits(mid) else (lo, mid)
         jet = K.translate(jet, 0, hi)
+        ring = K.translate(ring, 0, hi)
         head = [("main", a)]
         info = dict(info, length=info["length"] + hi)
     cap = ST.fit_cap("JETS", W, font=HERO)
@@ -281,7 +292,10 @@ def jets_lockup(W, cuts=True, arch=False):
     yfont = HERO if ycap >= 30 else SMALL            # the JETS face, plain (too small for cuts)
     track = fit_tracking(yfont, "26–27", ycap, yw)
     year = K.text(yfont, "26–27", ycap, W / 2, y, tracking=track, anchor="middle")
-    return head + [("accent", jet), ("main", word), ("main", year)]
+    # the outline is for the chest-size lockup; on the 1.6 in hip version it would
+    # squeeze the thin red wing edges below the print floor
+    outline = [("outline", ring)] if W >= 300 else []
+    return head + outline + [("accent", jet), ("main", word), ("main", year)]
 
 
 def front():
@@ -381,6 +395,7 @@ def pool_back(rope_end, key, title, placement):
     span = 0.50 * W
     jet, info = M.fighter(span, W / 2, 0, "red")
     jy = y_flag + 62 - info["nose_y"]
+    L.append(("outline", K.translate(outline_ring(info["silhouette"], 7), 0, jy)))
     L.append(("accent", K.translate(jet["accent"], 0, jy)))
     lw, tw, th = 20, 92, 22
     y_t = y_rope_end - 20 - th
@@ -442,7 +457,7 @@ def down_strip(text, total, w=82, cap=55):
     rule_len = max(200, total - y - 25 - jl)
     L.append(("main", K.rect(axis - 3, y, 6, rule_len)))
     y += rule_len + 25
-    L.append(("accent", K.translate(j, axis, y - K.bounds(j)[1])))
+    L.append(("accent", K.translate(j, axis, y - K.bounds(j)[1])))      # too small for an outline
     return L
 
 

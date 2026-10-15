@@ -46,7 +46,8 @@ def colourway(art, garment):
     pal = PALETTES[garment]
     if hasattr(art, "palettes") and garment in art.palettes:
         pal = {**pal, **art.palettes[garment]}
-    layers = [(pal[role], p) for role, p in art.layers]
+    # a role mapped to None is not printed on this garment (the black outline on black garments)
+    layers = [(pal[role], p) for role, p in art.layers if pal.get(role)]
     layers = K.knockout(layers)
     # normalise to a tight artboard
     allp = K.union(*[p for _, p in layers])

@@ -247,5 +247,5 @@ def fighter(span, cx=0.0, cy=0.0, style="red", gap=None, detail=None):
     T = lambda p: K.translate(K.transformed(p, u, 0, 0, u, 0, 0), cx, cy - F_LEN * u / 2)
     out = {r: T(p) for r, p in out.items()}
     info = {"span": span, "length": F_LEN * u, "u": u, "nose_y": cy - F_LEN * u / 2,
-            "tail_y": cy + F_LEN * u / 2}
+            "tail_y": cy + F_LEN * u / 2, "silhouette": T(body)}
     return out, info

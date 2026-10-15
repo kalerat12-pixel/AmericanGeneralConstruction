@@ -8,6 +8,7 @@ usage: python3 mockup.py            -> ../mockup.html (standalone page)
        python3 mockup.py --fragment PATH   (same page without the document wrapper)
 """
 import html
+import math
 import os
 import sys
 
@@ -53,11 +54,18 @@ def symbols():
     for c in CONCEPTS:
         for fn in c.ARTS:
             art = fn()
-            layers, w, h = build.colourway(art, "black")  # white = main, red = accent
+            # build with one ink key per role so the page can recolour each garment:
+            # white = main, red = accent, black = outline
+            pal = {"main": "white", "accent": "red", "detail": "white", "outline": "black"}
+            lay = K.knockout([(pal[r], p) for r, p in art.layers])
+            allp = K.union(*[p for _, p in lay])
+            bx = K.bounds(allp)
+            layers = [(k, K.translate(p, -bx[0], -bx[1])) for k, p in lay]
+            w, h = math.ceil(bx[2] - bx[0]) / 100, math.ceil(bx[3] - bx[1]) / 100
             sid = f"{PREFIX[c.SLUG]}-{art.key}"
             paths = []
             for ink, p in layers:
-                var = "--a" if ink == "red" else "--m"
+                var = {"red": "--a", "black": "--o"}.get(ink, "--m")
                 paths.append(f'<path style="fill:var({var})" d="{K.path_d(p, 1)}"/>')
             out.append(f'<symbol id="{sid}" viewBox="0 0 {w * 100:g} {h * 100:g}">{"".join(paths)}</symbol>')
             dims[(c.SLUG, art.key)] = (w, h, art.title, art.placement)
@@ -126,7 +134,8 @@ def seams(d, g, w=0.05):
 
 
 def svg_wrap(vb, inner, g, label):
-    style = f"--m:{INK_MAIN[g]};--a:{RED}"
+    outline = "transparent" if g == "black" else INK_MAIN[g]
+    style = f"--m:{INK_MAIN[g]};--a:{RED};--o:{outline}"
     return (f'<svg class="flat" viewBox="{vb}" style="{style}" role="img" aria-label="{html.escape(label)}">'
             f"{inner}</svg>")
 
@@ -310,7 +319,7 @@ nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
 h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(34px,5vw,52px);line-height:.95;margin:0}
 .lede{font-size:19px;margin:12px 0 6px;max-width:60ch;text-wrap:pretty}
 .idea{color:var(--muted);margin:0;max-width:62ch;text-wrap:pretty}
-.concept-mark{background:#161617;border-radius:6px;padding:28px 32px;display:flex;align-items:center;justify-content:center;--m:#FFFFFF;--a:#C8102E}
+.concept-mark{background:#161617;border-radius:6px;padding:28px 32px;display:flex;align-items:center;justify-content:center;--m:#FFFFFF;--a:#C8102E;--o:transparent}
 .mark{width:100%;max-width:240px;height:auto;display:block}
 .compare-head{grid-template-columns:minmax(0,1fr) auto}
 .piece{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px 32px;border-top:1px solid var(--line);padding-top:22px}

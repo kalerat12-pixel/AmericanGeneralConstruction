@@ -27,7 +27,7 @@ Every print uses **2 inks or fewer** (the brief allowed 3).
 | White | Black | Jets Red |
 | Heather Grey | Black | Jets Red |
 
-Red is used for the jet on every print, plus the backstroke flags and the rope end zones on the back. Red never touches the main ink.
+Red is used for the jet on every print, plus the backstroke flags and the rope end zones on the back. On white and heather garments the big jets (front and back) carry a 0.07 in black outline, printed with the same black ink, so those prints are still 2 inks; the outline butts the red, so ask the printer for a hairline trap there. On black garments the shirt itself is the outline and nothing extra prints. The small jets (hip, sleeve, leg) have no outline: it would squeeze their thin red edges below the print floor.
 
 Printer notes: red on black garments needs a white underbase (the printer may count it as a screen). Inks are knocked out, so no trapping or overprint is set in the files; the printer can add a hairline trap. Use a low-bleed / poly-blocking white on poly blends.
 
@@ -37,7 +37,7 @@ The front of the tee, crewneck and hoodie is one lockup: ADAMS CENTRAL arched ov
 
 | Print | Print size (W x H) | 300 DPI PNG (px) | Inks | Files (`.svg` in `squadron/svg`, `.png` in `squadron/png`) |
 |---|---|---|---|---|
-| Tee / crewneck / hoodie, front | 7.96 x 9.50 in | 2388 x 2850 | 2 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather` |
+| Tee / crewneck / hoodie, front | 7.96 x 9.51 in | 2388 x 2853 | 2 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather` |
 | Tee, back | 8.60 x 21.89 in | 2580 x 6567 | 2 | `squadron_tee-back_on-black`<br>`squadron_tee-back_on-white`<br>`squadron_tee-back_on-heather` |
 | Crewneck / hoodie, back | 8.60 x 19.31 in | 2580 x 5793 | 2 | `squadron_back_on-black`<br>`squadron_back_on-white`<br>`squadron_back_on-heather` |
 | Crewneck / hoodie, left sleeve | 0.82 x 9.03 in | 246 x 2709 | 2 | `squadron_sleeve_on-black`<br>`squadron_sleeve_on-white`<br>`squadron_sleeve_on-heather` |
