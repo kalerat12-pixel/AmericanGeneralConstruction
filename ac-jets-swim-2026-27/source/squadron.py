@@ -321,8 +321,103 @@ def back():
     jet, info = M.fighter(span, span / 2, 0, "white", gap=6)
     dy = -info["nose_y"]
     L = [("main", K.translate(jet["main"], 0, dy)), ("accent", K.translate(jet["accent"], 0, dy))]
-    return Art("back", "Tee / crewneck / hoodie - back",
+    return Art("back", "Crewneck / hoodie - back",
                "Centred on the back, nose ~3 in below the collar seam.", f"{span / 100:.1f} in wingspan", L)
+
+
+def mono_line(s, cap, tracking):
+    """Mono text whose degree signs are drawn as print-safe rings (the font's ring is too fine
+    at small sizes): 0.04 in stroke, 0.03 in hole minimum. Baseline at y = 0."""
+    adv = K.text_width(MONO, "0", cap, tracking)
+    out = K.new()
+    x = 0.0
+    for part in s.split("°"):
+        if x > 0:                                        # a degree sign before this part
+            r = max(0.24 * cap, 5.5)
+            ring = K.diff(K.circle(x + adv / 2, -cap + r, r), K.circle(x + adv / 2, -cap + r, r - 4))
+            out.addPath(ring)
+            x += adv
+        if part:
+            # Plex Mono's W packs four strokes into one cell and its inner Vs close up below
+            # 0.3 in cap, so the W comes from Archivo Expanded Bold, which has open notches
+            for chunk in part.replace("W", "\0W\0").split("\0"):
+                if chunk:
+                    if chunk == "W":
+                        g = K.text("wide700", "W", cap, x + 0.08 * cap, 0)
+                    else:
+                        lead = len(chunk) - len(chunk.lstrip(" "))     # K.text aligns on ink
+                        x += lead * K.text_width(MONO, "0", cap, tracking)
+                        chunk = chunk.lstrip(" ")
+                        if not chunk:
+                            continue
+                        g = K.text(MONO, chunk, cap, x, 0, tracking=tracking)
+                    out.addPath(g)
+                    x += K.text_width(MONO, chunk, cap, tracking) + tracking * cap / 1000
+    return K.union(out)
+
+
+def tee_back():
+    """The lane back from the Figma AI round (client pick), rebuilt in vector: stencil JETS,
+    two lane ropes with red end zones, backstroke flags across the top, the red fighter
+    flying the lane line toward the T, side annotations, and a ruled footer."""
+    W = 860
+    cap = ST.fit_cap("JETS", W, font=HERO)
+    L = [("main", ST.stencil_word("JETS", cap, W / 2, cap, anchor="middle", font=HERO, skip="J"))]
+
+    # lane ropes, inset like the AI frame; chunky floats, red end zones at both walls
+    fw, fh, pitch, n, red_top, red_bot = 30, 15, 23.5, 38, 5, 6
+    xl = 0.085 * W
+    xr = W - xl - fw
+    y_rope = cap + 22
+    for x in (xl, xr):
+        for i in range(n):
+            role = "accent" if i < red_top or i >= n - red_bot else "main"
+            L.append((role, K.rect(x, y_rope + i * pitch, fw, fh)))
+    y_rope_end = y_rope + (n - 1) * pitch + fh
+
+    # backstroke flags: a red line between the ropes with pennants hanging from it
+    y_flag = y_rope + 22
+    fx0, fx1 = xl + fw, xr
+    L.append(("accent", K.rect(fx0, y_flag, fx1 - fx0, 5)))
+    k = 11
+    step = (fx1 - fx0) / k
+    for j in range(k):
+        cx = fx0 + step * (j + 0.5)
+        L.append(("accent", K.poly([(cx - step * 0.30, y_flag + 4), (cx + step * 0.30, y_flag + 4),
+                                    (cx, y_flag + 32)])))
+
+    # the jet and the lane line with its T
+    span = 0.40 * W
+    jet, info = M.fighter(span, W / 2, 0, "red")
+    jy = y_flag + 62 - info["nose_y"]
+    L.append(("accent", K.translate(jet["accent"], 0, jy)))
+    lw, tw, th = 20, 92, 22
+    y_t = y_rope_end - 20 - th
+    y0 = info["tail_y"] + jy - 4
+    L.append(("main", K.rect(W / 2 - lw / 2, y0, lw, y_t - y0)))
+    L.append(("main", K.rect(W / 2 - tw / 2, y_t, tw, th)))
+
+    # side annotations: mono, reading toward the lane on both sides
+    ann = 28
+    mid = (y_rope + y_rope_end) / 2
+    for txt, deg, x in ((COORDS, -90, xl - 36), ("ALLEN COUNTY ATHLETIC CONFERENCE", 90, xr + fw + 36)):
+        t = mono_line(txt, ann, 100)
+        tb = K.bounds(t)
+        t = K.rotate(K.translate(t, -(tb[0] + tb[2]) / 2, -(tb[1] + tb[3]) / 2), deg)
+        L.append(("main", K.translate(t, x, mid)))
+
+    # footer: full-width rule, team line left, squadron serial right
+    y_rule = y_rope_end + 14
+    L.append(("main", K.rect(0, y_rule, W, 8)))
+    fc = 34
+    y_f = y_rule + 8 + 22 + fc
+    serial = K.text(MONO, "SQDN 26–27", 26, W, y_f, tracking=60, anchor="end")
+    team_w = K.bounds(serial)[0] - 60
+    L.append(("main", K.text(LABEL, "ADAMS CENTRAL SWIM & DIVE", fc, 0, y_f,
+                             tracking=solve_label(LABEL, "ADAMS CENTRAL SWIM & DIVE", fc, team_w))))
+    L.append(("main", serial))
+    return Art("tee-back", "Tee - back",
+               "Centred on the back, top of JETS ~3 in below the collar seam.", f"{W / 100:.1f} in wide", L)
 
 
 def sweats_hip():
@@ -343,7 +438,7 @@ def sweats_leg():
                "0.8 in wide", L)
 
 
-ARTS = [front, back, sweats_hip, sweats_leg]
+ARTS = [front, tee_back, back, sweats_hip, sweats_leg]
 NAME = "Squadron"
 SLUG = "squadron"
 TAGLINE = "Red chevron jet over stencil JETS on the front; one big white fighter with a red chevron on the back."
