@@ -6,8 +6,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
 CONCEPTS = [
-    ("squadron", "Squadron", "The front of the tee, crewneck and hoodie is one lockup: a red twin-tail fighter with a "
-     "chevron stripe knocked out along its wings, over a stencil JETS and a spaced 26-27. The back of all three is the "
+    ("squadron", "Squadron", "The front of the tee, crewneck and hoodie is one lockup: ADAMS CENTRAL arched over a red "
+     "twin-tail fighter whose nose just touches the arch, with a chevron stripe knocked out along its wings, over a "
+     "stencil JETS and a spaced 26-27. The back of all three is the "
      "pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter "
      "flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled "
      "footer. The crewneck and hoodie also have the jet, a contrail line and SWIM & DIVE down the left sleeve. The "
@@ -112,7 +113,7 @@ def main():
       "symmetric and straight-edged, never traced. Its detail steps down with size: canopy, chevron stripe and "
       "stabilizer cuts from 1.2 in span; no canopy from 1 in; a plain silhouette with stabilizer cuts below that "
       "(the sleeve and leg strips).")
-    w("- JETS is Saira Black (wide) with stencil cuts: a full-height gap at the E's stem, a horizontal cut under the "
+    w("- JETS and the ADAMS CENTRAL arch on the front are Saira Black (wide) with stencil cuts: a full-height gap at the E's stem, a horizontal cut under the "
       "T's bar and two cuts through the S on its center axis. 26-27 is Archivo Expanded, tracked wide.")
     w("- Typefaces, all SIL Open Font License (free for apparel): Saira, Archivo, Barlow Condensed (leg text). "
       "Because the type is outlined, the printer doesn't need any fonts.")

@@ -25,7 +25,7 @@ AI_DIR = os.path.join(ROOT, "ai-exploration")
 PREFIX = {"squadron": "sq", "lane-four": "lf", "aero-varsity": "av"}
 
 STORY = {
-    "squadron": ("A red fighter with a chevron over stencil JETS on every front, and the same jet flying a pool "
+    "squadron": ("ADAMS CENTRAL arched over a red fighter with a chevron and stencil JETS on every front, and the same jet flying a pool "
                  "lane on every back.",
                  "Both prints come from Figma AI frames the team picked (tee back, hip lockup right), redrawn as clean "
                  "2-ink vector. The crewneck and hoodie add the jet, a contrail line and SWIM & DIVE down the left "

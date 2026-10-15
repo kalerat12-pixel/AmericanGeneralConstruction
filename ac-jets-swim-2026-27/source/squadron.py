@@ -237,12 +237,31 @@ HERO = "saira900"        # wide, chunky stencil JETS like the AI lockup
 YEAR_FONT = "wide800"
 
 
-def jets_lockup(W, cuts=True):
+def adams_arch(cap, R, cx, y_base, track=3):
+    """ADAMS CENTRAL arched in the JETS face (Saira Black, same stencil cuts, plain A);
+    y_base is the arch baseline on the centre line."""
+    items = ST.stencil_glyph_paths("ADAMS CENTRAL", cap, font=HERO, split_a_glyph=False)
+    items = [(ch, (open_m(p) if ch == "M" else p), adv) for ch, p, adv in items]
+    return arc_glyphs(items, cx, y_base + R, R, track)
+
+
+def jets_lockup(W, cuts=True, arch=False):
     """Red chevron jet over stencil JETS over a spaced 26-27, all W wide.
-    Layers, top-left at (0, 0)."""
+    arch=True adds ADAMS CENTRAL arched over the jet, the nose rising a little way into
+    the letters and keylined out of them. Layers, top-left at (0, 0)."""
     span = 0.86 * W
     jet, info = M.fighter(span, W / 2, 0, "red")
     jet = K.translate(jet["accent"], 0, -info["nose_y"])
+    head = []
+    if arch:
+        acap, R, gap = 0.075 * W, 1.3 * W, 5
+        a = adams_arch(acap, R, W / 2, 0)
+        ab = K.bounds(a)
+        a = K.translate(a, 0, -ab[1])                    # arch top at y = 0
+        y_base = -ab[1]                                  # its baseline on the centre line
+        jet = K.translate(jet, 0, y_base - 0.30 * acap)  # nose tip ~30% up the letters
+        head = [("main", K.diff(a, K.union(jet, K.stroke(jet, 2 * gap, join="round"))))]
+        info = dict(info, length=info["length"] + y_base - 0.30 * acap)
     cap = ST.fit_cap("JETS", W, font=HERO)
     y = info["length"] + 0.075 * W + cap
     word = ST.stencil_word("JETS", cap, W / 2, y, anchor="middle", font=HERO, counters_only=not cuts,
@@ -253,12 +272,12 @@ def jets_lockup(W, cuts=True):
     yfont = YEAR_FONT if W >= 300 else "wide900"
     track = fit_tracking(yfont, "26–27", ycap, yw)
     year = K.text(yfont, "26–27", ycap, W / 2, y, tracking=track, anchor="middle")
-    return [("accent", jet), ("main", word), ("main", year)]
+    return head + [("accent", jet), ("main", word), ("main", year)]
 
 
 def front():
     W = 500
-    L = jets_lockup(W)
+    L = jets_lockup(W, arch=True)
     return Art("front", "Tee / crewneck / hoodie - front",
                "Centred on the chest, top of art ~3 in below the collar (hoodie: below the hood seam). "
                "Clears the hoodie pouch pocket.", f"{W / 100:.1f} in wide", L)
@@ -349,21 +368,11 @@ def pool_back(rope_end, key, title, placement):
         L.append(("accent", K.poly([(cx - step * 0.30, y_flag + 4), (cx + step * 0.30, y_flag + 4),
                                     (cx, y_flag + 32)])))
 
-    # ADAMS CENTRAL arched over the jet, in the JETS face with the same stencil cuts;
-    # the jet's nose rises a little way into the arch and is keylined out of the letters
-    acap, R, gap = 48, 480, 6
-    items = ST.stencil_glyph_paths("ADAMS CENTRAL", acap, font=HERO, split_a_glyph=False)
-    items = [(ch, (open_m(p) if ch == "M" else p), adv) for ch, p, adv in items]
-    y_base = y_flag + 50 + acap                          # arch baseline at the centre line
-    arch = arc_glyphs(items, W / 2, y_base + R, R, 3)
-
     # the jet and the lane line with its T
     span = 0.50 * W
     jet, info = M.fighter(span, W / 2, 0, "red")
-    jy = y_base - 0.45 * acap - info["nose_y"]          # nose tip ~45% up the arch letters
-    jet_p = K.translate(jet["accent"], 0, jy)
-    L.append(("main", K.diff(arch, K.union(jet_p, K.stroke(jet_p, 2 * gap, join="round")))))
-    L.append(("accent", jet_p))
+    jy = y_flag + 62 - info["nose_y"]
+    L.append(("accent", K.translate(jet["accent"], 0, jy)))
     lw, tw, th = 20, 92, 22
     y_t = y_rope_end - 20 - th
     y0 = info["tail_y"] + jy - 4

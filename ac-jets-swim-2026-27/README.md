@@ -33,11 +33,11 @@ Printer notes: red on black garments needs a white underbase (the printer may co
 
 ## Squadron
 
-The front of the tee, crewneck and hoodie is one lockup: a red twin-tail fighter with a chevron stripe knocked out along its wings, over a stencil JETS and a spaced 26-27. The back of all three is the pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled footer. The crewneck and hoodie also have the jet, a contrail line and SWIM & DIVE down the left sleeve. The sweatpants carry the lockup small on the hip and the jet leading AC SWIM & DIVE down the leg. All of it comes from Figma AI frames the team picked, redrawn as clean symmetric vector.
+The front of the tee, crewneck and hoodie is one lockup: ADAMS CENTRAL arched over a red twin-tail fighter whose nose just touches the arch, with a chevron stripe knocked out along its wings, over a stencil JETS and a spaced 26-27. The back of all three is the pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled footer. The crewneck and hoodie also have the jet, a contrail line and SWIM & DIVE down the left sleeve. The sweatpants carry the lockup small on the hip and the jet leading AC SWIM & DIVE down the leg. All of it comes from Figma AI frames the team picked, redrawn as clean symmetric vector.
 
 | Print | Print size (W x H) | 300 DPI PNG (px) | Inks | Files (`.svg` in `squadron/svg`, `.png` in `squadron/png`) |
 |---|---|---|---|---|
-| Tee / crewneck / hoodie, front | 5.00 x 8.72 in | 1500 x 2616 | 2 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather` |
+| Tee / crewneck / hoodie, front | 5.00 x 8.99 in | 1500 x 2697 | 2 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather` |
 | Tee, back | 8.60 x 21.92 in | 2580 x 6576 | 2 | `squadron_tee-back_on-black`<br>`squadron_tee-back_on-white`<br>`squadron_tee-back_on-heather` |
 | Crewneck / hoodie, back | 8.60 x 19.34 in | 2580 x 5802 | 2 | `squadron_back_on-black`<br>`squadron_back_on-white`<br>`squadron_back_on-heather` |
 | Crewneck / hoodie, left sleeve | 0.82 x 9.03 in | 246 x 2709 | 2 | `squadron_sleeve_on-black`<br>`squadron_sleeve_on-white`<br>`squadron_sleeve_on-heather` |
@@ -64,7 +64,7 @@ Smallest type: the 26-27 on the hip lockup is 0.18 in cap in a heavy weight. On 
 ## The jet mark and lettering
 
 - The jet (`source/marks.py`, `fighter()`) is a top-down twin-tail fighter in the style of the Figma AI frames the team picked. It is rebuilt from a coordinate grid (span = 100 units, 45 degree wing leading edge), symmetric and straight-edged, never traced. Its detail steps down with size: canopy, chevron stripe and stabilizer cuts from 1.2 in span; no canopy from 1 in; a plain silhouette with stabilizer cuts below that (the sleeve and leg strips).
-- JETS is Saira Black (wide) with stencil cuts: a full-height gap at the E's stem, a horizontal cut under the T's bar and two cuts through the S on its center axis. 26-27 is Archivo Expanded, tracked wide.
+- JETS and the ADAMS CENTRAL arch on the front are Saira Black (wide) with stencil cuts: a full-height gap at the E's stem, a horizontal cut under the T's bar and two cuts through the S on its center axis. 26-27 is Archivo Expanded, tracked wide.
 - Typefaces, all SIL Open Font License (free for apparel): Saira, Archivo, Barlow Condensed (leg text). Because the type is outlined, the printer doesn't need any fonts.
 - If the athletic department wants the official school mark instead, swap it in at the jet positions.
 

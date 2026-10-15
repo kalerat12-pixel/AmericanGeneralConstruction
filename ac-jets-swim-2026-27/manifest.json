@@ -8,19 +8,19 @@
   "svg": "squadron/svg/squadron_front_on-black.svg",
   "png": "squadron/png/squadron_front_on-black.png",
   "width_in": 5.0,
-  "height_in": 8.72,
+  "height_in": 8.99,
   "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
    {
     "key": "white",
     "name": "White",
     "hex": "#FFFFFF",
     "pms": "Bright white (low-bleed on dark garments)"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
    }
   ],
   "placement": "Centred on the chest, top of art ~3 in below the collar (hoodie: below the hood seam). Clears the hoodie pouch pocket."
@@ -34,19 +34,19 @@
   "svg": "squadron/svg/squadron_front_on-white.svg",
   "png": "squadron/png/squadron_front_on-white.png",
   "width_in": 5.0,
-  "height_in": 8.72,
+  "height_in": 8.99,
   "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
    {
     "key": "black",
     "name": "Black",
     "hex": "#101820",
     "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
    }
   ],
   "placement": "Centred on the chest, top of art ~3 in below the collar (hoodie: below the hood seam). Clears the hoodie pouch pocket."
@@ -60,19 +60,19 @@
   "svg": "squadron/svg/squadron_front_on-heather.svg",
   "png": "squadron/png/squadron_front_on-heather.png",
   "width_in": 5.0,
-  "height_in": 8.72,
+  "height_in": 8.99,
   "inks": [
-   {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
    {
     "key": "black",
     "name": "Black",
     "hex": "#101820",
     "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
    }
   ],
   "placement": "Centred on the chest, top of art ~3 in below the collar (hoodie: below the hood seam). Clears the hoodie pouch pocket."
