@@ -422,17 +422,31 @@ def back():
                      "the lane ropes end ~4.5 in above the bottom band.")
 
 
+def down_strip(text, rule_len, w=82, cap=55):
+    """Vertical strip, top to bottom: text reading down, a 0.06 in contrail line, then the
+    jet flying down (nose toward the cuff / hem). Shared by the sleeve and the leg."""
+    axis = w / 2
+    t = K.notch_fix(K.text(LABEL_HEAVY, text, cap, 0, 0, tracking=100))
+    tb = K.bounds(t)
+    t = K.rotate(K.translate(t, -tb[0], -(tb[1] + tb[3]) / 2), 90)     # reads top to bottom
+    t = K.translate(t, axis, -K.bounds(t)[1])
+    L = [("main", t)]
+    y = K.bounds(t)[3] + 25
+    L.append(("main", K.rect(axis - 3, y, 6, rule_len)))
+    y += rule_len + 25
+    jet, info = M.fighter(82, 0, 0, "red")
+    j = K.rotate(K.translate(jet["accent"], 0, -info["nose_y"]), 180)  # nose down, tail up
+    L.append(("accent", K.translate(j, axis, y - K.bounds(j)[1])))
+    return L
+
+
 def sleeve():
-    """Crewneck and hoodie left sleeve: the jet at the shoulder, its contrail line, then
-    SWIM & DIVE reading from the cuff up toward the jet (same strip as the sweatpants leg)."""
-    w = 82
-    span = 82
-    jet, info = M.fighter(span, w / 2, 0, "red")
-    head = [("accent", K.translate(jet["accent"], 0, -info["nose_y"]))]
-    L = strip_grammar(head, info["length"], 300, "SWIM & DIVE", 55, LABEL_HEAVY, 100, w)
+    """Crewneck and hoodie left sleeve: SWIM & DIVE reading down from the shoulder, the
+    contrail line, then the jet flying down toward the cuff."""
     return Art("sleeve", "Crewneck / hoodie - left sleeve",
-               "Wearer's left sleeve on the sleeve centre line, jet ~3 in below the shoulder seam, nose up; "
-               "the text reads from the cuff toward the jet.", "0.8 in wide", L)
+               "Wearer's left sleeve on the sleeve centre line. SWIM & DIVE starts ~3 in below the shoulder seam "
+               "and reads down the arm; the line and the jet follow, the jet flying toward the cuff.",
+               "0.8 in wide", down_strip("SWIM & DIVE", 300))
 
 
 def sweats_hip():
@@ -444,23 +458,10 @@ def sweats_hip():
 def sweats_leg():
     """Top to bottom: AC SWIM & DIVE (reading down from the waistband), the contrail line,
     then the jet at the bottom flying down the leg, nose toward the hem."""
-    w, axis = 82, 41
-    cap = 55
-    t = K.notch_fix(K.text(LABEL_HEAVY, "AC SWIM & DIVE", cap, 0, 0, tracking=100))
-    tb = K.bounds(t)
-    t = K.rotate(K.translate(t, -tb[0], -(tb[1] + tb[3]) / 2), 90)     # reads top to bottom
-    t = K.translate(t, axis, -K.bounds(t)[1])
-    L = [("main", t)]
-    y = K.bounds(t)[3] + 25
-    L.append(("main", K.rect(axis - 3, y, 6, 461)))
-    y += 461 + 25
-    jet, info = M.fighter(82, 0, 0, "red")
-    j = K.rotate(K.translate(jet["accent"], 0, -info["nose_y"]), 180)  # nose down, tail up
-    L.append(("accent", K.translate(j, axis, y - K.bounds(j)[1])))
     return Art("sweats-leg", "Sweatpants - leg side",
                "Wearer's right leg on the outer leg panel. AC SWIM & DIVE starts ~3 in below the waistband and "
                "reads down the leg; the line and the jet follow, the jet flying toward the hem.",
-               "0.8 in wide", L)
+               "0.8 in wide", down_strip("AC SWIM & DIVE", 461))
 
 
 ARTS = [front, tee_back, back, sleeve, sweats_hip, sweats_leg]

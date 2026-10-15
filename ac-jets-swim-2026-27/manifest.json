@@ -245,19 +245,19 @@
   "height_in": 9.03,
   "inks": [
    {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
     "key": "white",
     "name": "White",
     "hex": "#FFFFFF",
     "pms": "Bright white (low-bleed on dark garments)"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
    }
   ],
-  "placement": "Wearer's left sleeve on the sleeve centre line, jet ~3 in below the shoulder seam, nose up; the text reads from the cuff toward the jet."
+  "placement": "Wearer's left sleeve on the sleeve centre line. SWIM & DIVE starts ~3 in below the shoulder seam and reads down the arm; the line and the jet follow, the jet flying toward the cuff."
  },
  {
   "concept": "squadron",
@@ -271,19 +271,19 @@
   "height_in": 9.03,
   "inks": [
    {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
     "key": "black",
     "name": "Black",
     "hex": "#101820",
     "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
    }
   ],
-  "placement": "Wearer's left sleeve on the sleeve centre line, jet ~3 in below the shoulder seam, nose up; the text reads from the cuff toward the jet."
+  "placement": "Wearer's left sleeve on the sleeve centre line. SWIM & DIVE starts ~3 in below the shoulder seam and reads down the arm; the line and the jet follow, the jet flying toward the cuff."
  },
  {
   "concept": "squadron",
@@ -297,19 +297,19 @@
   "height_in": 9.03,
   "inks": [
    {
-    "key": "red",
-    "name": "Jets Red",
-    "hex": "#C8102E",
-    "pms": "PMS 186 C"
-   },
-   {
     "key": "black",
     "name": "Black",
     "hex": "#101820",
     "pms": "PMS Black 6 C"
+   },
+   {
+    "key": "red",
+    "name": "Jets Red",
+    "hex": "#C8102E",
+    "pms": "PMS 186 C"
    }
   ],
-  "placement": "Wearer's left sleeve on the sleeve centre line, jet ~3 in below the shoulder seam, nose up; the text reads from the cuff toward the jet."
+  "placement": "Wearer's left sleeve on the sleeve centre line. SWIM & DIVE starts ~3 in below the shoulder seam and reads down the arm; the line and the jet follow, the jet flying toward the cuff."
  },
  {
   "concept": "squadron",
