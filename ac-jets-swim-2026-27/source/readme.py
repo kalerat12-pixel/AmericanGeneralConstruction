@@ -37,7 +37,7 @@ def main():
     w = out.append
     w("# Adams Central Jets Swim & Dive: 2026-27 Team Apparel")
     w("")
-    w("**Final direction: Squadron**, across the tee, hoodie, crewneck and sweatpants, each in black, white and heather grey.")
+    w("**Final direction: Squadron**, across the tee, hoodie, crewneck and sweatpants, each in black, white and dark heather grey.")
     w("The two earlier directions (Lane Four, Aero Varsity) are kept for reference in `alternates/`.")
     w("Open **`mockup.html`** in a browser to see every piece on flat garments at true print size.")
     w("")
@@ -54,27 +54,29 @@ def main():
     w("")
     w("## Ink colors")
     w("")
-    w("Every print uses **2 inks or fewer** (the brief allowed 3).")
+    w("Every print uses **3 inks or fewer** (the brief allowed 3): 2 on black and white garments, and 3 on dark "
+      "heather only where a big jet carries its black outline.")
     w("")
     w("| Ink | Hex | Pantone / spec | Used on |")
     w("|---|---|---|---|")
     w("| Jets Red | `#C8102E` | PMS 186 C | All garments (accent) |")
-    w("| White | `#FFFFFF` | Bright white, low-bleed | Black garments (main) |")
-    w("| Black | `#101820` | PMS Black 6 C | White and heather grey garments (main) |")
+    w("| White | `#FFFFFF` | Bright white, low-bleed | Black and dark heather garments (main) |")
+    w("| Black | `#101820` | PMS Black 6 C | White garments (main); jet outline on white and dark heather |")
     w("")
-    w("| Garment | Main ink | Accent ink |")
-    w("|---|---|---|")
-    w("| Black | White | Jets Red |")
-    w("| White | Black | Jets Red |")
-    w("| Heather Grey | Black | Jets Red |")
+    w("| Garment | Main ink | Accent ink | Jet outline (front and back) |")
+    w("|---|---|---|---|")
+    w("| Black | White | Jets Red | none (the shirt is the outline) |")
+    w("| White | Black | Jets Red | Black (same ink as the main) |")
+    w("| Dark Heather Grey | White | Jets Red | Black |")
     w("")
     w("Red is used for the jet on every print, plus the backstroke flags and the rope end zones on the back. "
-      "On white and heather garments the big jets (front and back) carry a 0.07 in black outline, printed with the "
-      "same black ink, so those prints are still 2 inks; the outline butts the red, so ask the printer for a "
-      "hairline trap there. On black garments the shirt itself is the outline and nothing extra prints. The small "
+      "On white and dark heather garments the big jets (front and back) carry a 0.07 in black outline (on white it "
+      "is the same black ink, so still 2 inks; on dark heather it is the third ink). The outline butts the red, so "
+      "ask the printer for a hairline trap there. Dark heather is too dark for black lettering, so its main ink is "
+      "white. On black garments the shirt itself is the outline and nothing extra prints. The small "
       "jets (hip, sleeve, leg) have no outline: it would squeeze their thin red edges below the print floor.")
     w("")
-    w("Printer notes: red on black garments needs a white underbase (the printer may count it as a screen). "
+    w("Printer notes: red on black and dark heather garments needs a white underbase (the printer may count it as a screen). "
       "Inks are knocked out, so no trapping or overprint is set in the files; the printer can add a hairline trap. "
       "Use a low-bleed / poly-blocking white on poly blends.")
     w("")

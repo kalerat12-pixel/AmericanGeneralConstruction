@@ -15,7 +15,7 @@ INKS = {
 GARMENTS = {
     "black": ("Black", "#151515"),
     "white": ("White", "#F4F4F2"),
-    "heather": ("Heather Grey", "#B8BABC"),
+    "heather": ("Dark Heather Grey", "#55575B"),
 }
 
 # role -> ink, per garment colour. Every design is drawn with roles so the
@@ -23,7 +23,7 @@ GARMENTS = {
 PALETTES = {
     "black": {"main": "white", "accent": "red", "detail": "white", "outline": None},
     "white": {"main": "black", "accent": "red", "detail": "black", "outline": "black"},
-    "heather": {"main": "black", "accent": "red", "detail": "black", "outline": "black"},
+    "heather": {"main": "white", "accent": "red", "detail": "white", "outline": "black"},
 }
 
 ITALIC = math.tan(math.radians(10))  # Archivo italic angle

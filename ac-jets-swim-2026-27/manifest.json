@@ -63,6 +63,12 @@
   "height_in": 9.51,
   "inks": [
    {
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
+   },
+   {
     "key": "black",
     "name": "Black",
     "hex": "#101820",
@@ -141,16 +147,22 @@
   "height_in": 21.89,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
     "name": "Jets Red",
     "hex": "#C8102E",
     "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
    }
   ],
   "placement": "Centred on the back, top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem."
@@ -219,16 +231,22 @@
   "height_in": 19.31,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
     "name": "Jets Red",
     "hex": "#C8102E",
     "pms": "PMS 186 C"
+   },
+   {
+    "key": "black",
+    "name": "Black",
+    "hex": "#101820",
+    "pms": "PMS Black 6 C"
    }
   ],
   "placement": "Centred on the back, top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band."
@@ -297,10 +315,10 @@
   "height_in": 9.03,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
@@ -381,10 +399,10 @@
     "pms": "PMS 186 C"
    },
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    }
   ],
   "placement": "Wearer's left front thigh/hip, ~3 in below the waistband."
@@ -453,10 +471,10 @@
   "height_in": 11.79,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
@@ -531,10 +549,10 @@
   "height_in": 0.88,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
@@ -609,10 +627,10 @@
   "height_in": 3.79,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
@@ -687,10 +705,10 @@
   "height_in": 3.58,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
@@ -765,10 +783,10 @@
   "height_in": 8.34,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
@@ -843,10 +861,10 @@
   "height_in": 3.02,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
@@ -921,10 +939,10 @@
   "height_in": 1.28,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
@@ -999,10 +1017,10 @@
   "height_in": 11.75,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
@@ -1083,10 +1101,10 @@
     "pms": "PMS 186 C"
    },
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    }
   ],
   "placement": "Left chest, top of art ~3 in below the collar seam"
@@ -1155,10 +1173,10 @@
   "height_in": 7.2,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
@@ -1233,10 +1251,10 @@
   "height_in": 5.3,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    },
    {
     "key": "red",
@@ -1377,10 +1395,10 @@
     "pms": "PMS 186 C"
    },
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    }
   ],
   "placement": "Centered on chest, top of arch ~3 in below the collar"
@@ -1455,10 +1473,10 @@
     "pms": "PMS 186 C"
    },
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    }
   ],
   "placement": "Left front thigh/hip, ~3 in below the waistband"
@@ -1515,10 +1533,10 @@
   "height_in": 11.52,
   "inks": [
    {
-    "key": "black",
-    "name": "Black",
-    "hex": "#101820",
-    "pms": "PMS Black 6 C"
+    "key": "white",
+    "name": "White",
+    "hex": "#FFFFFF",
+    "pms": "Bright white (low-bleed on dark garments)"
    }
   ],
   "placement": "Right leg, outer side seam, starting ~4 in below the waistband, reading top to bottom"

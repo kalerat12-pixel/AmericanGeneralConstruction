@@ -17,8 +17,9 @@ sys.path.insert(0, HERE)
 os.environ.setdefault("ACJ_FONT_DIR", os.path.join(HERE, ".fonts"))
 
 import svgkit as K  # noqa: E402
+import garmentart as GA  # noqa: E402
 import build  # noqa: E402
-from common import GARMENTS, INKS  # noqa: E402
+from common import GARMENTS, INKS, PALETTES  # noqa: E402
 
 CONCEPTS = [build.CONCEPTS["squadron"]]          # the chosen direction
 ROOT = os.path.dirname(HERE)
@@ -39,10 +40,7 @@ STORY = {
                      "athletic script."),
 }
 
-GARMENT_FILL = {"black": "#1C1C1D", "white": "#F7F7F5", "heather": "#B9BBBD"}
-GARMENT_LINE = {"black": "#3A3A3C", "white": "#CFCFCB", "heather": "#9C9EA1"}
-GARMENT_SHADE = {"black": "#111112", "white": "#E4E4E0", "heather": "#A5A7AA"}
-INK_MAIN = {"black": INKS["white"][1], "white": INKS["black"][1], "heather": INKS["black"][1]}
+INK_MAIN = {g: INKS[PALETTES[g]["main"]][1] for g in GARMENTS}
 RED = INKS["red"][1]
 
 
@@ -84,57 +82,11 @@ def place(sid, dims, slug, key, x, y, anchor="top-center", rot=0):
     return use
 
 
-# ------------------------------------------------------------------ garments (inches)
-
-TEE_FRONT = ("M16 3.4 Q19.4 3.3 19.7 1.1 L26.2 2.5 L30.8 8.6 L27.4 10.9 L26.3 9.3 L26.5 30.2 "
-             "Q21 30.5 16 30.4 Q11 30.5 5.5 30.2 L5.7 9.3 L4.6 10.9 L1.2 8.6 L5.8 2.5 L12.3 1.1 "
-             "Q12.6 3.3 16 3.4 Z")
-TEE_BACK = ("M16 1.75 Q18.2 1.6 19.7 1.1 L26.2 2.5 L30.8 8.6 L27.4 10.9 L26.3 9.3 L26.5 30.2 "
-            "Q21 30.5 16 30.4 Q11 30.5 5.5 30.2 L5.7 9.3 L4.6 10.9 L1.2 8.6 L5.8 2.5 L12.3 1.1 "
-            "Q13.8 1.6 16 1.75 Z")
-TEE_SEAMS_FRONT = ("M12.3 1.1 Q12.6 3.3 16 3.4 Q19.4 3.3 19.7 1.1 M12.95 1.25 Q13.3 4.05 16 4.15 "
-                   "Q18.7 4.05 19.05 1.25 M5.5 29.4 Q11 29.7 16 29.6 Q21 29.7 26.5 29.4 "
-                   "M1.55 8.1 L4.95 10.4 M30.45 8.1 L27.05 10.4")
-TEE_SEAMS_BACK = ("M12.3 1.1 Q13.8 1.6 16 1.75 Q18.2 1.6 19.7 1.1 M5.5 29.4 Q11 29.7 16 29.6 "
-                  "Q21 29.7 26.5 29.4 M1.55 8.1 L4.95 10.4 M30.45 8.1 L27.05 10.4")
-
-HOODIE = ("M15.2 7.6 C14.6 3.2 16.6 0.6 20 0.6 C23.4 0.6 25.4 3.2 24.8 7.6 L30.4 9.0 L35.6 30.2 "
-          "L35.9 32.6 L32.6 33.0 L32.3 30.6 L30.5 14.6 L30.6 31.0 L30.6 33.6 L9.4 33.6 L9.4 31.0 "
-          "L9.5 14.6 L7.7 30.6 L7.4 33.0 L4.1 32.6 L4.4 30.2 L9.6 9.0 Z")
-HOODIE_OPEN = ("M17.0 10.4 C16.4 6.4 17.6 3.0 20 3.0 C22.4 3.0 23.6 6.4 23.0 10.4 "
-               "C22.0 11.4 21.0 11.8 20 11.9 C19 11.8 18 11.4 17.0 10.4 Z")
-HOODIE_SEAMS = ("M9.4 31.0 L30.6 31.0 M4.4 30.2 L7.7 30.6 M35.6 30.2 L32.3 30.6 "
-                "M14.6 22.4 L25.4 22.4 L27.4 30.6 L12.6 30.6 Z M14.6 22.4 Q13.6 26 12.6 30.6 "
-                "M25.4 22.4 Q26.4 26 27.4 30.6")
-HOODIE_STRINGS = "M18.7 11.5 L18.4 16.6 M21.3 11.5 L21.6 16.6"
-
-CREW = ("M15.4 1.6 Q20 5.2 24.6 1.6 L30.4 3.2 L35.6 25.2 L35.9 27.6 L32.6 28.0 L32.3 25.6 "
-        "L30.5 9.6 L30.6 26.0 L30.6 28.6 L9.4 28.6 L9.4 26.0 L9.5 9.6 L7.7 25.6 L7.4 28.0 "
-        "L4.1 27.6 L4.4 25.2 L9.6 3.2 Z")
-CREW_BACKNECK = "M15.4 1.6 Q20 2.6 24.6 1.6 Q20 5.2 15.4 1.6 Z"
-CREW_SEAMS = ("M14.75 1.45 Q20 6.1 25.25 1.45 M9.4 26.0 L30.6 26.0 M4.4 25.2 L7.7 25.6 "
-              "M35.6 25.2 L32.3 25.6 M9.6 3.2 L9.5 9.6 M30.4 3.2 L30.5 9.6")
-
-SWEATS = ("M6.3 3.6 L21.7 3.6 C22.4 8 22.5 12 22.3 15 L21.2 40.0 L21.3 43.2 L16.3 43.2 L16.3 40.0 "
-          "L14.5 15.6 Q14 14.4 13.5 15.6 L11.7 40.0 L11.7 43.2 L6.7 43.2 L6.8 40.0 L5.7 15 "
-          "C5.5 12 5.6 8 6.3 3.6 Z")
-SWEATS_BAND = "M6.4 1 L21.6 1 L21.7 3.6 L6.3 3.6 Z"
-SWEATS_SEAMS = ("M6.8 40.0 L11.7 40.0 M16.3 40.0 L21.2 40.0 M6.6 4.4 L8.4 10.2 M21.4 4.4 L19.6 10.2 "
-                "M14 3.6 L14 13.2")
-SWEATS_STRINGS = "M13.3 3.6 L12.7 7.6 M14.7 3.6 L15.3 7.6"
-
-
-def garment(d, g, extra=""):
-    filt = ' filter="url(#heather)"' if g == "heather" else ""
-    return f'<path d="{d}" fill="{GARMENT_FILL[g]}" stroke="{GARMENT_LINE[g]}" stroke-width="0.07" stroke-linejoin="round"{filt}/>{extra}'
-
-
-def seams(d, g, w=0.05):
-    return f'<path d="{d}" fill="none" stroke="{GARMENT_LINE[g]}" stroke-width="{w}" stroke-linecap="round"/>'
-
+# ------------------------------------------------------------------ garments (see garmentart.py)
 
 def svg_wrap(vb, inner, g, label):
-    outline = "transparent" if g == "black" else INK_MAIN[g]
+    o = PALETTES[g].get("outline")
+    outline = INKS[o][1] if o else "transparent"
     style = f"--m:{INK_MAIN[g]};--a:{RED};--o:{outline}"
     return (f'<svg class="flat" viewBox="{vb}" style="{style}" role="img" aria-label="{html.escape(label)}">'
             f"{inner}</svg>")
@@ -144,13 +96,6 @@ def view_label(x, y, text):
     return f'<text x="{x}" y="{y}" class="vl" text-anchor="middle">{text}</text>'
 
 
-CREW_BACK = CREW.replace("Q20 5.2 24.6", "Q20 2.6 24.6")
-CREW_SEAMS_BACK = ("M14.75 1.45 Q20 3.3 25.25 1.45 M9.4 26.0 L30.6 26.0 M4.4 25.2 L7.7 25.6 "
-                   "M35.6 25.2 L32.3 25.6 M9.6 3.2 L9.5 9.6 M30.4 3.2 L30.5 9.6")
-HOODIE_SEAMS_BACK = ("M9.4 31.0 L30.6 31.0 M4.4 30.2 L7.7 30.6 M35.6 30.2 L32.3 30.6 M20 0.6 L20 8.9 "
-                     "M15.2 7.6 Q17 9.2 20 9.3 Q23 9.2 24.8 7.6")
-
-
 def two_views(front, back, w, h, label):
     return (f"<g>{front}{view_label(w / 2, h - 0.8, 'FRONT')}</g>"
             f'<g transform="translate({w + 1.5:g} 0)">{back}{view_label(w / 2, h - 0.8, "BACK")}</g>')
@@ -158,48 +103,37 @@ def two_views(front, back, w, h, label):
 
 def tee(slug, g, dims):
     p = PREFIX[slug]
-    front = garment(TEE_FRONT, g) + seams(TEE_SEAMS_FRONT, g)
-    front += place(f"{p}-front", dims, slug, "front", 16, 6.2)
-    back = garment(TEE_BACK, g) + seams(TEE_SEAMS_BACK, g)
-    back += place(f"{p}-tee-back", dims, slug, "tee-back", 16, 4.8)
+    front = GA.tee_view(g, place(f"{p}-front", dims, slug, "front", 16, 6.2), front=True)
+    back = GA.tee_view(g, place(f"{p}-tee-back", dims, slug, "tee-back", 16, 4.8), front=False)
     inner = two_views(front, back, 32, 33.4, "Tee")
     return svg_wrap("0 0 65.5 33.4", inner, g, f"Tee, front and back, {GARMENTS[g][0]}")
 
 
 def hoodie(slug, g, dims):
     p = PREFIX[slug]
-    front = garment(HOODIE, g)
-    front += f'<path d="{HOODIE_OPEN}" fill="{GARMENT_SHADE[g]}" stroke="{GARMENT_LINE[g]}" stroke-width="0.06"/>'
-    front += seams(HOODIE_SEAMS, g)
-    front += place(f"{p}-front", dims, slug, "front", 20, 12.3)
-    front += place(f"{p}-sleeve", dims, slug, "sleeve", 31.35, 15.4, rot=-10)
-    front += seams(HOODIE_STRINGS, g, 0.16)
-    back = garment(HOODIE, g) + seams(HOODIE_SEAMS_BACK, g)
-    back += place(f"{p}-back", dims, slug, "back", 20, 10.6)
+    prints = (place(f"{p}-front", dims, slug, "front", 20, 12.3)
+              + place(f"{p}-sleeve", dims, slug, "sleeve", 31.35, 15.4, rot=-10))
+    front = GA.hoodie_view(g, prints, front=True, strings=GA.drawstrings(g))
+    back = GA.hoodie_view(g, place(f"{p}-back", dims, slug, "back", 20, 10.6), front=False)
     inner = two_views(front, back, 40, 35.6, "Hoodie")
     return svg_wrap("0 0 81.5 35.6", inner, g, f"Hoodie, front and back, {GARMENTS[g][0]}")
 
 
 def crew(slug, g, dims):
     p = PREFIX[slug]
-    front = garment(CREW, g)
-    front += f'<path d="{CREW_BACKNECK}" fill="{GARMENT_SHADE[g]}"/>'
-    front += seams(CREW_SEAMS, g)
-    front += place(f"{p}-front", dims, slug, "front", 20, 7.4)
-    front += place(f"{p}-sleeve", dims, slug, "sleeve", 31.35, 9.6, rot=-10)
-    back = garment(CREW_BACK, g) + seams(CREW_SEAMS_BACK, g)
-    back += place(f"{p}-back", dims, slug, "back", 20, 5.4)
+    prints = (place(f"{p}-front", dims, slug, "front", 20, 7.4)
+              + place(f"{p}-sleeve", dims, slug, "sleeve", 31.35, 9.6, rot=-10))
+    front = GA.crew_view(g, prints, front=True)
+    back = GA.crew_view(g, place(f"{p}-back", dims, slug, "back", 20, 5.4), front=False)
     inner = two_views(front, back, 40, 30.6, "Crewneck")
     return svg_wrap("0 0 81.5 30.6", inner, g, f"Crewneck, front and back, {GARMENTS[g][0]}")
 
 
 def sweats(slug, g, dims):
     p = PREFIX[slug]
-    inner = garment(SWEATS, g)
-    inner += garment(SWEATS_BAND, g)
-    inner += seams(SWEATS_SEAMS, g) + seams(SWEATS_STRINGS, g, 0.14)
-    inner += place(f"{p}-sweats-hip", dims, slug, "sweats-hip", 17.9, 6.6)
-    inner += place(f"{p}-sweats-leg", dims, slug, "sweats-leg", 7.0, 8.4, rot=-2.5)
+    prints = (place(f"{p}-sweats-hip", dims, slug, "sweats-hip", 17.9, 6.6)
+              + place(f"{p}-sweats-leg", dims, slug, "sweats-leg", 7.0, 8.4, rot=-2.5))
+    inner = GA.sweats_view(g, prints)
     return svg_wrap("0 0 28 44", inner, g, f"Sweatpants, front, {GARMENTS[g][0]}")
 
 
@@ -213,9 +147,10 @@ PRINT_LABEL = {"front": "Front", "tee-back": "Full back", "back": "Full back", "
 
 
 def ink_dots(g):
-    main = "white" if g == "black" else "black"
+    pal = PALETTES[g]
     out = []
-    for k in ("red", main):
+    keys = ["red", pal["main"]] + ([pal["outline"]] if pal.get("outline") and pal["outline"] != pal["main"] else [])
+    for k in keys:
         name, hexv, pms = INKS[k]
         out.append(f'<span class="ink"><i style="background:{hexv}"></i>{name}</span>')
     return "".join(out)
@@ -271,7 +206,7 @@ def compare_panel(dims):
                     f'<div class="cards">{"".join(cells)}</div></section>')
     seg = "".join(
         f'<button type="button" class="seg-btn" id="cmp-{g}" data-g="{g}" aria-pressed="{"true" if g == "black" else "false"}">'
-        f'<i style="background:{GARMENT_FILL[g]}"></i>{GARMENTS[g][0]}</button>' for g in GARMENTS)
+        f'<i style="background:{GA.FILL[g]}"></i>{GARMENTS[g][0]}</button>' for g in GARMENTS)
     return (f'<section class="panel" id="panel-compare" role="tabpanel" aria-labelledby="tab-compare" data-panel="compare" hidden>'
             f'<div class="concept-head compare-head"><div class="concept-copy"><p class="eyebrow">Side by side</p>'
             f'<h2>Compare directions</h2><p class="lede">The same piece in all three directions. Pick a garment color.</p></div>'
@@ -498,10 +433,10 @@ def page(fragment=False):
             '&amp;family=Barlow:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap">\n'
             f"<style>{CSS}</style>\n")
     body = (
-        f'<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>{HEATHER_FILTER}{syms}</defs></svg>'
+        f'<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>{HEATHER_FILTER}{GA.DEFS}{syms}</defs></svg>'
         '<header class="wrap top"><div><p class="eyebrow">Adams Central Jets · Swim &amp; Dive · Monroe, Indiana</p>'
         '<h1>2026–27 <em>Squadron</em> Collection</h1>'
-        '<p class="intro">The final team apparel set: tee, hoodie, crewneck and sweatpants in black, white and heather grey. '
+        '<p class="intro">The final team apparel set: tee, hoodie, crewneck and sweatpants in black, white and dark heather grey. '
         'Prints are shown at true size and placement on flat garments. Tap or click any garment to enlarge it.</p></div>'
         f'<div class="inks" aria-label="Ink colors"><p class="eyebrow">Inks · 2 per print max</p>{inks}</div></header>'
         f'<nav class="tabs" aria-label="Pieces"><div class="wrap">{tabs}</div></nav>'
