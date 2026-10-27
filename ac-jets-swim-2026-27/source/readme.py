@@ -39,7 +39,7 @@ def main():
     w = out.append
     w("# Adams Central Jets Swim & Dive: 2026-27 Team Apparel")
     w("")
-    w("**Final direction: Squadron**, across the tee, hoodie, crewneck and sweatpants, each in black, white, dark heather grey and red (with black or with white print).")
+    w("**Final direction: Squadron**, across the tee, hoodie, crewneck and sweatpants, each in black, white, dark heather grey and red (white print).")
     w("The two earlier directions (Lane Four, Aero Varsity) are kept for reference in `alternates/`.")
     w("Open **`mockup.html`** in a browser to see every piece on flat garments at true print size.")
     w("")
@@ -70,11 +70,10 @@ def main():
     w("| Black | White | Jets Red | none (the shirt is the outline) |")
     w("| White | Black | Jets Red | Black (same ink as the main) |")
     w("| Dark Heather Grey | White | Jets Red | Black |")
-    w("| Red, black print | Black | White (jet, flags, floats) | Black (same ink as the main) |")
     w("| Red, white print | White | Black (jet, flags, floats) | none |")
     w("")
-    w("On the red garments a red jet would disappear, so the accent flips: the jet, flags and rope end zones are "
-      "white on the black-print red shirts and black on the white-print red shirts. Both red versions are 2 inks.")
+    w("On the red garments a red jet would disappear, so the jet, flags and rope end zones print black, with white "
+      "lettering (2 inks).")
     w("")
     w("Red is used for the jet on every non-red garment, plus the backstroke flags and the rope end zones on the back. "
       "On white and dark heather garments the big jets (front and back) carry a 0.07 in black outline (on white it "

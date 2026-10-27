@@ -1,6 +1,6 @@
 # Adams Central Jets Swim & Dive: 2026-27 Team Apparel
 
-**Final direction: Squadron**, across the tee, hoodie, crewneck and sweatpants, each in black, white, dark heather grey and red (with black or with white print).
+**Final direction: Squadron**, across the tee, hoodie, crewneck and sweatpants, each in black, white, dark heather grey and red (white print).
 The two earlier directions (Lane Four, Aero Varsity) are kept for reference in `alternates/`.
 Open **`mockup.html`** in a browser to see every piece on flat garments at true print size.
 
@@ -26,10 +26,9 @@ Every print uses **3 inks or fewer** (the brief allowed 3): 2 on black and white
 | Black | White | Jets Red | none (the shirt is the outline) |
 | White | Black | Jets Red | Black (same ink as the main) |
 | Dark Heather Grey | White | Jets Red | Black |
-| Red, black print | Black | White (jet, flags, floats) | Black (same ink as the main) |
 | Red, white print | White | Black (jet, flags, floats) | none |
 
-On the red garments a red jet would disappear, so the accent flips: the jet, flags and rope end zones are white on the black-print red shirts and black on the white-print red shirts. Both red versions are 2 inks.
+On the red garments a red jet would disappear, so the jet, flags and rope end zones print black, with white lettering (2 inks).
 
 Red is used for the jet on every non-red garment, plus the backstroke flags and the rope end zones on the back. On white and dark heather garments the big jets (front and back) carry a 0.07 in black outline (on white it is the same black ink, so still 2 inks; on dark heather it is the third ink). The outline butts the red, so ask the printer for a hairline trap there. Dark heather is too dark for black lettering, so its main ink is white. On black garments the shirt itself is the outline and nothing extra prints. The small jets (hip, sleeve, leg) have no outline: it would squeeze their thin red edges below the print floor.
 
@@ -41,12 +40,12 @@ The front of the tee, crewneck and hoodie is one lockup: ADAMS CENTRAL arched ov
 
 | Print | Print size (W x H) | 300 DPI PNG (px) | Inks | Files (`.svg` in `squadron/svg`, `.png` in `squadron/png`) |
 |---|---|---|---|---|
-| Tee / crewneck / hoodie, front | 7.96 x 9.51 in | 2388 x 2853 | 3 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather`<br>`squadron_front_on-red-black`<br>`squadron_front_on-red-white` |
-| Tee, back | 8.60 x 21.89 in | 2580 x 6567 | 3 | `squadron_tee-back_on-black`<br>`squadron_tee-back_on-white`<br>`squadron_tee-back_on-heather`<br>`squadron_tee-back_on-red-black`<br>`squadron_tee-back_on-red-white` |
-| Crewneck / hoodie, back | 8.60 x 19.31 in | 2580 x 5793 | 3 | `squadron_back_on-black`<br>`squadron_back_on-white`<br>`squadron_back_on-heather`<br>`squadron_back_on-red-black`<br>`squadron_back_on-red-white` |
-| Crewneck / hoodie, left sleeve | 0.82 x 9.03 in | 246 x 2709 | 2 | `squadron_sleeve_on-black`<br>`squadron_sleeve_on-white`<br>`squadron_sleeve_on-heather`<br>`squadron_sleeve_on-red-black`<br>`squadron_sleeve_on-red-white` |
-| Sweatpants, hip | 1.65 x 2.97 in | 495 x 891 | 2 | `squadron_sweats-hip_on-black`<br>`squadron_sweats-hip_on-white`<br>`squadron_sweats-hip_on-heather`<br>`squadron_sweats-hip_on-red-black`<br>`squadron_sweats-hip_on-red-white` |
-| Sweatpants, leg | 0.82 x 11.79 in | 246 x 3537 | 2 | `squadron_sweats-leg_on-black`<br>`squadron_sweats-leg_on-white`<br>`squadron_sweats-leg_on-heather`<br>`squadron_sweats-leg_on-red-black`<br>`squadron_sweats-leg_on-red-white` |
+| Tee / crewneck / hoodie, front | 7.96 x 9.51 in | 2388 x 2853 | 3 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather`<br>`squadron_front_on-red-white` |
+| Tee, back | 8.60 x 21.89 in | 2580 x 6567 | 3 | `squadron_tee-back_on-black`<br>`squadron_tee-back_on-white`<br>`squadron_tee-back_on-heather`<br>`squadron_tee-back_on-red-white` |
+| Crewneck / hoodie, back | 8.60 x 19.31 in | 2580 x 5793 | 3 | `squadron_back_on-black`<br>`squadron_back_on-white`<br>`squadron_back_on-heather`<br>`squadron_back_on-red-white` |
+| Crewneck / hoodie, left sleeve | 0.82 x 9.03 in | 246 x 2709 | 2 | `squadron_sleeve_on-black`<br>`squadron_sleeve_on-white`<br>`squadron_sleeve_on-heather`<br>`squadron_sleeve_on-red-white` |
+| Sweatpants, hip | 1.65 x 2.97 in | 495 x 891 | 2 | `squadron_sweats-hip_on-black`<br>`squadron_sweats-hip_on-white`<br>`squadron_sweats-hip_on-heather`<br>`squadron_sweats-hip_on-red-white` |
+| Sweatpants, leg | 0.82 x 11.79 in | 246 x 3537 | 2 | `squadron_sweats-leg_on-black`<br>`squadron_sweats-leg_on-white`<br>`squadron_sweats-leg_on-heather`<br>`squadron_sweats-leg_on-red-white` |
 
 ## Placement guide
 

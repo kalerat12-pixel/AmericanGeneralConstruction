@@ -436,7 +436,7 @@ def page(fragment=False):
         f'<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>{HEATHER_FILTER}{GA.DEFS}{syms}</defs></svg>'
         '<header class="wrap top"><div><p class="eyebrow">Adams Central Jets · Swim &amp; Dive · Monroe, Indiana</p>'
         '<h1>2026–27 <em>Squadron</em> Collection</h1>'
-        '<p class="intro">The final team apparel set: tee, hoodie, crewneck and sweatpants in black, white, dark heather grey and red (black or white print). '
+        '<p class="intro">The final team apparel set: tee, hoodie, crewneck and sweatpants in black, white, dark heather grey and red (white print). '
         'Prints are shown at true size and placement on flat garments. Tap or click any garment to enlarge it.</p></div>'
         f'<div class="inks" aria-label="Ink colors"><p class="eyebrow">Inks · 2 per print max</p>{inks}</div></header>'
         f'<nav class="tabs" aria-label="Pieces"><div class="wrap">{tabs}</div></nav>'
