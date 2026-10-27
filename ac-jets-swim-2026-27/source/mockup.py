@@ -241,7 +241,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .inks .row{display:flex;align-items:center;gap:10px}
 .inks i{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);flex:none}
 .inks b{color:var(--fg);font-weight:500}
-nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav.tabs{position:relative;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
 nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
 .tab{appearance:none;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);font-family:var(--display);font-weight:700;
   font-size:20px;letter-spacing:.04em;text-transform:uppercase;padding:14px 14px 11px;cursor:pointer;white-space:nowrap}
@@ -282,7 +282,7 @@ figcaption{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size
 .seg-btn i{width:14px;height:14px;border-radius:50%;border:1px solid var(--muted)}
 a.tab{text-decoration:none;display:inline-block}
 a.tab:hover,a.tab:focus-visible{color:var(--fg);border-bottom-color:var(--accent)}
-.piece{scroll-margin-top:64px}
+.piece{scroll-margin-top:16px}
 .ai-note{color:var(--muted);font-size:13px;margin:0;max-width:40ch}
 .ai-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 figure.ai{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
