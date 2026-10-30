@@ -9,11 +9,11 @@ ROOT = os.path.dirname(HERE)
 
 CONCEPTS = [
     ("squadron", "Squadron", "The front of the tee, crewneck and hoodie is the team's AC logo: tall block AC "
-     "letters in outline with a fighter jet flying through them, printed in one ink. The back of all three is the "
+     "letters in outline with a fighter jet flying through them, over a spaced 26-27, printed in one ink. The back of all three is the "
      "pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter "
      "flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled "
      "footer. The crewneck and hoodie also have SWIM & DIVE, a contrail line and the jet flying down the left sleeve. The "
-     "sweatpants carry the AC logo small on the hip and AC SWIM & DIVE down the leg with the jet flying down below it. The backs, "
+     "sweatpants carry the AC logo and 26-27 small on the hip and AC SWIM & DIVE down the leg with the jet flying down below it. The backs, "
      "sleeve and leg come from Figma AI frames the team picked, redrawn as clean symmetric vector; the AC logo is the team's own artwork, "
      "traced to vector."),
 ]
@@ -22,7 +22,7 @@ LABEL = {"front": "Tee / crewneck / hoodie, front", "tee-back": "Tee, back", "ba
          "sweats-hip": "Sweatpants, hip", "sweats-leg": "Sweatpants, leg"}
 PLACE = {
     "front": "Centered on the chest. Tee and crewneck: top of the AC ~3 in below the collar "
-             "seam. Hoodie: top of the AC ~0.5 in below the hood opening at center front; the bottom of the art "
+             "seam. Hoodie: top of the AC ~1 in below the hood opening at center front; the 26-27 "
              "clears the pouch pocket by ~0.5 in on an adult M-L (check on S, or scale to 90%).",
     "tee-back": "Centered on the back. Top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem (adult L).",
     "back": "Centered on the back. Top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band (adult L).",

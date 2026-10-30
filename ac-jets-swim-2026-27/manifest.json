@@ -8,7 +8,7 @@
   "svg": "squadron/svg/squadron_front_on-black.svg",
   "png": "squadron/png/squadron_front_on-black.png",
   "width_in": 8.86,
-  "height_in": 9.49,
+  "height_in": 10.46,
   "inks": [
    {
     "key": "red",
@@ -28,7 +28,7 @@
   "svg": "squadron/svg/squadron_front_on-white.svg",
   "png": "squadron/png/squadron_front_on-white.png",
   "width_in": 8.86,
-  "height_in": 9.49,
+  "height_in": 10.46,
   "inks": [
    {
     "key": "red",
@@ -48,7 +48,7 @@
   "svg": "squadron/svg/squadron_front_on-heather.svg",
   "png": "squadron/png/squadron_front_on-heather.png",
   "width_in": 8.86,
-  "height_in": 9.49,
+  "height_in": 10.46,
   "inks": [
    {
     "key": "red",
@@ -68,7 +68,7 @@
   "svg": "squadron/svg/squadron_front_on-red-white.svg",
   "png": "squadron/png/squadron_front_on-red-white.png",
   "width_in": 8.86,
-  "height_in": 9.49,
+  "height_in": 10.46,
   "inks": [
    {
     "key": "white",
@@ -412,7 +412,7 @@
   "svg": "squadron/svg/squadron_sweats-hip_on-black.svg",
   "png": "squadron/png/squadron_sweats-hip_on-black.png",
   "width_in": 2.8,
-  "height_in": 3.0,
+  "height_in": 3.37,
   "inks": [
    {
     "key": "red",
@@ -432,7 +432,7 @@
   "svg": "squadron/svg/squadron_sweats-hip_on-white.svg",
   "png": "squadron/png/squadron_sweats-hip_on-white.png",
   "width_in": 2.8,
-  "height_in": 3.0,
+  "height_in": 3.37,
   "inks": [
    {
     "key": "red",
@@ -452,7 +452,7 @@
   "svg": "squadron/svg/squadron_sweats-hip_on-heather.svg",
   "png": "squadron/png/squadron_sweats-hip_on-heather.png",
   "width_in": 2.8,
-  "height_in": 3.0,
+  "height_in": 3.37,
   "inks": [
    {
     "key": "red",
@@ -472,7 +472,7 @@
   "svg": "squadron/svg/squadron_sweats-hip_on-red-white.svg",
   "png": "squadron/png/squadron_sweats-hip_on-red-white.png",
   "width_in": 2.8,
-  "height_in": 3.0,
+  "height_in": 3.37,
   "inks": [
    {
     "key": "white",

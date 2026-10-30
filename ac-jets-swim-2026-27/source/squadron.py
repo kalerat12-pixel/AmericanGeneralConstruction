@@ -299,12 +299,25 @@ def jets_lockup(W, cuts=True, arch=False):
     return head + outline + [("accent", jet), ("main", word), ("main", year)]
 
 
+def logo_year(H):
+    """The AC logo H tall with a spaced 26-27 centred under it (same face and spacing as
+    the old lockup), all in the logo ink."""
+    logo = AC.ac_logo(H)
+    lw = K.bounds(logo)[2]
+    ycap = max(0.05 * H, 21)
+    yfont = HERO if ycap >= 30 else SMALL
+    y = H + max(0.05 * H, 12) + ycap
+    track = fit_tracking(yfont, "26–27", ycap, 0.62 * lw)
+    year = K.text(yfont, "26–27", ycap, lw / 2, y, tracking=track, anchor="middle")
+    return [("logo", logo), ("logo", year)]
+
+
 def front():
-    """Tops front: the team's AC logo (block AC with a fighter flying through it)."""
+    """Tops front: the team's AC logo (block AC with a fighter flying through it) over 26-27."""
     H = 950
     return Art("front", "Tee / crewneck / hoodie - front",
                "Centred on the chest, top of the AC ~3 in below the collar (hoodie: below the hood seam). "
-               "Clears the hoodie pouch pocket.", f"{H / 100:.1f} in tall", [("logo", AC.ac_logo(H))])
+               "Clears the hoodie pouch pocket.", f"{H / 100:.1f} in logo", logo_year(H))
 
 
 def open_m(g, slot=4.5):
@@ -472,10 +485,10 @@ def sleeve():
 
 
 def sweats_hip():
-    """The AC logo, small, on the hip."""
+    """The AC logo over 26-27, small, on the hip."""
     H = 300
     return Art("sweats-hip", "Sweatpants - hip", "Wearer's left front thigh/hip, ~3 in below the waistband.",
-               f"{H / 100:.1f} in tall", [("logo", AC.ac_logo(H))])
+               f"{H / 100:.1f} in logo", logo_year(H))
 
 
 def sweats_leg():

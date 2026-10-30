@@ -27,10 +27,10 @@ AI_DIR = os.path.join(ROOT, "ai-exploration")
 PREFIX = {"squadron": "sq", "lane-four": "lf", "aero-varsity": "av"}
 
 STORY = {
-    "squadron": ("The team's AC logo on every front, and the red jet flying a pool lane on every back.",
+    "squadron": ("The team's AC logo over 26-27 on every front, and the red jet flying a pool lane on every back.",
                  "The AC logo is the team's own artwork, traced to clean 1-ink vector. The back comes from Figma AI frames "
                  "the team picked, redrawn as 2-ink vector. The crewneck and hoodie add SWIM & DIVE, a contrail line and the jet "
-                 "flying down the left sleeve; the sweatpants carry the AC logo small on the hip and AC SWIM & DIVE down the leg "
+                 "flying down the left sleeve; the sweatpants carry the AC logo and 26-27 small on the hip and AC SWIM & DIVE down the leg "
                  "with the jet flying down below it."),
     "lane-four": ("Performance minimal: one expanded italic, the jet cut down to an arrowhead, lots of air.",
                   "Named for the center lane, where the top seed swims. A lane-rope band with red end floats runs through "
@@ -111,7 +111,7 @@ def tee(slug, g, dims):
 
 def hoodie(slug, g, dims):
     p = PREFIX[slug]
-    prints = (place(f"{p}-front", dims, slug, "front", 20, 12.3)
+    prints = (place(f"{p}-front", dims, slug, "front", 20, 11.0)
               + place(f"{p}-sleeve", dims, slug, "sleeve", 31.35, 15.4, rot=-10))
     front = GA.hoodie_view(g, prints, front=True, strings=GA.drawstrings(g))
     back = GA.hoodie_view(g, place(f"{p}-back", dims, slug, "back", 20, 10.6), front=False)
