@@ -7,8 +7,8 @@
   "garment": "black",
   "svg": "squadron/svg/squadron_front_on-black.svg",
   "png": "squadron/png/squadron_front_on-black.png",
-  "width_in": 8.86,
-  "height_in": 10.46,
+  "width_in": 7.46,
+  "height_in": 8.81,
   "inks": [
    {
     "key": "red",
@@ -27,8 +27,8 @@
   "garment": "white",
   "svg": "squadron/svg/squadron_front_on-white.svg",
   "png": "squadron/png/squadron_front_on-white.png",
-  "width_in": 8.86,
-  "height_in": 10.46,
+  "width_in": 7.46,
+  "height_in": 8.81,
   "inks": [
    {
     "key": "red",
@@ -47,8 +47,8 @@
   "garment": "heather",
   "svg": "squadron/svg/squadron_front_on-heather.svg",
   "png": "squadron/png/squadron_front_on-heather.png",
-  "width_in": 8.86,
-  "height_in": 10.46,
+  "width_in": 7.46,
+  "height_in": 8.81,
   "inks": [
    {
     "key": "red",
@@ -67,8 +67,8 @@
   "garment": "red-white",
   "svg": "squadron/svg/squadron_front_on-red-white.svg",
   "png": "squadron/png/squadron_front_on-red-white.png",
-  "width_in": 8.86,
-  "height_in": 10.46,
+  "width_in": 7.46,
+  "height_in": 8.81,
   "inks": [
    {
     "key": "white",

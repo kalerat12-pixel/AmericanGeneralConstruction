@@ -22,8 +22,8 @@ LABEL = {"front": "Tee / crewneck / hoodie, front", "tee-back": "Tee, back", "ba
          "sweats-hip": "Sweatpants, hip", "sweats-leg": "Sweatpants, leg"}
 PLACE = {
     "front": "Centered on the chest. Tee and crewneck: top of the AC ~3 in below the collar "
-             "seam. Hoodie: top of the AC ~1 in below the hood opening at center front; the 26-27 "
-             "clears the pouch pocket by ~0.5 in on an adult M-L (check on S, or scale to 90%).",
+             "seam. Hoodie: top of the AC ~2 in below the hood opening at center front, clear of the drawstrings; the 26-27 "
+             "clears the pouch pocket by ~1 in on an adult M-L (check on S, or scale to 90%).",
     "tee-back": "Centered on the back. Top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem (adult L).",
     "back": "Centered on the back. Top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band (adult L).",
     "sleeve": "Wearer's left sleeve on the sleeve center line (crewneck and hoodie only). SWIM & DIVE starts ~3 in below the shoulder seam and reads down the arm; the line and then the jet follow, the jet flying nose-down toward the cuff.",

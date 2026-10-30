@@ -314,7 +314,7 @@ def logo_year(H):
 
 def front():
     """Tops front: the team's AC logo (block AC with a fighter flying through it) over 26-27."""
-    H = 950
+    H = 800
     return Art("front", "Tee / crewneck / hoodie - front",
                "Centred on the chest, top of the AC ~3 in below the collar (hoodie: below the hood seam). "
                "Clears the hoodie pouch pocket.", f"{H / 100:.1f} in logo", logo_year(H))

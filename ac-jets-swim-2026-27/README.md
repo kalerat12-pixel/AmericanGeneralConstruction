@@ -40,7 +40,7 @@ The front of the tee, crewneck and hoodie is the team's AC logo: tall block AC l
 
 | Print | Print size (W x H) | 300 DPI PNG (px) | Inks | Files (`.svg` in `squadron/svg`, `.png` in `squadron/png`) |
 |---|---|---|---|---|
-| Tee / crewneck / hoodie, front | 8.86 x 10.46 in | 2658 x 3138 | 1 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather`<br>`squadron_front_on-red-white` |
+| Tee / crewneck / hoodie, front | 7.46 x 8.81 in | 2238 x 2643 | 1 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather`<br>`squadron_front_on-red-white` |
 | Tee, back | 8.60 x 21.89 in | 2580 x 6567 | 3 | `squadron_tee-back_on-black`<br>`squadron_tee-back_on-white`<br>`squadron_tee-back_on-heather`<br>`squadron_tee-back_on-red-white` |
 | Crewneck / hoodie, back | 8.60 x 19.31 in | 2580 x 5793 | 3 | `squadron_back_on-black`<br>`squadron_back_on-white`<br>`squadron_back_on-heather`<br>`squadron_back_on-red-white` |
 | Crewneck / hoodie, left sleeve | 0.82 x 9.03 in | 246 x 2709 | 2 | `squadron_sleeve_on-black`<br>`squadron_sleeve_on-white`<br>`squadron_sleeve_on-heather`<br>`squadron_sleeve_on-red-white` |
@@ -55,7 +55,7 @@ Sizes above are for adult S-XXL. For youth sizes scale the front and back prints
 
 | Print | Where it goes |
 |---|---|
-| Tee / crewneck / hoodie, front | Centered on the chest. Tee and crewneck: top of the AC ~3 in below the collar seam. Hoodie: top of the AC ~1 in below the hood opening at center front; the 26-27 clears the pouch pocket by ~0.5 in on an adult M-L (check on S, or scale to 90%). |
+| Tee / crewneck / hoodie, front | Centered on the chest. Tee and crewneck: top of the AC ~3 in below the collar seam. Hoodie: top of the AC ~2 in below the hood opening at center front, clear of the drawstrings; the 26-27 clears the pouch pocket by ~1 in on an adult M-L (check on S, or scale to 90%). |
 | Tee, back | Centered on the back. Top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem (adult L). |
 | Crewneck / hoodie, back | Centered on the back. Top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band (adult L). |
 | Crewneck / hoodie, left sleeve | Wearer's left sleeve on the sleeve center line (crewneck and hoodie only). SWIM & DIVE starts ~3 in below the shoulder seam and reads down the arm; the line and then the jet follow, the jet flying nose-down toward the cuff. |

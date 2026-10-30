@@ -111,7 +111,7 @@ def tee(slug, g, dims):
 
 def hoodie(slug, g, dims):
     p = PREFIX[slug]
-    prints = (place(f"{p}-front", dims, slug, "front", 20, 11.0)
+    prints = (place(f"{p}-front", dims, slug, "front", 20, 12.0)
               + place(f"{p}-sleeve", dims, slug, "sleeve", 31.35, 15.4, rot=-10))
     front = GA.hoodie_view(g, prints, front=True, strings=GA.drawstrings(g))
     back = GA.hoodie_view(g, place(f"{p}-back", dims, slug, "back", 20, 10.6), front=False)
