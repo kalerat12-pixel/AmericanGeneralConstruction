@@ -28,7 +28,7 @@ PREFIX = {"squadron": "sq", "lane-four": "lf", "aero-varsity": "av"}
 
 STORY = {
     "squadron": ("The team's AC logo over 26-27 on every front, and the red jet flying a pool lane on every back.",
-                 "The AC logo is the team's own artwork, traced to clean 1-ink vector. The back comes from Figma AI frames "
+                 "The AC logo is the team's own artwork, redrawn clean as 1-ink vector. The back comes from Figma AI frames "
                  "the team picked, redrawn as 2-ink vector. The crewneck and hoodie add SWIM & DIVE, a contrail line and the jet "
                  "flying down the left sleeve; the sweatpants carry the AC logo and 26-27 small on the hip and AC SWIM & DIVE down the leg "
                  "with the jet flying down below it."),

@@ -36,15 +36,15 @@ Printer notes: red on black and dark heather garments needs a white underbase (t
 
 ## Squadron
 
-The front of the tee, crewneck and hoodie is the team's AC logo: tall block AC letters in outline with a fighter jet flying through them, over a spaced 26-27, printed in one ink. The back of all three is the pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled footer. The crewneck and hoodie also have SWIM & DIVE, a contrail line and the jet flying down the left sleeve. The sweatpants carry the AC logo and 26-27 small on the hip and AC SWIM & DIVE down the leg with the jet flying down below it. The backs, sleeve and leg come from Figma AI frames the team picked, redrawn as clean symmetric vector; the AC logo is the team's own artwork, traced to vector.
+The front of the tee, crewneck and hoodie is the team's AC logo: tall block AC letters in outline with a fighter jet flying through them, over a spaced 26-27, printed in one ink. The back of all three is the pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled footer. The crewneck and hoodie also have SWIM & DIVE, a contrail line and the jet flying down the left sleeve. The sweatpants carry the AC logo and 26-27 small on the hip and AC SWIM & DIVE down the leg with the jet flying down below it. The backs, sleeve and leg come from Figma AI frames the team picked, redrawn as clean symmetric vector; the AC logo is the team's own artwork, redrawn clean in vector.
 
 | Print | Print size (W x H) | 300 DPI PNG (px) | Inks | Files (`.svg` in `squadron/svg`, `.png` in `squadron/png`) |
 |---|---|---|---|---|
-| Tee / crewneck / hoodie, front | 7.46 x 8.81 in | 2238 x 2643 | 1 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather`<br>`squadron_front_on-red-white` |
+| Tee / crewneck / hoodie, front | 7.48 x 8.81 in | 2244 x 2643 | 1 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather`<br>`squadron_front_on-red-white` |
 | Tee, back | 8.60 x 21.89 in | 2580 x 6567 | 3 | `squadron_tee-back_on-black`<br>`squadron_tee-back_on-white`<br>`squadron_tee-back_on-heather`<br>`squadron_tee-back_on-red-white` |
 | Crewneck / hoodie, back | 8.60 x 19.31 in | 2580 x 5793 | 3 | `squadron_back_on-black`<br>`squadron_back_on-white`<br>`squadron_back_on-heather`<br>`squadron_back_on-red-white` |
 | Crewneck / hoodie, left sleeve | 0.82 x 9.03 in | 246 x 2709 | 2 | `squadron_sleeve_on-black`<br>`squadron_sleeve_on-white`<br>`squadron_sleeve_on-heather`<br>`squadron_sleeve_on-red-white` |
-| Sweatpants, hip | 2.80 x 3.37 in | 840 x 1011 | 1 | `squadron_sweats-hip_on-black`<br>`squadron_sweats-hip_on-white`<br>`squadron_sweats-hip_on-heather`<br>`squadron_sweats-hip_on-red-white` |
+| Sweatpants, hip | 2.81 x 3.37 in | 843 x 1011 | 1 | `squadron_sweats-hip_on-black`<br>`squadron_sweats-hip_on-white`<br>`squadron_sweats-hip_on-heather`<br>`squadron_sweats-hip_on-red-white` |
 | Sweatpants, leg | 0.82 x 11.79 in | 246 x 3537 | 2 | `squadron_sweats-leg_on-black`<br>`squadron_sweats-leg_on-white`<br>`squadron_sweats-leg_on-heather`<br>`squadron_sweats-leg_on-red-white` |
 
 ## Placement guide
@@ -62,7 +62,7 @@ Sizes above are for adult S-XXL. For youth sizes scale the front and back prints
 | Sweatpants, hip | Wearer's left front thigh/hip, ~3 in below the waistband, centered on the leg. |
 | Sweatpants, leg | Wearer's right leg on the outer leg panel. AC SWIM & DIVE starts ~3 in below the waistband and reads down the leg; the line and then the jet follow, the jet flying nose-down toward the hem. |
 
-The AC logo was supplied as a 300 px image, so it is traced to vector at each print size (`source/aclogo.py`); hairline gaps around the jet and canopy are widened to the print floor, and on the 3 in hip version the canopy windows close up. All keylines, stencil bridges and knockouts are 0.04 in or wider; every file passes `printcheck.py` (no ink under 0.025 in, no gap under 0.03 in).
+The AC logo was supplied as a 300 px image, so it is redrawn clean in vector (`source/aclogo.py`): the jet by hand on the original's grid, the letters straightened and squared from the original, and the jet keylined out of the letters by an even 0.045 in gap. On the 3 in hip version the canopy windows are left solid. All keylines, stencil bridges and knockouts are 0.04 in or wider; every file passes `printcheck.py` (no ink under 0.025 in, no gap under 0.03 in).
 
 ## The jet mark and lettering
 
@@ -73,7 +73,7 @@ The AC logo was supplied as a 300 px image, so it is traced to vector at each pr
 
 ## How AI was used
 
-The Squadron direction was pushed further with Figma AI (Canva's connector could not be reached from this environment). Five agents each generated concepts for one piece and compared them against the print art; a creative-director pass merged the ideas that survive 2-ink screen printing into one spec. The AI images were art direction only; every shape in the print files is rebuilt from coordinates or font outlines, never traced (the AC logo is the team's own art, traced from their file). The concepts that shaped the final art are in `ai-exploration/` and in the AI exploration section of `mockup.html`.
+The Squadron direction was pushed further with Figma AI (Canva's connector could not be reached from this environment). Five agents each generated concepts for one piece and compared them against the print art; a creative-director pass merged the ideas that survive 2-ink screen printing into one spec. The AI images were art direction only; every shape in the print files is rebuilt from coordinates or font outlines, never traced (the AC logo is the team's own art, redrawn clean from their file). The concepts that shaped the final art are in `ai-exploration/` and in the AI exploration section of `mockup.html`.
 
 ## Rebuilding
 

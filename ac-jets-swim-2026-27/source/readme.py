@@ -15,7 +15,7 @@ CONCEPTS = [
      "footer. The crewneck and hoodie also have SWIM & DIVE, a contrail line and the jet flying down the left sleeve. The "
      "sweatpants carry the AC logo and 26-27 small on the hip and AC SWIM & DIVE down the leg with the jet flying down below it. The backs, "
      "sleeve and leg come from Figma AI frames the team picked, redrawn as clean symmetric vector; the AC logo is the team's own artwork, "
-     "traced to vector."),
+     "redrawn clean in vector."),
 ]
 ORDER = ["front", "tee-back", "back", "sleeve", "sweats-hip", "sweats-leg"]
 LABEL = {"front": "Tee / crewneck / hoodie, front", "tee-back": "Tee, back", "back": "Crewneck / hoodie, back", "sleeve": "Crewneck / hoodie, left sleeve",
@@ -114,9 +114,9 @@ def main():
     for key in ORDER:
         w(f"| {LABEL[key]} | {PLACE[key]} |")
     w("")
-    w("The AC logo was supplied as a 300 px image, so it is traced to vector at each print size "
-      "(`source/aclogo.py`); hairline gaps around the jet and canopy are widened to the print floor, and on the 3 in hip "
-      "version the canopy windows close up. All keylines, stencil bridges and knockouts are "
+    w("The AC logo was supplied as a 300 px image, so it is redrawn clean in vector (`source/aclogo.py`): the jet "
+      "by hand on the original's grid, the letters straightened and squared from the original, and the jet keylined "
+      "out of the letters by an even 0.045 in gap. On the 3 in hip version the canopy windows are left solid. All keylines, stencil bridges and knockouts are "
       "0.04 in or wider; every file passes `printcheck.py` (no ink under 0.025 in, no gap under 0.03 in).")
     w("")
     w("## The jet mark and lettering")
@@ -140,7 +140,7 @@ def main():
       "environment). Five agents each generated concepts for one piece and compared them against the print art; a "
       "creative-director pass merged the ideas that survive 2-ink screen printing into one spec. The AI images were "
       "art direction only; every shape in the print files is rebuilt from coordinates or font outlines, never traced "
-      "(the AC logo is the team's own art, traced from their file). "
+      "(the AC logo is the team's own art, redrawn clean from their file). "
       "The concepts that shaped the final art are in `ai-exploration/` and in the AI exploration section of "
       "`mockup.html`.")
     w("")
