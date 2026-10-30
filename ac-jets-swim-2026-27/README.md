@@ -13,38 +13,38 @@ One file per print per garment color. Files are named `<concept>_<print>_on-<gar
 
 ## Ink colors
 
-Every print uses **3 inks or fewer** (the brief allowed 3): 2 on black and white garments, and 3 on dark heather only where a big jet carries its black outline.
+Every print uses **3 inks or fewer** (the brief allowed 3). The fronts and the hip are **1 ink**: the AC logo prints in Jets Red on black, white and dark heather garments and in white on red garments. The backs use 2 inks on black and white garments, and 3 on dark heather where the big jet carries its black outline.
 
 | Ink | Hex | Pantone / spec | Used on |
 |---|---|---|---|
-| Jets Red | `#C8102E` | PMS 186 C | All garments (accent) |
-| White | `#FFFFFF` | Bright white, low-bleed | Black and dark heather garments (main) |
+| Jets Red | `#C8102E` | PMS 186 C | All garments (accent); the AC logo on black, white and dark heather |
+| White | `#FFFFFF` | Bright white, low-bleed | Black and dark heather garments (main); the AC logo on red |
 | Black | `#101820` | PMS Black 6 C | White garments (main); jet outline on white and dark heather |
 
-| Garment | Main ink | Accent ink | Jet outline (front and back) |
-|---|---|---|---|
-| Black | White | Jets Red | none (the shirt is the outline) |
-| White | Black | Jets Red | Black (same ink as the main) |
-| Dark Heather Grey | White | Jets Red | Black |
-| Red, white print | White | Black (jet, flags, floats) | none |
+| Garment | AC logo (front, hip) | Main ink | Accent ink | Jet outline (back) |
+|---|---|---|---|---|
+| Black | Jets Red | White | Jets Red | none (the shirt is the outline) |
+| White | Jets Red | Black | Jets Red | Black (same ink as the main) |
+| Dark Heather Grey | Jets Red | White | Jets Red | Black |
+| Red, white print | White | White | Black (jet, flags, floats) | none |
 
 On the red garments a red jet would disappear, so the jet, flags and rope end zones print black, with white lettering (2 inks).
 
-Red is used for the jet on every non-red garment, plus the backstroke flags and the rope end zones on the back. On white and dark heather garments the big jets (front and back) carry a 0.07 in black outline (on white it is the same black ink, so still 2 inks; on dark heather it is the third ink). The outline butts the red, so ask the printer for a hairline trap there. Dark heather is too dark for black lettering, so its main ink is white. On black garments the shirt itself is the outline and nothing extra prints. The small jets (hip, sleeve, leg) have no outline: it would squeeze their thin red edges below the print floor.
+Red is used for the jet on every non-red garment, plus the backstroke flags and the rope end zones on the back. On white and dark heather garments the big jet on the back carries a 0.07 in black outline (on white it is the same black ink, so still 2 inks; on dark heather it is the third ink). The outline butts the red, so ask the printer for a hairline trap there. Dark heather is too dark for black lettering, so its main ink is white. On black garments the shirt itself is the outline and nothing extra prints. The small jets (sleeve, leg) have no outline: it would squeeze their thin red edges below the print floor.
 
 Printer notes: red on black and dark heather garments needs a white underbase (the printer may count it as a screen). Inks are knocked out, so no trapping or overprint is set in the files; the printer can add a hairline trap. Use a low-bleed / poly-blocking white on poly blends.
 
 ## Squadron
 
-The front of the tee, crewneck and hoodie is one lockup: ADAMS CENTRAL arched over a red twin-tail fighter whose nose sits just under the arch without touching it, with a chevron stripe knocked out along its wings, over a stencil JETS and a spaced 26-27. The back of all three is the pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled footer. The crewneck and hoodie also have SWIM & DIVE, a contrail line and the jet flying down the left sleeve. The sweatpants carry the lockup small on the hip and AC SWIM & DIVE down the leg with the jet flying down below it. All of it comes from Figma AI frames the team picked, redrawn as clean symmetric vector.
+The front of the tee, crewneck and hoodie is the team's AC logo: tall block AC letters in outline with a fighter jet flying through them, printed in one ink. The back of all three is the pool lane: stencil JETS over two lane ropes with red end zones, backstroke flags across the top, the red fighter flying the lane line toward the T at the wall, the school coordinates and ACAC down the sides, and a ruled footer. The crewneck and hoodie also have SWIM & DIVE, a contrail line and the jet flying down the left sleeve. The sweatpants carry the AC logo small on the hip and AC SWIM & DIVE down the leg with the jet flying down below it. The backs, sleeve and leg come from Figma AI frames the team picked, redrawn as clean symmetric vector; the AC logo is the team's own artwork, traced to vector.
 
 | Print | Print size (W x H) | 300 DPI PNG (px) | Inks | Files (`.svg` in `squadron/svg`, `.png` in `squadron/png`) |
 |---|---|---|---|---|
-| Tee / crewneck / hoodie, front | 7.96 x 9.51 in | 2388 x 2853 | 3 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather`<br>`squadron_front_on-red-white` |
+| Tee / crewneck / hoodie, front | 8.86 x 9.49 in | 2658 x 2847 | 1 | `squadron_front_on-black`<br>`squadron_front_on-white`<br>`squadron_front_on-heather`<br>`squadron_front_on-red-white` |
 | Tee, back | 8.60 x 21.89 in | 2580 x 6567 | 3 | `squadron_tee-back_on-black`<br>`squadron_tee-back_on-white`<br>`squadron_tee-back_on-heather`<br>`squadron_tee-back_on-red-white` |
 | Crewneck / hoodie, back | 8.60 x 19.31 in | 2580 x 5793 | 3 | `squadron_back_on-black`<br>`squadron_back_on-white`<br>`squadron_back_on-heather`<br>`squadron_back_on-red-white` |
 | Crewneck / hoodie, left sleeve | 0.82 x 9.03 in | 246 x 2709 | 2 | `squadron_sleeve_on-black`<br>`squadron_sleeve_on-white`<br>`squadron_sleeve_on-heather`<br>`squadron_sleeve_on-red-white` |
-| Sweatpants, hip | 1.65 x 2.97 in | 495 x 891 | 2 | `squadron_sweats-hip_on-black`<br>`squadron_sweats-hip_on-white`<br>`squadron_sweats-hip_on-heather`<br>`squadron_sweats-hip_on-red-white` |
+| Sweatpants, hip | 2.80 x 3.00 in | 840 x 900 | 1 | `squadron_sweats-hip_on-black`<br>`squadron_sweats-hip_on-white`<br>`squadron_sweats-hip_on-heather`<br>`squadron_sweats-hip_on-red-white` |
 | Sweatpants, leg | 0.82 x 11.79 in | 246 x 3537 | 2 | `squadron_sweats-leg_on-black`<br>`squadron_sweats-leg_on-white`<br>`squadron_sweats-leg_on-heather`<br>`squadron_sweats-leg_on-red-white` |
 
 ## Placement guide
@@ -55,29 +55,29 @@ Sizes above are for adult S-XXL. For youth sizes scale the front and back prints
 
 | Print | Where it goes |
 |---|---|
-| Tee / crewneck / hoodie, front | Centered on the chest. Tee and crewneck: top of the ADAMS CENTRAL arch ~3 in below the collar seam. Hoodie: top of the arch ~0.5 in below the hood opening at center front; the bottom of the art clears the pouch pocket by ~0.5 in on an adult M-L (check on S, or scale to 90%). |
+| Tee / crewneck / hoodie, front | Centered on the chest. Tee and crewneck: top of the AC ~3 in below the collar seam. Hoodie: top of the AC ~0.5 in below the hood opening at center front; the bottom of the art clears the pouch pocket by ~0.5 in on an adult M-L (check on S, or scale to 90%). |
 | Tee, back | Centered on the back. Top of JETS ~3 in below the collar seam; the lane ropes end ~4.5 in above the hem (adult L). |
 | Crewneck / hoodie, back | Centered on the back. Top of JETS ~3 in below the collar (hoodie: ~1.5 in below the hood seam); the lane ropes end ~4.5 in above the bottom band (adult L). |
 | Crewneck / hoodie, left sleeve | Wearer's left sleeve on the sleeve center line (crewneck and hoodie only). SWIM & DIVE starts ~3 in below the shoulder seam and reads down the arm; the line and then the jet follow, the jet flying nose-down toward the cuff. |
 | Sweatpants, hip | Wearer's left front thigh/hip, ~3 in below the waistband, centered on the leg. |
 | Sweatpants, leg | Wearer's right leg on the outer leg panel. AC SWIM & DIVE starts ~3 in below the waistband and reads down the leg; the line and then the jet follow, the jet flying nose-down toward the hem. |
 
-Smallest type: the 26-27 on the hip lockup is 0.18 in cap in a heavy weight. On the hip, JETS is left without stencil cuts so it doesn't break up at 0.5 in cap. All keylines, stencil bridges and knockouts are 0.04 in or wider; every file passes `printcheck.py` (no ink under 0.025 in, no gap under 0.03 in).
+The AC logo was supplied as a 300 px image, so it is traced to vector at each print size (`source/aclogo.py`); hairline gaps around the jet and canopy are widened to the print floor, and on the 3 in hip version the canopy windows close up. All keylines, stencil bridges and knockouts are 0.04 in or wider; every file passes `printcheck.py` (no ink under 0.025 in, no gap under 0.03 in).
 
 ## The jet mark and lettering
 
 - The jet (`source/marks.py`, `fighter()`) is a top-down twin-tail fighter in the style of the Figma AI frames the team picked. It is rebuilt from a coordinate grid (span = 100 units, 45 degree wing leading edge), symmetric and straight-edged, never traced. Its detail steps down with size: canopy, chevron stripe and stabilizer cuts from 1.2 in span; no canopy from 1 in; a plain silhouette with stabilizer cuts below that (the sleeve and leg strips).
-- Every word and number is set in one face, Saira Black (the JETS face). The big words (JETS, ADAMS CENTRAL, and the sleeve and leg text) carry its stencil cuts: a full-height gap at the E's stem, a horizontal cut under the T's bar and two cuts through the S on its center axis. The small lines (the back's side text and footer, and 26-27 on the hip) are plain Saira one weight lighter (ExtraBold), so their counters stay open.
+- Every word and number is set in one face, Saira Black (the JETS face). The big words (JETS and the sleeve and leg text) carry its stencil cuts: a full-height gap at the E's stem, a horizontal cut under the T's bar and two cuts through the S on its center axis. The small lines (the back's side text and footer) are plain Saira one weight lighter (ExtraBold), so their counters stay open.
 - Typeface: Saira (SIL Open Font License, free for apparel). Because the type is outlined, the printer doesn't need any fonts.
-- If the athletic department wants the official school mark instead, swap it in at the jet positions.
+- The AC logo on the fronts and hip is the team's own artwork (`source/assets/ac-logo-original.png`).
 
 ## How AI was used
 
-The Squadron direction was pushed further with Figma AI (Canva's connector could not be reached from this environment). Five agents each generated concepts for one piece and compared them against the print art; a creative-director pass merged the ideas that survive 2-ink screen printing into one spec. The AI images were art direction only; every shape in the print files is rebuilt from coordinates or font outlines, never traced. The concepts that shaped the final art are in `ai-exploration/` and in the AI exploration section of `mockup.html`.
+The Squadron direction was pushed further with Figma AI (Canva's connector could not be reached from this environment). Five agents each generated concepts for one piece and compared them against the print art; a creative-director pass merged the ideas that survive 2-ink screen printing into one spec. The AI images were art direction only; every shape in the print files is rebuilt from coordinates or font outlines, never traced (the AC logo is the team's own art, traced from their file). The concepts that shaped the final art are in `ai-exploration/` and in the AI exploration section of `mockup.html`.
 
 ## Rebuilding
 
-Everything is generated from code in `source/`. Python 3 with `fonttools uharfbuzz skia-pathops pillow` (plus `numpy scipy` for the print check), and Node with Playwright for the PNGs.
+Everything is generated from code in `source/`. Python 3 with `fonttools uharfbuzz skia-pathops pillow opencv-python-headless` (plus `numpy scipy` for the print check), and Node with Playwright for the PNGs.
 
 ```
 cd source

@@ -27,11 +27,11 @@ AI_DIR = os.path.join(ROOT, "ai-exploration")
 PREFIX = {"squadron": "sq", "lane-four": "lf", "aero-varsity": "av"}
 
 STORY = {
-    "squadron": ("ADAMS CENTRAL arched over a red fighter with a chevron and stencil JETS on every front, and the same jet flying a pool "
-                 "lane on every back.",
-                 "Both prints come from Figma AI frames the team picked (tee back, hip lockup right), redrawn as clean "
-                 "2-ink vector. The crewneck and hoodie add SWIM & DIVE, a contrail line and the jet flying down the left "
-                 "sleeve; the sweatpants carry the lockup small on the hip and AC SWIM & DIVE down the leg with the jet flying down below it."),
+    "squadron": ("The team's AC logo on every front, and the red jet flying a pool lane on every back.",
+                 "The AC logo is the team's own artwork, traced to clean 1-ink vector. The back comes from Figma AI frames "
+                 "the team picked, redrawn as 2-ink vector. The crewneck and hoodie add SWIM & DIVE, a contrail line and the jet "
+                 "flying down the left sleeve; the sweatpants carry the AC logo small on the hip and AC SWIM & DIVE down the leg "
+                 "with the jet flying down below it."),
     "lane-four": ("Performance minimal: one expanded italic, the jet cut down to an arrowhead, lots of air.",
                   "Named for the center lane, where the top seed swims. A lane-rope band with red end floats runs through "
                   "every piece, and everything leans on the same 10° axis."),
@@ -54,7 +54,7 @@ def symbols():
             art = fn()
             # build with one ink key per role so the page can recolour each garment:
             # white = main, red = accent, black = outline
-            pal = {"main": "white", "accent": "red", "detail": "white", "outline": "black"}
+            pal = {"main": "white", "accent": "red", "detail": "white", "outline": "black", "logo": "logo"}
             lay = K.knockout([(pal[r], p) for r, p in art.layers])
             allp = K.union(*[p for _, p in lay])
             bx = K.bounds(allp)
@@ -63,7 +63,7 @@ def symbols():
             sid = f"{PREFIX[c.SLUG]}-{art.key}"
             paths = []
             for ink, p in layers:
-                var = {"red": "--a", "black": "--o"}.get(ink, "--m")
+                var = {"red": "--a", "black": "--o", "logo": "--l"}.get(ink, "--m")
                 paths.append(f'<path style="fill:var({var})" d="{K.path_d(p, 1)}"/>')
             out.append(f'<symbol id="{sid}" viewBox="0 0 {w * 100:g} {h * 100:g}">{"".join(paths)}</symbol>')
             dims[(c.SLUG, art.key)] = (w, h, art.title, art.placement)
@@ -87,7 +87,7 @@ def place(sid, dims, slug, key, x, y, anchor="top-center", rot=0):
 def svg_wrap(vb, inner, g, label):
     o = PALETTES[g].get("outline")
     outline = INKS[o][1] if o else "transparent"
-    style = f"--m:{INK_MAIN[g]};--a:{INKS[PALETTES[g]['accent']][1]};--o:{outline}"
+    style = f"--m:{INK_MAIN[g]};--a:{INKS[PALETTES[g]['accent']][1]};--o:{outline};--l:{INKS[PALETTES[g]['logo']][1]}"
     return (f'<svg class="flat" viewBox="{vb}" style="{style}" role="img" aria-label="{html.escape(label)}">'
             f"{inner}</svg>")
 

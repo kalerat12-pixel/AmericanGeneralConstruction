@@ -25,6 +25,7 @@ import math
 import svgkit as K
 import marks as M
 import stencil as ST
+import aclogo as AC
 from common import Art, fit_tracking
 
 LABEL = "cond700"
@@ -299,11 +300,11 @@ def jets_lockup(W, cuts=True, arch=False):
 
 
 def front():
-    W = 500
-    L = jets_lockup(W, arch=True)
+    """Tops front: the team's AC logo (block AC with a fighter flying through it)."""
+    H = 950
     return Art("front", "Tee / crewneck / hoodie - front",
-               "Centred on the chest, top of art ~3 in below the collar (hoodie: below the hood seam). "
-               "Clears the hoodie pouch pocket.", f"{W / 100:.1f} in wide", L)
+               "Centred on the chest, top of the AC ~3 in below the collar (hoodie: below the hood seam). "
+               "Clears the hoodie pouch pocket.", f"{H / 100:.1f} in tall", [("logo", AC.ac_logo(H))])
 
 
 def open_m(g, slot=4.5):
@@ -471,9 +472,10 @@ def sleeve():
 
 
 def sweats_hip():
-    W = 165
+    """The AC logo, small, on the hip."""
+    H = 300
     return Art("sweats-hip", "Sweatpants - hip", "Wearer's left front thigh/hip, ~3 in below the waistband.",
-               f"{W / 100:.2f} in wide", jets_lockup(W, cuts=False))
+               f"{H / 100:.1f} in tall", [("logo", AC.ac_logo(H))])
 
 
 def sweats_leg():
@@ -488,4 +490,4 @@ def sweats_leg():
 ARTS = [front, tee_back, back, sleeve, sweats_hip, sweats_leg]
 NAME = "Squadron"
 SLUG = "squadron"
-TAGLINE = "Red chevron jet over stencil JETS on the front; one big white fighter with a red chevron on the back."
+TAGLINE = "The team's AC logo on the front; the red jet flying a pool lane on the back."

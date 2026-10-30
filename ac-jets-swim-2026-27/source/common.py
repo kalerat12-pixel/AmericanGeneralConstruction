@@ -23,11 +23,11 @@ GARMENTS = {
 # role -> ink, per garment colour. Every design is drawn with roles so the
 # three colourways share identical geometry.
 PALETTES = {
-    "black": {"main": "white", "accent": "red", "detail": "white", "outline": None},
-    "white": {"main": "black", "accent": "red", "detail": "black", "outline": "black"},
-    "heather": {"main": "white", "accent": "red", "detail": "white", "outline": "black"},
+    "black": {"main": "white", "accent": "red", "detail": "white", "outline": None, "logo": "red"},
+    "white": {"main": "black", "accent": "red", "detail": "black", "outline": "black", "logo": "red"},
+    "heather": {"main": "white", "accent": "red", "detail": "white", "outline": "black", "logo": "red"},
     # red garment: a red jet would disappear, so the jet, flags and floats print black
-    "red-white": {"main": "white", "accent": "black", "detail": "white", "outline": None},
+    "red-white": {"main": "white", "accent": "black", "detail": "white", "outline": None, "logo": "white"},
 }
 
 ITALIC = math.tan(math.radians(10))  # Archivo italic angle
