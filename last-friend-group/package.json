@@ -1,0 +1,28 @@
+{
+  "name": "last-friend-group",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Life as the Last Friend Group - animated episode built with Remotion",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render LastFriendGroup out/life-as-the-last-friend-group.mp4",
+    "stills": "node scripts/stills.mjs",
+    "voices": "python3 scripts/generate_voices.py",
+    "voices:scan": "python3 scripts/generate_voices.py --scan",
+    "sfx": "python3 scripts/generate_sfx.py",
+    "check": "python3 scripts/check_timing.py",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.540",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.540"
+  },
+  "devDependencies": {
+    "@remotion/bundler": "4.0.540",
+    "@remotion/renderer": "4.0.540",
+    "@types/react": "^18.3.12",
+    "typescript": "^5.6.3"
+  }
+}

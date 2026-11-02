@@ -1,0 +1,210 @@
+{
+  "s1_01": {
+    "file": "audio/voice/s1_01.wav",
+    "duration": 1.261
+  },
+  "s1_02": {
+    "file": "audio/voice/s1_02.wav",
+    "duration": 0.562
+  },
+  "s2_01": {
+    "file": "audio/voice/s2_01.wav",
+    "duration": 4.135
+  },
+  "s2_02": {
+    "file": "audio/voice/s2_02.wav",
+    "duration": 2.434
+  },
+  "s2_03": {
+    "file": "audio/voice/s2_03.wav",
+    "duration": 1.187
+  },
+  "s2_04": {
+    "file": "audio/voice/s2_04.wav",
+    "duration": 2.241
+  },
+  "s2_05": {
+    "file": "audio/voice/s2_05.wav",
+    "duration": 2.803
+  },
+  "s2_06": {
+    "file": "audio/voice/s2_06.wav",
+    "duration": 4.193
+  },
+  "s2_07": {
+    "file": "audio/voice/s2_07.wav",
+    "duration": 2.044
+  },
+  "s2_08": {
+    "file": "audio/voice/s2_08.wav",
+    "duration": 2.41
+  },
+  "s3_01": {
+    "file": "audio/voice/s3_01.wav",
+    "duration": 2.592
+  },
+  "s3_02": {
+    "file": "audio/voice/s3_02.wav",
+    "duration": 4.262
+  },
+  "s3_03": {
+    "file": "audio/voice/s3_03.wav",
+    "duration": 2.122
+  },
+  "s3_04": {
+    "file": "audio/voice/s3_04.wav",
+    "duration": 1.551
+  },
+  "s3_05": {
+    "file": "audio/voice/s3_05.wav",
+    "duration": 1.34
+  },
+  "s3_06": {
+    "file": "audio/voice/s3_06.wav",
+    "duration": 2.473
+  },
+  "s3_07": {
+    "file": "audio/voice/s3_07.wav",
+    "duration": 1.12
+  },
+  "s3_08": {
+    "file": "audio/voice/s3_08.wav",
+    "duration": 1.531
+  },
+  "s3_09": {
+    "file": "audio/voice/s3_09.wav",
+    "duration": 1.802
+  },
+  "s3_10": {
+    "file": "audio/voice/s3_10.wav",
+    "duration": 0.393
+  },
+  "s4_01": {
+    "file": "audio/voice/s4_01.wav",
+    "duration": 2.521
+  },
+  "s4_02": {
+    "file": "audio/voice/s4_02.wav",
+    "duration": 3.643
+  },
+  "s4_03": {
+    "file": "audio/voice/s4_03.wav",
+    "duration": 1.962
+  },
+  "s4_04": {
+    "file": "audio/voice/s4_04.wav",
+    "duration": 1.536
+  },
+  "s4_05": {
+    "file": "audio/voice/s4_05.wav",
+    "duration": 0.728
+  },
+  "s4_06": {
+    "file": "audio/voice/s4_06.wav",
+    "duration": 1.799
+  },
+  "s5_01": {
+    "file": "audio/voice/s5_01.wav",
+    "duration": 4.053
+  },
+  "s6_01": {
+    "file": "audio/voice/s6_01.wav",
+    "duration": 2.918
+  },
+  "s6_02": {
+    "file": "audio/voice/s6_02.wav",
+    "duration": 0.728
+  },
+  "s6_03": {
+    "file": "audio/voice/s6_03.wav",
+    "duration": 2.085
+  },
+  "s6_04": {
+    "file": "audio/voice/s6_04.wav",
+    "duration": 1.658
+  },
+  "s6_05": {
+    "file": "audio/voice/s6_05.wav",
+    "duration": 2.751
+  },
+  "s6_06": {
+    "file": "audio/voice/s6_06.wav",
+    "duration": 2.894
+  },
+  "s6_07": {
+    "file": "audio/voice/s6_07.wav",
+    "duration": 2.86
+  },
+  "s6_08": {
+    "file": "audio/voice/s6_08.wav",
+    "duration": 2.033
+  },
+  "s6_09": {
+    "file": "audio/voice/s6_09.wav",
+    "duration": 2.547
+  },
+  "s6_10": {
+    "file": "audio/voice/s6_10.wav",
+    "duration": 0.517
+  },
+  "s6_11": {
+    "file": "audio/voice/s6_11.wav",
+    "duration": 0.862
+  },
+  "s7_01": {
+    "file": "audio/voice/s7_01.wav",
+    "duration": 2.1
+  },
+  "s7_02": {
+    "file": "audio/voice/s7_02.wav",
+    "duration": 3.259
+  },
+  "s7_03": {
+    "file": "audio/voice/s7_03.wav",
+    "duration": 0.439
+  },
+  "s8_01": {
+    "file": "audio/voice/s8_01.wav",
+    "duration": 1.233
+  },
+  "s8_02": {
+    "file": "audio/voice/s8_02.wav",
+    "duration": 0.242
+  },
+  "s8_03": {
+    "file": "audio/voice/s8_03.wav",
+    "duration": 3.052
+  },
+  "s8_04": {
+    "file": "audio/voice/s8_04.wav",
+    "duration": 0.933
+  },
+  "s8_05": {
+    "file": "audio/voice/s8_05.wav",
+    "duration": 4.19
+  },
+  "s8_06": {
+    "file": "audio/voice/s8_06.wav",
+    "duration": 2.577
+  },
+  "s8_07": {
+    "file": "audio/voice/s8_07.wav",
+    "duration": 2.566
+  },
+  "s9_01": {
+    "file": "audio/voice/s9_01.wav",
+    "duration": 3.233
+  },
+  "s9_02": {
+    "file": "audio/voice/s9_02.wav",
+    "duration": 1.833
+  },
+  "s9_03": {
+    "file": "audio/voice/s9_03.wav",
+    "duration": 1.268
+  },
+  "s9_04": {
+    "file": "audio/voice/s9_04.wav",
+    "duration": 2.655
+  }
+}

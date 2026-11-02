@@ -1,0 +1,568 @@
+{
+  "voices": {
+    "marcus": {
+      "model": "en_US-ryan-medium",
+      "lengthScale": 1.0,
+      "pitch": 1.0
+    },
+    "dev": {
+      "model": "en_US-kusal-medium",
+      "lengthScale": 0.95,
+      "pitch": 0.98
+    },
+    "tank": {
+      "model": "en_US-norman-medium",
+      "lengthScale": 1.12,
+      "pitch": 0.9
+    },
+    "jace": {
+      "model": "en_US-joe-medium",
+      "lengthScale": 0.88,
+      "pitch": 1.16
+    },
+    "radio": {
+      "model": "en_US-hfc_female-medium",
+      "lengthScale": 1.1,
+      "pitch": 1.0,
+      "effect": "radio"
+    }
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "name": "cold-open",
+      "title": "",
+      "subtitle": "",
+      "duration": 15.0,
+      "lines": [
+        {
+          "id": "s1_01",
+          "speaker": "jace",
+          "text": "WE OWN TARGET NOWWW!",
+          "at": 3.0,
+          "tts": "We own Target nowwwww!",
+          "hold": 1.23
+        },
+        {
+          "id": "s1_02",
+          "speaker": "jace",
+          "text": "I'm okay!",
+          "at": 8.2,
+          "hold": 1.0
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "name": "rules",
+      "title": "DAY 1",
+      "subtitle": "RULES",
+      "duration": 31.58,
+      "lines": [
+        {
+          "id": "s2_01",
+          "speaker": "marcus",
+          "text": "Okay, listen up. Day one of the apocalypse. We need rules.",
+          "at": 2.1,
+          "hold": 4.13
+        },
+        {
+          "id": "s2_02",
+          "speaker": "marcus",
+          "text": "Rule one. Nobody goes anywhere alone.",
+          "at": 6.68,
+          "hold": 2.43
+        },
+        {
+          "id": "s2_03",
+          "speaker": "jace",
+          "text": "Cool. Bye!",
+          "at": 9.37,
+          "hold": 1.15
+        },
+        {
+          "id": "s2_04",
+          "speaker": "marcus",
+          "text": "Rule two. We ration the food.",
+          "at": 11.82,
+          "hold": 2.24
+        },
+        {
+          "id": "s2_05",
+          "speaker": "tank",
+          "text": "It's rationed. Into me.",
+          "at": 14.96,
+          "hold": 2.8
+        },
+        {
+          "id": "s2_06",
+          "speaker": "marcus",
+          "text": "Rule three. The emergency radio stays on. At all times.",
+          "at": 18.37,
+          "hold": 4.19
+        },
+        {
+          "id": "s2_07",
+          "speaker": "dev",
+          "text": "Bro, it's literally just static.",
+          "at": 22.91,
+          "hold": 1.76
+        },
+        {
+          "id": "s2_08",
+          "speaker": "marcus",
+          "text": "...Okay. Great meeting, everyone.",
+          "at": 26.57,
+          "hold": 2.41
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "name": "mall",
+      "title": "DAY 3",
+      "subtitle": "THE MALL",
+      "duration": 29.45,
+      "lines": [
+        {
+          "id": "s3_01",
+          "speaker": "jace",
+          "text": "Gentlemen. Welcome... to OUR mall.",
+          "at": 2.1,
+          "hold": 2.71
+        },
+        {
+          "id": "s3_02",
+          "speaker": "dev",
+          "text": "Pizza, pretzels, orange chicken, and a smoothie. Best day of my life.",
+          "at": 5.21,
+          "hold": 4.26
+        },
+        {
+          "id": "s3_03",
+          "speaker": "marcus",
+          "text": "Guys, this is technically stealing.",
+          "at": 9.92,
+          "hold": 2.12
+        },
+        {
+          "id": "s3_04",
+          "speaker": "jace",
+          "text": "Stealing from WHO, Marcus?",
+          "at": 12.34,
+          "tts": "Stealing from who, Marcus?",
+          "hold": 1.53
+        },
+        {
+          "id": "s3_05",
+          "speaker": "tank",
+          "text": "Five more years.",
+          "at": 15.77,
+          "hold": 1.34
+        },
+        {
+          "id": "s3_06",
+          "speaker": "marcus",
+          "text": "I'm calling the arcade. Leader's privilege.",
+          "at": 19.01,
+          "hold": 2.47
+        },
+        {
+          "id": "s3_07",
+          "speaker": "jace",
+          "text": "Nobody voted for you!",
+          "at": 21.73,
+          "hold": 1.14
+        },
+        {
+          "id": "s3_08",
+          "speaker": "marcus",
+          "text": "Nobody's AROUND to vote!",
+          "at": 23.12,
+          "hold": 1.53
+        },
+        {
+          "id": "s3_09",
+          "speaker": "dev",
+          "text": "Can we just... share it?",
+          "at": 25.1,
+          "hold": 1.85
+        },
+        {
+          "id": "s3_10",
+          "speaker": [
+            "marcus",
+            "jace"
+          ],
+          "text": "NO.",
+          "at": 27.3,
+          "tts": "No!",
+          "hold": 1.0
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "name": "wifi",
+      "title": "DAY 5",
+      "subtitle": "THE SIGNAL",
+      "duration": 25.09,
+      "lines": [
+        {
+          "id": "s4_01",
+          "speaker": "dev",
+          "text": "If there's signal anywhere... it's up there.",
+          "at": 2.3,
+          "hold": 2.5
+        },
+        {
+          "id": "s4_02",
+          "speaker": "dev",
+          "text": "Don't look down. Don't look down. Don't look down.",
+          "at": 5.7,
+          "hold": 3.57
+        },
+        {
+          "id": "s4_03",
+          "speaker": "dev",
+          "text": "ONE BAR! I HAVE ONE BAR!",
+          "at": 11.46,
+          "tts": "One bar! I have one bar!",
+          "hold": 1.98
+        },
+        {
+          "id": "s4_04",
+          "speaker": "dev",
+          "text": "Okay. Posting.",
+          "at": 13.95,
+          "hold": 1.62
+        },
+        {
+          "id": "s4_05",
+          "speaker": "dev",
+          "text": "...Tough crowd.",
+          "at": 19.96,
+          "hold": 1.0
+        },
+        {
+          "id": "s4_06",
+          "speaker": "tank",
+          "text": "Dinner.",
+          "at": 21.59,
+          "hold": 1.8
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "name": "group-chat",
+      "title": "DAY 9",
+      "subtitle": "GROUP CHAT",
+      "duration": 25.92,
+      "lines": [
+        {
+          "id": "c01",
+          "speaker": "marcus",
+          "text": "house meeting at 7. mandatory.",
+          "at": 3.4,
+          "kind": "chat",
+          "hold": 1.25
+        },
+        {
+          "id": "c02",
+          "speaker": "jace",
+          "text": "its 6:59",
+          "at": 4.9,
+          "kind": "chat",
+          "hold": 1.25
+        },
+        {
+          "id": "c03",
+          "speaker": "marcus",
+          "text": "so be there",
+          "at": 6.3,
+          "kind": "chat",
+          "hold": 1.25
+        },
+        {
+          "id": "c04",
+          "speaker": "jace",
+          "text": "bro im on the couch next to u",
+          "at": 7.75,
+          "kind": "chat",
+          "hold": 1.25
+        },
+        {
+          "id": "c05",
+          "speaker": "dev",
+          "text": "can someone pass the chips",
+          "at": 9.3,
+          "kind": "chat",
+          "hold": 1.25
+        },
+        {
+          "id": "c06",
+          "speaker": "tank",
+          "text": "[photo]",
+          "at": 10.85,
+          "kind": "chat",
+          "hold": 1.25
+        },
+        {
+          "id": "c07",
+          "speaker": "dev",
+          "text": "TANK",
+          "at": 12.3,
+          "kind": "chat",
+          "hold": 1.25
+        },
+        {
+          "id": "c08",
+          "speaker": "marcus",
+          "text": "meeting cancelled",
+          "at": 13.85,
+          "kind": "chat",
+          "hold": 1.25
+        },
+        {
+          "id": "s5_01",
+          "speaker": "jace",
+          "text": "You guys know we can just... talk. Out loud. Right?",
+          "at": 16.4,
+          "hold": 4.07
+        },
+        {
+          "id": "c09",
+          "speaker": "tank",
+          "text": "no",
+          "at": 22.87,
+          "kind": "chat",
+          "hold": 1.25
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "name": "fight",
+      "title": "DAY 14",
+      "subtitle": "THE INCIDENT",
+      "duration": 30.58,
+      "lines": [
+        {
+          "id": "s6_01",
+          "speaker": "marcus",
+          "text": "Who. Ate. The last. Pizza rolls.",
+          "at": 2.1,
+          "hold": 2.92
+        },
+        {
+          "id": "s6_02",
+          "speaker": "jace",
+          "text": "Don't look at me.",
+          "at": 5.37,
+          "hold": 1.0
+        },
+        {
+          "id": "s6_03",
+          "speaker": "dev",
+          "text": "It was Tank. It's always Tank.",
+          "at": 6.39,
+          "hold": 2.13
+        },
+        {
+          "id": "s6_04",
+          "speaker": "tank",
+          "text": "I was asleep for two days.",
+          "at": 8.92,
+          "hold": 1.66
+        },
+        {
+          "id": "s6_05",
+          "speaker": "marcus",
+          "text": "Those were the last pizza rolls on EARTH, probably!",
+          "at": 10.98,
+          "hold": 2.75
+        },
+        {
+          "id": "s6_06",
+          "speaker": "jace",
+          "text": "So go to another store! Every store is ours!",
+          "at": 13.93,
+          "hold": 2.9
+        },
+        {
+          "id": "s6_07",
+          "speaker": "marcus",
+          "text": "It's not about the pizza rolls! It's about TRUST!",
+          "at": 17.04,
+          "hold": 2.86
+        },
+        {
+          "id": "s6_08",
+          "speaker": "dev",
+          "text": "It's a little bit about the pizza rolls.",
+          "at": 20.4,
+          "hold": 1.84
+        },
+        {
+          "id": "s6_09",
+          "speaker": "jace",
+          "text": "That's it. I'm starting my OWN friend group.",
+          "at": 22.64,
+          "hold": 2.52
+        },
+        {
+          "id": "s6_10",
+          "speaker": "dev",
+          "text": "With WHO?",
+          "at": 25.36,
+          "tts": "With who?",
+          "hold": 1.0
+        },
+        {
+          "id": "s6_11",
+          "speaker": "jace",
+          "text": "...I'll figure it out!",
+          "at": 26.16,
+          "hold": 1.0
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "name": "alone",
+      "title": "DAY 15",
+      "subtitle": "ALONE",
+      "duration": 23.0,
+      "lines": [
+        {
+          "id": "s7_01",
+          "speaker": "marcus",
+          "text": "Rule forty-one... somebody come back.",
+          "at": 2.9,
+          "hold": 2.1
+        },
+        {
+          "id": "s7_02",
+          "speaker": "dev",
+          "text": "Hey chat. Day fifteen. ...Chat?",
+          "at": 7.0,
+          "hold": 3.4
+        },
+        {
+          "id": "s7_03",
+          "speaker": "jace",
+          "text": "Wheee.",
+          "at": 13.0,
+          "tts": "Wheeeee.",
+          "hold": 1.0
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "name": "sunset",
+      "title": "",
+      "subtitle": "",
+      "duration": 33.6,
+      "lines": [
+        {
+          "id": "s8_01",
+          "speaker": "dev",
+          "text": "Oh. Hey.",
+          "at": 4.2,
+          "hold": 1.08
+        },
+        {
+          "id": "s8_02",
+          "speaker": "marcus",
+          "text": "Hey.",
+          "at": 5.78,
+          "hold": 1.0
+        },
+        {
+          "id": "s8_03",
+          "speaker": "jace",
+          "text": "Is this a meeting? Nobody told me there was a meeting.",
+          "at": 7.92,
+          "hold": 2.96
+        },
+        {
+          "id": "s8_04",
+          "speaker": "marcus",
+          "text": "It's not a meeting.",
+          "at": 11.22,
+          "hold": 1.0
+        },
+        {
+          "id": "s8_05",
+          "speaker": "tank",
+          "text": "Last friend group on Earth... and we still can't agree on pizza.",
+          "at": 18.36,
+          "hold": 4.19
+        },
+        {
+          "id": "s8_laugh",
+          "speaker": "all",
+          "text": "*everyone laughs*",
+          "at": 22.85,
+          "hold": 2.3,
+          "kind": "action"
+        },
+        {
+          "id": "s8_06",
+          "speaker": "marcus",
+          "text": "Rule one. Nobody goes anywhere alone.",
+          "at": 25.55,
+          "hold": 2.58
+        },
+        {
+          "id": "s8_07",
+          "speaker": "jace",
+          "text": "Okay. That one's actually a good rule.",
+          "at": 28.62,
+          "hold": 2.57
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "name": "tag",
+      "title": "",
+      "subtitle": "",
+      "duration": 18.9,
+      "lines": [
+        {
+          "id": "s9_01",
+          "speaker": "radio",
+          "text": "...hello? ...is anyone out there? ...anyone?",
+          "at": 3.0,
+          "hold": 3.59,
+          "tts": "Hello? Is anyone out there? Anyone?"
+        },
+        {
+          "id": "s9_02",
+          "speaker": "dev",
+          "text": "Was that... a person?",
+          "at": 7.99,
+          "hold": 1.86
+        },
+        {
+          "id": "s9_03",
+          "speaker": "jace",
+          "text": "DIBS on talking first!",
+          "at": 10.15,
+          "tts": "Dibs on talking first!",
+          "hold": 1.25
+        },
+        {
+          "id": "s9_04",
+          "speaker": "marcus",
+          "text": "Nobody touches that radio until we make RULES!",
+          "at": 11.65,
+          "hold": 2.65
+        }
+      ]
+    }
+  ]
+}
