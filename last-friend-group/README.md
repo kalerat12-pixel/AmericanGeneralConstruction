@@ -5,7 +5,7 @@ A ~3:53 animated short for a faceless YouTube channel, built entirely in code wi
 except four teenage best friends, who still act exactly like a normal friend group.
 
 - **Script:** [`script.md`](script.md)
-- **Output:** 1920×1080, 30fps, H.264 MP4 with audio
+- **Rendered episode:** [`renders/life-as-the-last-friend-group.mp4`](renders/life-as-the-last-friend-group.mp4) (1920×1080, 30fps, H.264 + AAC)
 - **Art:** flat 2D SVG, drawn in React. No external images.
 
 ## Quick start
