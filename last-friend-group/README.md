@@ -14,6 +14,7 @@ except four teenage best friends, who still act exactly like a normal friend gro
 npm install
 npm run studio     # live preview / scrub the timeline in the browser
 npm run render     # -> out/life-as-the-last-friend-group.mp4
+npm run thumbnail  # -> out/thumbnail.png (1280x720)
 ```
 
 ## Where things live
@@ -21,6 +22,7 @@ npm run render     # -> out/life-as-the-last-friend-group.mp4
 | Path | What it is |
 |------|------------|
 | `script.md` | The full episode script |
+| `src/Thumbnail.tsx` | YouTube thumbnail (`renders/thumbnail.png`, 1280×720) |
 | `src/config/dialogue.json` | **Every line of dialogue and its timing slot** (see below) |
 | `src/config/voice-manifest.json` | Auto-generated: which voice files exist and how long they are |
 | `src/config/characters.ts` | Speaker names and caption colors |

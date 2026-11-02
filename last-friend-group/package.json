@@ -11,7 +11,8 @@
     "voices:scan": "python3 scripts/generate_voices.py --scan",
     "sfx": "python3 scripts/generate_sfx.py",
     "check": "python3 scripts/check_timing.py",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "thumbnail": "remotion still Thumbnail out/thumbnail.png --frame=10 --scale=0.6667"
   },
   "dependencies": {
     "@remotion/cli": "4.0.540",
