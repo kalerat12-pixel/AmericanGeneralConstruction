@@ -29,4 +29,6 @@ fi
 
 echo "== Starting the app. It will open in your browser at http://localhost:8501 =="
 echo "   (Press Ctrl+C in this window to stop it.)"
-.venv/bin/python -m streamlit run app.py
+# open the browser once the server has had a few seconds to start
+( sleep 5; .venv/bin/python -m webbrowser -t "http://localhost:8501" >/dev/null 2>&1 || true ) &
+.venv/bin/python -m streamlit run app.py "$@"

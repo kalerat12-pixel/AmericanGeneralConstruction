@@ -24,6 +24,7 @@ if not exist .venv\.installed (
 
 echo == Starting the app. It will open in your browser at http://localhost:8501 ==
 echo    ^(Close this window to stop it.^)
+start "" /b cmd /c "timeout /t 6 /nobreak >nul & start http://localhost:8501"
 .venv\Scripts\python -m streamlit run app.py
 exit /b 0
 

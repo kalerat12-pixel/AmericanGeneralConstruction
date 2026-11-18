@@ -87,7 +87,18 @@ class Analyzer:
             if windows:
                 out["clf"] = dict(zip(idx, self.clf.predict(windows)))
             out["doc_clf"] = self.clf.predict_document(text)
+            out["para_clf"] = self.paragraph_probs(sents)
         return out
+
+    def paragraph_probs(self, sents: list[Sentence], min_words: int = 40) -> dict:
+        """Classifier P(AI) for each paragraph long enough to judge (keyed by paragraph id)."""
+        paras: dict[int, list[str]] = {}
+        for s in sents:
+            paras.setdefault(s.paragraph, []).append(s.text)
+        ids = [k for k, v in paras.items() if count_words(" ".join(v)) >= min_words]
+        if not ids or self.clf is None:
+            return {}
+        return dict(zip(ids, self.clf.predict([" ".join(paras[k]) for k in ids])))
 
     def raw_signals(self, text: str, mode: str = "essay", mo: dict | None = None
                     ) -> tuple[list[Sentence], list[SentenceResult], dict]:
@@ -154,10 +165,15 @@ class Analyzer:
             doc["length_cv"] = float(scored_len.std() / max(1.0, scored_len.mean()))
 
         # --- classifier ----------------------------------------------------
+        blend = float(self.cfg["models"].get("classifier_context_blend", 0.5))
+        para = mo.get("para_clf") or {}
         for i, p in mo["clf"].items():
             if results[i].status == "scored":
-                results[i].raw_signals["classifier"] = 100.0 * p
-                results[i].details["classifier_prob"] = p
+                ctx = para.get(sents[i].paragraph, mo.get("doc_clf"))
+                q = p if ctx is None else (1 - blend) * p + blend * ctx
+                results[i].raw_signals["classifier"] = 100.0 * q
+                results[i].details["classifier_prob"] = q
+                results[i].details["classifier_sentence_prob"] = p
         if mo["doc_clf"] is not None:
             doc["document_classifier"] = mo["doc_clf"]
         return sents, results, doc
@@ -304,6 +320,12 @@ class Analyzer:
             else:
                 pts -= 1
                 why.append("The predictability measure and the classifier disagree")
+        flag_at = float(self.cfg.get("report", {}).get("flag_ai_percent", 50))
+        dc = doc.get("document_classifier")
+        if dc is not None and (ai_pct >= flag_at) != (dc >= 0.5):
+            pts -= 3
+            why.append(f"The classifier reading the whole document ({dc:.0%} AI) disagrees with the "
+                       "sentence-by-sentence result")
         if ai_pct >= 70 or ai_pct <= 10:
             pts += 1
         else:

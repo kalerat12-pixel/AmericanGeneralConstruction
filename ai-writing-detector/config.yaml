@@ -19,6 +19,10 @@ models:
   # The classifier reads each sentence together with this many neighbouring
   # sentences on each side (single sentences are too short to judge alone).
   classifier_context_sentences: 1
+  # Short windows are hard to judge, so each sentence's classifier score is
+  # blended with the score of its whole paragraph (or the whole document if the
+  # paragraph is under 40 words). 0 = sentence window only, 1 = paragraph only.
+  classifier_context_blend: 0.5
 
 # ---------------------------------------------------------------------
 #  How the signals are combined.  Each signal is a 0-100 "AI-likeness"

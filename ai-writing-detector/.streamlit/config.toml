@@ -4,7 +4,8 @@ gatherUsageStats = false
 
 [server]
 address = "localhost"
-headless = false
+# headless: no first-run email prompt; run.sh / run.bat open the browser for you
+headless = true
 maxUploadSize = 50
 
 [theme]

@@ -38,6 +38,9 @@ def model_outputs(an: Analyzer, rows: list[dict], split: str, clf_name: str) -> 
     # machine (never downloaded), so loading it with pickle is safe.
     cache = HERE / "data" / f"cache_{split}_{clf_name.replace('/', '__')}.pkl"
     store = pickle.loads(cache.read_bytes()) if cache.exists() else {}
+    for r in rows:  # older caches: add paragraph-level classifier scores only (cheap)
+        if r["id"] in store and "para_clf" not in store[r["id"]] and an.clf is not None:
+            store[r["id"]]["para_clf"] = an.paragraph_probs(store[r["id"]]["sents"])
     t0, todo = time.time(), [r for r in rows if r["id"] not in store]
     for i, r in enumerate(todo):
         store[r["id"]] = an.model_outputs(r["text"])
@@ -101,6 +104,15 @@ def summarize(ev: dict) -> str:
     ac = [d["doc_clf"] for d in ok if d["label"] == "ai" and d["doc_clf"] is not None]
     lines.append("")
     lines.append(f"AUC (combined average score): {auc(a, h):.3f}   |   AUC (classifier alone, whole doc): {auc(ac, hc):.3f}")
+    lines.append("")
+    lines.append("How often the verdict was wrong at each confidence level (Mixed/unclear verdicts excluded):")
+    lines.append("")
+    lines.append("| Confidence | Docs with a Likely AI / Likely human verdict | Wrong |")
+    lines.append("|---|---:|---:|")
+    for c in ("High", "Medium", "Low"):
+        ds = [d for d in ok if d["confidence"] == c and d["verdict"] in ("Likely AI", "Likely human")]
+        wrong = sum((d["verdict"] == "Likely AI") != (d["label"] == "ai") for d in ds)
+        lines.append(f"| {c} | {len(ds)} | {wrong} ({100 * wrong / max(1, len(ds)):.0f}%) |")
     vc = defaultdict(lambda: defaultdict(int))
     for d in docs:
         vc[d["label"]][d["verdict"]] += 1

@@ -107,13 +107,69 @@ typo, the app tells you which line is wrong.
 I compared the AI-text classifiers on Hugging Face that are open-source, current, and small enough for a
 laptop (see `eval/` for the full comparison):
 
-CLASSIFIER_CHOICE_PLACEHOLDER
+| Model | Size | Speed (500 words, 4-core CPU) | Whole-document AUC* | Notes |
+|---|---|---|---|---|
+| **[desklib/ai-text-detector-v1.01](https://huggingface.co/desklib/ai-text-detector-v1.01)**: **chosen** | 1.7 GB | ~8 s | **0.985** | DeBERTa-v3-large, MIT license; topped the public RAID benchmark |
+| [fakespot-ai/roberta-base-ai-text-detection-v1](https://huggingface.co/fakespot-ai/roberta-base-ai-text-detection-v1) | 0.5 GB | ~2 s | 0.861 | Mozilla/Fakespot, Apache-2.0. Good "fast mode" for older laptops |
+| openai-community/roberta-base-openai-detector | 0.5 GB | — | not tested | Trained on GPT-2 output (2019); outdated for modern chatbots |
+| Lukkinen/ai-text-detector | 3 × 0.7 GB | — | not tested | Promising self-reported results, but released weeks ago with no track record |
+
+\*AUC on this project's held-out test set (1.0 = perfect, 0.5 = coin flip).
+
+**Why desklib:** on the same test documents, with the other settings tuned for each, it made fewer mistakes
+in both directions (2% vs 4% false alarms on human writing; 34% vs 36% missed AI), and its whole-document
+judgment was much stronger. It still runs on an ordinary laptop. To use the faster model, set
+`classifier: fakespot-ai/roberta-base-ai-text-detection-v1` in `config.yaml`.
+
+One thing to know: single sentences are too short for any classifier. In testing, desklib called a casual
+human sentence ("my dog ate like half the pizza… lol") 91% AI when it read the sentence alone. That's why
+each sentence is judged together with its neighbors **and** its whole paragraph.
 
 ---
 
 ## How accurate is it?
 
-ACCURACY_PLACEHOLDER
+I tested it on **186 documents it had never seen** (a held-out "test" set). All the weights and
+thresholds were tuned on a *separate* set of 178 documents, so the test numbers aren't flattered by tuning.
+
+**Human writing (110 documents), written before ChatGPT existed or by people:**
+- 60 real student essays (grades 6–12) from the PERSUADE corpus
+- 30 academic paragraphs by researchers at non-English-speaking institutions (a group detectors often misjudge)
+- 20 Wikipedia passages from before 2022
+
+**AI writing (76 documents):**
+- 28 passages from 2026 models (Claude Opus 5, Claude Haiku 4.5, GPT-4.1, gpt-oss-120b, Qwen), from a
+  benchmark built specifically to be hard on detectors
+- 40 essays from AI models fine-tuned to imitate student essays (the hardest case)
+- 8 student-style essays and notes written by Claude, some deliberately casual
+
+| | Result |
+|---|---|
+| **Human writing wrongly flagged "Likely AI"** | **2 of 110 (≈2%)**: both were student essays, and both were labelled **Low** confidence |
+| **AI writing missed** (not flagged "Likely AI") | **26 of 76 (≈34%)**: many of these showed as "Mixed / unclear" rather than "Likely human" |
+| AI from current 2026 chatbots, missed | 11 of 28 (39%) |
+| AI imitating students, missed | 13 of 40 (32%) |
+
+**Rough rule of thumb:** it wrongly flags about **1 in 50** human-written essays, and misses about **1 in 3**
+AI-written ones. It's tuned this way on purpose: wrongly accusing someone is the worse mistake.
+
+**The confidence level matters.** When the app gave a clear verdict ("Likely AI" or "Likely human"):
+
+| Confidence | How often that verdict was wrong (test set) |
+|---|---|
+| High | 2 of 89 (2%) |
+| Medium | 4 of 50 (8%) |
+| Low | 12 of 27 (44%), so treat Low as "can't tell" |
+
+**Calibration ("My writing"):** in a stand-in experiment, building a baseline from 4 essays in the same
+style cut false flags on student essays from 3% to 2%, and didn't let any extra AI text through. With your
+*own* writing the effect should be larger, but this has not been measured.
+
+**Not measured:** Notes mode. There's no public set of real human class notes to test with. The one AI
+notes sample in the test set was *not* flagged (0% AI-like), which shows how hard notes are to judge. In
+Notes mode, rely on the highlighted style patterns more than on the score.
+
+Full reports: [`eval/results_test.md`](eval/results_test.md) (test) and [`eval/results_dev.md`](eval/results_dev.md) (tuning set).
 
 **What this means for you:**
 
