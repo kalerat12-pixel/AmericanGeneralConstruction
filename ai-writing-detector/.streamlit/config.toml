@@ -1,0 +1,15 @@
+# Keep everything local and private.
+[browser]
+gatherUsageStats = false
+
+[server]
+address = "localhost"
+headless = false
+maxUploadSize = 50
+
+[theme]
+base = "light"
+
+[client]
+# hide the "Deploy" button (this app is meant to stay on your computer)
+toolbarMode = "minimal"

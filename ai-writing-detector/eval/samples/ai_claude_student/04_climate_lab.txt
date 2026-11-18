@@ -1,0 +1,9 @@
+The purpose of this experiment was to determine how the temperature of water affects the rate at which sugar dissolves. We hypothesized that sugar would dissolve faster in warmer water because the water molecules move more quickly and collide with the sugar crystals more often.
+
+To test this, we prepared three beakers containing 200 mL of water at 10°C, 25°C, and 60°C. We added one teaspoon of granulated sugar to each beaker and stirred at a constant rate using a glass rod. We recorded the time it took for the sugar to fully dissolve in each beaker. Each trial was repeated three times to improve reliability.
+
+The results supported our hypothesis. In the 10°C water, the sugar took an average of 94 seconds to dissolve. At 25°C, the average time decreased to 51 seconds, and at 60°C, the sugar dissolved in just 18 seconds. These results show a clear inverse relationship between water temperature and dissolving time.
+
+There were some possible sources of error in our experiment. It was difficult to stir at exactly the same speed every time, and the 60°C water cooled slightly during each trial. In addition, judging the exact moment when the sugar was completely dissolved was somewhat subjective. Future experiments could use a magnetic stirrer and a temperature-controlled water bath to reduce these errors.
+
+Overall, this experiment demonstrated that increasing temperature increases the rate of dissolving, which is consistent with the kinetic molecular theory.

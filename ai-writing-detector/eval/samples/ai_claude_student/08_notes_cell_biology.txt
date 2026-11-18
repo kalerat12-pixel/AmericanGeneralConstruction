@@ -1,0 +1,16 @@
+Cell Biology — Unit 3 Notes
+
+- Cell membrane: phospholipid bilayer, controls what enters and exits the cell
+- Selectively permeable: allows some molecules through, blocks others
+- Passive transport: no energy required, moves from high to low concentration
+- Diffusion: movement of small molecules like oxygen and carbon dioxide across the membrane
+- Osmosis: diffusion of water across a selectively permeable membrane
+- Facilitated diffusion: uses channel or carrier proteins to move larger molecules like glucose
+- Active transport: requires energy in the form of ATP, moves against the concentration gradient
+- Sodium-potassium pump: moves 3 Na+ out and 2 K+ in for each ATP used
+- Endocytosis: cell engulfs large particles by wrapping the membrane around them
+- Exocytosis: vesicles fuse with the membrane to release materials outside the cell
+- Hypertonic solution: cell loses water and shrinks
+- Hypotonic solution: cell gains water and may burst (animal cells) or become turgid (plant cells)
+- Isotonic solution: no net movement of water, cell stays the same size
+- Key idea: the membrane maintains homeostasis by regulating the internal environment of the cell

@@ -1,0 +1,157 @@
+# =====================================================================
+#  AI-Writing Detector — settings you can edit
+# =====================================================================
+#  Save this file and press "Rerun" (or reload the page) in the app to
+#  apply changes. Lines starting with # are comments.
+# =====================================================================
+
+models:
+  # Small language model used to measure how predictable each sentence is.
+  language_model: openai-community/gpt2
+
+  # AI-text classifier from Hugging Face. Options that work out of the box:
+  #   desklib/ai-text-detector-v1.01                  (default: most accurate in our tests, ~1.7 GB)
+  #   fakespot-ai/roberta-base-ai-text-detection-v1   (4x faster, ~500 MB, less accurate)
+  #   none                                            (turn the classifier off)
+  # If you switch, also consider the weights below — they were tuned for desklib.
+  classifier: desklib/ai-text-detector-v1.01
+
+  # The classifier reads each sentence together with this many neighbouring
+  # sentences on each side (single sentences are too short to judge alone).
+  classifier_context_sentences: 1
+
+# ---------------------------------------------------------------------
+#  How the signals are combined.  Each signal is a 0-100 "AI-likeness"
+#  number; the sentence score is the weighted average.  Weights don't
+#  need to add up to 1 — they are normalised automatically.
+#    perplexity  = how predictable the wording is to GPT-2
+#    classifier  = the Hugging Face AI-text classifier
+#    style       = stock AI phrases / patterns from the list below
+#    uniformity  = how even sentence lengths & predictability are nearby
+# ---------------------------------------------------------------------
+modes:
+  essay:
+    # Tuned on a development set (eval/tune.py) to keep false alarms on human
+    # writing low (~3%) while still catching most AI text.
+    weights:
+      perplexity: 0.15
+      classifier: 0.55
+      style: 0.20
+      uniformity: 0.10
+    thresholds:
+      green_below: 40          # score < 40  -> green  (likely human)
+      red_at_or_above: 65      # score >= 65 -> red    (likely AI)
+    min_words_sentence: 6      # shorter sentences get "not enough text"
+    min_words_document: 100    # shorter documents get "not enough text"
+
+  notes:
+    # Notes are fragments and bullets; perplexity & classifiers misread them,
+    # so we lean on the style rules and use looser thresholds.
+    weights:
+      perplexity: 0.05
+      classifier: 0.25
+      style: 0.60
+      uniformity: 0.10
+    thresholds:
+      green_below: 50
+      red_at_or_above: 75
+    min_words_sentence: 4
+    min_words_document: 40
+
+# How GPT-2 "surprise" is turned into a 0-100 score.  Average log-perplexity
+# per token at or below `ai_like` scores 100; at or above `human_like` scores 0.
+perplexity:
+  ai_like: 2.4        # perplexity ~11 (very predictable)
+  human_like: 4.4     # perplexity ~80 (surprising, human-like)
+  # Share of words that were among GPT-2's top-10 guesses.
+  top10_ai_like: 0.80
+  top10_human_like: 0.55
+
+# "Burstiness": humans vary sentence length and predictability more.
+# Measured over a window of `window` sentences on each side.
+uniformity:
+  window: 3
+  length_cv_ai_like: 0.20     # length variation (std/mean) at/below this = very even
+  length_cv_human_like: 0.60
+  ppl_sd_ai_like: 0.25        # spread of log-perplexity at/below this = very even
+  ppl_sd_human_like: 0.75
+
+# Overall verdict shown next to the score, based on "X% of words read as AI-like".
+report:
+  flag_ai_percent: 50     # at or above -> "Likely AI"
+  mixed_ai_percent: 20    # at or above -> "Mixed / unclear", below -> "Likely human"
+
+# How strongly your "My writing" samples pull scores down (0 = off, 1 = max).
+calibration:
+  strength: 0.6
+  # A style phrase you use at least this often per 1,000 words in your own
+  # samples is treated as "your habit" and mostly ignored.
+  habit_rate_per_1000_words: 1.0
+
+# ---------------------------------------------------------------------
+#  STYLE RULES
+#  Each phrase rule: pattern (a regular expression, case-insensitive),
+#  weight (how much it adds to a sentence's style score, 0-100),
+#  label (what the app says), category (used for the summary).
+#  Tip: \b means "word boundary"; (a|b) means "a or b".
+# ---------------------------------------------------------------------
+style_rules:
+  phrases:
+    # --- stock AI vocabulary ---
+    - {pattern: '\bdelv(e|es|ed|ing)\b', weight: 45, label: '"delve"', category: stock_phrase}
+    - {pattern: '\btapestry\b', weight: 40, label: '"tapestry"', category: stock_phrase}
+    - {pattern: '\b(testament to|stands as a testament)\b', weight: 40, label: '"a testament to"', category: stock_phrase}
+    - {pattern: "\\bin today's (fast-paced|ever-changing|rapidly evolving|modern|digital) (world|age|landscape|society)\\b", weight: 60, label: "\"in today's fast-paced world\"", category: stock_phrase}
+    - {pattern: '\b(ever-evolving|ever-changing|rapidly evolving) (landscape|world|field)\b', weight: 40, label: '"ever-evolving landscape"', category: stock_phrase}
+    - {pattern: '\b(landscape|realm|sphere) of\b', weight: 20, label: '"the landscape/realm of"', category: stock_phrase}
+    - {pattern: '\bnavigat(e|es|ing) the (complexities|challenges|intricacies)\b', weight: 50, label: '"navigate the complexities"', category: stock_phrase}
+    - {pattern: '\b(intricate|intricacies|multifaceted|nuanced)\b', weight: 20, label: 'buzzword ("intricate", "multifaceted", "nuanced")', category: stock_phrase}
+    - {pattern: '\b(pivotal|paramount|crucial|vital) role\b', weight: 35, label: '"plays a pivotal/crucial role"', category: stock_phrase}
+    - {pattern: '\b(underscores?|underscoring|highlights?) the (importance|need|significance)\b', weight: 35, label: '"underscores the importance"', category: stock_phrase}
+    - {pattern: '\b(foster(s|ing)?|harness(es|ing)?|leverag(e|es|ing)|bolster(s|ing)?|empower(s|ing)?)\b', weight: 15, label: 'corporate verb ("foster", "leverage", "harness")', category: stock_phrase}
+    - {pattern: '\b(seamless(ly)?|robust|holistic|transformative|groundbreaking|game-changer|cutting-edge)\b', weight: 15, label: 'buzzword ("robust", "seamless", "transformative")', category: stock_phrase}
+    - {pattern: '\b(a rich|rich) (history|tapestry|heritage)\b', weight: 25, label: '"a rich history"', category: stock_phrase}
+    - {pattern: '\bnot only\b.{3,80}\bbut also\b', weight: 20, label: '"not only … but also"', category: stock_phrase}
+    - {pattern: "\\b(it's|it is) not (just|only|merely) (about )?.{2,60}[,;—-]+ ?(it's|it is)\\b", weight: 35, label: "\"it's not just X, it's Y\"", category: stock_phrase}
+    - {pattern: '\b(serves as|acts as) a (reminder|catalyst|cornerstone|bridge)\b', weight: 35, label: '"serves as a reminder/cornerstone"', category: stock_phrase}
+    - {pattern: '\b(embark(s|ed|ing)? on|journey)\b', weight: 15, label: '"embark on a journey"', category: stock_phrase}
+    - {pattern: '\b(unlock(s|ing)? the (potential|power)|unleash)\b', weight: 30, label: '"unlock the potential"', category: stock_phrase}
+    - {pattern: '\b(shed(s|ding)? light on|sheds light)\b', weight: 20, label: '"shed light on"', category: stock_phrase}
+
+    # --- hedging ---
+    - {pattern: "\\b(it is|it's) (important|worth|crucial|essential) (to note|noting|to remember|to consider|to recognize)\\b", weight: 50, label: "\"it's important to note\"", category: hedging}
+    - {pattern: '\b(it can be argued|one could argue|some may argue|arguably)\b', weight: 25, label: '"it can be argued"', category: hedging}
+    - {pattern: '\b(generally speaking|to some extent|in many ways|in many cases|in some cases)\b', weight: 15, label: 'vague hedge ("in many ways", "to some extent")', category: hedging}
+    - {pattern: '\b(may|might|could) potentially\b', weight: 30, label: 'double hedge ("may potentially")', category: hedging}
+    - {pattern: '\b(while|although) (it is true that|there are|some)\b.{5,120}\b(it is|there are|ultimately)\b', weight: 15, label: 'balanced "while X, Y" hedge', category: hedging}
+
+    # --- filler transitions (also counted for overuse across the document) ---
+    - {pattern: '^\W*(moreover|furthermore|additionally|consequently|nevertheless|nonetheless|notably|importantly|ultimately|indeed|thus|hence)\b', weight: 20, label: 'filler transition at start ("Moreover", "Furthermore")', category: filler_transition}
+    - {pattern: '^\W*(in addition|on the other hand|as a result|that being said|with that (said|in mind)|by doing so)\b', weight: 15, label: 'stock transition ("In addition", "That being said")', category: filler_transition}
+
+    # --- generic conclusions ---
+    - {pattern: '^\W*(in conclusion|to conclude|in summary|to sum up|overall|all in all|in essence|ultimately)\b', weight: 30, label: 'generic conclusion opener ("In conclusion")', category: generic_conclusion}
+    - {pattern: '\b(only time will tell|the future (looks|is) bright|pave(s|d)? the way|for (years|generations) to come|a brighter future|remains to be seen)\b', weight: 40, label: 'generic closing line ("pave the way", "for generations to come")', category: generic_conclusion}
+    - {pattern: '\b(by (understanding|embracing|addressing|recognizing))\b.{3,80}\b(we can|society can|individuals can)\b', weight: 35, label: '"by embracing X, we can Y" conclusion', category: generic_conclusion}
+
+    # --- chatbot leftovers (very strong) ---
+    - {pattern: "\\b(as an ai|as a language model|i hope this helps|certainly!|great question|here's a|here is a (breakdown|summary|draft))\\b", weight: 90, label: 'chatbot leftover ("As an AI", "I hope this helps")', category: chatbot_leftover}
+
+  # Em-dashes: a sentence with this many or more em-dashes gets flagged.
+  em_dash:
+    per_sentence_threshold: 2
+    weight: 25
+    # Document-level: more than this many em-dashes per 100 words is "too many".
+    per_100_words_doc_threshold: 0.8
+
+  # "Lists of three" like "fast, cheap, and reliable" or "X, Y, and Z".
+  triplets:
+    weight: 15
+    # Document-level: more than this share of sentences containing a triplet.
+    doc_share_threshold: 0.25
+
+  # Transition overuse across the whole document: if more than this share of
+  # sentences begin with a transition word, every such sentence gets extra.
+  transitions:
+    doc_share_threshold: 0.20
+    extra_weight: 15
