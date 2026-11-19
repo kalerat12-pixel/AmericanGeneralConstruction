@@ -10,7 +10,7 @@ import re
 from dataclasses import dataclass
 
 ABBREVIATIONS = {
-    "mr", "mrs", "ms", "dr", "prof", "sr", "jr", "st", "vs", "etc", "e.g", "i.e", "eg", "ie",
+    "mr", "mrs", "ms", "dr", "v", "prof", "sr", "jr", "st", "vs", "etc", "e.g", "i.e", "eg", "ie",
     "fig", "no", "vol", "pp", "p", "ch", "sec", "approx", "dept", "est", "inc", "ltd", "co",
     "jan", "feb", "mar", "apr", "jun", "jul", "aug", "sep", "sept", "oct", "nov", "dec",
     "u.s", "u.k", "a.m", "p.m", "ph.d", "cf", "al", "ca", "mt", "ave", "rd", "govt",
